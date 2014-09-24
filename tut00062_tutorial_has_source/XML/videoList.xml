@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+     <!-- Test Contents for Http Adaptive Streaming which is provided by Galaxia Communications -->  
+	    <item>
+            <title>233: boa locale abs </title>
+            <link>http://drq08ysq9m8gx.cloudfront.net/TestStream/HAS_BigBuckTS.xml|COMPONENT=HAS</link>
+            <description>Audio 48Hz, 29f </description>
+        </item>
+	<item>
+        <title>Big Buck Bunny (HAS) - all bitrates</title>
+        <link>http://124.243.50.23/live/livestream/playlist.m3u8|COMPONENT=HLS</link>   
+        <description>HAS Type Adaptive VoD Content : adaptively switches from/to stream using all available bitrates(0.5M, 1M, 2M, 4M)</description>
+    </item>          
+    <item>
+        <title>Argentina</title>
+        <link>http://192.168.2.162/video/Argentina.mp4</link>   
+        <description>HLS Type Adaptive VoD Content : adaptively switches from/to stream using all available bitrates</description>
+    </item> 	
+    </channel>
+</rss>

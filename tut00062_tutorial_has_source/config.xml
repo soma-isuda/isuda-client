@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.samsung.com/">
+	<previewjs>PreviewHASTutorial</previewjs>
+	<preicon/>
+	<cpname/>
+	<cplogo/>
+	<cpauthjs/>
+	<ver>1.3</ver>
+	<mgrver/>
+	<fullwidget>y</fullwidget>
+	<srcctl>n</srcctl>
+	<ticker>n</ticker>
+	<childlock>n</childlock>
+	<audiomute>n</audiomute>
+	<videomute>n</videomute>
+	<dcont>y</dcont>
+	<type>user</type>
+	<movie>y</movie>
+	<widgetname>tut00062_HAS_widget</widgetname>
+	<description/>
+	<width>960</width>
+	<height>540</height>
+	<author>
+		<name>Samsung Electronics Co. Ltd.</name>
+		<email/>
+		<link>http://www.sec.com</link>
+		<organization>Samsung Electronics Co. Ltd.</organization>
+	</author>
+</widget>
