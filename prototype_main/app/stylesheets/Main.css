@@ -1,0 +1,49 @@
+*
+{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+/* Layout */
+body
+{
+	width: 1920px;
+	height: 1080px;
+}
+
+#sideBar {
+	float: left;
+	width: 360px;
+	height: 100%;
+	position: absolute;
+	background-color: #a6caf0;
+}
+#sideBar ul li {
+	height: 120px;
+}
+#sideBar.focus{
+	color: red;
+}
+
+#sideBar > ul li.focus { 
+ 	border: 15px solid #c409d2;
+}
+#multiWatchPg{
+	float: right;
+	margin-left:  360px;
+	padding: 30px;
+	position: absolute;
+	background-color: #fffbf0;
+}
+#mainImage {
+	width: 1740px;
+	height: 540px;
+	background-color: #c0dcc0;
+}
+#multiWatchPg.focus{
+	color: red;
+}
+.multiWatchPgElem.focus { 
+ 	border: 15px solid #c409d2;
+}

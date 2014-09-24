@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>prototype_main</title>
+		<!-- TODO : Style sheets code -->
+		<link rel="stylesheet" href="app/stylesheets/Main.css" type="text/css">
+
+		<!-- TODO: Plugins -->
+
+	</head>
+
+	<body onload="Main.onLoad();" onunload="Main.onUnload();">
+		<div id="sideBar">
+			<ul>
+				<li><img src="http://placehold.it/360x120" alt="" class="menuIcon"></li>
+				<li><img src="http://placehold.it/360x120" alt="" class="menuIcon"></li>
+				<li><img src="http://placehold.it/360x120" alt="" class="menuIcon"></li>
+				<li><img src="http://placehold.it/360x120" alt="" class="menuIcon"></li>
+			</ul>
+		</div>
+		<div id="multiWatchPg">
+			<div id="mainImage">
+				<button class="multiWatchPgElem">button1</button>
+				<button class="multiWatchPgElem">button2</button>
+				<button class="multiWatchPgElem">button3</button>
+			</div>
+			<div id="mainTitle">
+				<div><img src="http://placehold.it/480x60" alt=""></div>
+			</div>
+			<div id="mainItem">
+				<table>
+					<tr>
+						<td><img src="http://placehold.it/560x315" alt="" class="multiWatchPgElem"></td>
+						<td><img src="http://placehold.it/560x315" alt="" class="multiWatchPgElem"></td>
+						<td><img src="http://placehold.it/560x315" alt="" class="multiWatchPgElem"></td>
+					</tr>
+					<tr>
+						<td><img src="http://placehold.it/560x315" alt="" class="multiWatchPgElem"></td>
+						<td><img src="http://placehold.it/560x315" alt="" class="multiWatchPgElem"></td>
+						<td><img src="http://placehold.it/560x315" alt="" class="multiWatchPgElem"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!-- Dummy anchor as focus for key events -->
+		<a href="javascript:void(0);" id="sideBar_anchor" onkeydown="sideBar.keyDown();"></a>
+		<a href="javascript:void(0);" id="multiWatchPg_anchor" onkeydown="multiWatchPg.keyDown();"></a>
+		<!-- TODO: your code here -->
+	</body>
+
+	<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
+	<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+	<script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common/jquery.js'></script>
+	<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/webapi/1.0/webapis.js"></script>
+
+	<!-- TODO : Javascript code -->
+	<script language="javascript" type="text/javascript" src="app/javascript/Main.js"></script>
+</html>
