@@ -1,6 +1,6 @@
 
-var MultiWatchPg =
-{
+var MultiWatchPg= {
+	
 };
 
 MultiWatchPg.onLoad = function()
