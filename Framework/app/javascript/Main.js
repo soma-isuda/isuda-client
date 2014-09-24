@@ -1,8 +1,7 @@
 var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 
-var pagearr = ['app/html/MultiWatchPG.html', 'app/html/SelectWatchPg.html'];
-
+// pagearr : information about pages in pageinfo
 var page_comp = 0;
 
 var Main =
@@ -12,19 +11,19 @@ var Main =
 		page	: jQuery('#article')
 	},
 	sidebarbtn:{
-		//btn : jQuery('#sidebar' < li)
+		btn : jQuery('#sidebar').find('ul > li')
 	},
 	anchor:{
+//		menu	: jQuery('#menu'),
 		main	: jQuery('#anchor_main')
 	}
+//	focus: 0	
 };
 
 Main.onLoad = function()
 {
-//	Main.layout.page.load('app/html/MultiWatchPG.html', function(){		
-//		console.log("Adsad");
-//	});
 	
+	Main.layout.page.load(pagearr[page_comp].html);	
 	// Enable key event processing
 	this.initFocus();
 	widgetAPI.sendReadyEvent();
@@ -41,6 +40,14 @@ Main.initFocus = function()
 {
 	Main.anchor.main.focus();
 	Main.layout.sidebar.addClass('focus');
+	Main.sidebarbtn.btn.eq(0).addClass('focus');
+};
+
+Main.returnFocusFromPage = function()
+{
+	Main.anchor.main.focus();
+	Main.layout.sidebar.addClass('focus');
+	Main.sidebarbtn.btn.eq(page_comp).addClass('focus');
 };
 
 Main.keyDown = function()
@@ -56,19 +63,33 @@ Main.keyDown = function()
 			alert("RETURN");
 			widgetAPI.sendReturnEvent();
 			break;
+			
+		case tvKey.KEY_UP:
+			if(page_comp > 0){
+				Main.sidebarbtn.btn.eq(page_comp--).removeClass('focus');
+				Main.sidebarbtn.btn.eq(page_comp).addClass('focus');
+				Main.layout.page.load(pagearr[page_comp].html);
+			}
+			break;
+		case tvKey.KEY_DOWN:
+			if(page_comp < (pagearr.length-1)){
+				Main.sidebarbtn.btn.eq(page_comp++).removeClass('focus');
+				Main.sidebarbtn.btn.eq(page_comp).addClass('focus');				
+				Main.layout.page.load(pagearr[page_comp].html);				
+			}
+			break;
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
-			alert("ENTER");			
+			alert("ENTER");		
 		case tvKey.KEY_RIGHT:
 			alert("RIGHT");
 			//멀티 와치 페이지 호출 
-			Main.layout.page.load(pagearr[0]);
 			setTimeout(function(){
-				MultiWatchPg.onLoad();
-				page_comp = "MultiWatchPg";
+				pagearr[page_comp].object.onLoad();
 			},10);			
 			//
-			Main.layout.sidebar.removeClass('focus');	
+			Main.layout.sidebar.removeClass('focus');
+			Main.sidebarbtn.btn.removeClass('focus');
 			break;
 		default:
 			alert("Unhandled key");
@@ -121,9 +142,7 @@ Main.numKeyDown = function()
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
 			alert("ENTER");
-			if(page_comp == "MultiWatchPg"){
-				MultiWatchPg.returnFocusFromInput();
-			}
+			pagearr[page_comp].object.returnFocusFromInput();			
 			break;
 /*		case tvKey.KEY_LEFT:
 			alert("LEFT");
