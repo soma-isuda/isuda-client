@@ -5,90 +5,103 @@ var MultiWatchPg= {
 
 MultiWatchPg.onLoad = function()
 {
+	document.getElementById("MultiWatchPg").style.marginLeft="120px";
 	jQuery.extend(MultiWatchPg,{
-		login:{
-			input	: jQuery('#login_form'),
-			submit	: jQuery('#login_button')
-		},	
+		MultiWatchPgElem : jQuery('.MultiWatchPgElem'),
 		anchor:{
-			main	: jQuery('#anchor_MultiWatchPG'),
-			input	: jQuery('#login_form')
-		},
-		focus: 0
+			main	: jQuery('#anchor_MultiWatchPg'),
+		}
+		//focus: 0
 	});
-	this.initFocus();	
+	this.focus();	
 };
 
+var MultiWatchPg_index =0;
 
-
-MultiWatchPg.onUnload = function()
-{
-
-};
-
-MultiWatchPg.initFocus = function()
-{
+MultiWatchPg.focus = function(){ 
+	alert("MultiWatchPg.focus");
 	MultiWatchPg.anchor.main.focus();
-	MultiWatchPg.login.input.addClass('focus');
-	MultiWatchPg.focus = "loginInput";
-//	focus_comp= "loginInput";
+	// focus initialize
+	MultiWatchPg_index =0;
+	MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
 };
 
-MultiWatchPg.returnFocusFromInput = function()
+MultiWatchPg.enableKeys = function()
 {
-	if(MultiWatchPg.focus == "loginInput"){
-		MultiWatchPg.anchor.main.focus();
-		MultiWatchPg.login.input.addClass('focus');
-	}	
+	document.getElementById("anchor").focus();
 };
-
 
 MultiWatchPg.keyDown = function()
 {
+	alert("MultiWatchPg keyDown");
 	var keyCode = event.keyCode;
-//	alert("Key pressed: " + keyCode);
+	alert("Key pressed: " + keyCode);
 
-	alert("MultiWatchPg");	
 	switch(keyCode)
 	{
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
-			alert("RETURN");
-//			event.preventDefault();
+			alert("MultiWatchPg_key : RETURN");
 			widgetAPI.sendReturnEvent();
 			break;
-			
 		case tvKey.KEY_LEFT:
-			alert("LEFT");
-			if(MultiWatchPg.focus == "loginButton"){
-				MultiWatchPg.login.submit.removeClass('focus');
-				MultiWatchPg.login.input.addClass('focus');
-				MultiWatchPg.focus ="loginInput";
+			alert("MultiWatchPg_key : Left");
+			if((MultiWatchPg_index=0)||(MultiWatchPg_index=3)||(MultiWatchPg_index=6)){ //이게 빠른지 3으로 나눈 나머지가 0인경우가 빠른지 모르겠다.
+				//focus move to sideBar
+				MultiWatchPg.anchor.main.removeClass('focus');
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				Main.onLoad();
 			}
 			else{
-				Main.initFocus();
-				MultiWatchPg.login.input.removeClass('focus');
-				
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				MultiWatchPg.MultiWatchPgElem.eq(--MultiWatchPg_index).addClass('focus');
 			}
 			break;
 		case tvKey.KEY_RIGHT:
-			alert("RIGHT");
-			if(MultiWatchPg.focus == "loginInput"){
-				MultiWatchPg.login.input.removeClass('focus');
-				MultiWatchPg.login.submit.addClass('focus');
-				MultiWatchPg.focus="loginButton";
-			}			
-			break;			
+			alert("MultiWatchPg_key : Right");
+			if(MultiWatchPg_index==8){
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				MultiWatchPg_index=0;
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+			}
+			else{
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				MultiWatchPg.MultiWatchPgElem.eq(++MultiWatchPg_index).addClass('focus');
+			}
+			break;
+		case tvKey.KEY_UP:
+			alert("MultiWatchPg_key : Up");
+			if(MultiWatchPg_index<3){
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				MultiWatchPg_index += 6;
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+			}
+			else{
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				MultiWatchPg_index -= 3;
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+			}
+			break;
+		case tvKey.KEY_DOWN:
+			alert("MultiWatchPg_key : Down");
+			if(MultiWatchPg_index<6){
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				MultiWatchPg_index += 3;
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+			}
+			else{
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				MultiWatchPg_index -= 3;
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+			}
+
+			break;
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
-			alert("ENTER");
-			if(MultiWatchPg.focus == "loginButton"){
-				alert("loginButton Clicked");
-			}
-			else if (MultiWatchPg.focus =="loginInput"){
-				MultiWatchPg.login.input.focus();
-				MultiWatchPg.login.input.removeClass('focus');
-			}
+			//focus move to selectWatchPg
+			widgetAPI.blockNavigation();
+			MultiWatchPg.unload();
+			alert("MultiWatchPg_key : RETURN");
 			break;
 		default:
 			alert("Unhandled key");

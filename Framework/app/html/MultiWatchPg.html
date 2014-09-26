@@ -1,7 +1,26 @@
-<div id = "MultiWatchPg">
-	<form class="login">
-		<input type="text" name="id" id="login_form" value="" onkeydown="Main.numKeyDown();"/>
-		<button type="submit" id="login_button">Submit</button>
-	</form>
+<div id="MultiWatchPg">
+	<div id="mainImage">
+		<button class="MultiWatchPgElem">button1</button>
+		<button class="MultiWatchPgElem">button2</button>
+		<button class="MultiWatchPgElem">button3</button>
+	</div>
+	<div id="mainTitle">
+		<div><img src="http://placehold.it/480x60" alt=""></div>
+	</div>
+	<div id="mainItem">
+		<table>
+			<tr>
+				<td><img src="http://placehold.it/560x315" alt="" class="MultiWatchPgElem"></td>
+				<td><img src="http://placehold.it/560x315" alt="" class="MultiWatchPgElem"></td>
+				<td><img src="http://placehold.it/560x315" alt="" class="MultiWatchPgElem"></td>
+			</tr>
+			<tr>
+				<td><img src="http://placehold.it/560x315" alt="" class="MultiWatchPgElem"></td>
+				<td><img src="http://placehold.it/560x315" alt="" class="MultiWatchPgElem"></td>
+				<td><img src="http://placehold.it/560x315" alt="" class="MultiWatchPgElem"></td>
+			</tr>
+		</table>
+	</div>
 </div>
-		<a href="javascript:void(0);" id="anchor_MultiWatchPG" onkeydown="MultiWatchPg.keyDown();"></a>	
+		<!-- Dummy anchor as focus for key events -->
+<a href="javascript:void(0);" id="anchor_MultiWatchPg" onkeydown="MultiWatchPg.keyDown();"></a> 

@@ -12,15 +12,21 @@ body
 	height: 1080px;
 	overflow: hidden;	
 }
-
-
-#sidebar{
-	width: 300px;
-	height: 300px;
-	
+#sideBar {
+	float: left;
+	width: 360px;
+	height: 100%;
+	position: absolute;
+	background-color: #a6caf0;
+}
+#sideBar ul li {
+	height: 120px;
+	font-size: 20px;
+}
+#sideBar.focus{
+	color: red;
 }
 
-.focus{
-	border: 6px solid #c409d2;
-	
+#sideBar > ul li.focus { 
+ 	border: 15px solid #c409d2;
 }

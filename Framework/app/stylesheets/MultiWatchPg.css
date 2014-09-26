@@ -1,0 +1,19 @@
+
+#MultiWatchPg{
+	float: right;
+	margin-left:  360px;
+	padding: 30px;
+	position: absolute;
+	background-color: #fffbf0;
+}
+#mainImage {
+	width: 1740px;
+	height: 540px;
+	background-color: #c0dcc0;
+}
+#MultiWatchPg.focus{
+	color: red;
+}
+.MultiWatchPgElem.focus { 
+ 	border: 15px solid #c409d2;
+}

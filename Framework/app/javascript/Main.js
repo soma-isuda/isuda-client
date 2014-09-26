@@ -2,52 +2,45 @@ var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 
 // pagearr : information about pages in pageinfo
-var page_comp = 0;
-
+var page_index = 0;
 var Main =
 {
 	layout:{
-		sidebar : jQuery('#sidebar'),
+		sideBar : jQuery('#sideBar'),
 		page	: jQuery('#article')
 	},
-	sidebarbtn:{
-		btn : jQuery('#sidebar').find('ul > li')
+	sideBarMenu:{
+		btn : jQuery('#sideBar').find('ul > li')
 	},
 	anchor:{
 //		menu	: jQuery('#menu'),
 		main	: jQuery('#anchor_main')
-	}
-//	focus: 0	
+	},
+	focus: 0	
 };
 
 Main.onLoad = function()
 {
-	
-	Main.layout.page.load(pagearr[page_comp].html);	
+	alert("Main.onLoad");
+	alert(pagearr.length);
+	Main.layout.page.load(pagearr[page_index].html);	
 	// Enable key event processing
-	this.initFocus();
+	this.focus();
 	widgetAPI.sendReadyEvent();
 };
 
-
-
-Main.onUnload = function()
-{
-
-};
-
-Main.initFocus = function()
+Main.focus = function()
 {
 	Main.anchor.main.focus();
-	Main.layout.sidebar.addClass('focus');
-	Main.sidebarbtn.btn.eq(0).addClass('focus');
+	Main.layout.sideBar.addClass('focus');
+	Main.sideBarMenu.btn.eq(page_index).addClass('focus');
 };
 
 Main.returnFocusFromPage = function()
 {
 	Main.anchor.main.focus();
-	Main.layout.sidebar.addClass('focus');
-	Main.sidebarbtn.btn.eq(page_comp).addClass('focus');
+	Main.layout.sideBar.addClass('focus');
+	Main.sideBarMenu.btn.eq(page_index).addClass('focus');
 };
 
 Main.keyDown = function()
@@ -60,36 +53,41 @@ Main.keyDown = function()
 	{
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
-			alert("RETURN");
+			alert("main_key : Return");
 			widgetAPI.sendReturnEvent();
 			break;
 			
 		case tvKey.KEY_UP:
-			if(page_comp > 0){
-				Main.sidebarbtn.btn.eq(page_comp--).removeClass('focus');
-				Main.sidebarbtn.btn.eq(page_comp).addClass('focus');
-				Main.layout.page.load(pagearr[page_comp].html);
+			alert("main_key : Up");
+			if(page_index > 0){
+				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+				Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
+				Main.layout.page.load(pagearr[page_index].html);
 			}
 			break;
 		case tvKey.KEY_DOWN:
-			if(page_comp < (pagearr.length-1)){
-				Main.sidebarbtn.btn.eq(page_comp++).removeClass('focus');
-				Main.sidebarbtn.btn.eq(page_comp).addClass('focus');				
-				Main.layout.page.load(pagearr[page_comp].html);				
+			alert("main_key : Down");
+			alert(page_index);
+			alert(pagearr[page_index]);
+			if(page_index < (pagearr.length-1)){
+				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');				
+				Main.layout.page.load(pagearr[page_index].html);
 			}
 			break;
 		case tvKey.KEY_ENTER:
+			alert("main_key : Enter");
 		case tvKey.KEY_PANEL_ENTER:
-			alert("ENTER");		
+			alert("main_key : Panel Enter");		
 		case tvKey.KEY_RIGHT:
-			alert("RIGHT");
-			//멀티 와치 페이지 호출 
+			alert("main_key : Right");
+			//focus move to Page
 			setTimeout(function(){
-				pagearr[page_comp].object.onLoad();
+				pagearr[page_index].object.onLoad();
 			},10);			
-			//
-			Main.layout.sidebar.removeClass('focus');
-			Main.sidebarbtn.btn.removeClass('focus');
+			Main.layout.sideBar.removeClass('focus');
+			Main.sideBarMenu.btn.removeClass('focus');
+			MultiWatchPg.onLoad();
 			break;
 		default:
 			alert("Unhandled key");
@@ -142,7 +140,7 @@ Main.numKeyDown = function()
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
 			alert("ENTER");
-			pagearr[page_comp].object.returnFocusFromInput();			
+			pagearr[page_index].object.returnFocusFromInput();			
 			break;
 /*		case tvKey.KEY_LEFT:
 			alert("LEFT");
