@@ -20,6 +20,8 @@ SelectWatchPg.onLoad = function()
 		//focus: 0
 	});
 	
+	//document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
+	
 	this.focus();	
 };
 
@@ -82,49 +84,15 @@ SelectWatchPg.keyDown = function()
 			alert("SelectWatchPg_key : Down");
 			break;
 		case tvKey.KEY_ENTER: 
-			switch(SelectWatchPg_index){
-				case 0:
-					alert("detail");
-					alert("SelectWatchPg_index : "+ SelectWatchPg_index);
-					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
-					Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html);
-					setTimeout(function(){
-						subPageArr[SelectWatchPg_index].object.onLoad();
-					},10);
-					break;
-				case 1:
-					alert("compart price");
-					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
-					break;
-				case 2:
-					alert("sms");
-					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
-					break;
-				case 3:
-					alert("direct buy");
-					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
-					break;
-				case 4:
-					alert("channel up");
-					//focus animation
-					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
-					setTimeout(function(){
-						SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
-					},100);
-
-					// url change
-					break;
-				case 5:
-					alert("channel down");
-					//focus animation
-					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
-					setTimeout(function(){
-						SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
-					},100);
-
-					// url change
-					break;
-			}
+			alert("SelectWatchPg_index : "+ SelectWatchPg_index);
+			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+			Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html);
+			// setTimeout(function(){
+			// 	document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
+			// 	$("#"+subPageArr[SelectWatchPg_index].name).animate({left:'-460px'}, 1000);
+			//  },1);
+			
+			Main.anchor.subPage.focus();
 			break;
 		case tvKey.KEY_PANEL_ENTER:
 			//focus move to selectWatchPg
