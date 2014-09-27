@@ -1,29 +1,27 @@
 #SelectWatchPg{
-	margin-left:  360px;
+	margin-left:  430px;
 	position: absolute;
 }
-#SelectWatchPg table {
-
-	border-spacing: 42px 0;
-    border-collapse: separate;
+#SelectWatchPgMenu {
+	float: left;
+	width: 170px;
+	height: 1080px;
+	position: absolute;
+	background-color: green;
+	list-style:none;
 }
-#SelectWatchPg table tr{
-	width: 100%;
-}
-#SelectWatchPg table tr td {
-	width: 240px;
-	height: 80px;
+#SelectWatchPgMenu ul li {
+	height: 120px;
+	font-size: 20px;
 	background-color: yellow;
-
 }
-
 #SelectWatchPg.focus{
 	
 }
-#SelectWatchPgMenu table tr td.focus { 
+#SelectWatchPgMenu ul li.focus { 
  	background-color: blue;
 }
-#SelectWatchPgMenu table tr td.select { 
+#SelectWatchPgMenu ul li.select { 
  	background-color: orange;
 }
 
