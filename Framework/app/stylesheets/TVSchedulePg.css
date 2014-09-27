@@ -1,6 +1,50 @@
 #TVSchedulePg{
-	margin-left:  360px;
-	padding: 30px;
+	margin-left:  430px;
+	
 	position: absolute;
 	background-color: #fffbf0;
+	width: 1800px;
+	height: 100%;
+}
+
+#big {
+	float: left;
+	width: 120px;
+	height: 100%;
+	background-color: lightgrey;
+	
+}
+
+#mid {
+	float: left;
+	width: 120px;
+	height: 100%;
+	background-color: lightgrey;
+}
+
+#big ul li {
+	width: 100px;
+	height: 100px;
+	background-color: grey;
+}
+#mid ul li {
+	width: 100px;
+	height: 100px;
+	background-color: grey;
+}
+
+#big.focus{
+	color: orange;
+}
+
+#big > ul li.focus { 
+ 	border: 6px solid #c409d2;
+}
+.mid.focus{
+	color: orange;
+	border: 6px solid #c409d2;
+}
+
+.mid li.focus { 
+ 	border: 6px solid #c409d2;
 }

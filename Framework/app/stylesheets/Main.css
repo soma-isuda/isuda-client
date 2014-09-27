@@ -14,13 +14,13 @@ body
 }
 #sideBar {
 	float: left;
-	width: 360px;
+	width: 430px;
 	height: 100%;
 	position: absolute;
 	background-color: #a6caf0;
 }
 #sideBar ul li {
-	height: 120px;
+	height: 130px;
 	font-size: 20px;
 }
 #sideBar.focus{

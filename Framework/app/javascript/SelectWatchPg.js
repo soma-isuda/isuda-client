@@ -11,7 +11,7 @@ SelectWatchPg.onLoad = function()
 	alert("SelectWatchPg onLoad");
 	alert(subPageArr.length);
 	jQuery.extend(SelectWatchPg,{
-		SelectWatchPgMenu : jQuery('#SelectWatchPgMenu').find('td'),
+		SelectWatchPgMenu : jQuery('#SelectWatchPgMenu').find('li'),
 		layout:{
 			player : jQuery('#player')
 		},

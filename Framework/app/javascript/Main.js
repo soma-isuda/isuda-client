@@ -38,6 +38,7 @@ Main.focus = function()
 	Main.anchor.main.focus();
 	Main.layout.sideBar.addClass('focus');
 	Main.sideBarMenu.btn.eq(page_index).addClass('focus');
+	$("#sideBar").css("width","460px");
 };
 
 Main.returnFocusFromPage = function()
@@ -91,7 +92,9 @@ Main.keyDown = function()
 			},10);			
 			Main.layout.sideBar.removeClass('focus');
 			Main.sideBarMenu.btn.removeClass('focus');
-			document.getElementById(pagearr[page_index].name).style.marginLeft="120px";
+			$("#sideBar").css("width","300px");
+			document.getElementById(pagearr[page_index].name).style.marginLeft="130px";
+
 			//document.getElementById("MultiWatchPg").style.marginLeft="120px";
 			//pagearr[page_index].onLoad();
 			break;
