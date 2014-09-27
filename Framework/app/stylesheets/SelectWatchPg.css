@@ -1,1 +1,42 @@
-#sl
+#SelectWatchPg{
+	margin-left:  360px;
+	position: absolute;
+	background-color: #fffbf0;
+}
+#SelectWatchPg table {
+
+	border-spacing: 42px 0;
+    border-collapse: separate;
+}
+#SelectWatchPg table tr{
+	width: 100%;
+}
+#SelectWatchPg table tr td {
+	width: 240px;
+	height: 80px;
+	background-color: yellow;
+
+}
+
+#SelectWatchPg.focus{
+	
+}
+#SelectWatchPgMenu table tr td.focus { 
+ 	background-color: blue;
+}
+#SelectWatchPgMenu table tr td.select { 
+ 	background-color: orange;
+}
+
+#player{
+	width: 1740px;
+	height: 990px;
+	background-color: white;
+}
+
+/*#subPage{
+	width: 480px;
+	height: 100%;
+	margin-left: 1920px;
+}
+*/

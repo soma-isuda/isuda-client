@@ -5,7 +5,6 @@ var MultiWatchPg= {
 
 MultiWatchPg.onLoad = function()
 {
-	document.getElementById("MultiWatchPg").style.marginLeft="120px";
 	jQuery.extend(MultiWatchPg,{
 		MultiWatchPgElem : jQuery('.MultiWatchPgElem'),
 		anchor:{
@@ -35,7 +34,7 @@ MultiWatchPg.keyDown = function()
 {
 	alert("MultiWatchPg keyDown");
 	var keyCode = event.keyCode;
-	alert("Key pressed: " + keyCode);
+	alert("Key pressed: " + keyCode +" ,index:" + MultiWatchPg_index);
 
 	switch(keyCode)
 	{
@@ -46,7 +45,7 @@ MultiWatchPg.keyDown = function()
 			break;
 		case tvKey.KEY_LEFT:
 			alert("MultiWatchPg_key : Left");
-			if((MultiWatchPg_index=0)||(MultiWatchPg_index=3)||(MultiWatchPg_index=6)){ //이게 빠른지 3으로 나눈 나머지가 0인경우가 빠른지 모르겠다.
+			if((MultiWatchPg_index==0)||(MultiWatchPg_index==3)||(MultiWatchPg_index==6)){ //이게 빠른지 3으로 나눈 나머지가 0인경우가 빠른지 모르겠다.
 				//focus move to sideBar
 				MultiWatchPg.anchor.main.removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
@@ -99,9 +98,17 @@ MultiWatchPg.keyDown = function()
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
 			//focus move to selectWatchPg
-			widgetAPI.blockNavigation();
-			MultiWatchPg.unload();
-			alert("MultiWatchPg_key : RETURN");
+			if (MultiWatchPg_index>=3) {
+				MultiWatchPg.anchor.main.removeClass('focus');
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				
+				Main.layout.page.load(pagearr[++page_index].html);
+				setTimeout(function(){
+					pagearr[page_index].object.onLoad();
+				},10);
+
+			};
+			alert("MultiWatchPg_key : Enter");
 			break;
 		default:
 			alert("Unhandled key");

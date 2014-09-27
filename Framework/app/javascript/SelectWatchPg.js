@@ -1,98 +1,139 @@
-var SelectWatchPg ={};
-//
-//var MultiWatchPg= {
-//	
-//};
-//
-//MultiWatchPg.onLoad = function()
-//{
-//	jQuery.extend(MultiWatchPg,{
-//		login:{
-//			input	: jQuery('#login_form'),
-//			submit	: jQuery('#login_button')
-//		},	
-//		anchor:{
-//			main	: jQuery('#anchor_MultiWatchPG'),
-//			input	: jQuery('#login_form')
-//		},
-//		focus: 0
-//	});
-//	this.initFocus();	
-//};
-//
-//
-//
-//MultiWatchPg.onUnload = function()
-//{
-//
-//};
-//
-//MultiWatchPg.initFocus = function()
-//{
-//	MultiWatchPg.anchor.main.focus();
-//	MultiWatchPg.login.input.addClass('focus');
-//	MultiWatchPg.focus = "loginInput";
-////	focus_comp= "loginInput";
-//};
-//
-//MultiWatchPg.returnFocusFromInput = function()
-//{
-//	if(MultiWatchPg.focus == "loginInput"){
-//		MultiWatchPg.anchor.main.focus();
-//		MultiWatchPg.login.input.addClass('focus');
-//	}	
-//};
-//
-//
-//MultiWatchPg.keyDown = function()
-//{
-//	var keyCode = event.keyCode;
-////	alert("Key pressed: " + keyCode);
-//
-//	alert("MultiWatchPg");	
-//	switch(keyCode)
-//	{
-//		case tvKey.KEY_RETURN:
-//		case tvKey.KEY_PANEL_RETURN:
-//			alert("RETURN");
-////			event.preventDefault();
-//			widgetAPI.sendReturnEvent();
-//			break;
-//			
-//		case tvKey.KEY_LEFT:
-//			alert("LEFT");
-//			if(MultiWatchPg.focus == "loginButton"){
-//				MultiWatchPg.login.submit.removeClass('focus');
-//				MultiWatchPg.login.input.addClass('focus');
-//				MultiWatchPg.focus ="loginInput";
-//			}
-//			else{
-//				Main.initFocus();
-//				MultiWatchPg.login.input.removeClass('focus');
-//				
-//			}
-//			break;
-//		case tvKey.KEY_RIGHT:
-//			alert("RIGHT");
-//			if(MultiWatchPg.focus == "loginInput"){
-//				MultiWatchPg.login.input.removeClass('focus');
-//				MultiWatchPg.login.submit.addClass('focus');
-//				MultiWatchPg.focus="loginButton";
-//			}			
-//			break;			
-//		case tvKey.KEY_ENTER:
-//		case tvKey.KEY_PANEL_ENTER:
-//			alert("ENTER");
-//			if(MultiWatchPg.focus == "loginButton"){
-//				alert("loginButton Clicked");
-//			}
-//			else if (MultiWatchPg.focus =="loginInput"){
-//				MultiWatchPg.login.input.focus();
-//				MultiWatchPg.login.input.removeClass('focus');
-//			}
-//			break;
-//		default:
-//			alert("Unhandled key");
-//			break;
-//	}
-//};
+
+var SelectWatchPg_index =0; // = subPageArr_index
+
+var SelectWatchPg= {
+	
+};
+
+SelectWatchPg.onLoad = function()
+{
+	alert("SelectWatchPg onLoad");
+	alert(subPageArr.length);
+	jQuery.extend(SelectWatchPg,{
+		SelectWatchPgMenu : jQuery('#SelectWatchPgMenu').find('td'),
+		layout:{
+			player : jQuery('#player')
+		},
+		anchor:{
+			main	: jQuery('#anchor_SelectWatchPg')
+		}
+		//focus: 0
+	});
+	
+	this.focus();	
+};
+
+SelectWatchPg.focus = function(){ 
+	alert("SelectWatchPg focus");
+	SelectWatchPg.anchor.main.focus();
+	// focus initialize
+	//alert(SelectWatchPgMenu.size);
+	SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
+	SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
+};
+
+SelectWatchPg.enableKeys = function()
+{
+	document.getElementById("anchor").focus();
+};
+
+SelectWatchPg.keyDown = function()
+{
+	alert("SelectWatchPg keyDown");
+	var keyCode = event.keyCode;
+	alert("Key pressed: " + keyCode);
+
+	switch(keyCode)
+	{
+		case tvKey.KEY_RETURN:
+		case tvKey.KEY_PANEL_RETURN:
+			alert("SelectWatchPg_key : RETURN");
+			widgetAPI.sendReturnEvent();
+			break;
+		case tvKey.KEY_LEFT:
+			alert("SelectWatchPg_key : Left");
+			if(SelectWatchPg_index==0){ //이게 빠른지 3으로 나눈 나머지가 0인경우가 빠른지 모르겠다.
+				//focus move to sideBar
+				SelectWatchPg.anchor.main.removeClass('focus');
+				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
+				Main.onLoad();
+			}
+			else{
+				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
+				SelectWatchPg.SelectWatchPgMenu.eq(--SelectWatchPg_index).addClass('focus');
+			}
+			break;
+		case tvKey.KEY_RIGHT:
+			alert("SelectWatchPg_key : Right");
+			if(SelectWatchPg_index==3){
+				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
+				SelectWatchPg_index=0;
+				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
+			}
+			else{
+				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
+				SelectWatchPg.SelectWatchPgMenu.eq(++SelectWatchPg_index).addClass('focus');
+			}
+			break;
+		case tvKey.KEY_UP:
+			alert("SelectWatchPg_key : Up");
+			break;
+		case tvKey.KEY_DOWN:
+			alert("SelectWatchPg_key : Down");
+			break;
+		case tvKey.KEY_ENTER: 
+			switch(SelectWatchPg_index){
+				case 0:
+					alert("detail");
+					alert("SelectWatchPg_index : "+ SelectWatchPg_index);
+					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+					Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html);
+					setTimeout(function(){
+						subPageArr[SelectWatchPg_index].object.onLoad();
+					},10);
+					break;
+				case 1:
+					alert("compart price");
+					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+					break;
+				case 2:
+					alert("sms");
+					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+					break;
+				case 3:
+					alert("direct buy");
+					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+					break;
+				case 4:
+					alert("channel up");
+					//focus animation
+					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+					setTimeout(function(){
+						SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
+					},100);
+
+					// url change
+					break;
+				case 5:
+					alert("channel down");
+					//focus animation
+					SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+					setTimeout(function(){
+						SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
+					},100);
+
+					// url change
+					break;
+			}
+			break;
+		case tvKey.KEY_PANEL_ENTER:
+			//focus move to selectWatchPg
+			widgetAPI.blockNavigation();
+			SelectWatchPg.unload();
+			alert("SelectWatchPg_key : RETURN");
+			break;
+		default:
+			alert("Unhandled key");
+			break;
+	}
+};

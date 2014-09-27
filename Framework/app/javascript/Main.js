@@ -7,7 +7,8 @@ var Main =
 {
 	layout:{
 		sideBar : jQuery('#sideBar'),
-		page	: jQuery('#article')
+		page	: jQuery('#article'),
+		subPage : jQuery('#subPage')
 	},
 	sideBarMenu:{
 		btn : jQuery('#sideBar').find('ul > li')
@@ -87,7 +88,9 @@ Main.keyDown = function()
 			},10);			
 			Main.layout.sideBar.removeClass('focus');
 			Main.sideBarMenu.btn.removeClass('focus');
-			MultiWatchPg.onLoad();
+			document.getElementById(pagearr[page_index].name).style.marginLeft="120px";
+			//document.getElementById("MultiWatchPg").style.marginLeft="120px";
+			//pagearr[page_index].onLoad();
 			break;
 		default:
 			alert("Unhandled key");
