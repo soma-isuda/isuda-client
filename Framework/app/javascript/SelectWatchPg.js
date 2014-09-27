@@ -1,5 +1,6 @@
 
 var SelectWatchPg_index =0; // = subPageArr_index
+var channel = 0;
 
 var SelectWatchPg= {
 	
@@ -25,7 +26,7 @@ SelectWatchPg.onLoad = function()
 	this.focus();
 
 	Player.init();	
-	Player.play();
+	Player.play(channel);
 
 };
 
@@ -51,6 +52,15 @@ SelectWatchPg.keyDown = function()
 
 	switch(keyCode)
 	{
+		case tvKey.KEY_CH_UP:
+			Player.stop();
+			Player.play(channel=(channel+1)%url.length);
+			break;
+		case tvKey.KEY_CH_DOWN:
+			Player.stop();
+			Player.play(channel=(channel-1)%url.length);
+			break;			
+		
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
 			alert("SelectWatchPg_key : RETURN");
