@@ -22,7 +22,11 @@ SelectWatchPg.onLoad = function()
 	
 	//document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
 	
-	this.focus();	
+	this.focus();
+
+	Player.init();	
+	Player.play();
+
 };
 
 SelectWatchPg.focus = function(){ 
@@ -56,6 +60,7 @@ SelectWatchPg.keyDown = function()
 			alert("SelectWatchPg_key : Left");
 			if(SelectWatchPg_index==0){ //이게 빠른지 3으로 나눈 나머지가 0인경우가 빠른지 모르겠다.
 				//focus move to sideBar
+				Player.stop();
 				SelectWatchPg.anchor.main.removeClass('focus');
 				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
 				Main.onLoad();

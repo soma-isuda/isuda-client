@@ -1,7 +1,6 @@
 #SelectWatchPg{
 	margin-left:  360px;
 	position: absolute;
-	background-color: #fffbf0;
 }
 #SelectWatchPg table {
 
@@ -29,9 +28,12 @@
 }
 
 #player{
-	width: 1740px;
-	height: 990px;
-	background-color: white;
+	top:0;
+	left:0;
+	width: 1200px;
+	height: 800px;
+	background-color: blue;
+	opacity: 0;
 }
 
 /*#subPage{
