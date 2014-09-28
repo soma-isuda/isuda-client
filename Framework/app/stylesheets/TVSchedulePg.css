@@ -39,6 +39,7 @@
 
 #big > ul li.focus { 
  	border: 6px solid #c409d2;
+    background-color:white;
 }
 .mid.focus{
 	color: orange;
@@ -48,3 +49,4 @@
 .mid li.focus { 
  	border: 6px solid #c409d2;
 }
+

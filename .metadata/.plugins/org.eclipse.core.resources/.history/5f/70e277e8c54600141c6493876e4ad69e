@@ -1,13 +1,20 @@
 <div id="TVSchedulePg">
-	<div id="big"><!-- 대분류 -->
+	<div id="big">
 		<ul>
-			
+			<li>의류</li>
+			<li>잡화</li>
 		</ul>
 	</div>
-	<div id="mid"><!-- 중분류 -->
-		<!--<ul class="mid">-->
-        <ul>
-			
+	<div id="mid">
+		<ul class="mid">
+			<li>Women</li>
+			<li>Men</li>
+			<li>Kids</li>
+		</ul>
+		<ul class="mid">
+			<li>hat</li>
+			<li>glass</li>
+			<li>shoes</li>
 		</ul>
 	</div>
 	<div id="item"></div>

@@ -3,35 +3,29 @@ var TVSchedulePg= {
 
 	
 };
-//midArr = ["mid1", "mid2"]; 
+
 TVSchedulePg.onLoad = function()
 {
 	alert("TVSchedulePg onLoad");
 	//document.getElementById("TVSchedulePg").style.marginLeft="1460px";
 	jQuery.extend(TVSchedulePg,{
 		big : jQuery('#big').find('ul'),
-		mid : jQuery('.mid'),
+		mid : jQuery('#mid').find('ul'),
 		anchor: {
 			big : jQuery('#anchor_TVSchedulePg_bigCategory'),
 			mid : jQuery('#anchor_TVSchedulePg_midCategory'),
 			main : jQuery('#anchor_TVSchedulePg')
 		}
 	});
-			jQuery.ajax({
-				url : 'http://172.16.100.171:3000/getFristCategory',
-				type : 'GET',
-				dataType : 'json',
-				success : function (data) {
-					$.each(data, function() {
-					    TVSchedulePg.big.append('<li>'+this.name+'"</li>');
-					});					
-//					jQuery('#input').val(data);
-				}
-			});			
-
-
-
-	this.focus();	
+	
+    // Load first category
+	for (var i = 0; i < firstCategory.length ; i++) { 
+	    TVSchedulePg.big.append('<li>' + firstCategory[i] + '</li>');
+	}
+	this.focus();
+	jQuery.extend(TVSchedulePg,{
+	    bigElem : jQuery('#big').find('ul > li')
+	});
 };
 
 var TVSchedulePg_index =0;
@@ -53,20 +47,17 @@ TVSchedulePg.enableKeys = function()
 	document.getElementById("anchor").focus();
 };
 
-tabMenu = function(){
-	var i;
-	alert("tabMenu");
-	alert(TVSchedulePg.mid.length);
-	for(i=0; i<TVSchedulePg.mid.length;i++){
-		if (i==big_index) {
-			//document.getElementById(midArr[i]).style.display="block";
-			TVSchedulePg.mid.eq(i).css("display","block");
-		}
-		else {
-			TVSchedulePg.mid.eq(i).css("display","none");
 
-		}
-	}	
+tabMenu = function(){
+
+	alert("tabMenu");
+    //clear mid tag
+	jQuery('.mid').empty();
+    // Load second category
+	for (var i = 1; i < secondCategory[big_index].length ; i++) 
+	    TVSchedulePg.mid.append('<li>' + secondCategory[big_index][i] + '</li>');
+	    
+	
 };
 
 TVSchedulePg.bigKeyDown = function()
@@ -91,16 +82,26 @@ TVSchedulePg.bigKeyDown = function()
 			alert("TVSchedulePg_key : Right");
 			break;
 		case tvKey.KEY_UP:
-			alert("TVSchedulePg_key : Up");
-			TVSchedulePg.big.eq(big_index).removeClass('focus');
-			TVSchedulePg.big.eq(--big_index).addClass('focus');
+		    alert("TVSchedulePg_key : Up");
+            //중분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
+		    if (big_index == 0)
+		        big_index = firstCategory.length - 1;
+
+			TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+			TVSchedulePg.bigElem.eq(--big_index).addClass('focus');
 			tabMenu();
+			
 			break;
 		case tvKey.KEY_DOWN:
-			alert("TVSchedulePg_key : Down");
-			TVSchedulePg.big.eq(big_index).removeClass('focus');
-			TVSchedulePg.big.eq(++big_index).addClass('focus');
+		    alert("TVSchedulePg_key : Down");
+            //중분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
+		    if (big_index == firstCategory.length - 1) {
+		        big_index = 0;
+		    }
+			TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+			TVSchedulePg.bigElem.eq(++big_index).addClass('focus');
 			tabMenu();
+			
 			break;
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:

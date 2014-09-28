@@ -1,0 +1,68 @@
+[INFO] window.onPreShow
+[INFO] window.onShow
+[INFO] window.onFocusin
+[INFO] window.onShow
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Down
+3
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[INFO] window.onShow
+Key pressed: 45
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=test111
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished

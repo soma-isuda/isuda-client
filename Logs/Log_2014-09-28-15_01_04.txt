@@ -1,0 +1,9653 @@
+[INFO] window.onPreShow
+[INFO] window.onShow
+[INFO] window.onFocusin
+[INFO] window.onShow
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 88 ,index:0
+TVSchedulePg_key : RETURN
+SelectWatchPg onLoad
+4
+SelectWatchPg focus
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetServiceConfig)
+getPluginName(NNavi)
+	return NNavi
+addPluginObject(NNavi,true)
+Create SEF Plugin for NNavi: <OBJECT id="_plugin_NNavi" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+[AVPlay] sServiceConfig: {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+string
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,0)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+addPluginObject(TaskManager,true)
+Create SEF Plugin for TaskManager: <OBJECT id="_plugin_TaskManager" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,2)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+	returns 0
+[AVPlay] bSupportMultiApplication: false
+[webapis] onHide function added.
+[AVPlay] getAVPlay() succeeded. -> 0th [object Object]
+[AVPlay0] init([object Object])
+[AVPlay0] initialize(player,,_plugin_Player_0)
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetFirmware)
+getPluginName(NNavi)
+	return NNavi
+	returns T-INFOLINK2014-1000
+[AVPlay0] Firmware : T-INFOLINK2014-1000
+[AVPlay0] setPlayerPluginObject(player,,_plugin_Player_0)
+[AVPlay0] old ePlayerPlugin : null
+[AVPlay0] !ERROR! cannot get player element.
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TVMW,GetVersion)
+getPluginName(TVMW)
+	return TVMW
+addPluginObject(TVMW,true)
+Create SEF Plugin for TVMW: <OBJECT id="_plugin_TVMW" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+[webapis] Wrapped Method GetVersion([object HTMLObjectElement], true)
+	SEF returns 1.000
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TV,GetProductType)
+getPluginName(TV)
+	return TV
+addPluginObject(TV,true)
+Create SEF Plugin for TV: <OBJECT id="_plugin_TV" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(,GetVersion)
+CANNOT get the plugin object (undefined)
+[AVPlay0] setDisplayRect([object Object])
+######getAVplay Exception :[undefined] 'null' is not an object (evaluating 'eInnerContainerDiv.style')
+[AVPlay0] open(http://218.232.67.62:1935/live/mp4:a.stream/playlist.m3u8,)
+[AVPlay0] !THROW ERROR! WebAPIDOMErrorCode.INVALID_STATE_ERR
+The object is in an invalid state.
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main.onLoad completed
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+여성신발
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+스킨케어
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+휴대폰
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+침실가구
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+분유
+기저귀
+물티슈
+이유식
+간식/영양제
+수유용품
+유모차
+카시트
+외출용품
+목욕용품
+스킨/바디용품
+위생/건강용품
+구강/청결용품
+소독/살균용품
+안전용품
+유아가구
+이유식용품
+임부복
+유아의류
+축산
+수산
+농산물
+반찬
+김치
+음료
+과자
+아이스크림/빙수
+가공식품
+냉동/간편조리식품
+건강식품
+다이어트식품
+등산
+캠핑
+골프
+자전거
+스키/보드
+낚시
+수영
+헬스
+인라인스케이트
+요가/필라테스
+오토바이/스쿠터
+자동차용품
+주방용품
+세탁용품
+수납/정리용품
+문구/사무용품
+생활용품
+공구
+화방용품
+악기
+애완
+공연/티켓
+모바일쿠폰/상품권
+지류/카드상품권
+여행/항공권
+e컨텐츠
+레저이용권
+꽃/케이크배달
+화장품
+주얼리
+시계/기프트
+패션/잡화
+전자제품
+향수
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+2
+2
+2
+2
+2
+3
+2
+2
+4
+2
+2
+2
+3
+5
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+-1
+3
+3
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+9
+9
+9
+9
+9
+9
+9
+10
+10
+10
+10
+10
+10
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+0
+남성의류
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][value.id - 1] = value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+0,여성의류
+1,남성의류
+2,아동의류
+3,여성언더웨어/잠옷
+4,남성언더웨어/잠옷
+5,여성신발
+6,남성신발
+7,여성가방
+8,남성가방
+9,여행용가방/소품
+10,지갑
+11,시계
+12,주얼리
+13,모자
+14,선글라스/안경테
+15,스킨케어
+16,선케어
+17,베이스메이크업
+18,색조메이크업
+19,클렌징
+20,마스크/팩
+21,헤어케어
+22,헤어스타일링
+23,바디케어
+24,네일케어
+25,남성화장품
+26,향수
+27,뷰티소품
+28,휴대폰
+29,카메라/캠코더용품
+30,영상가전
+31,생활가전
+32,주방가전
+33,휴대폰액세서리
+34,게임/타이틀
+35,음향가전
+36,이미용가전
+37,계절가전
+38,저장장치
+39,네트워크장비
+40,PC주변기기
+41,자동차기기
+42,노트북
+43,태블릿PC
+44,PC
+45,모니터
+46,침실가구
+47,주방가구
+48,수납가구
+49,침구단품
+50,커튼/블라인드
+51,거실가구
+52,서재/사무용가구
+53,DIY자제/용품
+54,침구세트
+55,홈데코
+56,카페트/러그
+57,아동/주니어가구
+58,아웃도어가구
+59,인테리어소품
+60,솜류
+61,수예
+62,분유
+63,기저귀
+64,물티슈
+65,이유식
+66,간식/영양제
+67,수유용품
+68,유모차
+69,카시트
+70,외출용품
+71,목욕용품
+72,스킨/바디용품
+73,위생/건강용품
+74,구강/청결용품
+75,소독/살균용품
+76,안전용품
+77,유아가구
+78,이유식용품
+79,임부복
+80,유아의류
+81,축산
+82,수산
+83,농산물
+84,반찬
+85,김치
+86,음료
+87,과자
+88,아이스크림/빙수
+89,가공식품
+90,냉동/간편조리식품
+91,건강식품
+92,다이어트식품
+93,등산
+94,캠핑
+95,골프
+96,자전거
+97,스키/보드
+98,낚시
+99,수영
+100,헬스
+101,인라인스케이트
+102,요가/필라테스
+103,오토바이/스쿠터
+104,자동차용품
+105,주방용품
+106,세탁용품
+107,수납/정리용품
+108,문구/사무용품
+109,생활용품
+110,공구
+111,화방용품
+112,악기
+113,애완
+114,공연/티켓
+115,모바일쿠폰/상품권
+116,지류/카드상품권
+117,여행/항공권
+118,e컨텐츠
+119,레저이용권
+120,꽃/케이크배달
+121,화장품
+122,주얼리
+123,시계/기프트
+124,패션/잡화
+125,전자제품
+126,향수
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+0
+남성의류
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+undefined
+[webapis] 0 onShow functions.
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+여성신발
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+스킨케어
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+휴대폰
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+침실가구
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+분유
+기저귀
+물티슈
+이유식
+간식/영양제
+수유용품
+유모차
+카시트
+외출용품
+목욕용품
+스킨/바디용품
+위생/건강용품
+구강/청결용품
+소독/살균용품
+안전용품
+유아가구
+이유식용품
+임부복
+유아의류
+축산
+수산
+농산물
+반찬
+김치
+음료
+과자
+아이스크림/빙수
+가공식품
+냉동/간편조리식품
+건강식품
+다이어트식품
+등산
+캠핑
+골프
+자전거
+스키/보드
+낚시
+수영
+헬스
+인라인스케이트
+요가/필라테스
+오토바이/스쿠터
+자동차용품
+주방용품
+세탁용품
+수납/정리용품
+문구/사무용품
+생활용품
+공구
+화방용품
+악기
+애완
+공연/티켓
+모바일쿠폰/상품권
+지류/카드상품권
+여행/항공권
+e컨텐츠
+레저이용권
+꽃/케이크배달
+화장품
+주얼리
+시계/기프트
+패션/잡화
+전자제품
+향수
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 88 ,index:0
+TVSchedulePg_key : RETURN
+SelectWatchPg onLoad
+4
+SelectWatchPg focus
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetServiceConfig)
+getPluginName(NNavi)
+	return NNavi
+addPluginObject(NNavi,true)
+Create SEF Plugin for NNavi: <OBJECT id="_plugin_NNavi" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+[AVPlay] sServiceConfig: {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+string
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,0)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+addPluginObject(TaskManager,true)
+Create SEF Plugin for TaskManager: <OBJECT id="_plugin_TaskManager" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,2)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+	returns 0
+[AVPlay] bSupportMultiApplication: false
+[webapis] onHide function added.
+[AVPlay] getAVPlay() succeeded. -> 0th [object Object]
+[AVPlay0] init([object Object])
+[AVPlay0] initialize(player,,_plugin_Player_0)
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetFirmware)
+getPluginName(NNavi)
+	return NNavi
+	returns T-INFOLINK2014-1000
+[AVPlay0] Firmware : T-INFOLINK2014-1000
+[AVPlay0] setPlayerPluginObject(player,,_plugin_Player_0)
+[AVPlay0] old ePlayerPlugin : null
+[AVPlay0] !ERROR! cannot get player element.
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TVMW,GetVersion)
+getPluginName(TVMW)
+	return TVMW
+addPluginObject(TVMW,true)
+Create SEF Plugin for TVMW: <OBJECT id="_plugin_TVMW" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+[webapis] Wrapped Method GetVersion([object HTMLObjectElement], true)
+	SEF returns 1.000
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TV,GetProductType)
+getPluginName(TV)
+	return TV
+addPluginObject(TV,true)
+Create SEF Plugin for TV: <OBJECT id="_plugin_TV" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(,GetVersion)
+CANNOT get the plugin object (undefined)
+[AVPlay0] setDisplayRect([object Object])
+######getAVplay Exception :[undefined] 'null' is not an object (evaluating 'eInnerContainerDiv.style')
+[AVPlay0] open(http://218.232.67.62:1935/live/mp4:a.stream/playlist.m3u8,)
+[AVPlay0] !THROW ERROR! WebAPIDOMErrorCode.INVALID_STATE_ERR
+The object is in an invalid state.
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+패션의류
+패션잡화
+화장품/미용
+디지털/가전
+가구/인테리어
+출산/육아
+식품
+스포츠/레저
+생활/건강
+여행/문화
+면세점
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선글라스/안경테
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+14
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+27
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+45
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남
+성
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남
+성
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선
+글
+TVSchedulePg big Category keyDown
+Key pressed: 5 ,index:0
+TVSchedulePg_key : Right
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+뷰
+티
+TVSchedulePg big Category keyDown
+Key pressed: 29443 ,index:0
+TVSchedulePg_key : Enter
+tabMenu
+모
+니
+TVSchedulePg mid Category keyDown
+Key pressed: 29443 ,index:0
+TVSchedulePg_key : Enter
+TVSchedulePg mid Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+secondCategory[currentFirstCategory].length
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+secondCategory[currentFirstCategory].length
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+secondCategory[currentFirstCategory].length
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+2
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+14
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+27
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+45
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+61
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+80
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+92
+다이어트식품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+103
+오토바이/스쿠터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+113
+애완
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+120
+꽃/케이크배달
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+2
+126
+향수
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+undefined
+성
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+undefined
+성
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+undefined
+글
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+undefined
+티
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+undefined
+니
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선글라스/안경테
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+뷰티소품
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+모니터
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+수예
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+유아의류
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+0
+남성의류
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+여성신발
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+스킨케어
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+휴대폰
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+침실가구
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+분유
+기저귀
+물티슈
+이유식
+간식/영양제
+수유용품
+유모차
+카시트
+외출용품
+목욕용품
+스킨/바디용품
+위생/건강용품
+구강/청결용품
+소독/살균용품
+안전용품
+유아가구
+이유식용품
+임부복
+유아의류
+축산
+수산
+농산물
+반찬
+김치
+음료
+과자
+아이스크림/빙수
+가공식품
+냉동/간편조리식품
+건강식품
+다이어트식품
+등산
+캠핑
+골프
+자전거
+스키/보드
+낚시
+수영
+헬스
+인라인스케이트
+요가/필라테스
+오토바이/스쿠터
+자동차용품
+주방용품
+세탁용품
+수납/정리용품
+문구/사무용품
+생활용품
+공구
+화방용품
+악기
+애완
+공연/티켓
+모바일쿠폰/상품권
+지류/카드상품권
+여행/항공권
+e컨텐츠
+레저이용권
+꽃/케이크배달
+화장품
+주얼리
+시계/기프트
+패션/잡화
+전자제품
+향수
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+undefined
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+0
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+0
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[0][0]')
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[0][0]')
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp++] = value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp++] = value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Up
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp++] = value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp++] = value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선글라스/안경테
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+뷰티소품
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+모니터
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+수예
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+ReferenceError: Can't find variable: firstId
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+0
+1
+2
+3
+2
+2
+4
+2
+2
+2
+3
+5
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+-1
+3
+3
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+9
+9
+9
+9
+9
+9
+9
+10
+10
+10
+10
+10
+10
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선글라스/안경테
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선글라스/안경테
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Up
+Main
+Unhandled key
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선글라스/안경테
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+뷰티소품
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+모니터
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+수예
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+유아의류
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+다이어트식품
+다이어트식품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+오토바이/스쿠터
+오토바이/스쿠터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+애완
+애완
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+꽃/케이크배달
+꽃/케이크배달
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+향수
+향수
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+-1
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+2
+2
+2
+2
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+-1
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+2
+2
+2
+2
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+2
+2
+2
+2
+2
+3
+2
+2
+4
+2
+2
+2
+3
+5
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+-1
+3
+3
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+9
+9
+9
+9
+9
+9
+9
+10
+10
+10
+10
+10
+10
+Main
+main_key : Down
+1
+[object Object]
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+2
+2
+2
+2
+2
+3
+2
+2
+4
+2
+2
+2
+3
+5
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+-1
+3
+3
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+9
+9
+9
+9
+9
+9
+9
+10
+10
+10
+10
+10
+10
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+0
+0
+0
+0
+0
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+2
+2
+2
+2
+2
+2
+3
+2
+2
+4
+2
+2
+2
+3
+5
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+-1
+3
+3
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+5
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+6
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+7
+8
+8
+8
+8
+8
+8
+8
+8
+8
+8
+9
+9
+9
+9
+9
+9
+9
+10
+10
+10
+10
+10
+10
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선글라스/안경테
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+NaN
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+NaN
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+NaN
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선글라스/안경테
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+뷰티소품
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+모니터
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+수예
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+유아의류
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+다이어트식품
+다이어트식품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+오토바이/스쿠터
+오토바이/스쿠터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+애완
+애완
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+꽃/케이크배달
+꽃/케이크배달
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+향수
+향수
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선글라스/안경테
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+뷰티소품
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+1
+2
+3
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+7
+1
+2
+3
+4
+5
+6
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+1
+2
+3
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+7
+1
+2
+3
+4
+5
+6
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+SelectWatchPg onLoad
+4
+SelectWatchPg focus
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetServiceConfig)
+getPluginName(NNavi)
+	return NNavi
+addPluginObject(NNavi,true)
+Create SEF Plugin for NNavi: <OBJECT id="_plugin_NNavi" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+[AVPlay] sServiceConfig: {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+string
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,0)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+addPluginObject(TaskManager,true)
+Create SEF Plugin for TaskManager: <OBJECT id="_plugin_TaskManager" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,2)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+	returns 0
+[AVPlay] bSupportMultiApplication: false
+[webapis] onHide function added.
+[AVPlay] getAVPlay() succeeded. -> 0th [object Object]
+[AVPlay0] init([object Object])
+[AVPlay0] initialize(player,,_plugin_Player_0)
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetFirmware)
+getPluginName(NNavi)
+	return NNavi
+	returns T-INFOLINK2014-1000
+[AVPlay0] Firmware : T-INFOLINK2014-1000
+[AVPlay0] setPlayerPluginObject(player,,_plugin_Player_0)
+[AVPlay0] old ePlayerPlugin : null
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[AVPlay0] getPluginObjectHTML(_plugin_Player_0,z-index:10;) returns <OBJECT id="_plugin_Player_0" classid="clsid:SAMSUNG-INFOLINK-SEF" style="position:absolute;left:0px;top:0px;width:0px;height:0px;z-index:10;display:block;"></OBJECT>
+register event handler by function
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TVMW,GetVersion)
+getPluginName(TVMW)
+	return TVMW
+addPluginObject(TVMW,true)
+Create SEF Plugin for TVMW: <OBJECT id="_plugin_TVMW" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+[webapis] Wrapped Method GetVersion([object HTMLObjectElement], true)
+	SEF returns 1.000
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TV,GetProductType)
+getPluginName(TV)
+	return TV
+addPluginObject(TV,true)
+Create SEF Plugin for TV: <OBJECT id="_plugin_TV" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin([object HTMLObjectElement],GetVersion)
+[webapis] Wrapped Method GetVersion([object HTMLObjectElement], true)
+	SEF returns 1.112
+[AVPlay0] setDisplayRect([object Object])
+[AVPlay0] _setStatus(1) -> PLAY_STATE_INITIALIZED
+[AVPlay0] open(http://218.232.67.62:1935/live/mp4:a.stream/playlist.m3u8,)
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin([object HTMLObjectElement],InitPlayer,http://218.232.67.62:1935/live/mp4:a.stream/playlist.m3u8)
+	returns 1
+[AVPlay0] _setStatus(3) -> PLAY_STATE_PREPARED
+[AVPlay0] open(http://218.232.67.62:1935/live/mp4:a.stream/playlist.m3u8) returns true
+[AVPlay0] play(function,function,)
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin([object HTMLObjectElement],StartPlayback,0)
+	returns 1
+[AVPlay0] _setStatus(4) -> PLAY_STATE_STARTED
+[AVPlay0] setScreenSaver(false,)
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,SendEventToDevice,4,0)
+getPluginName(NNavi)
+	return NNavi
+	returns 1
+[AVPlay0] PlayerEventListener : onEvent(9,,) -> STREAM_INFO_READY
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin([object HTMLObjectElement],GetVideoResolution)
+	returns 720|404
+[AVPlay0] getVideoResolution() returns 720|404
+[AVPlay0] getFitDisplayArea(720,404) returns SRect(left:300, top:86, width:1620, height:909)
+[AVPlay0] setDisplayArea(SRect(left:300, top:86, width:1620, height:909))
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin([object HTMLObjectElement],SetDisplayArea,300,86,1620,909,1080)
+	returns 1
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin([object HTMLObjectElement],GetDuration)
+	returns -1
+[AVPlay0] getDuration() returns -1
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin([object HTMLObjectElement],GetTotalNumOfStreamID,3)
+	returns 1
+[AVPlay0] getTotalNumOfStreamID(3) returns 1
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin([object HTMLObjectElement],GetTotalNumOfStreamID,1)
+	returns 1
+[AVPlay0] getTotalNumOfStreamID(1) returns 1
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin([object HTMLObjectElement],GetTotalNumOfStreamID,5)
+	returns 0
+[AVPlay0] getTotalNumOfStreamID(5) returns 0
+######onSuccess: 
+[AVPlay0] PlayerEventListener : onEvent(11,,) -> BUFFERING_START
+[AVPlay0] _setStatus(4) -> PLAY_STATE_STARTED
+[AVPlay0] PlayerEventListener : onEvent(13,1,) -> BUFFERING_PROGRESS
+[AVPlay0] PlayerEventListener : onEvent(12,,) -> BUFFERING_COMPLETE
+[AVPlay0] PlayerEventListener : onEvent(7,,) -> RENDERING_START
+[AVPlay0] PlayerEventListener : onEvent(14,200,) -> CURRENT_PLAYBACK_TIME
+[AVPlay0] PlayerEventListener : onEvent(14,734,) -> CURRENT_PLAYBACK_TIME
+[AVPlay0] PlayerEventListener : onEvent(14,1234,) -> CURRENT_PLAYBACK_TIME
+SelectWatchPg keyDown
+Key pressed: 45
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+9
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+3
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+16
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+9
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+3
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+16
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+32
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+4,남성언더웨어/잠옷
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+4,남성언더웨어/잠옷
+4
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+9,선글라스/안경테
+9
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+3,뷰티소품
+3
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+16,모니터
+16
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+4
+남성언더웨어/잠옷
+!!
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+4
+남성언더웨어/잠옷
+!!
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+9
+선글라스/안경테
+!!
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+3
+뷰티소품
+!!
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+16
+모니터
+!!
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+32
+수예
+!!
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[0][3]')
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+여성신발
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+스킨케어
+남성화장품
+향수
+뷰티소품
+클렌징
+마스크/팩
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+헤어케어
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+네일케어
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+여성신발
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+스킨케어
+남성화장품
+향수
+뷰티소품
+클렌징
+마스크/팩
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+헤어케어
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+네일케어
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+여성신발
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+스킨케어
+남성화장품
+향수
+뷰티소품
+클렌징
+마스크/팩
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+헤어케어
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29443 ,index:0
+TVSchedulePg_key : Enter
+tabMenu
+TVSchedulePg mid Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+TVSchedulePg mid Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+TVSchedulePg mid Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[value.firstId - 1][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+여성의류
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+여성신발
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+스킨케어
+남성화장품
+향수
+뷰티소품
+클렌징
+마스크/팩
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+헤어케어
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+네일케어
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+1
+2
+3
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+1
+2
+3
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성화장품
+향수
+뷰티소품
+클렌징
+마스크/팩
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+1
+2
+3
+4
+5
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+1
+2
+3
+4
+5
+6
+7
+1
+2
+3
+4
+5
+6
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+기저귀
+물티슈
+이유식
+간식/영양제
+수유용품
+유모차
+카시트
+외출용품
+목욕용품
+스킨/바디용품
+위생/건강용품
+구강/청결용품
+소독/살균용품
+안전용품
+유아가구
+이유식용품
+임부복
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+수산
+농산물
+반찬
+김치
+음료
+과자
+아이스크림/빙수
+가공식품
+냉동/간편조리식품
+건강식품
+다이어트식품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+캠핑
+골프
+자전거
+스키/보드
+낚시
+수영
+헬스
+인라인스케이트
+요가/필라테스
+오토바이/스쿠터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방용품
+세탁용품
+수납/정리용품
+문구/사무용품
+생활용품
+공구
+화방용품
+악기
+애완
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+모바일쿠폰/상품권
+지류/카드상품권
+여행/항공권
+e컨텐츠
+레저이용권
+꽃/케이크배달
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주얼리
+시계/기프트
+패션/잡화
+전자제품
+향수
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[currentFirstCategory].length')
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[INFO] window.onShow
+Key pressed: 45
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=test111
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+기저귀
+물티슈
+이유식
+간식/영양제
+수유용품
+유모차
+카시트
+외출용품
+목욕용품
+스킨/바디용품
+위생/건강용품
+구강/청결용품
+소독/살균용품
+안전용품
+유아가구
+이유식용품
+임부복
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+수산
+농산물
+반찬
+김치
+음료
+과자
+아이스크림/빙수
+가공식품
+냉동/간편조리식품
+건강식품
+다이어트식품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+캠핑
+골프
+자전거
+스키/보드
+낚시
+수영
+헬스
+인라인스케이트
+요가/필라테스
+오토바이/스쿠터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방용품
+세탁용품
+수납/정리용품
+문구/사무용품
+생활용품
+공구
+화방용품
+악기
+애완
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+모바일쿠폰/상품권
+지류/카드상품권
+여행/항공권
+e컨텐츠
+레저이용권
+꽃/케이크배달
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주얼리
+시계/기프트
+패션/잡화
+전자제품
+향수
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+기저귀
+물티슈
+이유식
+간식/영양제
+수유용품
+유모차
+카시트
+외출용품
+목욕용품
+스킨/바디용품
+위생/건강용품
+구강/청결용품
+소독/살균용품
+안전용품
+유아가구
+이유식용품
+임부복
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+기저귀
+물티슈
+이유식
+간식/영양제
+수유용품
+유모차
+카시트
+외출용품
+목욕용품
+스킨/바디용품
+위생/건강용품
+구강/청결용품
+소독/살균용품
+안전용품
+유아가구
+이유식용품
+임부복
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+수산
+농산물
+반찬
+김치
+음료
+과자
+아이스크림/빙수
+가공식품
+냉동/간편조리식품
+건강식품
+다이어트식품
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+기저귀
+물티슈
+이유식
+간식/영양제
+수유용품
+유모차
+카시트
+외출용품
+목욕용품
+스킨/바디용품
+위생/건강용품
+구강/청결용품
+소독/살균용품
+안전용품
+유아가구
+이유식용품
+임부복
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+주방가구
+수납가구
+침구단품
+커튼/블라인드
+거실가구
+서재/사무용가구
+DIY자제/용품
+침구세트
+홈데코
+카페트/러그
+아동/주니어가구
+아웃도어가구
+인테리어소품
+솜류
+수예
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+모바일쿠폰/상품권
+지류/카드상품권
+여행/항공권
+e컨텐츠
+레저이용권
+꽃/케이크배달
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+주방용품
+세탁용품
+수납/정리용품
+문구/사무용품
+생활용품
+공구
+화방용품
+악기
+애완
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+캠핑
+골프
+자전거
+스키/보드
+낚시
+수영
+헬스
+인라인스케이트
+요가/필라테스
+오토바이/스쿠터
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+수산
+농산물
+반찬
+김치
+음료
+과자
+아이스크림/빙수
+가공식품
+냉동/간편조리식품
+건강식품
+다이어트식품
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+기저귀
+물티슈
+이유식
+간식/영양제
+수유용품
+유모차
+카시트
+외출용품
+목욕용품
+스킨/바디용품
+위생/건강용품
+구강/청결용품
+소독/살균용품
+안전용품
+유아가구
+이유식용품
+임부복
+유아의류
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 5 ,index:0
+TVSchedulePg_key : Right
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+남성의류
+아동의류
+여성언더웨어/잠옷
+남성언더웨어/잠옷
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+남성신발
+여성가방
+남성가방
+여행용가방/소품
+지갑
+시계
+주얼리
+모자
+선글라스/안경테
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+선케어
+베이스메이크업
+색조메이크업
+클렌징
+마스크/팩
+헤어케어
+헤어스타일링
+바디케어
+네일케어
+남성화장품
+향수
+뷰티소품
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+카메라/캠코더용품
+영상가전
+생활가전
+주방가전
+휴대폰액세서리
+게임/타이틀
+음향가전
+이미용가전
+계절가전
+저장장치
+네트워크장비
+PC주변기기
+자동차기기
+노트북
+태블릿PC
+PC
+모니터
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 5 ,index:0
+TVSchedulePg_key : Right
+TVSchedulePg big Category keyDown
+Key pressed: 29443 ,index:0
+TVSchedulePg_key : Enter
+tabMenu
+TVSchedulePg mid Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29443 ,index:0
+TVSchedulePg_key : Enter
+tabMenu
+TVSchedulePg mid Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 88 ,index:0
+TVSchedulePg_key : RETURN
+SelectWatchPg onLoad
+4
+SelectWatchPg focus
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetServiceConfig)
+getPluginName(NNavi)
+	return NNavi
+addPluginObject(NNavi,true)
+Create SEF Plugin for NNavi: <OBJECT id="_plugin_NNavi" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+[AVPlay] sServiceConfig: {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+string
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,0)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+addPluginObject(TaskManager,true)
+Create SEF Plugin for TaskManager: <OBJECT id="_plugin_TaskManager" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,2)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+	returns 0
+[AVPlay] bSupportMultiApplication: false
+[webapis] onHide function added.
+[AVPlay] getAVPlay() succeeded. -> 0th [object Object]
+[AVPlay0] init([object Object])
+[AVPlay0] initialize(player,,_plugin_Player_0)
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetFirmware)
+getPluginName(NNavi)
+	return NNavi
+	returns T-INFOLINK2014-1000
+[AVPlay0] Firmware : T-INFOLINK2014-1000
+[AVPlay0] setPlayerPluginObject(player,,_plugin_Player_0)
+[AVPlay0] old ePlayerPlugin : null
+[AVPlay0] !ERROR! cannot get player element.
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TVMW,GetVersion)
+getPluginName(TVMW)
+	return TVMW
+addPluginObject(TVMW,true)
+Create SEF Plugin for TVMW: <OBJECT id="_plugin_TVMW" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+[webapis] Wrapped Method GetVersion([object HTMLObjectElement], true)
+	SEF returns 1.000
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TV,GetProductType)
+getPluginName(TV)
+	return TV
+addPluginObject(TV,true)
+Create SEF Plugin for TV: <OBJECT id="_plugin_TV" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(,GetVersion)
+CANNOT get the plugin object (undefined)
+[AVPlay0] setDisplayRect([object Object])
+######getAVplay Exception :[undefined] 'null' is not an object (evaluating 'eInnerContainerDiv.style')
+[AVPlay0] open(http://218.232.67.62:1935/live/mp4:a.stream/playlist.m3u8,)
+[AVPlay0] !THROW ERROR! WebAPIDOMErrorCode.INVALID_STATE_ERR
+The object is in an invalid state.
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+TypeError: 'undefined' is not an object (evaluating 'TVSchedulePg.big.append')
+Main
+main_key : Down
+3
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Right
+TVSchedulePg onLoad
+TypeError: 'undefined' is not an object (evaluating 'TVSchedulePg.big.append')
+Main
+main_key : Right
+TVSchedulePg onLoad
+TypeError: 'undefined' is not an object (evaluating 'TVSchedulePg.big.append')
+Main
+main_key : Right
+TVSchedulePg onLoad
+TypeError: 'undefined' is not an object (evaluating 'TVSchedulePg.big.append')
+Main
+Unhandled key
+Main
+Unhandled key
+Main
+Unhandled key
+Main
+Unhandled key
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+SyntaxError: Expected token ')'
+ReferenceError: Can't find variable: TVSchedulePg
+Main.onLoad
+3
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+TypeError: 'undefined' is not an object (evaluating 'secondCategory[Number(value.firstId - 1)][temp]=value.name')
+Main
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+4
+4
+Main_onLoad completed
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Enter
+main_key : Panel Enter
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29461 ,index:0
+TVSchedulePg_key : Down
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu
+TVSchedulePg big Category keyDown
+Key pressed: 29460 ,index:0
+TVSchedulePg_key : Up
+tabMenu

@@ -1,0 +1,160 @@
+[INFO] window.onPreShow
+[INFO] window.onShow
+[INFO] window.onFocusin
+[INFO] window.onShow
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
+Main.onLoad
+3
+4
+[webapis] 0 onShow functions.
+Main
+main_key : Down
+0
+[object Object]
+Main
+main_key : Down
+1
+[object Object]
+Main
+main_key : Down
+2
+[object Object]
+Main
+main_key : Right
+TVSchedulePg onLoad
+
+TVSchedulePg.focus
+tabMenu
+2
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 4 ,index:0
+TVSchedulePg_key : Left
+TVSchedulePg big Category keyDown
+Key pressed: 5 ,index:0
+TVSchedulePg_key : Right
+TVSchedulePg big Category keyDown
+Key pressed: 88 ,index:0
+TVSchedulePg_key : RETURN
+SelectWatchPg onLoad
+4
+SelectWatchPg focus
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetServiceConfig)
+getPluginName(NNavi)
+	return NNavi
+addPluginObject(NNavi,true)
+Create SEF Plugin for NNavi: <OBJECT id="_plugin_NNavi" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+[AVPlay] sServiceConfig: {
+   "CategoryType" : "LED",
+   "ChipInfo" : "ECHO_P",
+   "LocalSet" : "EU",
+   "Model" : "UES8000",
+   "ProductType" : "TV",
+   "ZeroLeft" : "TTX/MIX",
+   "ZeroLeftCode" : "2",
+   "ZeroRight" : "PRE-CH",
+   "ZeroRightCode" : "1"
+}
+
+string
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,0)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+addPluginObject(TaskManager,true)
+Create SEF Plugin for TaskManager: <OBJECT id="_plugin_TaskManager" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TaskManager,CheckSupportMultiTaskingApp,2)
+getPluginName(TaskManager)
+	return(as it is) TaskManager
+	returns 0
+[AVPlay] bSupportMultiApplication: false
+[webapis] onHide function added.
+[AVPlay] getAVPlay() succeeded. -> 0th [object Object]
+[AVPlay0] init([object Object])
+[AVPlay0] initialize(player,,_plugin_Player_0)
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(NNavi,GetFirmware)
+getPluginName(NNavi)
+	return NNavi
+	returns T-INFOLINK2014-1000
+[AVPlay0] Firmware : T-INFOLINK2014-1000
+[AVPlay0] setPlayerPluginObject(player,,_plugin_Player_0)
+[AVPlay0] old ePlayerPlugin : null
+[AVPlay0] !ERROR! cannot get player element.
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TVMW,GetVersion)
+getPluginName(TVMW)
+	return TVMW
+addPluginObject(TVMW,true)
+Create SEF Plugin for TVMW: <OBJECT id="_plugin_TVMW" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+[webapis] Wrapped Method GetVersion([object HTMLObjectElement], true)
+	SEF returns 1.000
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(TV,GetProductType)
+getPluginName(TV)
+	return TV
+addPluginObject(TV,true)
+Create SEF Plugin for TV: <OBJECT id="_plugin_TV" classid="clsid:SAMSUNG-INFOLINK-SEF" style="display:block;position:absolute;width:0px;height:0px;"></OBJECT>
+SEF Open Returns 1
+SEF Open Succeded!!!
+	returns 0
+webapis._plugin.getSEFAvailable()
+2012's Webkit platform
+[webapis] _plugin(,GetVersion)
+CANNOT get the plugin object (undefined)
+[AVPlay0] setDisplayRect([object Object])
+######getAVplay Exception :[undefined] 'null' is not an object (evaluating 'eInnerContainerDiv.style')
+[AVPlay0] open(http://218.232.67.62:1935/live/mp4:a.stream/playlist.m3u8,)
+[AVPlay0] !THROW ERROR! WebAPIDOMErrorCode.INVALID_STATE_ERR
+The object is in an invalid state.
+TVSchedulePg big Category keyDown
+Key pressed: 45 ,index:0
+Unhandled key
+sendEvent
+pType : 202
+pParam : stat=ok&type=destroy&id=Framework
+pStatus : 1
+This event is Not Register!!
+[INFO] window.onFocusin
