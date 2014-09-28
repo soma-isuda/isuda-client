@@ -2,7 +2,7 @@ var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 
 // pagearr : information about pages in pageinfo
-var page_index = 0;
+var page_index = 1;
 var Main =
 {
 	layout:{
@@ -64,9 +64,15 @@ Main.keyDown = function()
 			
 		case tvKey.KEY_UP:
 			alert("main_key : Up");
-			if(page_index > 0){
+			if(page_index > 1){
 				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
 				Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
+				Main.layout.page.load(pagearr[page_index].html);
+			}
+			else{
+				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+				page_index = pagearr.length-1;
+				Main.sideBarMenu.btn.eq(page_index).addClass('focus');
 				Main.layout.page.load(pagearr[page_index].html);
 			}
 			break;
@@ -78,6 +84,13 @@ Main.keyDown = function()
 				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
 				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');				
 				Main.layout.page.load(pagearr[page_index].html);
+			}
+			else{
+				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+				page_index = 1;
+				Main.sideBarMenu.btn.eq(page_index).addClass('focus');				
+				Main.layout.page.load(pagearr[page_index].html);
+
 			}
 			break;
 		case tvKey.KEY_ENTER:

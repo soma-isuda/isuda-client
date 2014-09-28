@@ -5,10 +5,58 @@
 	background-color: #fffbf0;
 }
 #mainImage {
-	width: 1740px;
-	height: 540px;
+	width: 1790px;
+	height: 669px;
+
+}
+
+#main1 {
+	float: left;
+	display: inline-block;
+	width: 1204px;
+	height: 100%;
 	background-color: #c0dcc0;
 }
+
+#main2 {
+	float: right;
+	display: inline-block;
+	width: 586px;
+	height: 100%;
+	background-color: blue;
+}
+
+#MultiWatchPg_btn1{
+	margin-top: 537px;
+	margin-left: 910px;
+
+}
+#MultiWatchPg_btn2{
+	margin-top: 537px;
+	margin-left: 189px;
+}
+
+#mainImage div button {
+	width: 208px;
+	height: 68px;
+
+}
+#mainTitle {
+	width: 425px;
+	height: 55px;
+	margin: 4px 0 4px 44px;
+	background-color: #ff4916;
+	color: #fafafa;
+	font-size: 33px; 
+	line-height: 200%;
+	text-indent: 10px;
+}
+
+#maintTitle div {
+	
+	margin-left: 10px;
+}
+
 #MultiWatchPg.focus{
 	color: red;
 }
