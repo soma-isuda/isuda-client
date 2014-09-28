@@ -14,7 +14,7 @@ MultiWatchPg.onLoad = function()
 				success : function (data) {
 					$.each(data, function() {
 						//console.log(this.index);
-					    $('ul').append('<li class="MultiWatchPgItem"> <div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="productEndTime">방송 혜택 종료까지 </div><div class="productName"></div><div class="productPrice">최대 혜택가</div></div><div><img src="img/moviefocus.PNG" alt="" id="img'+cnt+'" class="focusImg multiWatchPgElem"></div></li>');
+					    jQuery('#mainItem').find('ul').append('<li class="MultiWatchPgItem"> <div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="productEndTime">방송 혜택 종료까지 </div><div class="productName"></div><div class="productPrice">최대 혜택가</div></div><div><img src="img/moviefocus.PNG" alt="" id="img'+cnt+'" class="focusImg multiWatchPgElem"></div></li>');
 						if (++cnt >5) {
 							return false;
 						};
@@ -113,6 +113,7 @@ MultiWatchPg.keyDown = function()
 			}
 			break;
 		case tvKey.KEY_DOWN:
+			//$("#sideBar").animate({"top": "-=250px"}, "fast");
 			alert("MultiWatchPg_key : Down");
 			if(MultiWatchPg_index<=1){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');

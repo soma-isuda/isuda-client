@@ -10,12 +10,13 @@ body
 {
 	width: 1920px;
 	height: 1080px;
-	overflow: hidden;	
+	overflow: hidden;
+	background-color: #f0f0d8;	
 }
 #sideBar {
 	float: left;
 	width: 430px;
-	height: 1500px;
+	height: 660px;
 	position: absolute;
 	background-color: #f0f0d8;
 }
