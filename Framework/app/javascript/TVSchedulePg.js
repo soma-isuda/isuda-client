@@ -37,6 +37,7 @@ TVSchedulePg.onLoad = function () {
     
     //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
     TVSchedulePg.bigElem.eq(big_index).addClass('focus');
+
 };
 
 
@@ -45,11 +46,7 @@ TVSchedulePg.focus = function () {
     alert("TVSchedulePg.focus");
     TVSchedulePg.anchor.big.focus();
 
-
     tabMenu();
-    // focus initialize
-    //TVSchedulePg_index =0;
-
 };
 
 TVSchedulePg.enableKeys = function () {
@@ -63,8 +60,8 @@ tabMenu = function () {
     //clear mid tag
     //jQuery('#mid').find('ul').empty();
     jQuery('#mid > ul').empty();
+    
     //중분류를 불러온다.
-     
     for (var i = 0; i < secondCategory[big_index].length ; i++) {
         TVSchedulePg.mid.append('<li>' + secondCategory[big_index][i] + '</li>');
     }
@@ -72,6 +69,7 @@ tabMenu = function () {
         midElem: jQuery('#mid').find('ul > li'),
     });
 };
+
 
 //[[[[[[[[[대분류]]]]]]]]]]]에서의 키처리를 담당하는 부분
 TVSchedulePg.bigKeyDown = function () {
@@ -133,21 +131,21 @@ TVSchedulePg.bigKeyDown = function () {
         case tvKey.KEY_PANEL_ENTER:
             alert("TVSchedulePg_key : Enter");
             mid_index = 0;
-            
-            
+
+
             TVSchedulePg.anchor.mid.focus();//중분류로 anchor를 넘긴다
             //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
 
             alert(TVSchedulePg.midElem.eq(mid_index));
             TVSchedulePg.midElem.eq(mid_index).addClass('focus');
-           
+
             break;
         default:
             alert("Unhandled key");
             break;
     }
 };
-
+    
 TVSchedulePg.midKeyDown = function () {
     alert("TVSchedulePg mid Category keyDown");
     var keyCode = event.keyCode;
