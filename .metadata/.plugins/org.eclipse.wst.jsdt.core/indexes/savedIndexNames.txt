@@ -1,7 +1,0 @@
-INDEX VERSION 1.3+C:\Users\choi\Desktop\CDS\소프트웨어 마에스트로\ISUDA_client\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2305085366.index
-3204149605.index
-679738678.index
-2799676231.index
-1121281945.index
-4163764552.index
