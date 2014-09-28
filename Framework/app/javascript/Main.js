@@ -3,6 +3,8 @@ var tvKey = new Common.API.TVKeyValue();
 
 // pagearr : information about pages in pageinfo
 var page_index = 1;
+//var sideBarMenuImg = $(".sideBarMenuImg img");
+
 var Main =
 {
 	layout:{
@@ -24,13 +26,12 @@ var Main =
 Main.onLoad = function()
 {
 	alert("Main.onLoad");
-	alert(pagearr.length);
-	alert(subPageArr.length);
-	
+	//alert(sideBarMenuImg.length);
 	Main.layout.page.load(pagearr[page_index].html);	
 	// Enable key event processing
 	this.focus();
 	widgetAPI.sendReadyEvent();
+
 };
 
 Main.focus = function()
@@ -39,8 +40,8 @@ Main.focus = function()
 	Main.layout.sideBar.addClass('focus');
 	Main.sideBarMenu.btn.eq(page_index).addClass('focus');
 	$("#sideBar").css("width","460px");
+	$(".sideBarMenuText").css("display","block");
 };
-
 Main.returnFocusFromPage = function()
 {
 	Main.anchor.main.focus();
@@ -82,7 +83,8 @@ Main.keyDown = function()
 			alert(pagearr[page_index]);
 			if(page_index < (pagearr.length-1)){
 				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
-				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');				
+				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
+				//sideBarMenuImg[page_index].attr({src:"../../img/icon1.png"});
 				Main.layout.page.load(pagearr[page_index].html);
 			}
 			else{
@@ -104,8 +106,9 @@ Main.keyDown = function()
 				pagearr[page_index].object.onLoad();
 			},10);			
 			Main.layout.sideBar.removeClass('focus');
-			Main.sideBarMenu.btn.removeClass('focus');
+			//Main.sideBarMenu.btn.removeClass('focus');
 			$("#sideBar").css("width","300px");
+			$(".sideBarMenuText").css("display","none");
 			document.getElementById(pagearr[page_index].name).style.marginLeft="130px";
 
 			//document.getElementById("MultiWatchPg").style.marginLeft="120px";

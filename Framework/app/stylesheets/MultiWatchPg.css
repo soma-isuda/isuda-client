@@ -1,5 +1,6 @@
 
 #MultiWatchPg{
+	height: 2000px;
 	margin-left:  430px;
 	position: absolute;
 	background-color: #fffbf0;
@@ -53,10 +54,64 @@
 }
 
 #maintTitle div {
-	
 	margin-left: 10px;
 }
+#mainItem {
+	background-color: white;
+}
+#mainItem ul {
+	list-style: none;
+}
+#mainItem ul li {
+	float: left;
+	position: relative;
+	width: 541px;
+	height: 270px;
+	background-color: green;
+	margin-left: 41px;
+	margin-bottom: 41px;
+}
 
+.multiWatchPgElem div{
+	float: left;
+	position: relative;
+	display: inline-block;
+}
+.imgArea {
+	width: 270px;
+	height: 270px;
+	margin-left: 9px;
+}
+.productInfoArea {
+	width: 261px;
+	height: 270px;
+}
+.productInfoArea div{
+	display: block;
+	position: relative;
+	width: 270px;
+	
+	background-color: yellow;
+}
+.productEndTime {
+	height: 86px;
+}
+.productName {
+	height: 100px;
+}
+.productPrice {
+	height: 85px;
+}
+
+.focusImg {
+	width: 541px;
+	height: 270px;
+	position: relative;
+	background-color: blue;
+	margin-top: -270px;
+	margin-left: -20px;
+	display: none;
+}
 #MultiWatchPg.focus{
 	color: red;
 }
