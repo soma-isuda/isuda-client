@@ -16,7 +16,7 @@
 	display: inline-block;
 	width: 1204px;
 	height: 100%;
-	background-color: #c0dcc0;
+	background-image: url("../../img/main1.png");
 }
 
 #main2 {
@@ -24,7 +24,7 @@
 	display: inline-block;
 	width: 586px;
 	height: 100%;
-	background-color: blue;
+	background-image: url("../../img/main2.png");
 }
 
 #MultiWatchPg_btn1{

@@ -19,16 +19,39 @@ body
 	position: absolute;
 	background-color: #f0f0d8;
 }
+#sideBar ul {
+	list-style: none;
+}
 #sideBar ul li {
 	height: 130px;
 	font-size: 20px;
 	border-bottom: solid #b7b7a4;
+
+}
+.sideBarMenu div{
+	float: left;
+	position: relative;
+	text-align: center;
+}
+.sideBarMenuImg {
+	width: 130px;
+	height: 130px;
+	
+}
+.sideBarMenuText {
+	width: 300px;
+	height: 130px;
+	text-align: center;
+	line-height: 130px;
+	font-size: 30px;
+	
 }
 #sideBar.focus{
-	color: white;
+	
 
 }
 
 #sideBar > ul li.focus { 
  	background-color: #7f1c00;
+ 	color: white;
 }
