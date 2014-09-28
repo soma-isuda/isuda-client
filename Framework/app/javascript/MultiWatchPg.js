@@ -116,7 +116,7 @@ MultiWatchPg.keyDown = function()
 			alert("MultiWatchPg_key : Down");
 			if(MultiWatchPg_index<=1){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				MultiWatchPg_index = MultiWatchPg_index+3
+				MultiWatchPg_index = MultiWatchPg_index+3;
 				$(img[MultiWatchPg_index]).css("display","block");
 				$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
 			}

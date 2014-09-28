@@ -159,7 +159,7 @@ TVSchedulePg.bigKeyDown = function()
 			alert("Unhandled key");
 			break;
 	}
-
+};
 
 //[[[[[[[[[대분류]]]]]]]]]]]에서의 키처리를 담당하는 부분
 TVSchedulePg.bigKeyDown = function () {
