@@ -17,16 +17,18 @@ body
 	width: 430px;
 	height: 100%;
 	position: absolute;
-	background-color: #a6caf0;
+	background-color: #f0f0d8;
 }
 #sideBar ul li {
 	height: 130px;
 	font-size: 20px;
+	border-bottom: solid #b7b7a4;
 }
 #sideBar.focus{
 	color: white;
+
 }
 
 #sideBar > ul li.focus { 
- 	border: 6px solid #c409d2;
+ 	background-color: #7f1c00;
 }

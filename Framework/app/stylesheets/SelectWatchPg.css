@@ -13,16 +13,16 @@
 #SelectWatchPgMenu ul li {
 	height: 120px;
 	font-size: 20px;
-	background-color: yellow;
+	background-color: #b7b7a4;
 }
 #SelectWatchPg.focus{
 	
 }
 #SelectWatchPgMenu ul li.focus { 
- 	background-color: blue;
+ 	background-color: #001367;
 }
 #SelectWatchPgMenu ul li.select { 
- 	background-color: orange;
+ 	background-color: #ff4916;
 }
 
 #player{
@@ -30,7 +30,7 @@
 	left:0;
 	width: 1200px;
 	height: 800px;
-	background-color: blue;
+	background-color: #001367;
 	opacity: 0;
 }
 
