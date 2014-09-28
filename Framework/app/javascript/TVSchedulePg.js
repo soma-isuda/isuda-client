@@ -1,11 +1,11 @@
 //global variables
 var TVSchedulePg_index = 0;
 var big_index = 0;
-var mid_index = 0;
+var mid_index;
 
 var TVSchedulePg = {
-
-
+    
+    
 };
 
 TVSchedulePg.onLoad = function () {
@@ -30,9 +30,11 @@ TVSchedulePg.onLoad = function () {
 
     //CSS를 위한 선택자
     jQuery.extend(TVSchedulePg, {
+        midElem: jQuery('#mid').find('ul > li'),
         bigElem: jQuery('#big').find('ul > li'),
-        midElem: jQuery('#mid').find('ul>li')
+
     });
+    
     //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
     TVSchedulePg.bigElem.eq(big_index).addClass('focus');
 };
@@ -59,12 +61,16 @@ tabMenu = function () {
 
     alert("tabMenu");
     //clear mid tag
-    jQuery('#mid').find('ul').empty();
-    // Load second category
-    for (var i = 1; i < secondCategory[big_index].length ; i++) {
+    //jQuery('#mid').find('ul').empty();
+    jQuery('#mid > ul').empty();
+    //중분류를 불러온다.
+     
+    for (var i = 0; i < secondCategory[big_index].length ; i++) {
         TVSchedulePg.mid.append('<li>' + secondCategory[big_index][i] + '</li>');
     }
-
+    jQuery.extend(TVSchedulePg, {
+        midElem: jQuery('#mid').find('ul > li'),
+    });
 };
 
 //[[[[[[[[[대분류]]]]]]]]]]]에서의 키처리를 담당하는 부분
@@ -91,7 +97,7 @@ TVSchedulePg.bigKeyDown = function () {
             alert("TVSchedulePg_key : Up");
 
             TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
-            //중분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
+            //대분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
             if (big_index == 0)
                 big_index = firstCategory.length - 1;
             else
@@ -106,7 +112,7 @@ TVSchedulePg.bigKeyDown = function () {
 
 
             TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
-            //중분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
+            //대분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
             if (big_index == firstCategory.length - 1)
                 big_index = 0;
             else
@@ -126,10 +132,15 @@ TVSchedulePg.bigKeyDown = function () {
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             alert("TVSchedulePg_key : Enter");
-            tabMenu();
+            mid_index = 0;
+            
+            
             TVSchedulePg.anchor.mid.focus();//중분류로 anchor를 넘긴다
             //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
+
+            alert(TVSchedulePg.midElem.eq(mid_index));
             TVSchedulePg.midElem.eq(mid_index).addClass('focus');
+           
             break;
         default:
             alert("Unhandled key");
@@ -152,15 +163,40 @@ TVSchedulePg.midKeyDown = function () {
             break;
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
+
+            //다시 대분류로 포커스를 넘긴다.
+            TVSchedulePg.anchor.big.focus();//중분류로 anchor를 넘긴다
             break;
         case tvKey.KEY_RIGHT:
             alert("TVSchedulePg_key : Right");
             break;
         case tvKey.KEY_UP:
             alert("TVSchedulePg_key : Up");
+            TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
+
+            //중분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
+            if (mid_index == 0)
+                mid_index = secondCategory[big_index].length - 1;
+            else
+                mid_index--;
+
+            TVSchedulePg.midElem.eq(mid_index).addClass('focus');
             break;
         case tvKey.KEY_DOWN:
             alert("TVSchedulePg_key : Down");
+ 
+            TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
+
+            //중분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
+            alert('mid_index:' + mid_index);//for debug
+            if (mid_index == secondCategory[big_index].length - 1)
+                mid_index = 0;
+            else
+                mid_index++;
+
+            TVSchedulePg.midElem.eq(mid_index).addClass('focus');
+           
+
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
