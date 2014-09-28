@@ -108,13 +108,13 @@ TVSchedulePg.bigKeyDown = function()
 			break;
 		case tvKey.KEY_UP:
 		    alert("TVSchedulePg_key : Up");
-<<<<<<< HEAD
+
             //중분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
 		    TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
 		    if (big_index == 0)
 		        big_index = firstCategory.length;
 			TVSchedulePg.bigElem.eq(--big_index).addClass('focus');
-=======
+
             
 		    TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
 		    //중분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
@@ -124,20 +124,20 @@ TVSchedulePg.bigKeyDown = function()
 		        big_index--;
 
 			TVSchedulePg.bigElem.eq(big_index).addClass('focus');
->>>>>>> 17f33c095d63243e293107e439146f56b07ad2b8
+
 			tabMenu();
 			
 			break;
 		case tvKey.KEY_DOWN:
 		    alert("TVSchedulePg_key : Down");
-<<<<<<< HEAD
+
             //중분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
             TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
 		    if (big_index == firstCategory.length-1) {
 		        big_index = -1;
 		    }
 			TVSchedulePg.bigElem.eq(++big_index).addClass('focus');
-=======
+
             
 		  
 		    TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
@@ -148,7 +148,7 @@ TVSchedulePg.bigKeyDown = function()
 		        big_index++;
 
 			TVSchedulePg.bigElem.eq(big_index).addClass('focus');
->>>>>>> 17f33c095d63243e293107e439146f56b07ad2b8
+
 			tabMenu();
 			
 			break;

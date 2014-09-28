@@ -73,7 +73,7 @@
 	border: 0;
 }
 
-.multiWatchPgElem div{
+.MultiWatchPgItem div{
 	float: left;
 	position: relative;
 	display: inline-block;
@@ -114,11 +114,9 @@
 	opacity: 0.6;
 	margin-top: -269px;
 	margin-left: 1px;
-	display: block;
+	display: none;
 }
-#MultiWatchPg.focus{
-	color: red;
-}
+
 .MultiWatchPgElem.focus { 
- 	border: 15px solid #c409d2;
+ 	background-color: #001367;
 }
