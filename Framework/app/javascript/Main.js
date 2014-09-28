@@ -36,7 +36,6 @@ Main.onLoad = function()
 	this.focus();
 	widgetAPI.sendReadyEvent();
 
-	
 	alert('Main_onLoad completed');
 
 };
