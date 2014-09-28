@@ -1,6 +1,10 @@
 var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 
+//category Array for 'TVSchedulePg'
+var firstCategory = new Array() ;//1-dimension array
+var secondCategory = new Array();//2-dimension array [first : index][second :data]
+
 // pagearr : information about pages in pageinfo
 var page_index = 1;
 //var sideBarMenuImg = $(".sideBarMenuImg img");
@@ -31,6 +35,41 @@ Main.onLoad = function()
 	// Enable key event processing
 	this.focus();
 	widgetAPI.sendReadyEvent();
+
+    //get ALL category information
+	jQuery.ajax({
+	    url: 'http://172.16.100.171:3000/getFirstCategory',
+	    type: 'GET',
+	    dataType: 'json',
+	    success: function (data) {
+	        $.each(data, function (key,value) {
+	            firstCategory[Number(value.id - 1)] = value.name;
+	            secondCategory[Number(value.id-1)] = new Array();//declare 2-dimension array
+	        });
+	    }
+	});
+	
+	jQuery.ajax({
+	    url: 'http://172.16.100.171:3000/getSecondCategory',
+	    type: 'GET',
+	    dataType: 'json',
+	    success: function (data) {
+	        var temp = 0;
+	        var firstCategoryTemp = -1;
+	        $.each(data, function (key, value) {
+	            
+	            if (firstCategoryTemp < Number(value.firstId - 1)) {
+	                temp = 0;
+	                firstCategoryTemp = Number(value.firstId - 1);
+                }
+	            secondCategory[Number(value.firstId - 1)][temp]=value.name;//2-dimensional array
+	            temp++;
+	            
+	        });
+	    }
+	})
+	
+	alert('Main_onLoad completed');
 
 };
 

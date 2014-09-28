@@ -1,0 +1,9 @@
+[INFO] window.onPreShow
+[INFO] window.onShow
+[INFO] window.onFocusin
+[INFO] window.onShow
+[INFO] window.onFocusin
+[webapis.js] loading start
+	[webapis.js] Version : 1.2.14
+Print: AllShare Web API  JS: 1.3.0.9
+[webapis.js] loading finished
