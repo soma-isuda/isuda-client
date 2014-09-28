@@ -41,12 +41,14 @@
  	border: 6px solid #c409d2;
     background-color:white;
 }
+/*
 .mid.focus{
 	color: orange;
 	border: 6px solid #c409d2;
-}
+}*/
 
-.mid li.focus { 
+#mid > ul li.focus { 
  	border: 6px solid #c409d2;
+     background-color:white;
 }
 
