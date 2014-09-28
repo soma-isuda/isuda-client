@@ -1,5 +1,6 @@
 
 var TVSchedulePg= {
+
 	
 };
 //midArr = ["mid1", "mid2"]; 
@@ -8,7 +9,7 @@ TVSchedulePg.onLoad = function()
 	alert("TVSchedulePg onLoad");
 	//document.getElementById("TVSchedulePg").style.marginLeft="1460px";
 	jQuery.extend(TVSchedulePg,{
-		big : jQuery('#big').find('ul>li'),
+		big : jQuery('#big').find('ul'),
 		mid : jQuery('.mid'),
 		anchor: {
 			big : jQuery('#anchor_TVSchedulePg_bigCategory'),
@@ -16,6 +17,20 @@ TVSchedulePg.onLoad = function()
 			main : jQuery('#anchor_TVSchedulePg')
 		}
 	});
+			jQuery.ajax({
+				url : 'http://172.16.100.171:3000/getFristCategory',
+				type : 'GET',
+				dataType : 'json',
+				success : function (data) {
+					$.each(data, function() {
+					    TVSchedulePg.big.append('<li>'+this.name+'"</li>');
+					});					
+//					jQuery('#input').val(data);
+				}
+			});			
+
+
+
 	this.focus();	
 };
 
