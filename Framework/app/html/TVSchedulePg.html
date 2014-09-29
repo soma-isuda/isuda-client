@@ -1,20 +1,52 @@
 <div id="TVSchedulePg">
     <!-- 대분류 -->
     <div id="big">
-		<ul>
-			
-		</ul>
-	</div>
+        <ul></ul>
+    </div>
     <!-- 중분류 -->
-	<div id="mid">
-		<!--<ul class="mid">-->
-        <ul>
-			
-		</ul>
-	</div>
+    <div id="mid">
+        <!--<ul class="mid">-->
+        <ul></ul>
+    </div>
     <!-- 해당하는 중분류의 상품을 가져온다-->
-	<div id="item"></div>
+    
+    <div id="product">
+        <div id="product_header">
+            <div id="reserve_Category">
+                해당 카테고리 예약
+            </div>
+        </div>
+
+        
+        <div id="product_nav">
+            2014년 09월 29일
+        </div>
+
+        <div id="product_list_pg">
+            <ul id="product_list">
+
+            </ul>
+        </div>
+    </div>
+    
 </div>
-<a href="javascript:void(0);" id="anchor_TVSchedulePg_bigCategory" onkeydown="TVSchedulePg.bigKeyDown();"></a> 
-<a href="javascript:void(0);" id="anchor_TVSchedulePg_midCategory" onkeydown="TVSchedulePg.midKeyDown();"></a> 
-<a href="javascript:void(0);" id="anchor_TVSchedulePg" onkeydown="TVSchedulePg.keyDown();"></a> 
+<a href="javascript:void(0);" id="anchor_TVSchedulePg_bigCategory" onkeydown="TVSchedulePg.bigKeyDown();"></a>
+<a href="javascript:void(0);" id="anchor_TVSchedulePg_midCategory" onkeydown="TVSchedulePg.midKeyDown();"></a>
+<a href="javascript:void(0);" id="anchor_TVSchedulePg_productList" onkeydown="TVSchedulePg.listKeyDown();"></a>
+<a href="javascript:void(0);" id="anchor_TVSchedulePg" onkeydown="TVSchedulePg.keyDown();"></a>
+
+<!--
+<li class="product_list_item">
+    <div class="imgArea">
+        <img src="' + value.productImgURL + '" alt="" class="productImg">
+    </div>
+    <div class="productEndTime"></div>
+    <div class="productInfoArea">
+        <div class="productName"></div>
+        <div class="productPrice">최대 혜택가</div>
+    </div>
+    <div>
+        <img src="img/moviefocus.PNG" alt="" id="img' + cnt + '" class="focusImg multiWatchPgElem">
+    </div>
+</li>
+-->
