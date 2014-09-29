@@ -8,13 +8,9 @@ MultiWatchPg.onLoad = function()
 {	
 	cnt=0;
 	jQuery.ajax({
-<<<<<<< HEAD
+
 	            
                 url:'http://172.16.100.171:3000/productInfo',
-=======
-				//url : 'http://61.43.139.145:3000/productInfo',
-				url : 'http://172.16.100.171:3000/productInfo',
->>>>>>> 857d7d63c5ecb822fc6552cbd4535460dd52249b
 				type : 'GET',
 				dataType : 'json',
 				success : function (data) {
