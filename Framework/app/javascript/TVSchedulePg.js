@@ -71,6 +71,96 @@ tabMenu = function () {
 };
 
 
+//대분류에서의 키처리를 담당하는 부분
+TVSchedulePg.bigKeyDown = function()
+{
+	alert("TVSchedulePg big Category keyDown");
+	var keyCode = event.keyCode;
+	alert("Key pressed: " + keyCode +" ,index:" + TVSchedulePg_index);
+	
+	switch(keyCode)
+	{
+		case tvKey.KEY_RETURN:
+		case tvKey.KEY_PANEL_RETURN:
+			//앱이 종료되는것을 방지해준다.
+			widgetAPI.blockNavigation(event);
+			alert("TVSchedulePg_key : RETURN");
+			SelectWatchPg.onLoad();
+			break;
+	    case tvKey.KEY_LEFT:
+			alert("TVSchedulePg_key : Left");
+			break;
+	    case tvKey.KEY_RIGHT:
+	        //현재 보고 있던 대분류의 포커스는 유지한 상태로
+	        //중분류 첫번째에 포커스를 준뒤,
+	        //TVSchedulePg.midKeyDown으로 키처리를 넘긴다.
+	        alert("TVSchedulePg_key : Right");
+
+            //중분류로 포커스를 넘긴다.
+	        TVSchedulePg.anchor.mid.focus();
+	        //중분류 첫번째에 초점을 맞춘상태로 시작한다.
+	        TVSchedulePg.midElem.eq(mid_index).addClass('focus');
+			break;
+		case tvKey.KEY_UP:
+		    alert("TVSchedulePg_key : Up");
+
+            //중분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
+		    TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+		    if (big_index == 0)
+		        big_index = firstCategory.length;
+			TVSchedulePg.bigElem.eq(--big_index).addClass('focus');
+
+            
+		    TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+		    //중분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
+		    if (big_index == 0)
+		        big_index = firstCategory.length-1;
+		    else
+		        big_index--;
+
+			TVSchedulePg.bigElem.eq(big_index).addClass('focus');
+
+			tabMenu();
+			
+			break;
+		case tvKey.KEY_DOWN:
+		    alert("TVSchedulePg_key : Down");
+
+            //중분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
+            TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+		    if (big_index == firstCategory.length-1) {
+		        big_index = -1;
+		    }
+			TVSchedulePg.bigElem.eq(++big_index).addClass('focus');
+
+            
+		  
+		    TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+		    //중분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
+		    if (big_index == firstCategory.length-1)
+		        big_index = 0;
+		    else
+		        big_index++;
+
+			TVSchedulePg.bigElem.eq(big_index).addClass('focus');
+
+			tabMenu();
+			
+			break;
+		case tvKey.KEY_ENTER:
+		case tvKey.KEY_PANEL_ENTER:
+			alert("TVSchedulePg_key : Enter");
+			TVSchedulePg.big.eq(big_index).removeClass('focus');
+			tabMenu();
+			TVSchedulePg.anchor.mid.focus();//중분류로 anchor를 넘긴다
+			TVSchedulePg.mid.eq(mid_index).find('li').focus();
+			break;
+		default:
+			alert("Unhandled key");
+			break;
+	}
+};
+
 //[[[[[[[[[대분류]]]]]]]]]]]에서의 키처리를 담당하는 부분
 TVSchedulePg.bigKeyDown = function () {
     alert("TVSchedulePg big Category keyDown");
@@ -144,6 +234,7 @@ TVSchedulePg.bigKeyDown = function () {
             alert("Unhandled key");
             break;
     }
+
 };
     
 //[[[[[[[[[중분류]]]]]]]]]]]에서의 키처리를 담당하는 부분
