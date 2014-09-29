@@ -1,5 +1,8 @@
-var firstcategoryarr=[];
-var secondcategoryarr=[];
+//category Array for 'TVSchedulePg'
+var firstCategory = new Array();//1-dimension array
+var secondCategory = new Array();//2-dimension array [first : index][second :data]
+var secondCategoryNumber = new Array();//해당 중분류의 second id를 저장한다.
+
 $(document).ready(function(){
     //get ALL category information
 	jQuery.ajax({
@@ -19,7 +22,7 @@ $(document).ready(function(){
 	    	        var temp = 0;
 	    	        var firstCategoryTemp = -1;
 	    	        $.each(data, function (key, value) {
-	    	            
+	    	            secondCategoryNumber[value.name] = value.id;
 	    	            if (firstCategoryTemp < Number(value.firstId - 1)) {
 	    	                temp = 0;
 	    	                firstCategoryTemp = Number(value.firstId - 1);
@@ -33,7 +36,6 @@ $(document).ready(function(){
 	        
 	    }
 	});
-	
 
 	
 });

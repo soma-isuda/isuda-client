@@ -1,9 +1,6 @@
 var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 
-//category Array for 'TVSchedulePg'
-var firstCategory = new Array() ;//1-dimension array
-var secondCategory = new Array();//2-dimension array [first : index][second :data]
 
 // pagearr : information about pages in pageinfo
 var page_index = 1;
