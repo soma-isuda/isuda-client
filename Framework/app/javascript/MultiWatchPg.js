@@ -1,28 +1,32 @@
-var img = ["dummy","dummy","#img0","#img1","#img2","#img3","#img4","#img5"];
-var cnt=0;
+var productImg = ["dummy","dummy","#productImg0","#productImg1","#productImg2","#productImg3","#productImg4","#productImg5"];
+var MultiWatchPgItem = ["#MultiWatchPgItem0","#MultiWatchPgItem1","#MultiWatchPgItem2","#MultiWatchPgItem3","#MultiWatchPgItem4","#MultiWatchPgItem5"];
+var color = ["#00a9e0","#f4811f","#e51937","#cadb2a","#e4010d","#f4614d"];
+var cnt=-1;
+
 var MultiWatchPg= {
 	
 };
 
 MultiWatchPg.onLoad = function()
 {	
-	cnt=0;
 	jQuery.ajax({
-				//url : 'http://61.43.139.145:3000/productInfo',
-				url : 'http://172.16.100.171:3000/productInfo',
-				type : 'GET',
-				dataType : 'json',
-				success : function (data) {
-					$.each(data, function() {
-						//console.log(this.index);
-					    jQuery('#mainItem').find('ul').append('<li class="MultiWatchPgItem"> <div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="productEndTime">방송 혜택 종료까지 </div><div class="productName"></div><div class="productPrice">최대 혜택가</div></div><div><img src="img/moviefocus.PNG" alt="" id="img'+cnt+'" class="focusImg multiWatchPgElem"></div></li>');
-						if (++cnt >5) {
-							return false;
-						};
-					});					
-//					jQuery('#input').val(data);
-				}
+		//url : 'http://61.43.139.145:3000/productInfo',
+		url : 'http://172.16.100.171:3000/productInfo',
+		type : 'GET',
+		dataType : 'json',
+		success : function (data) {
+			$.each(data, function() {
+				if (++cnt >5) {
+					alert(cnt);
+					return false;
+				};
+			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"> <div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="productEndTime">방송 혜택 종료까지 </div><div class="productName"></div><div class="productPrice">최대 혜택가</div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
+				$(MultiWatchPgItem[cnt]).css('background-color',color[cnt]);
+				
 			});					
+//					jQuery('#input').val(data);
+		}
+	});					
 	jQuery.extend(MultiWatchPg,{
 		MultiWatchPgElem : jQuery('.MultiWatchPgElem'),
 		anchor:{
@@ -30,7 +34,8 @@ MultiWatchPg.onLoad = function()
 		}
 		//focus: 0
 	});
-	this.focus();	
+
+	this.focus();
 };
 
 var MultiWatchPg_index =0;
@@ -68,13 +73,17 @@ MultiWatchPg.keyDown = function()
 				//focus move to sideBar
 				MultiWatchPg.anchor.main.removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				$(img[MultiWatchPg_index]).css("display","none");
+				$(productImg[MultiWatchPg_index]).css("display","none");
 
 				Main.focus();
 			}
+			else if(MultiWatchPg_index==1){
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				MultiWatchPg.MultiWatchPgElem.eq(--MultiWatchPg_index).addClass('focus');
+			}
 			else{
-				$(img[MultiWatchPg_index]).css("display","none");
-				$(img[--MultiWatchPg_index]).css("display","block");
+				$(productImg[MultiWatchPg_index]).css("display","none");
+				$(productImg[--MultiWatchPg_index]).css("display","block");
 			}
 			break;
 		case tvKey.KEY_RIGHT:
@@ -84,11 +93,11 @@ MultiWatchPg.keyDown = function()
 				MultiWatchPg.MultiWatchPgElem.eq(++MultiWatchPg_index).addClass('focus');
 			}
 			else if(MultiWatchPg_index>1){
-				$(img[MultiWatchPg_index]).css("display","none");
+				$(productImg[MultiWatchPg_index]).css("display","none");
 				if(MultiWatchPg_index == 7){
 					MultiWatchPg_index = 1;
 				}
-				$(img[++MultiWatchPg_index]).css("display","block");
+				$(productImg[++MultiWatchPg_index]).css("display","block");
 			}
 			break;
 		case tvKey.KEY_UP:
@@ -97,10 +106,10 @@ MultiWatchPg.keyDown = function()
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
 				MultiWatchPg_index += 6;
-				$(img[MultiWatchPg_index]).css("display","block");
+				$(productImg[MultiWatchPg_index]).css("display","block");
 			}
 			else{
-				$(img[MultiWatchPg_index]).css("display","none");
+				$(productImg[MultiWatchPg_index]).css("display","none");
 				MultiWatchPg_index -= 3;
 				if (MultiWatchPg_index<2) {
 					if (MultiWatchPg_index <0) 
@@ -109,7 +118,7 @@ MultiWatchPg.keyDown = function()
 					MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
 				}
 				else{
-					$(img[MultiWatchPg_index]).css("display","block");
+					$(productImg[MultiWatchPg_index]).css("display","block");
 				}
 			}
 			break;
@@ -119,15 +128,15 @@ MultiWatchPg.keyDown = function()
 			if(MultiWatchPg_index<=1){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				MultiWatchPg_index = MultiWatchPg_index+3;
-				$(img[MultiWatchPg_index]).css("display","block");
+				$(productImg[MultiWatchPg_index]).css("display","block");
 				$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
 			}
 			else if(MultiWatchPg_index>1){
-				$(img[MultiWatchPg_index]).css("display","none");
+				$(productImg[MultiWatchPg_index]).css("display","none");
 				if(MultiWatchPg_index >4)
 					MultiWatchPg_index -= 6;
 				MultiWatchPg_index += 3;
-				$(img[MultiWatchPg_index]).css("display","block");
+				$(productImg[MultiWatchPg_index]).css("display","block");
 			}
 			break;
 		case tvKey.KEY_ENTER:
