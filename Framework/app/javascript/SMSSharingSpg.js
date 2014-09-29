@@ -12,7 +12,7 @@ SMSSharingSpg.onLoad = function()
 			main : jQuery('#anchor_SMSSharingSpg')
 		}
 	});
-	//this.focus();	
+	this.focus();	
 };
 
 var SMSSharingSpg_index =0;

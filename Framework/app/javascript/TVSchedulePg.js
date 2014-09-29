@@ -85,7 +85,7 @@ TVSchedulePg.bigKeyDown = function()
 			//앱이 종료되는것을 방지해준다.
 			widgetAPI.blockNavigation(event);
 			alert("TVSchedulePg_key : RETURN");
-			SelectWatchPg.onLoad();
+			//SelectWatchPg.onLoad();
 			break;
 	    case tvKey.KEY_LEFT:
 			alert("TVSchedulePg_key : Left");
@@ -222,7 +222,7 @@ TVSchedulePg.bigKeyDown = function () {
             alert("TVSchedulePg_key : Enter");
             mid_index = 0;
 
-
+            tabMenu();
             TVSchedulePg.anchor.mid.focus();//중분류로 anchor를 넘긴다
             //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
 
@@ -237,6 +237,7 @@ TVSchedulePg.bigKeyDown = function () {
 
 };
     
+//[[[[[[[[[중분류]]]]]]]]]]]에서의 키처리를 담당하는 부분
 TVSchedulePg.midKeyDown = function () {
     alert("TVSchedulePg mid Category keyDown");
     var keyCode = event.keyCode;
@@ -254,7 +255,9 @@ TVSchedulePg.midKeyDown = function () {
             alert("TVSchedulePg_key : Left");
 
             //다시 대분류로 포커스를 넘긴다.
-            TVSchedulePg.anchor.big.focus();//중분류로 anchor를 넘긴다
+            TVSchedulePg.anchor.big.focus();
+            //포커스가 넘어가면 중분류를 없앤다.
+            jQuery('#mid > ul').empty();
             break;
         case tvKey.KEY_RIGHT:
             alert("TVSchedulePg_key : Right");
@@ -289,14 +292,31 @@ TVSchedulePg.midKeyDown = function () {
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
-            //focus move to selectWatchPg
+            
             alert("TVSchedulePg_key : Enter");
+
+            //해당 중분류의 상품들을 불러온다.
+            //ajax요청
+            jQuery.ajax({
+                url: 'http://172.16.100.171:3000/productInfo?seconId='+secondCategoryNumber[secondCategory[big_index][mid_index]],
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var temp = 0;
+                    var firstCategoryTemp = -1;
+                    $.each(data, function (key, value) {
+                        //사진들을 적절한 위치에 삽입한다.
+
+                    });
+                }
+            });
             break;
         default:
             alert("Unhandled key");
             break;
     }
 };
+
 TVSchedulePg.KeyDown = function () {
     alert("TVSchedulePg keyDown");
     var keyCode = event.keyCode;

@@ -4,15 +4,21 @@
 }
 #SelectWatchPgMenu {
 	float: left;
-	width: 170px;
+	border-left: solid #ffffff;
+	border-right: solid #ffffff;	
+	width: 168px;
 	height: 1080px;
-	position: absolute;
-	background-color: green;
-	list-style:none;
+	background-color: #f0f0d8;
 }
 #SelectWatchPgMenu ul li {
-	height: 120px;
-	font-size: 20px;
+	list-style:none;
+	margin: 0 auto;
+	margin-top:25px;
+	padding: 35px;
+	width: 80px;
+	height: 80px;
+	font-size: 30px;
+	text-align: center;
 	background-color: #b7b7a4;
 }
 #SelectWatchPg.focus{
@@ -20,9 +26,11 @@
 }
 #SelectWatchPgMenu ul li.focus { 
  	background-color: #001367;
+ 	color: #f0f0d8;
 }
 #SelectWatchPgMenu ul li.select { 
  	background-color: #ff4916;
+ 	color: #f0f0d8; 	
 }
 
 #player{

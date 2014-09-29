@@ -12,7 +12,7 @@ DetailInfoSpg.onLoad = function()
 			main : jQuery('#anchor_DetailInfoSpg')
 		}
 	});
-	//this.focus();	
+	this.focus();	
 };
 
 var DetailInfoSpg_index =0;
@@ -41,12 +41,13 @@ DetailInfoSpg.keyDown = function()
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
 			//앱이 종료되는것을 방지해준다.
-			widgetAPI.blockNavigation(event);
 			alert("DetailInfoSpg_key : RETURN");
-			SelectWatchPg.onLoad();
-			break;
+			widgetAPI.blockNavigation(event);
 		case tvKey.KEY_LEFT:
 			alert("DetailInfoSpg_key : Left");
+			document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
+			SelectWatchPg.onLoad();
+			
 			break;
 		case tvKey.KEY_RIGHT:
 			alert("DetailInfoSpg_key : Right");
