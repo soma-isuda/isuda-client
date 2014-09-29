@@ -1,5 +1,4 @@
 #SelectWatchPg{
-	margin-left:  430px;
 	position: absolute;
 }
 #SelectWatchPgMenu {
@@ -38,7 +37,6 @@
 	left:0;
 	width: 1200px;
 	height: 800px;
-	background-color: #001367;
 	opacity: 0;
 }
 

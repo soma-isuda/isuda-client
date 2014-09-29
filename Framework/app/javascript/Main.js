@@ -48,6 +48,7 @@ Main.focus = function()
 	Main.sideBarMenu.btn.eq(page_index).addClass('focus');
 	$("#sideBar").css("width","460px");
 	$(".sideBarMenuText").css("display","block");
+	document.getElementById("article").style.marginLeft="460px";
 //	document.getElementById("article").style.marginLeft="430px";	
 };
 

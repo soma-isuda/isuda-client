@@ -136,8 +136,9 @@ MultiWatchPg.keyDown = function()
 			if (MultiWatchPg_index>=3) {
 				MultiWatchPg.anchor.main.removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				
-				Main.layout.page.load(pagearr[++page_index].html);
+				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
+				Main.layout.page.load(pagearr[page_index].html);
 				setTimeout(function(){
 					pagearr[page_index].object.onLoad();
 				},10);
