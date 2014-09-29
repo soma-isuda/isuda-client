@@ -70,9 +70,10 @@
 	background-color: green;
 	margin-left: 41px;
 	margin-bottom: 41px;
+	border: 0;
 }
 
-.multiWatchPgElem div{
+.MultiWatchPgItem div{
 	float: left;
 	position: relative;
 	display: inline-block;
@@ -81,16 +82,18 @@
 	width: 270px;
 	height: 270px;
 	margin-left: 9px;
+	border: 0;
 }
 .productInfoArea {
-	width: 261px;
+	width: 255px;
 	height: 270px;
+	border: 0;
 }
 .productInfoArea div{
 	display: block;
 	position: relative;
 	width: 270px;
-	
+	border: 0;
 	background-color: yellow;
 }
 .productEndTime {
@@ -107,14 +110,13 @@
 	width: 541px;
 	height: 270px;
 	position: relative;
-	background-color: blue;
-	margin-top: -270px;
-	margin-left: -20px;
+	/*background-image: url("../../img/moviefocus.PNG");*/
+	opacity: 0.6;
+	margin-top: -269px;
+	margin-left: 1px;
 	display: none;
 }
-#MultiWatchPg.focus{
-	color: red;
-}
+
 .MultiWatchPgElem.focus { 
- 	border: 15px solid #c409d2;
+ 	background-color: #001367;
 }

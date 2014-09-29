@@ -1,9 +1,6 @@
 var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 
-//category Array for 'TVSchedulePg'
-var firstCategory = new Array() ;//1-dimension array
-var secondCategory = new Array();//2-dimension array [first : index][second :data]
 
 // pagearr : information about pages in pageinfo
 var page_index = 1;
@@ -77,35 +74,21 @@ Main.keyDown = function()
 			
 		case tvKey.KEY_UP:
 			alert("main_key : Up");
-			if(page_index > 1){
-				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
-				Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
-				Main.layout.page.load(pagearr[page_index].html);
-			}
-			else{
-				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
-				page_index = pagearr.length-1;
-				Main.sideBarMenu.btn.eq(page_index).addClass('focus');
-				Main.layout.page.load(pagearr[page_index].html);
-			}
+			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+			if(page_index == 1)
+				page_index = Main.sideBarMenu.btn.length;
+
+			Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
+			Main.layout.page.load(pagearr[page_index].html);
 			break;
 		case tvKey.KEY_DOWN:
 			alert("main_key : Down");
-			alert(page_index);
-			alert(pagearr[page_index]);
-			if(page_index < (pagearr.length-1)){
-				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
-				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
-				//sideBarMenuImg[page_index].attr({src:"../../img/icon1.png"});
-				Main.layout.page.load(pagearr[page_index].html);
-			}
-			else{
-				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
-				page_index = 1;
-				Main.sideBarMenu.btn.eq(page_index).addClass('focus');				
-				Main.layout.page.load(pagearr[page_index].html);
+			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+			if(page_index == Main.sideBarMenu.btn.length-1)
+				page_index = 0;
 
-			}
+			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
+			Main.layout.page.load(pagearr[page_index].html);
 			break;
 		case tvKey.KEY_ENTER:
 			alert("main_key : Enter");

@@ -1,10 +1,27 @@
-
+var img = ["dummy","dummy","#img0","#img1","#img2","#img3","#img4","#img5"];
+var cnt=0;
 var MultiWatchPg= {
 	
 };
 
 MultiWatchPg.onLoad = function()
-{
+{	
+	cnt=0;
+	jQuery.ajax({
+				url : 'http://61.43.139.145:3000/productInfo',
+				type : 'GET',
+				dataType : 'json',
+				success : function (data) {
+					$.each(data, function() {
+						//console.log(this.index);
+					    jQuery('#mainItem').find('ul').append('<li class="MultiWatchPgItem"> <div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="productEndTime">방송 혜택 종료까지 </div><div class="productName"></div><div class="productPrice">최대 혜택가</div></div><div><img src="img/moviefocus.PNG" alt="" id="img'+cnt+'" class="focusImg multiWatchPgElem"></div></li>');
+						if (++cnt >5) {
+							return false;
+						};
+					});					
+//					jQuery('#input').val(data);
+				}
+			});					
 	jQuery.extend(MultiWatchPg,{
 		MultiWatchPgElem : jQuery('.MultiWatchPgElem'),
 		anchor:{
@@ -19,6 +36,7 @@ var MultiWatchPg_index =0;
 
 MultiWatchPg.focus = function(){ 
 	alert("MultiWatchPg.focus");
+	$(img[2]).css("display","block");
 	MultiWatchPg.anchor.main.focus();
 	// focus initialize
 	MultiWatchPg_index =0;
@@ -49,63 +67,67 @@ MultiWatchPg.keyDown = function()
 				//focus move to sideBar
 				MultiWatchPg.anchor.main.removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				$(img[MultiWatchPg_index]).css("display","none");
+
 				Main.onLoad();
 			}
 			else{
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				MultiWatchPg.MultiWatchPgElem.eq(--MultiWatchPg_index).addClass('focus');
+				$(img[MultiWatchPg_index]).css("display","none");
+				$(img[--MultiWatchPg_index]).css("display","block");
 			}
 			break;
 		case tvKey.KEY_RIGHT:
 			alert("MultiWatchPg_key : Right");
-			if(MultiWatchPg_index==1){
-				//background image change
-			}
-			else if(MultiWatchPg_index==7){
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				MultiWatchPg_index=2;
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
-			}
-			else{
+			if(MultiWatchPg_index<1){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(++MultiWatchPg_index).addClass('focus');
+			}
+			else if(MultiWatchPg_index>1){
+				$(img[MultiWatchPg_index]).css("display","none");
+				if(MultiWatchPg_index == 7){
+					MultiWatchPg_index = 1;
+				}
+				$(img[++MultiWatchPg_index]).css("display","block");
 			}
 			break;
 		case tvKey.KEY_UP:
 			alert("MultiWatchPg_key : Up");
-			if(MultiWatchPg_index<3){
+			if(MultiWatchPg_index<2){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
 				MultiWatchPg_index += 6;
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+				$(img[MultiWatchPg_index]).css("display","block");
 			}
 			else{
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				if (MultiWatchPg_index<6) {
-					$("#MultiWatchPg").animate({"top": "+=250px"}, "fast");
-				};
+				$(img[MultiWatchPg_index]).css("display","none");
 				MultiWatchPg_index -= 3;
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+				if (MultiWatchPg_index<2) {
+					if (MultiWatchPg_index <0) 
+						MultiWatchPg_index=0;
+					$("#MultiWatchPg").animate({"top": "+=250px"}, "fast");
+					MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+				}
+				else{
+					$(img[MultiWatchPg_index]).css("display","block");
+				}
 			}
 			break;
 		case tvKey.KEY_DOWN:
+			//$("#sideBar").animate({"top": "-=250px"}, "fast");
 			alert("MultiWatchPg_key : Down");
-			if(MultiWatchPg_index<6){
+			if(MultiWatchPg_index<=1){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				if (MultiWatchPg_index<3) {
-					$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
-				};
+				MultiWatchPg_index = MultiWatchPg_index+3;
+				$(img[MultiWatchPg_index]).css("display","block");
+				$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
+			}
+			else if(MultiWatchPg_index>1){
+				$(img[MultiWatchPg_index]).css("display","none");
+				if(MultiWatchPg_index >4)
+					MultiWatchPg_index -= 6;
 				MultiWatchPg_index += 3;
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
-
+				$(img[MultiWatchPg_index]).css("display","block");
 			}
-			else{
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				$("#MultiWatchPg").animate({"top": "+=250px"}, "fast");
-				MultiWatchPg_index -= 6;
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
-			}
-
 			break;
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
