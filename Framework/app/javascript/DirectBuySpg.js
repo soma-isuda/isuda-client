@@ -12,7 +12,7 @@ DirectBuySpg.onLoad = function()
 			main : jQuery('#anchor_DirectBuySpg')
 		}
 	});
-	//this.focus();	
+	this.focus();	
 };
 
 var DirectBuySpg_index =0;

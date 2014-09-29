@@ -83,7 +83,7 @@ TVSchedulePg.bigKeyDown = function()
 			//앱이 종료되는것을 방지해준다.
 			widgetAPI.blockNavigation(event);
 			alert("TVSchedulePg_key : RETURN");
-			SelectWatchPg.onLoad();
+			//SelectWatchPg.onLoad();
 			break;
 	    case tvKey.KEY_LEFT:
 			alert("TVSchedulePg_key : Left");

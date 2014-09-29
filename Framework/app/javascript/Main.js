@@ -11,6 +11,7 @@ var page_index = 1;
 
 var Main =
 {
+	
 	layout:{
 		sideBar : jQuery('#sideBar'),
 		page	: jQuery('#article'),
@@ -34,8 +35,8 @@ Main.onLoad = function()
 	Main.layout.page.load(pagearr[page_index].html);	
 	// Enable key event processing
 	this.focus();
-	widgetAPI.sendReadyEvent();
 
+	widgetAPI.sendReadyEvent();
 	
 	alert('Main_onLoad completed');
 
@@ -43,12 +44,16 @@ Main.onLoad = function()
 
 Main.focus = function()
 {
+//	Main.layout.page.load(pagearr[page_index].html);	
+
 	Main.anchor.main.focus();
 	Main.layout.sideBar.addClass('focus');
 	Main.sideBarMenu.btn.eq(page_index).addClass('focus');
 	$("#sideBar").css("width","460px");
 	$(".sideBarMenuText").css("display","block");
+//	document.getElementById("article").style.marginLeft="430px";	
 };
+
 Main.returnFocusFromPage = function()
 {
 	Main.anchor.main.focus();
@@ -144,7 +149,7 @@ SubPage.keyDown = function(){
 
 			alert("SubPage_key : RETURN");
 			document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
-			SelectWatchPg.onLoad();
+//			SelectWatchPg.onLoad();
 			break;
 		case tvKey.KEY_LEFT:
 			alert("SubPage_key : Left");
