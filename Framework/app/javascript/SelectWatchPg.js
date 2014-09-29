@@ -1,6 +1,7 @@
 
 var SelectWatchPg_index =0; // = subPageArr_index
 var channel = 0;
+//var playerInit = false;
 
 var SelectWatchPg= {
 	
@@ -9,9 +10,9 @@ var SelectWatchPg= {
 SelectWatchPg.onLoad = function()
 {
 	alert("SelectWatchPg onLoad");
-	alert(subPageArr.length);
+//	alert(subPageArr.length);
 	jQuery.extend(SelectWatchPg,{
-		SelectWatchPgMenu : jQuery('#SelectWatchPgMenu').find('li'),
+		SelectWatchPgMenu : jQuery('#SelectWatchPgMenu').find('ul > li'),
 		layout:{
 			player : jQuery('#player')
 		},
@@ -22,10 +23,9 @@ SelectWatchPg.onLoad = function()
 	});
 	
 	//document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
-	
-	this.focus();
+	Player.init();
 
-	Player.init();	
+	this.focus();
 	Player.play(channel);
 
 };
@@ -54,67 +54,60 @@ SelectWatchPg.keyDown = function()
 	{
 		case tvKey.KEY_CH_UP:
 			Player.stop();
-			Player.play(channel=(channel+1)%url.length);
+			Player.play(channel=(channel+1)%videoURL.length);
 			break;
 		case tvKey.KEY_CH_DOWN:
 			Player.stop();
-			Player.play(channel=(channel-1)%url.length);
+			Player.play(channel=(channel-1)%videoURL.length);
 			break;			
 		
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
 			alert("SelectWatchPg_key : RETURN");
-			widgetAPI.sendReturnEvent();
-			break;
+			widgetAPI.blockNavigation(event);	
 		case tvKey.KEY_LEFT:
 			alert("SelectWatchPg_key : Left");
-			if(SelectWatchPg_index==0){ //이게 빠른지 3으로 나눈 나머지가 0인경우가 빠른지 모르겠다.
-				//focus move to sideBar
-				Player.stop();
-				SelectWatchPg.anchor.main.removeClass('focus');
-				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-				Main.onLoad();
-			}
-			else{
-				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-				SelectWatchPg.SelectWatchPgMenu.eq(--SelectWatchPg_index).addClass('focus');
-			}
+			Player.stop();
+			SelectWatchPg.anchor.main.removeClass('focus');
+			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
+			Main.focus();
 			break;
 		case tvKey.KEY_RIGHT:
 			alert("SelectWatchPg_key : Right");
-			if(SelectWatchPg_index==3){
-				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-				SelectWatchPg_index=0;
-				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
-			}
-			else{
-				SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-				SelectWatchPg.SelectWatchPgMenu.eq(++SelectWatchPg_index).addClass('focus');
-			}
 			break;
 		case tvKey.KEY_UP:
 			alert("SelectWatchPg_key : Up");
+			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');			
+			SelectWatchPg_index = (SelectWatchPg_index-1)%SelectWatchPg.SelectWatchPgMenu.size();
+			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');			
 			break;
+
 		case tvKey.KEY_DOWN:
 			alert("SelectWatchPg_key : Down");
+			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');			
+			SelectWatchPg_index = (SelectWatchPg_index+1)%SelectWatchPg.SelectWatchPgMenu.size();
+			alert(SelectWatchPg_index);
+			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');			
 			break;
+
 		case tvKey.KEY_ENTER: 
+		case tvKey.KEY_PANEL_ENTER:
+
 			alert("SelectWatchPg_index : "+ SelectWatchPg_index);
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 			Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html);
 			// setTimeout(function(){
 			// 	document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
 			// 	$("#"+subPageArr[SelectWatchPg_index].name).animate({left:'-460px'}, 1000);
 			//  },1);
-			
-			Main.anchor.subPage.focus();
+			setTimeout(function(){
+				subPageArr[SelectWatchPg_index].object.onLoad();
+			},10);
+
 			break;
-		case tvKey.KEY_PANEL_ENTER:
-			//focus move to selectWatchPg
-			widgetAPI.blockNavigation();
-			SelectWatchPg.unload();
-			alert("SelectWatchPg_key : RETURN");
-			break;
+
 		default:
 			alert("Unhandled key");
 			break;

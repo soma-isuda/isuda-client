@@ -8,8 +8,13 @@ MultiWatchPg.onLoad = function()
 {	
 	cnt=0;
 	jQuery.ajax({
+<<<<<<< HEAD
 	            
                 url:'http://172.16.100.171:3000/productInfo',
+=======
+				//url : 'http://61.43.139.145:3000/productInfo',
+				url : 'http://172.16.100.171:3000/productInfo',
+>>>>>>> 857d7d63c5ecb822fc6552cbd4535460dd52249b
 				type : 'GET',
 				dataType : 'json',
 				success : function (data) {
@@ -37,7 +42,7 @@ var MultiWatchPg_index =0;
 
 MultiWatchPg.focus = function(){ 
 	alert("MultiWatchPg.focus");
-	$(img[2]).css("display","block");
+
 	MultiWatchPg.anchor.main.focus();
 	// focus initialize
 	MultiWatchPg_index =0;
@@ -70,7 +75,7 @@ MultiWatchPg.keyDown = function()
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				$(img[MultiWatchPg_index]).css("display","none");
 
-				Main.onLoad();
+				Main.focus();
 			}
 			else{
 				$(img[MultiWatchPg_index]).css("display","none");
@@ -136,8 +141,9 @@ MultiWatchPg.keyDown = function()
 			if (MultiWatchPg_index>=3) {
 				MultiWatchPg.anchor.main.removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				
-				Main.layout.page.load(pagearr[++page_index].html);
+				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
+				Main.layout.page.load(pagearr[page_index].html);
 				setTimeout(function(){
 					pagearr[page_index].object.onLoad();
 				},10);

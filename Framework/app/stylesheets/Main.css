@@ -11,12 +11,12 @@ body
 	width: 1920px;
 	height: 1080px;
 	overflow: hidden;
-	background-color: #f0f0d8;	
+	
 }
 #sideBar {
 	float: left;
 	width: 430px;
-	height: 660px;
+	height: 100%;
 	position: absolute;
 	background-color: #f0f0d8;
 }
@@ -25,27 +25,29 @@ body
 }
 #sideBar ul li {
 	height: 130px;
-	font-size: 20px;
 	border-bottom: solid #b7b7a4;
-
 }
 .sideBarMenu div{
 	float: left;
 	position: relative;
-	text-align: center;
 }
 .sideBarMenuImg {
 	width: 130px;
 	height: 130px;
 	
 }
+
 .sideBarMenuText {
+	margin-left:10px;
 	width: 300px;
 	height: 130px;
-	text-align: center;
+	text-align: left;
 	line-height: 130px;
-	font-size: 30px;
-	
+	font-size: 25px;
+}
+
+#article {
+	margin-left: 430px;
 }
 #sideBar.focus{
 	
@@ -55,9 +57,13 @@ body
 #sideBar > ul li.focus { 
  	background-color: #7f1c00;
  	color: white;
+<<<<<<< HEAD
 }
 
 ul{
    list-style:none;
    padding-left:0px;
+=======
+ 	font-weight: bold; 
+>>>>>>> 857d7d63c5ecb822fc6552cbd4535460dd52249b
 }

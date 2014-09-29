@@ -12,7 +12,7 @@ ComparePriceSpg.onLoad = function()
 			main : jQuery('#anchor_ComparePriceSpg')
 		}
 	});
-	//this.focus();	
+	this.focus();	
 };
 
 var ComparePriceSpg_index =0;
