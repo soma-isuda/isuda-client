@@ -101,7 +101,7 @@ Main.keyDown = function()
 			//Main.sideBarMenu.btn.removeClass('focus');
 			$("#sideBar").css("width","300px");
 			$(".sideBarMenuText").css("display","none");
-			document.getElementById(pagearr[page_index].name).style.marginLeft="130px";
+			document.getElementById("article").style.marginLeft="130px";
 
 			//document.getElementById("MultiWatchPg").style.marginLeft="120px";
 			//pagearr[page_index].onLoad();
