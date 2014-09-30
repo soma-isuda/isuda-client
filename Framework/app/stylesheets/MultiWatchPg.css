@@ -29,7 +29,7 @@
 #MultiWatchPg_btn1{
 	margin-top: 537px;
 	margin-left: 910px;
-	
+
 }
 #MultiWatchPg_btn2{
 	margin-top: 537px;
@@ -39,7 +39,6 @@
 #mainImage div button {
 	width: 208px;
 	height: 68px;
-	font-size: 25px;
 
 }
 #mainTitle {
@@ -67,8 +66,10 @@
 	position: relative;
 	width: 541px;
 	height: 270px;
+	background-color: green;
 	margin-left: 41px;
 	margin-bottom: 41px;
+	border: 0;
 }
 
 .MultiWatchPgItem div{
@@ -80,11 +81,7 @@
 	width: 270px;
 	height: 270px;
 	margin-left: 9px;
-	background-color: white;
-}
-.imgArea img {
-	width: 270px;
-
+	border: 0;
 }
 .productInfoArea {
 	width: 255px;
@@ -94,7 +91,9 @@
 .productInfoArea div{
 	display: block;
 	position: relative;
-	width: 255px;
+	width: 270px;
+	border: 0;
+	background-color: yellow;
 }
 .productEndTime {
 	height: 86px;
@@ -119,5 +118,4 @@
 
 .MultiWatchPgElem.focus { 
  	background-color: #001367;
-	color: white;
- }
+}
