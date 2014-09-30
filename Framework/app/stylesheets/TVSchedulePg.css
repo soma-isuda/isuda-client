@@ -194,7 +194,7 @@
     margin-bottom:7px;
 
     font-size:0.7em;
-    z-index:1000;
+    /*z-index:1000;*/
 }
 .product_list_item>.productInfoArea {
 	width: 310px;

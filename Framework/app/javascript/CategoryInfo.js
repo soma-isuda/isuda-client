@@ -6,7 +6,7 @@ var secondCategoryNumber = new Array();//해당 중분류의 second id를 저장한다.
 $(document).ready(function(){
     //get ALL category information
 	jQuery.ajax({
-	    url: 'http://172.16.100.171:3000/getFirstCategory',
+	    url: SERVER_ADDRESS + '/getFirstCategory',
 	    type: 'GET',
 	    dataType: 'json',
 	    success: function (data) {
@@ -15,7 +15,7 @@ $(document).ready(function(){
 	            secondCategory[Number(value.id-1)] = new Array();//declare 2-dimension array
 	        });
 	    	jQuery.ajax({
-	    	    url: 'http://172.16.100.171:3000/getSecondCategory',
+	    	    url: SERVER_ADDRESS + '/getSecondCategory',
 	    	    type: 'GET',
 	    	    dataType: 'json',
 	    	    success: function (data) {

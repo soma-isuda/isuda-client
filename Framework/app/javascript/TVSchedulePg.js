@@ -18,6 +18,10 @@ var productNumber = 0;
 var productListLine = 0;
 //상품 목록들에서 포커스가 몇번째 줄에 있는지 확인하는 변수
 //--------------------------------------------------
+var productLoadedId = new Array();
+//현재 불러져 있는 상품들의 id를 차례대로 저장해 놓는 배열
+//상세정보 페이지등을 불러오는데 사용된다.
+//--------------------------------------------------
 var TVSchedulePg = {
     
     
@@ -227,7 +231,7 @@ TVSchedulePg.midKeyDown = function () {
             //ajax요청
             alert(secondCategoryNumber[secondCategory[big_index][mid_index]]);
             jQuery.ajax({
-                url: 'http://172.16.100.171:3000/productInfo?secondId='+secondCategoryNumber[secondCategory[big_index][mid_index]],
+                url: SERVER_ADDRESS + '/productInfo?secondId='+secondCategoryNumber[secondCategory[big_index][mid_index]],
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
@@ -239,6 +243,7 @@ TVSchedulePg.midKeyDown = function () {
                         productNumber++;
                         //상품 데이터들을 적절한 위치에 삽입한다.
                         jQuery('#product_list_pg').find('ul').append('<li class="product_list_item"> <div class="imgArea"><img src="' + value.productImgURL + '" alt="" class="productImg"></div><div class="productTime">' + value.productStartTime + ' ~ ' + value.productEndTime + '</div><div class="productInfoArea"><div class="productName">' + value.productName + '</div><div class="productPrice">최대 혜택가: ' + value.productPrice + '</div></div></li>');
+                        productLoadedId.push(value.id); // 로드된 상품들의 id를 저장해 놓는다.(상세정보 페이지를 위해)
                     });
                     if (productNumber == 0)//해당하는 중분류에 상품이 없을때,
                         jQuery('#product_list_pg').find('ul').append('<div style="width:1550px; height:876px; line-height:876px; font-size:3em; text-align:center;">해당 카테고리에 방송 예정 상품이 없습니다.</div>');
@@ -363,18 +368,23 @@ TVSchedulePg.listKeyDown = function () {
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
-            //focus move to selectWatchPg
             alert("TVSchedulePg_key : Enter");
-            if (productIndex == 0) {
+            if (productIndex == 0) {//해당 카테고리 예약에 포커스가 있을 때
                 //$(img[MultiWatchPg_index]).css("display", "none");
                 jQuery('#product>#product_header>#reserve_Category').addClass('focus');
+            }
+            else if (productIndex == 1) {//상품에 포커스가 있을 때
+                //상품 상세정보 페이지를 로드한다.
+                Main.layout.subPage.load(subPageArr[0].html);
+                setTimeout(function () {
+                    subPageArr[0].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
+                }, 10);
             }
             break;
         default:
             alert("Unhandled key");
             break;
     }
-    
 };
 
 
