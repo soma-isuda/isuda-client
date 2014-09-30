@@ -6,8 +6,7 @@ var secondCategoryNumber = new Array();//ÇØ´ç ÁßºÐ·ùÀÇ second id¸¦
 $(document).ready(function(){
     //get ALL category information
     jQuery.ajax({
-		url : 'http://61.43.139.145:3000/productInfo',
-		//url : 'http://172.16.100.171:3000/productInfo',
+		url: SERVER_ADDRESS + '/productInfo',
 		type : 'GET',
 		dataType : 'json',
 		success : function (data) {
@@ -23,8 +22,7 @@ $(document).ready(function(){
 		}
 	});	
 	jQuery.ajax({
-	    url : 'http://61.43.139.145:3000/getFirstCategory',
-	   // url: 'http://172.16.100.171:3000/getFirstCategory',
+	    url: SERVER_ADDRESS + '/getFirstCategory',
 	    type: 'GET',
 	    dataType: 'json',
 	    success: function (data) {
@@ -33,8 +31,7 @@ $(document).ready(function(){
 	            secondCategory[Number(value.id-1)] = new Array();//declare 2-dimension array
 	        });
 	    	jQuery.ajax({
-	    		url : 'http://61.43.139.145:3000/getSecondCategory',
-	    	    //url: 'http://172.16.100.171:3000/getSecondCategory',
+	    	    url: SERVER_ADDRESS + '/getSecondCategory',
 	    	    type: 'GET',
 	    	    dataType: 'json',
 	    	    success: function (data) {
