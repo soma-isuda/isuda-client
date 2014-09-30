@@ -95,6 +95,8 @@ SelectWatchPg.keyDown = function()
 
 			alert("SelectWatchPg_index : "+ SelectWatchPg_index);
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 			Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html);
 			// setTimeout(function(){
 			// 	document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
