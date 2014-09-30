@@ -9,6 +9,7 @@ var MultiWatchPg= {
 
 MultiWatchPg.onLoad = function()
 {	
+	// 화면이 올라가 있을 경우(아래화면이 보일경우) 다시 위에 화면이 보이게한다(화면을 내린다.)
 	jQuery.ajax({
 		url: SERVER_ADDRESS + '/productInfo',
 		type : 'GET',
@@ -43,8 +44,8 @@ MultiWatchPg.focus = function(){
 
 	MultiWatchPg.anchor.main.focus();
 	// focus initialize
-	MultiWatchPg_index =0;
 	MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+	$(productImg[MultiWatchPg_index]).css("display","block");
 };
 
 MultiWatchPg.enableKeys = function()
@@ -113,6 +114,7 @@ MultiWatchPg.keyDown = function()
 					if (MultiWatchPg_index <0) 
 						MultiWatchPg_index=0;
 					$("#MultiWatchPg").animate({"top": "+=250px"}, "fast");
+				
 					MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
 				}
 				else{
@@ -128,6 +130,7 @@ MultiWatchPg.keyDown = function()
 				MultiWatchPg_index = MultiWatchPg_index+3;
 				$(productImg[MultiWatchPg_index]).css("display","block");
 				$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
+		
 			}
 			else if(MultiWatchPg_index>1){
 				$(productImg[MultiWatchPg_index]).css("display","none");
