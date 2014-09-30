@@ -88,6 +88,7 @@ tabMenu = function () {
     });
 };
 
+
 //[[[[[[[[[대분류]]]]]]]]]]]에서의 키처리를 담당하는 부분
 TVSchedulePg.bigKeyDown = function () {
     alert("TVSchedulePg big Category keyDown");
@@ -227,21 +228,19 @@ TVSchedulePg.midKeyDown = function () {
             //ajax요청
             alert(secondCategoryNumber[secondCategory[big_index][mid_index]]);
             jQuery.ajax({
-                url: 'http://172.16.100.171:3000/productInfo?secondId='+secondCategoryNumber[secondCategory[big_index][mid_index]],
+                url: 'http://61.43.139.145:3000/productInfo?secondId='+secondCategoryNumber[secondCategory[big_index][mid_index]],
+                //url: 'http://172.16.100.171:3000/productInfo?secondId='+secondCategoryNumber[secondCategory[big_index][mid_index]],
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
                     var temp = 0;
                     var firstCategoryTemp = -1;
                     var cnt = 0;
-                    jQuery('#product_list_pg').find('ul').empty();
                     $.each(data, function (key, value) {
                         productNumber++;
                         //상품 데이터들을 적절한 위치에 삽입한다.
                         jQuery('#product_list_pg').find('ul').append('<li class="product_list_item"> <div class="imgArea"><img src="' + value.productImgURL + '" alt="" class="productImg"></div><div class="productTime">' + value.productStartTime + ' ~ ' + value.productEndTime + '</div><div class="productInfoArea"><div class="productName">' + value.productName + '</div><div class="productPrice">최대 혜택가: ' + value.productPrice + '</div></div></li>');
                     });
-                    if (productNumber == 0)//해당하는 중분류에 상품이 없을때,
-                        jQuery('#product_list_pg').find('ul').append('<div style="width:1550px; height:876px; line-height:876px; font-size:3em; text-align:center;">해당 카테고리에 방송 예정 상품이 없습니다.</div>');
                 }
             });
             
@@ -304,13 +303,9 @@ TVSchedulePg.listKeyDown = function () {
             else if (productIndex == 1 && productListIndex != (productNumber - 1)) {
                 //상품 리스트에 포커스가 있으면서, 마지막 상품이 아닌경우
                 jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).removeClass('focus');
-                productListIndex++;//다음 상품으로 이동
+                productListIndex++;//다음 상품으로 이동(4는 한줄에 4개의 상품임을 의미함)
 
                 jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).addClass('focus');
-                if ((productListIndex -1)% 4 == 3) {
-                        var pxMove = '-' + (510 * (++productListLine)) + 'px';
-                        jQuery('#product').css("top", pxMove);
-                }
             }
             
             break;
