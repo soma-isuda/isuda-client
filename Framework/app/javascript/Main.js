@@ -64,9 +64,13 @@ Main.returnFocusFromPage = function()
 Main.keyDown = function()
 {
 	var keyCode = event.keyCode;
-//	alert("Key pressed: " + keyCode);
 
-	alert("Main");	
+	// page가 바뀌면 카운트 값을 초기화하여 모아보기 페이지로 갈 떄 다시 상품데이터 로드
+	// 이 if가 없으면 한번만 로드하고 다시 모아보기 페이지로 갈 때 상품을 로드 하지 않는다.
+	if(page_index != 1)
+		cnt=-1;
+	alert("Main");
+		
 	switch(keyCode)
 	{
 		case tvKey.KEY_RETURN:
