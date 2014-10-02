@@ -104,7 +104,8 @@ TVSchedulePg.bigKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("TVSchedulePg_key : RETURN");
-            SelectWatchPg.onLoad();
+            //SelectWatchPg.onLoad();
+            //메인으로 포커스를 넘긴다.
             break;
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
