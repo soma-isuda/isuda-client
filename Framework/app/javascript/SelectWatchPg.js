@@ -7,27 +7,29 @@ var SelectWatchPg= {
 	
 };
 
-SelectWatchPg.onLoad = function()
+SelectWatchPg.onLoad = function(ch)
 {
 	alert("SelectWatchPg onLoad");
 //	alert(subPageArr.length);
 	jQuery.extend(SelectWatchPg,{
 		SelectWatchPgMenu : jQuery('#SelectWatchPgMenu').find('ul > li'),
-		layout:{
-			player : jQuery('#player')
-		},
+		player : jQuery('#player>video'),
 		anchor:{
 			main	: jQuery('#anchor_SelectWatchPg')
 		}
 		//focus: 0
 	});
+		
+	if(SelectWatchPg.player.get(0).paused || (typeof ch != 'undefined' && ch != channel)){
+		if(typeof ch != 'undefined'){
+			channel = ch;
+		}
+		SelectWatchPg.player.attr('src',videoURL[channel]);
+		SelectWatchPg.player[0].play();		
+	}
 	
-	//document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
-	Player.init();
-
 	this.focus();
-	Player.play(channel);
-
+	
 };
 
 SelectWatchPg.focus = function(){ 
@@ -52,14 +54,17 @@ SelectWatchPg.keyDown = function()
 
 	switch(keyCode)
 	{
+//		 채널 퀵변경 
 		case tvKey.KEY_CH_UP:
-			Player.stop();
-			Player.play(channel=(channel+1)%videoURL.length);
+			this.channel = (this.channel+videoURL.length+1)%videoURL.length;
+			SelectWatchPg.player.attr('src',videoURL[this.channel]);
+			SelectWatchPg.player[0].play();
 			break;
 		case tvKey.KEY_CH_DOWN:
-			Player.stop();
-			Player.play(channel=(channel-1)%videoURL.length);
-			break;			
+			this.channel = (this.channel+videoURL.length-1)%videoURL.length;
+			SelectWatchPg.player.attr('src',videoURL[this.channel]);
+			SelectWatchPg.player[0].play();
+			break;
 		
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
@@ -67,7 +72,6 @@ SelectWatchPg.keyDown = function()
 			widgetAPI.blockNavigation(event);	
 		case tvKey.KEY_LEFT:
 			alert("SelectWatchPg_key : Left");
-			Player.stop();
 			SelectWatchPg.anchor.main.removeClass('focus');
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
 			Main.focus();

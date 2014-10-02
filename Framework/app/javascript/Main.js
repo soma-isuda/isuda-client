@@ -116,6 +116,12 @@ Main.keyDown = function()
 			//document.getElementById("MultiWatchPg").style.marginLeft="120px";
 			//pagearr[page_index].onLoad();
 			break;
+		case tvKey.KEY_PLAY:
+            alert("PLAY");
+           var lAudioNote = document.getElementById("video");
+            lAudioNote.play();
+            break;
+			
 		default:
 			alert("Unhandled key");
 			break;
