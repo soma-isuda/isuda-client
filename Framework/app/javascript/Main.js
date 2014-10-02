@@ -2,7 +2,7 @@ var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
+var SERVER_ADDRESS = SERVER_ADDRESS_IN;
 
 // pagearr : information about pages in pageinfo
 var page_index = 1;
