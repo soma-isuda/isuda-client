@@ -43,10 +43,11 @@ DirectBuySpg.keyDown = function()
 			//앱이 종료되는것을 방지해준다.
 			widgetAPI.blockNavigation(event);
 			alert("DirectBuySpg_key : RETURN");
-			SelectWatchPg.onLoad();
-			break;
 		case tvKey.KEY_LEFT:
 			alert("DirectBuySpg_key : Left");
+			jQuery('#DirectBuySpg').hide();//페이지를 닫는다.			
+			SelectWatchPg.focus();
+
 			break;
 		case tvKey.KEY_RIGHT:
 			alert("DirectBuySpg_key : Right");

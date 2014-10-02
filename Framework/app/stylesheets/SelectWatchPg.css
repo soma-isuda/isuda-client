@@ -33,10 +33,9 @@
 }
 
 #player{
+	position:absolute;
+	left: 304px;
 	top:0;
-	left:0;
-	width: 1200px;
-	height: 800px;
 	opacity: 0;
 }
 

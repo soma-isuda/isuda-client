@@ -43,10 +43,10 @@ SMSSharingSpg.keyDown = function()
 			//앱이 종료되는것을 방지해준다.
 			widgetAPI.blockNavigation(event);
 			alert("SMSSharingSpg_key : RETURN");
-			SelectWatchPg.onLoad();
-			break;
 		case tvKey.KEY_LEFT:
 			alert("SMSSharingSpg_key : Left");
+			jQuery('#SMSSharingSpg').hide();//페이지를 닫는다.			
+			SelectWatchPg.focus();
 			break;
 		case tvKey.KEY_RIGHT:
 			alert("SMSSharingSpg_key : Right");
