@@ -95,15 +95,33 @@
 	display: block;
 	position: relative;
 	width: 255px;
+	color: white;
+	text-align: center;
 }
-.productEndTime {
+.endTime {
 	height: 86px;
+	font-size: 140%;
+	border-bottom: solid #ffffff;
 }
-.productName {
+.remainedTime{
+	color: red;
+	font-size: 150%;
+}
+.name {
 	height: 100px;
+	overflow: hidden;
+	font-weight: bold;
+	font-size: 150%;
 }
-.productPrice {
+.price {
 	height: 85px;
+	font-size: 140%;
+}
+.price p {
+	text-align: right;
+}
+.productprice {
+	font-size: 140%;
 }
 
 .focusImg {
