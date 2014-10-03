@@ -75,7 +75,7 @@ MultiWatchPg.focus = function(){
 	$(productImg[MultiWatchPg_index]).css("display","block");
 	setTimeout(function(){
 		refresh = setInterval(function(){MultiWatchPg.remainedTime();},1000);
-	},100);	
+	},10);	
 };
 
 MultiWatchPg.remainedTime = function(){
