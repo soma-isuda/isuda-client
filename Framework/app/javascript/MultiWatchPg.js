@@ -193,16 +193,20 @@ MultiWatchPg.keyDown = function()
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
 			//focus move to selectWatchPg
-			if (MultiWatchPg_index>=3) {
+
+			if (MultiWatchPg_index>=2) {
 				MultiWatchPg.anchor.main.removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
 				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 				Main.layout.page.load(pagearr[page_index].html);
+				clearInterval(refresh);
 				setTimeout(function(){
 					pagearr[page_index].object.onLoad(MultiWatchPg_index-2);
+					SelectWatchPg.focus();
 				},10);
-
+				
+				
 			};
 			alert("MultiWatchPg_key : Enter");
 			break;
