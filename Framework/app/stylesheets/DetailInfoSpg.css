@@ -13,7 +13,7 @@
 
 #reserveButton{
     box-sizing:border-box;
-    width:480px;
+    width:720px;
     height:200px;
     position:relative;
 }
@@ -21,7 +21,7 @@
 #reserveButton > div{
     position:absolute;
     top:30px;
-    left:140px;
+    left:260px;
     width:200px;
     height:100px;
     line-height:100px;
