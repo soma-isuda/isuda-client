@@ -49,12 +49,17 @@ SelectNumberSpg.onLoad = function () {
     writeFile(savedNumber);
     //번호 추가 방법*/
 
-    //writeFile('01090897672,01073707672,01054707672');//test용 
+    writeFile('01090897672');//test용 
 
     var savedNumber_temp = readFile();//파일 시스템에 저장되어 있는 번호들을 불러온다.
-    savedNumber = savedNumber_temp.split(',');
-    savedNumber_num = savedNumber.length;
-
+    alert(savedNumber_temp);
+    if (!savedNumber_temp) {//파일에 내용이 없다면
+        savedNumber_num = 0;
+    }
+    else {
+        savedNumber = savedNumber_temp.split(',');
+        savedNumber_num = savedNumber.length;
+    }
     //파일 시스템에서 TV에 저장되어 있는 번호들을 불러온다.
     for (var i = 0; i < savedNumber_num; i++) {
         var tempString = '';
@@ -156,12 +161,10 @@ SelectNumberSpg.selectKeyDown = function () {
             }
             break;
         case tvKey.KEY_ENTER:
-            if (SelectNumberSpg_index == 0) {
-
-            }
         case tvKey.KEY_PANEL_ENTER:
             //focus move to selectWatchPg
             alert("SelectNumberSpg_key : Enter");
+            
             break;
         default:
             alert("Unhandled key");
@@ -227,31 +230,47 @@ SelectNumberSpg.registerKeyDown = function () {
                 }
                 if (inputNum == 11) {
                     //11자리의 전화번호가 모두 입력된 상태에서 확인이 눌리면, 인증번호를 전송한다.
-
+                    var isOverlapped = 0;//번호가 중복되면 1, 아니면 0
                     var _numberPost = SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).text();
-
-                    // 서버로 인증번호 요청
-                    $.ajax({
-                        type: "POST", // POST형식으로 폼 전송
-                        url: "http://172.16.100.171/CertificationSMS.php", // 목적지
-                        timeout: 10000,
-                        data: ({ numberPost: _numberPost }),
-                        cache: false,
-                        dataType: "text",
-                        error: function (xhr, textStatus, errorThrown) { // 전송 실패
-                            alert("전송에 실패했습니다.");
-                        },
-                        success: function (data) {
-                            certificationNum = data;
+                    //입력된 번호가 이미 클라이언트에 있는 번호이면, 에러 메세지를 출력하고 다시 입력하도록 한다.
+                    if (savedNumber_num != 0) {//번호가 하나라도 등록된 상태라면, 중복체크를 한다.
+                        loadFile();
+                        var savedNumber_temp = readFile();//저장된 번호를 읽어온다.
+                        var savedNumber_forCheck = savedNumber_temp.split(',');
+                        for (var i = 0; i < savedNumber_forCheck.length; i++) {
+                            if (_numberPost == savedNumber_forCheck[i]) {//일치하는 번호가 있으면
+                                SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).empty();
+                                inputNum = 0;
+                                SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).append("이미 저장된 번호입니다. 다시 입력하세요");
+                                isOverlapped = 1;
+                                break;//다시 입력하도록 한다.
+                            }
                         }
-                    });
-                    phoneNumber_input = SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).text();
-                    SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).empty();
-                    SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).append("인증번호가 전송되었습니다");
-                    SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).removeClass('focus');
-                    SelectNumberSpg.register.eq(++SelectNumberSpg_registerIndex).addClass('focus');
-                    inputNum = 0;
-                    MAX_INPUT = 6;//인증번호 입력창은 최대 6글자 까지만 가능
+                    }
+                    if (isOverlapped == 0) {//중복되지 않았을 때만 전송한다.
+                        // 서버로 인증번호 요청
+                        $.ajax({
+                            type: "POST", // POST형식으로 폼 전송
+                            url: "http://172.16.100.171/CertificationSMS.php", // 목적지
+                            timeout: 10000,
+                            data: ({ numberPost: _numberPost }),
+                            cache: false,
+                            dataType: "text",
+                            error: function (xhr, textStatus, errorThrown) { // 전송 실패
+                                alert("전송에 실패했습니다.");
+                            },
+                            success: function (data) {
+                                certificationNum = data;
+                            }
+                        });
+                        phoneNumber_input = SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).text();
+                        SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).empty();
+                        SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).append("인증번호가 전송되었습니다");
+                        SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).removeClass('focus');
+                        SelectNumberSpg.register.eq(++SelectNumberSpg_registerIndex).addClass('focus');
+                        inputNum = 0;
+                        MAX_INPUT = 6;//인증번호 입력창은 최대 6글자 까지만 가능
+                    }
                 }
             }
             else if (SelectNumberSpg_registerIndex == 2) {
@@ -260,8 +279,13 @@ SelectNumberSpg.registerKeyDown = function () {
                     //파일시스템에 저장하고 다시 로드한다.
                     loadFile();//파일 시스템을 로딩한다.
                     var savedNumber_temp = readFile();
-                    savedNumber_temp += ',' + phoneNumber_input;
-                    writeFile(savedNumber);
+                    if (savedNumber_num == 0) {//첫번째로 등록한 번호일때는 '컴마'없이 번호만 등록한다.
+                        savedNumber_temp += phoneNumber_input;
+                    }
+                    else{
+                        savedNumber_temp += ',' + phoneNumber_input;
+                    }
+                    writeFile(savedNumber_temp);
 
 
                     savedNumber = savedNumber_temp.split(',');
@@ -272,8 +296,8 @@ SelectNumberSpg.registerKeyDown = function () {
                     for (var i = 0; i < savedNumber_num; i++) {
                         var tempString = '';
                         tempString += '<div>';
-                        tempString += '<div class="number_left">' + (i + 1) + '</div>';
-                        tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
+                        tempString +=   '<div class="number_left">' + (i + 1) + '</div>';
+                        tempString +=   '<div class="number_right">' + savedNumber[i] + '</div>';
                         tempString += '</div>';
 
                         jQuery('#SelectNumber_list_already').append(tempString);
@@ -290,24 +314,27 @@ SelectNumberSpg.registerKeyDown = function () {
                     });
 
                     //새로운 번호에 포커스를 맞추고 시작한다.
-                    SelectNumberSpg_index = 0;
-                    SelectNumberSpg_registerIndex = 0;
+                    SelectNumberSpg_index = 0;//'번호 선택'부분을 선택
+                    SelectNumberSpg_registerIndex = 0;//'번호 추가'버튼이 떠있도록
                     inputNum = 0;
                     certificationNum = 0;
-                    SelectNumberSpg.number.eq(++SelectNumberSpg_numberIndex).addClass('focus');
+                    if (savedNumber_num == 1)//첫번째 번호가 등록되었을때는 그 번호에 포커스를 맞춘다.
+                        SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).addClass('focus');
+                    else//원래 번호가 하나라도 있었을 경우에는 다음 번호에 포커스를 맞춘다.
+                        SelectNumberSpg.number.eq(++SelectNumberSpg_numberIndex).addClass('focus');
+
                     SelectNumberSpg.anchor.select.focus();
-                    /*
-                    jQuery('#SelectNumber_list_already').empty();
-                    Main.layout.subPage.load(subPageArr[4].html);
-                    setTimeout(function () {
-                        subPageArr[4].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
-                    }, 10);
-                    */
+                    
+                }
+                else {//인증번호를 제대로 입력하지 않았을때,
+                    SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).empty();
+                    SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).append("(인증번호를 다시 입력하세요)");
+                    inputNum = 0;
                 }
             }
 
             break;
-            //
+           
         case tvKey.KEY_0:
 
             if (inputNum == 0) //아직 아무런 숫자도 입력되지 않았을 때
