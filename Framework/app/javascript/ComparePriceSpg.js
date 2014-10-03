@@ -43,10 +43,11 @@ ComparePriceSpg.keyDown = function()
 			//앱이 종료되는것을 방지해준다.
 			widgetAPI.blockNavigation(event);
 			alert("ComparePriceSpg_key : RETURN");
-			SelectWatchPg.onLoad();
-			break;
 		case tvKey.KEY_LEFT:
 			alert("ComparePriceSpg_key : Left");
+			jQuery('#ComparePriceSpg').hide();//페이지를 닫는다.			
+			SelectWatchPg.focus();
+
 			break;
 		case tvKey.KEY_RIGHT:
 			alert("ComparePriceSpg_key : Right");

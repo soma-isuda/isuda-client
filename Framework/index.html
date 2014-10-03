@@ -20,6 +20,11 @@
 	</head>
 
 	<body onload="Main.onLoad();" onunload="Main.onUnload();">
+		<div id="player">
+			<video src=""  width="805">
+			</video>
+		</div>
+	
 		<div id="sideBar">
 			<ul>
 				<li class="sideBarMenu">
@@ -44,12 +49,24 @@
 				</li>
 			</ul>
 		</div>
+<!-- 	<div id=subplayer">
+			<video src="" controls="controls"  width="805">
+			</video>
+		</div> -->
 		<div id = "article">
 
 		</div>
+		<!-- video 는 무조건 절반
+		<div id="player">
+			<video id="video" src="http://218.232.67.62:1935/live/mp4:a.stream/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD" controls="controls" width="805">
+			</video>
+		</div> -->
+
 		<div id="subPage">			
 
 		</div>
+
+
 		<a href="javascript:void(0);" id="anchor_main" onkeydown="Main.keyDown();"></a>	
 		<a href="javascript:void(0);" id="anchor_subPage" onkeydown="SubPage.keyDown();"></a>	
 	

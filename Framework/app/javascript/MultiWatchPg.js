@@ -200,7 +200,7 @@ MultiWatchPg.keyDown = function()
 				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 				Main.layout.page.load(pagearr[page_index].html);
 				setTimeout(function(){
-					pagearr[page_index].object.onLoad();
+					pagearr[page_index].object.onLoad(MultiWatchPg_index-2);
 				},10);
 
 			};

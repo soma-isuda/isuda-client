@@ -58,13 +58,26 @@ body
 #sideBar > ul li.focus { 
  	background-color: #7f1c00;
  	color: white;
-<<<<<<< HEAD
 }
 
-ul{
+#sideBar > ul{
    list-style:none;
    padding-left:0px;
-=======
- 	font-weight: bold; 
->>>>>>> 857d7d63c5ecb822fc6552cbd4535460dd52249b
+}
+
+#player{
+	position:absolute;
+	left: 152px;
+	top:0;
+}
+
+#player.hide{
+	opacity:0;
+}
+
+#subplayer{
+	position:absolute;
+	left:0;
+	top:0;
+	
 }

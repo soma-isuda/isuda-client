@@ -39,7 +39,7 @@ Main.onLoad = function()
 	this.focus();
 
 	widgetAPI.sendReadyEvent();
-	
+	jQuery('#player > video').hide();	
 	alert('Main_onLoad completed');
 
 };
@@ -91,9 +91,16 @@ Main.keyDown = function()
 
 			Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
 			Main.layout.page.load(pagearr[page_index].html);
+
 			setTimeout(function(){
 				pagearr[page_index].object.onLoad();
 			},10);	
+
+			if(!jQuery('#player > video').get(0).paused){		
+				SelectWatchPg.player[0].pause();		
+				SelectWatchPg.player.hide();
+			}			
+
 			break;
 		case tvKey.KEY_DOWN:
 			alert("main_key : Down");
@@ -103,9 +110,17 @@ Main.keyDown = function()
 
 			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 			Main.layout.page.load(pagearr[page_index].html);
+
 			setTimeout(function(){
 				pagearr[page_index].object.onLoad();
 			},10);	
+
+			if(!SelectWatchPg.player.get(0).paused){		
+				SelectWatchPg.player[0].pause();		
+				SelectWatchPg.player.hide();
+			}			
+			
+
 			break;
 		case tvKey.KEY_ENTER:
 			alert("main_key : Enter");
@@ -126,6 +141,12 @@ Main.keyDown = function()
 			//document.getElementById("MultiWatchPg").style.marginLeft="120px";
 			//pagearr[page_index].onLoad();
 			break;
+		case tvKey.KEY_PLAY:
+            alert("PLAY");
+           var lAudioNote = document.getElementById("video");
+            lAudioNote.play();
+            break;
+			
 		default:
 			alert("Unhandled key");
 			break;
