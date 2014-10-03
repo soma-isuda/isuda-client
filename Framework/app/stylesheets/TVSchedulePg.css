@@ -146,7 +146,7 @@
 }
 
 /*상품 하나가 차지하는 공간*/
-.product_list_item{
+.schedule_product_list_item{
     float:left;
     width:310px;
     height:480px;
@@ -161,10 +161,10 @@
     background-color:#fffbf0;
     overflow:hidden;
 }
-.product_list_item div{
+.schedule_product_list_item div{
 	position: relative;
 }
-.product_list_item>.imgArea {
+.schedule_product_list_item>.imgArea {
     position:relative;
 	width: 310px;
 	height: 223px;
@@ -176,7 +176,7 @@
     margin-top:7px;
 }
 /*사진 크기*/
-.product_list_item>.imgArea>img{
+.schedule_product_list_item>.imgArea>img{
     position:absolute;
     left:0px;
     top:0px;
@@ -184,7 +184,7 @@
     height:256px;
 }
 /*방송 시간*/
-.product_list_item>.productTime{
+.schedule_product_list_item>.schedule_productTime{
     box-sizing:border-box;
     width:256px;
     height:33px;
@@ -196,12 +196,12 @@
     font-size:0.7em;
     /*z-index:1000;*/
 }
-.product_list_item>.productInfoArea {
+.schedule_product_list_item>.schedule_productInfoArea {
 	width: 310px;
 	height: 210px;
 	border: 0;
 }
-.product_list_item>.productInfoArea div{
+.schedule_product_list_item>.schedule_productInfoArea div{
 	display: block;
 	position: relative;
 	width: 310px;
@@ -212,14 +212,14 @@
     box-sizing:border-box;
     padding:15px;
 }
-.productTime {
+.schedule_productTime {
 	height:33px;
 }
-.product_list_item>.productInfoArea>.productName {
+.schedule_product_list_item>.schedule_productInfoArea>.schedule_productName {
     width:310px;
 	height: 105px;
 }
-.product_list_item>.productInfoArea>.productPrice {
+.schedule_product_list_item>.schedule_productInfoArea>.schedule_productPrice {
     width:310px;
 	height: 105px;
     
