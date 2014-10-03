@@ -1,6 +1,6 @@
 
 var SelectWatchPg_index =0; // = subPageArr_index
-var channel = 0;
+//var channel = 0;
 //var playerInit = false;
 
 var SelectWatchPg= {
@@ -10,30 +10,20 @@ var SelectWatchPg= {
 SelectWatchPg.onLoad = function(ch)
 {
 	alert("SelectWatchPg onLoad");
-//	alert(subPageArr.length);
 	jQuery.extend(SelectWatchPg,{
 		SelectWatchPgMenu : jQuery('#SelectWatchPgMenu').find('ul > li'),
-		player : jQuery('#player > video'),
 		anchor:{
 			main	: jQuery('#anchor_SelectWatchPg')
 		}
 		//focus: 0
 	});
 		
-	alert(SelectWatchPg.player.get(0).ended);
-	if(SelectWatchPg.player.get(0).paused || (typeof ch != 'undefined' && ch != channel)){
-		if(typeof ch != 'undefined'){
-			channel = ch;
-		}		
-		alert("Asd");
-		SelectWatchPg.player.show();
-		SelectWatchPg.player.attr('src',videoURL[channel]);
-		SelectWatchPg.player[0].play();		
-	}
+	Player.init(ch);
 	
 };
 
 SelectWatchPg.focus = function(){ 
+	
 	alert("SelectWatchPg focus");
 	SelectWatchPg.anchor.main.focus();
 	// focus initialize
@@ -57,14 +47,10 @@ SelectWatchPg.keyDown = function()
 	{
 //		 채널 퀵변경 
 		case tvKey.KEY_CH_UP:
-			channel = (channel+videoURL.length+1)%videoURL.length;
-			SelectWatchPg.player.attr('src',videoURL[channel]);
-			SelectWatchPg.player[0].play();
+			Player.channelUp();
 			break;
 		case tvKey.KEY_CH_DOWN:
-			channel = (channel+videoURL.length-1)%videoURL.length;
-			SelectWatchPg.player.attr('src',videoURL[channel]);
-			SelectWatchPg.player[0].play();
+			Player.channelDown();
 			break;
 		
 		case tvKey.KEY_RETURN:
@@ -91,7 +77,6 @@ SelectWatchPg.keyDown = function()
 			alert("SelectWatchPg_key : Down");
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');			
 			SelectWatchPg_index = (SelectWatchPg_index+1)%SelectWatchPg.SelectWatchPgMenu.size();
-			alert(SelectWatchPg_index);
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');			
 			break;
 

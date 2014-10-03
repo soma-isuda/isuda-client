@@ -10,7 +10,6 @@ var page_index = 1;
 
 var Main =
 {
-	
 	layout:{
 		sideBar : jQuery('#sideBar'),
 		page	: jQuery('#article'),
@@ -38,8 +37,8 @@ Main.onLoad = function()
 	// Enable key event processing
 	this.focus();
 
+	Player.hide();
 	widgetAPI.sendReadyEvent();
-	jQuery('#player > video').hide();	
 	alert('Main_onLoad completed');
 
 };
@@ -91,15 +90,10 @@ Main.keyDown = function()
 
 			Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
 			Main.layout.page.load(pagearr[page_index].html);
-
+			Player.hide();
 			setTimeout(function(){
 				pagearr[page_index].object.onLoad();
-			},10);	
-
-			if(!jQuery('#player > video').get(0).paused){		
-				SelectWatchPg.player[0].pause();		
-				SelectWatchPg.player.hide();
-			}			
+			},10);
 
 			break;
 		case tvKey.KEY_DOWN:
@@ -110,16 +104,11 @@ Main.keyDown = function()
 
 			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 			Main.layout.page.load(pagearr[page_index].html);
+			Player.hide();
 
 			setTimeout(function(){
 				pagearr[page_index].object.onLoad();
-			},10);	
-
-			if(!SelectWatchPg.player.get(0).paused){		
-				SelectWatchPg.player[0].pause();		
-				SelectWatchPg.player.hide();
-			}			
-			
+			},10);				
 
 			break;
 		case tvKey.KEY_ENTER:
