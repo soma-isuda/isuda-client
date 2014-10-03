@@ -10,6 +10,7 @@ var page_index = 1;
 
 var Main =
 {
+	
 	layout:{
 		sideBar : jQuery('#sideBar'),
 		page	: jQuery('#article'),
@@ -30,15 +31,12 @@ Main.onLoad = function()
 {
 	alert("Main.onLoad");
 	//alert(sideBarMenuImg.length);
-	Main.layout.page.load(pagearr[page_index].html);
-	setTimeout(function(){
-				pagearr[page_index].object.onLoad();
-			},10);		
+	Main.layout.page.load(pagearr[page_index].html);	
 	// Enable key event processing
 	this.focus();
 
-	Player.hide();
 	widgetAPI.sendReadyEvent();
+	
 	alert('Main_onLoad completed');
 
 };
@@ -85,19 +83,16 @@ Main.keyDown = function()
 		case tvKey.KEY_UP:
 			alert("main_key : Up");
 			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
+
 			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
 			//on.Unload();
+
 			if(page_index == 1)
 				page_index = Main.sideBarMenu.btn.length;
 
 			Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
 			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+5)]);
 			Main.layout.page.load(pagearr[page_index].html);
-			Player.hide();
-			setTimeout(function(){
-				pagearr[page_index].object.onLoad();
-			},10);
-
 			break;
 		case tvKey.KEY_DOWN:
 			alert("main_key : Down");
@@ -107,12 +102,6 @@ Main.keyDown = function()
 
 			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 			Main.layout.page.load(pagearr[page_index].html);
-			Player.hide();
-
-			setTimeout(function(){
-				pagearr[page_index].object.onLoad();
-			},10);				
-
 			break;
 		case tvKey.KEY_ENTER:
 			alert("main_key : Enter");
@@ -122,7 +111,7 @@ Main.keyDown = function()
 			alert("main_key : Right");
 			//focus move to Page
 			setTimeout(function(){
-				pagearr[page_index].object.focus();
+				pagearr[page_index].object.onLoad();
 			},10);			
 			Main.layout.sideBar.removeClass('focus');
 			//Main.sideBarMenu.btn.removeClass('focus');
