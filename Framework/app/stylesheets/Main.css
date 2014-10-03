@@ -58,13 +58,9 @@ body
 #sideBar > ul li.focus { 
  	background-color: #7f1c00;
  	color: white;
-<<<<<<< HEAD
 }
 
-ul{
-   list-style:none;
-   padding-left:0px;
-=======
- 	font-weight: bold; 
->>>>>>> 857d7d63c5ecb822fc6552cbd4535460dd52249b
+ul {
+    list-style: none;
+    padding-left: 0px;
 }
