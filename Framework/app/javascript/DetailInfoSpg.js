@@ -32,7 +32,7 @@ DetailInfoSpg.onLoad = function()
     //상품 상세 정보 이미지를 로드한다.
     alert(productLoadedId[productListIndex]);
     //var detailImgPath = SERVER_ADDRESS + '/pageShots/' + productLoadedId[productListIndex] + '.jpeg';
-    var detailImgPath = SERVER_ADDRESS + '/pageShots/CJ-Q100.jpeg';
+    var detailImgPath = SERVER_ADDRESS + '/pageShots/GS201410030100.jpeg';
 
     jQuery('#detailImage').append('<img src="' + detailImgPath + '"  alt="이미지가 없습니다"  id="detailImg"/>');
     
