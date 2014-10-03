@@ -25,7 +25,7 @@ SelectWatchPg.onLoad = function()
 	//document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
 	Player.init();
 
-	this.focus();
+	//this.focus();
 	Player.play(channel);
 
 };
