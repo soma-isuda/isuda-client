@@ -47,7 +47,7 @@ TVSchedulePg.onLoad = function () {
     for (var i = 0; i < firstCategory.length ; i++) {
         TVSchedulePg.big.append('<li>' + firstCategory[i] + '</li>');
     }
-   // this.focus();
+
 
     //CSS를 위한 선택자
     jQuery.extend(TVSchedulePg, {
@@ -68,6 +68,7 @@ TVSchedulePg.focus = function () {
     alert("TVSchedulePg.focus");
     TVSchedulePg.anchor.big.focus();
     TVSchedulePg.bigElem.eq(big_index).addClass('focus');
+
     tabMenu();
 };
 
@@ -243,7 +244,7 @@ TVSchedulePg.midKeyDown = function () {
                     $.each(data, function (key, value) {
                         productNumber++;
                         //상품 데이터들을 적절한 위치에 삽입한다.
-                        jQuery('#product_list_pg').find('ul').append('<li class="product_list_item"> <div class="imgArea"><img src="' + value.productImgURL + '" alt="" class="productImg"></div><div class="productTime">' + value.productStartTime + ' ~ ' + value.productEndTime + '</div><div class="productInfoArea"><div class="productName">' + value.productName + '</div><div class="productPrice">최대 혜택가: ' + value.productPrice + '</div></div></li>');
+                        jQuery('#product_list_pg').find('ul').append('<li class="schedule_product_list_item"> <div class="imgArea"><img src="' + value.productImgURL + '" alt="" class="schedule_productImg"></div><div class="schedule_productTime">' + value.productStartTime + ' ~ ' + value.productEndTime + '</div><div class="schedule_productInfoArea"><div class="schedule_productName">' + value.productName + '</div><div class="schedule_productPrice">최대 혜택가: ' + value.productPrice + '</div></div></li>');
                         productLoadedId.push(value.id); // 로드된 상품들의 id를 저장해 놓는다.(상세정보 페이지를 위해)
                     });
                     if (productNumber == 0)//해당하는 중분류에 상품이 없을때,
