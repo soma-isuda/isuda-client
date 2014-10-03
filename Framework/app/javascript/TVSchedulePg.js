@@ -47,7 +47,7 @@ TVSchedulePg.onLoad = function () {
     for (var i = 0; i < firstCategory.length ; i++) {
         TVSchedulePg.big.append('<li>' + firstCategory[i] + '</li>');
     }
-
+    //this.focus();
 
     //CSS를 위한 선택자
     jQuery.extend(TVSchedulePg, {
@@ -57,7 +57,7 @@ TVSchedulePg.onLoad = function () {
     });
     
     //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
-    //TVSchedulePg.bigElem.eq(big_index).addClass('focus');
+    
 
     
 };
@@ -68,7 +68,6 @@ TVSchedulePg.focus = function () {
     alert("TVSchedulePg.focus");
     TVSchedulePg.anchor.big.focus();
     TVSchedulePg.bigElem.eq(big_index).addClass('focus');
-
     tabMenu();
 };
 
