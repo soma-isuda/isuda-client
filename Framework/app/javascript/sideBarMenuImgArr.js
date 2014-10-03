@@ -1,14 +1,14 @@
 var sideBarMenuImgArr = [];
 // no focus
-sideBarMenuImgArr.push("img/icon0.png");
-sideBarMenuImgArr.push("img/icon1_.png");
-sideBarMenuImgArr.push("img/icon2_.png");
-sideBarMenuImgArr.push("img/icon3_.png");
-sideBarMenuImgArr.push("img/icon4_.png");
+sideBarMenuImgArr.push("../../img/icon0.PNG");
+sideBarMenuImgArr.push("img/icon1_.PNG");
+sideBarMenuImgArr.push("img/icon2_.PNG");
+sideBarMenuImgArr.push("img/icon3_.PNG");
+sideBarMenuImgArr.push("img/icon4_.PNG");
 
 // focus
-sideBarMenuImgArr.push("img/icon0.png");
-sideBarMenuImgArr.push("img/icon1.png");
-sideBarMenuImgArr.push("img/icon2.png");
-sideBarMenuImgArr.push("img/icon3.png");
-sideBarMenuImgArr.push("img/icon4.png");
+sideBarMenuImgArr.push("img/icon0.PNG");
+sideBarMenuImgArr.push("img/icon1.PNG");
+sideBarMenuImgArr.push("img/icon2.PNG");
+sideBarMenuImgArr.push("img/icon3.PNG");
+sideBarMenuImgArr.push("img/icon4.PNG");

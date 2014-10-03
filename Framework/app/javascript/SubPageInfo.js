@@ -4,4 +4,3 @@ subPageArr.push({name: 'ComparePriceSpg', html:'app/html/ComparePriceSpg.html', 
 subPageArr.push({name: 'SMSSharingSpg', html:'app/html/SMSSharingSpg.html', object: SMSSharingSpg});
 subPageArr.push({name: 'DirectBuySpg', html:'app/html/DirectBuySpg.html', object: DirectBuySpg});
 subPageArr.push({name: 'SelectNumberSpg', html: 'app/html/SelectNumberSpg.html', object: SelectNumberSpg });
-
