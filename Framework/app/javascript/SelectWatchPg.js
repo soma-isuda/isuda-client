@@ -4,7 +4,7 @@ var SelectWatchPg_index =0; // = subPageArr_index
 //var playerInit = false;
 
 var SelectWatchPg= {
-	
+
 };
 
 SelectWatchPg.onLoad = function(ch)
