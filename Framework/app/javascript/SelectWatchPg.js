@@ -20,8 +20,6 @@ SelectWatchPg.onLoad = function(ch)
 		
 	Player.init(ch);
 	
-	this.focus();
-	
 };
 
 SelectWatchPg.focus = function(){ 
