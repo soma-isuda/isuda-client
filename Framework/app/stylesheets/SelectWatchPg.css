@@ -32,12 +32,6 @@
  	color: #f0f0d8; 	
 }
 
-#player{
-	position:absolute;
-	left: 304px;
-	top:0;
-	opacity: 0;
-}
 
 /*#subPage{
 	width: 480px;

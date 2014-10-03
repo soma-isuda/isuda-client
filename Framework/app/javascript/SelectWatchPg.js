@@ -13,17 +13,20 @@ SelectWatchPg.onLoad = function(ch)
 //	alert(subPageArr.length);
 	jQuery.extend(SelectWatchPg,{
 		SelectWatchPgMenu : jQuery('#SelectWatchPgMenu').find('ul > li'),
-		player : jQuery('#player>video'),
+		player : jQuery('#player > video'),
 		anchor:{
 			main	: jQuery('#anchor_SelectWatchPg')
 		}
 		//focus: 0
 	});
 		
+	alert(SelectWatchPg.player.get(0).ended);
 	if(SelectWatchPg.player.get(0).paused || (typeof ch != 'undefined' && ch != channel)){
 		if(typeof ch != 'undefined'){
 			channel = ch;
-		}
+		}		
+		alert("Asd");
+		SelectWatchPg.player.show();
 		SelectWatchPg.player.attr('src',videoURL[channel]);
 		SelectWatchPg.player[0].play();		
 	}
@@ -56,13 +59,13 @@ SelectWatchPg.keyDown = function()
 	{
 //		 채널 퀵변경 
 		case tvKey.KEY_CH_UP:
-			this.channel = (this.channel+videoURL.length+1)%videoURL.length;
-			SelectWatchPg.player.attr('src',videoURL[this.channel]);
+			channel = (channel+videoURL.length+1)%videoURL.length;
+			SelectWatchPg.player.attr('src',videoURL[channel]);
 			SelectWatchPg.player[0].play();
 			break;
 		case tvKey.KEY_CH_DOWN:
-			this.channel = (this.channel+videoURL.length-1)%videoURL.length;
-			SelectWatchPg.player.attr('src',videoURL[this.channel]);
+			channel = (channel+videoURL.length-1)%videoURL.length;
+			SelectWatchPg.player.attr('src',videoURL[channel]);
 			SelectWatchPg.player[0].play();
 			break;
 		

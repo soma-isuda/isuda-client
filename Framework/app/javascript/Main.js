@@ -2,7 +2,7 @@ var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
+var SERVER_ADDRESS = SERVER_ADDRESS_IN;
 
 // pagearr : information about pages in pageinfo
 var page_index = 1;
@@ -36,7 +36,7 @@ Main.onLoad = function()
 	this.focus();
 
 	widgetAPI.sendReadyEvent();
-	
+	jQuery('#player > video').hide();	
 	alert('Main_onLoad completed');
 
 };
@@ -87,6 +87,10 @@ Main.keyDown = function()
 
 			Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
 			Main.layout.page.load(pagearr[page_index].html);
+			if(!jQuery('#player > video').get(0).paused){		
+				SelectWatchPg.player[0].pause();		
+				SelectWatchPg.player.hide();
+			}			
 			break;
 		case tvKey.KEY_DOWN:
 			alert("main_key : Down");
@@ -96,6 +100,11 @@ Main.keyDown = function()
 
 			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 			Main.layout.page.load(pagearr[page_index].html);
+			if(!SelectWatchPg.player.get(0).paused){		
+				SelectWatchPg.player[0].pause();		
+				SelectWatchPg.player.hide();
+			}			
+			
 			break;
 		case tvKey.KEY_ENTER:
 			alert("main_key : Enter");
