@@ -69,8 +69,15 @@ MultiWatchPg.onLoad = function(){
 		}
 		//focus: 0
 	});
-	if((MultiWatchPg_index>1))
+	if(refresh==1){
+		setTimeout(function(){
+			this.focus();
+		},100);	
+		refresh=0;
+	}
+	else if((MultiWatchPg_index>1)){
 		$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
+	}
 	//this.focus();
 	
 	
@@ -105,9 +112,9 @@ MultiWatchPg.remainedTime = function(){
 		alert(remainedTime.hour+" : "+ remainedTime.minute+ " : "+remainedTime.second);
 		if((remainedTime.hour == 0)&&(remainedTime.minute == 0 )&&(remainedTime.second == 0 )) {
 			alert("refresh Item");
-			if((MultiWatchPg_index>1))
-				$("#MultiWatchPg").animate({"top": "+=250px"}, "fast");
+			refresh=1;
 			MultiWatchPg.onLoad();
+
 			break;
 		}
 		if(remainedTime.hour <0)
