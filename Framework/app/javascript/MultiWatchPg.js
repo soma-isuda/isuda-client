@@ -1,9 +1,10 @@
 var productImg = ["dummy","dummy","#productImg0","#productImg1","#productImg2","#productImg3","#productImg4","#productImg5"];
 var MultiWatchPgItem = ["#MultiWatchPgItem0","#MultiWatchPgItem1","#MultiWatchPgItem2","#MultiWatchPgItem3","#MultiWatchPgItem4","#MultiWatchPgItem5"];
-var color = ["#00a9e0","#f4811f","#e51937","#cadb2a","#e4010d","#f4614d"];
+var color = ["#00a9e0","#cadb2a","#f4614d","#e4010d","#e51937","#f4811f"];
 var cnt=-1;
 var date = new Date();
 var refresh =0;
+var adjust_index =0;
 var MultiWatchPg= {
 	
 };
@@ -13,7 +14,12 @@ var endTimeArr = ["1","1","1","1","1","1"];
 //	minute : 0
 //};
 
-MultiWatchPg.onLoad = function(){	
+MultiWatchPg.onLoad = function(){
+	jQuery.extend(MultiWatchPg,{
+		MultiWatchPgList : jQuery('#MultiWatchPgList')
+	});
+	MultiWatchPg.MultiWatchPgList.empty();
+	cnt=-1;
 	alert("MultiWatchPg.onLoad");
 	alert("start : "+cnt);
 	jQuery.ajax({
@@ -36,7 +42,12 @@ MultiWatchPg.onLoad = function(){
 			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"><div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="endTime"><p>방송 혜택 종료까지</p><p id="remainedTime' + cnt + '" class="remainedTime"><p></p></div><div class="name"><p>' +this.productName+ '</p></div><div class="price"><p>최대 혜택가 :</p><p class="productPrice">' + this.productPrice + '원 </p></div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
 			    var remainedTime = new Object();
 				
-				remainedTime.hour = endTimeArr[cnt].hour-date.getHours()-1+9;
+				remainedTime.hour = endTimeArr[cnt].hour-date.getHours()-1+7;
+			 	// alert("-----------------");
+			 	// alert(endTimeArr[cnt].hour);
+			 	// alert(date.getHours());
+			 	// alert(remainedTime.hour);
+			 	// alert("-----------------");
 				if(remainedTime.hour <0)
 					remainedTime.hour = 24 + remainedTime.hour;
 				
@@ -45,7 +56,7 @@ MultiWatchPg.onLoad = function(){
 					remainedTime.minute = 60 + remainedTime.minute;
 				
 				remainedTime.second = 59-date.getSeconds();
-			   document.getElementById('remainedTime'+cnt).innerHTML = remainedTime.hour+' : '+remainedTime.minute+' : '+ remainedTime.second;
+			    document.getElementById('remainedTime'+cnt).innerHTML = remainedTime.hour+' : '+remainedTime.minute+' : '+ remainedTime.second;
 			    $(MultiWatchPgItem[cnt]).css('background-color',color[cnt]);
 			});					
 		} 	
@@ -58,7 +69,8 @@ MultiWatchPg.onLoad = function(){
 		}
 		//focus: 0
 	});
-
+	if((MultiWatchPg_index>1))
+		$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
 	//this.focus();
 	
 	
@@ -76,27 +88,32 @@ MultiWatchPg.focus = function(){
 	setTimeout(function(){
 		refresh = setInterval(function(){MultiWatchPg.remainedTime();},1000);
 	},10);	
-	if(MultiWatchPg_index>1)
-		$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
+
 };
 
 MultiWatchPg.remainedTime = function(){
 	date = new Date();
 	var i=0;
-	alert(date.getHours());
+	//alert(date.getHours());
 	for(i=0; i<6; i++){
 	//alert(endTimeArr[0].hour+"c");
 		var remainedTime = new Object();
-		remainedTime.hour = endTimeArr[i].hour-date.getHours()-1+9;
+		remainedTime.hour = endTimeArr[i].hour-date.getHours()-1+7;
+		remainedTime.minute = endTimeArr[i].minute-date.getMinutes()-1;
+		remainedTime.second = 59-date.getSeconds();
+
+		alert(remainedTime.hour+" : "+ remainedTime.minute+ " : "+remainedTime.second);
+		if((remainedTime.hour == 0)&&(remainedTime.minute == 0 )&&(remainedTime.second == 0 )) {
+			alert("refresh Item");
+			if((MultiWatchPg_index>1))
+				$("#MultiWatchPg").animate({"top": "+=250px"}, "fast");
+			MultiWatchPg.onLoad();
+			break;
+		}
 		if(remainedTime.hour <0)
 			remainedTime.hour = 24 + remainedTime.hour;
-		
-		remainedTime.minute = endTimeArr[i].minute-date.getMinutes()-1;
 		if(remainedTime.minute < 0)
 			remainedTime.minute = 60 + remainedTime.minute;
-		
-		remainedTime.second = 59-date.getSeconds();
-		if((remainedTime.hour <= 0)&&(remainedTime.minute <=0 )&&(remainedTime.second <=0)) MultiWatchPg.onLoad();
 		document.getElementById('remainedTime'+i).innerHTML = remainedTime.hour+' : '+remainedTime.minute+' : '+ remainedTime.second;
 	
 	}
@@ -118,7 +135,13 @@ MultiWatchPg.keyDown = function()
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
 			alert("MultiWatchPg_key : RETURN");
-			widgetAPI.sendReturnEvent();
+			//앱이 종료되는것을 방지해준다.
+			widgetAPI.blockNavigation(event);
+			MultiWatchPg.anchor.main.removeClass('focus');
+			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+			$(productImg[MultiWatchPg_index]).css("display","none");
+			clearInterval(refresh);
+			Main.focus();
 			break;
 		case tvKey.KEY_LEFT:
 			alert("MultiWatchPg_key : Left");
@@ -145,7 +168,15 @@ MultiWatchPg.keyDown = function()
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(++MultiWatchPg_index).addClass('focus');
 			}
-			else if(MultiWatchPg_index>1){
+			else if(MultiWatchPg_index==1){
+				alert("adjust.length : "+adjustArr.length+" index :"+adjust_index);
+				$('#adjust').css('background-image','url("'+adjustArr[++adjust_index]+'")');
+				//document.getElementById("adjust").style.background.image=adjustArr[++adjust_index];
+				if(adjust_index == adjustArr.length-1){
+					adjust_index=-1;
+				}
+			}
+			else {
 				$(productImg[MultiWatchPg_index]).css("display","none");
 				if(MultiWatchPg_index == 7){
 					MultiWatchPg_index = 1;
@@ -204,6 +235,7 @@ MultiWatchPg.keyDown = function()
 				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+5)]);
 				Main.layout.page.load(pagearr[page_index].html);
 				clearInterval(refresh);
+				focusCurrent = "SelectWatchPg";
 				setTimeout(function(){
 					pagearr[page_index].object.onLoad(MultiWatchPg_index-2);
 					SelectWatchPg.focus();

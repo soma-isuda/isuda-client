@@ -1,11 +1,34 @@
 <div id="MyPg">
-	<!-- 대분류 -->
-    <div id="callNumberMenu">
-        <ul></ul>
-    </div>
-    <!-- 중분류 -->
-    <div id="SMSreverseMenu">
-        <!--<ul class="mid">-->
-        <ul></ul>
-    </div>
+	<div id="MyPg_SelectNumber">
+	    <div id="MyPg_SelectNumber_header">
+	        번호를 선택해 주세요
+	    </div>
+
+	    <div id="MyPg_SelectNumber_list">
+	        <div id="MyPg_SelectNumber_list_already">
+	            <!--기존의 번호를 불러오는 부분-->
+	        </div>
+	        
+	        <div id="MyPg_SelectNumber_list_new">
+	            <!-- 번호 개수에 따라 이부분에
+	    번호 추가 버튼이 들어가게 됨-->
+
+	        </div>
+	    </div>
+
+	    <div id="MyPg_SelectNumber_delete">
+	        <div>
+	            번호 삭제 
+	        </div>
+	    </div>
+	</div>
+	<div id="MyPg_Reserve">
+		<div id="MyPg_Reserve_list">
+			<!-- 예약리스트를 불러온다. -->
+		</div>
+	</div>
 </div>
+<a href="javascript:void(0);" id="anchor_MyPg" onkeydown="MyPg.keyDown();"></a>
+<a href="javascript:void(0);" id="anchor_MyPg_select" onkeydown="MyPg.selectKeyDown();"></a>
+<a href="javascript:void(0);" id="anchor_MyPg_register" onkeydown="MyPg.registerKeyDown();"></a>
+<a href="javascript:void(0);" id="anchor_MyPg_submit" onkeydown="MyPg.submitKeyDown();"></a>
