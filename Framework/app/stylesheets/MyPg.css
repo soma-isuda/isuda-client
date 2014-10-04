@@ -1,8 +1,8 @@
 #MyPg{
 	width: 1790px;
     height: 1080px;
-    position: absolute;
-    background-color: #fffbf0;
+    background-color: white;
+
 }
 
 .MyPg_menu{
@@ -116,7 +116,7 @@
     height:80px;
     line-height:60px;
     text-align:center;
-    font-size:1em;
+    font-size:1.5em;
     border:1px solid black;
 }
 

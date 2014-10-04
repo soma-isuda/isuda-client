@@ -8,6 +8,9 @@ var SelectNumberSpg_numberIndex;
 var SelectNumberSpg_registerIndex;
 //0:'번호 추가 버튼' 또는 '새로운 번호 입력 버튼'
 //1:인증 번호 입력 버튼에 포커스
+var SelectNumberSpg_submitIndex;
+//0:'선택완료'에 포커스
+//1:'번호삭제'에 포커스
 //--------------------------------------------------
 var savedNumber_num;
 
@@ -23,6 +26,7 @@ var inputNum = 0;//입력된 전화번호 숫자의 수를 체크한다.(일단 
 var certificationNum = 0;//서버에서 전송된 인증번호
 var phoneNumber_input;//사용자가 입력한 인증번호
 var MAX_INPUT;//입력창에 최대로 입력할 수 있는 숫자의 개수(11개 또는 6개)
+var _numberPost;//새롭게 입력된 번호를 저장하는 변수
 
 var SelectNumberSpg = {
 
@@ -49,7 +53,7 @@ SelectNumberSpg.onLoad = function () {
     writeFile(savedNumber);
     //번호 추가 방법*/
 
-    writeFile('01090897672');//test용 
+    //writeFile('01090897672');//test용 
 
     var savedNumber_temp = readFile();//파일 시스템에 저장되어 있는 번호들을 불러온다.
     alert(savedNumber_temp);
@@ -80,6 +84,7 @@ SelectNumberSpg.onLoad = function () {
     jQuery.extend(SelectNumberSpg, {
         number: jQuery('#SelectNumber_list_already>div'),
         register: jQuery('#SelectNumber_list_new>div'),
+        submit: jQuery('#SelectNumber_submit>div')
     });
 
     if (savedNumber_num > 0)//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
@@ -100,13 +105,14 @@ SelectNumberSpg.focus = function () {
     SelectNumberSpg_index = 0;
     SelectNumberSpg_numberIndex = 0;
     SelectNumberSpg_registerIndex = 0;
+    SelectNumberSpg_submitIndex = 0;
 };
 
 SelectNumberSpg.enableKeys = function () {
     document.getElementById("anchor").focus();
 };
 
-//처음에 키를 받는 부분
+//처음에 키를 받는 부분, 번호를 선택하는 부분
 SelectNumberSpg.selectKeyDown = function () {
     alert("SelectNumberSpg Select keyDown");
     var keyCode = event.keyCode;
@@ -157,14 +163,21 @@ SelectNumberSpg.selectKeyDown = function () {
             else {
                 SelectNumberSpg_index = 2;//'선택 완료' 부분으로 포커스를 넘긴다.
                 SelectNumberSpg.anchor.submit.focus();
-
+                SelectNumberSpg.submit.eq(SelectNumberSpg_submitIndex).addClass('focus');
+                SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).removeClass('focus');
             }
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             //focus move to selectWatchPg
             alert("SelectNumberSpg_key : Enter");
-            
+            //번호 위에서 확인 버튼을 누르면,  '선택 완료' 부분으로 포커스를 넘긴다.
+            _numberPost = SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).find('.number_right').text();
+
+            SelectNumberSpg_index = 2;//'선택 완료' 부분으로 포커스를 넘긴다.
+            SelectNumberSpg.anchor.submit.focus();
+            SelectNumberSpg.submit.eq(SelectNumberSpg_submitIndex).addClass('focus');
+            SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).removeClass('focus');
             break;
         default:
             alert("Unhandled key");
@@ -231,7 +244,7 @@ SelectNumberSpg.registerKeyDown = function () {
                 if (inputNum == 11) {
                     //11자리의 전화번호가 모두 입력된 상태에서 확인이 눌리면, 인증번호를 전송한다.
                     var isOverlapped = 0;//번호가 중복되면 1, 아니면 0
-                    var _numberPost = SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).text();
+                    _numberPost = SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).text();
                     //입력된 번호가 이미 클라이언트에 있는 번호이면, 에러 메세지를 출력하고 다시 입력하도록 한다.
                     if (savedNumber_num != 0) {//번호가 하나라도 등록된 상태라면, 중복체크를 한다.
                         loadFile();
@@ -282,7 +295,7 @@ SelectNumberSpg.registerKeyDown = function () {
                     if (savedNumber_num == 0) {//첫번째로 등록한 번호일때는 '컴마'없이 번호만 등록한다.
                         savedNumber_temp += phoneNumber_input;
                     }
-                    else{
+                    else {
                         savedNumber_temp += ',' + phoneNumber_input;
                     }
                     writeFile(savedNumber_temp);
@@ -296,8 +309,8 @@ SelectNumberSpg.registerKeyDown = function () {
                     for (var i = 0; i < savedNumber_num; i++) {
                         var tempString = '';
                         tempString += '<div>';
-                        tempString +=   '<div class="number_left">' + (i + 1) + '</div>';
-                        tempString +=   '<div class="number_right">' + savedNumber[i] + '</div>';
+                        tempString += '<div class="number_left">' + (i + 1) + '</div>';
+                        tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
                         tempString += '</div>';
 
                         jQuery('#SelectNumber_list_already').append(tempString);
@@ -324,7 +337,19 @@ SelectNumberSpg.registerKeyDown = function () {
                         SelectNumberSpg.number.eq(++SelectNumberSpg_numberIndex).addClass('focus');
 
                     SelectNumberSpg.anchor.select.focus();
-                    
+
+                    //새로운 번호를 서버에 저장한다.
+                    $.ajax({
+                        type: "POST", // POST형식으로 폼 전송
+                        url: SERVER_ADDRESS + "/user", // 목적지
+                        data: {
+                            phoneNumber: _numberPost//"를 안붙이면 전화번호 맨 앞의 0이 사라짐
+                        },
+                        dataType: "text",
+                        success: function (data) {
+                            alert("번호 등록 성공");
+                        }
+                    });
                 }
                 else {//인증번호를 제대로 입력하지 않았을때,
                     SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).empty();
@@ -334,7 +359,7 @@ SelectNumberSpg.registerKeyDown = function () {
             }
 
             break;
-           
+
         case tvKey.KEY_0:
 
             if (inputNum == 0) //아직 아무런 숫자도 입력되지 않았을 때
@@ -445,7 +470,7 @@ SelectNumberSpg.registerKeyDown = function () {
 
             break;
         case tvKey.KEY_LEFT://왼쪽 버튼을 누르면 글자를 하나씩 지운다.
-            if (SelectNumberSpg_registerIndex == 1) {
+            if (SelectNumberSpg_registerIndex == 1 || SelectNumberSpg_registerIndex == 2) {
                 if (inputNum > 0) {//숫자가 하나라도 있을때
                     var tempNum = SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).text();
                     var tempNum = tempNum.substring(0, --inputNum);
@@ -461,7 +486,7 @@ SelectNumberSpg.registerKeyDown = function () {
     }
 };
 
-
+//'선택 완료'부분을 처리하는 곳
 SelectNumberSpg.submitKeyDown = function () {
     alert("SelectNumberSpg keyDown");
     var keyCode = event.keyCode;
@@ -480,9 +505,17 @@ SelectNumberSpg.submitKeyDown = function () {
             break;
         case tvKey.KEY_LEFT:
             alert("SelectNumberSpg_key : Left");
+            if (SelectNumberSpg_submitIndex == 1) {
+                SelectNumberSpg.submit.eq(SelectNumberSpg_submitIndex).removeClass('focus');
+                SelectNumberSpg.submit.eq(--SelectNumberSpg_submitIndex).addClass('focus');
+            }
             break;
         case tvKey.KEY_RIGHT:
             alert("SelectNumberSpg_key : Right");
+            if (SelectNumberSpg_submitIndex == 0) {
+                SelectNumberSpg.submit.eq(SelectNumberSpg_submitIndex).removeClass('focus');
+                SelectNumberSpg.submit.eq(++SelectNumberSpg_submitIndex).addClass('focus');
+            }
             break;
         case tvKey.KEY_UP:
             alert("SelectNumberSpg_key : Up");
@@ -493,13 +526,127 @@ SelectNumberSpg.submitKeyDown = function () {
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             alert("SelectNumberSpg_key : Enter");
-            //productId와 userId로 상품 예약 요청을 한다.
-            /*
-            $.ajax{
 
-            }*/
-            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-            jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
+            //'선택 완료' 버튼을 눌렀을 때
+            if (SelectNumberSpg_submitIndex == 0) {
+                //중분류 카테고리 예약이면
+                if (DetailInfoSpg_index == 0) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: SERVER_ADDRESS + "/cAlarms",
+                        data: {
+                            secondName: secondCategory[big_index][mid_index],//중분류의 이름
+                            phoneNumber: _numberPost//선택된 사용자의 번호
+                        },
+                        dataType: "text",
+                        success: function (data) {
+                            alert("중분류 예약 성공");
+                        }
+                    });
+                    TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+                    jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
+
+                }
+                    //단일 상품 예약이면
+                else if (DetailInfoSpg_index == 1) {
+
+                    $.ajax({
+                        type: "POST", // POST형식으로 폼 전송
+                        url: SERVER_ADDRESS + "/alarms", // 목적지
+                        data: {
+                            productId: productLoadedId[productListIndex],
+                            phoneNumber: _numberPost
+                        },
+                        dataType: "text",
+                        success: function (data) {
+                            alert("알람 등록 성공");
+                        }
+                    });
+                    TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+                    jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
+
+
+                }
+            }
+            //'번호 삭제' 버튼을 눌렀을 때
+            if (SelectNumberSpg_submitIndex == 1) {
+                //ajax 요청이 들어가는 부분
+                //번호 삭제시, 데이터베이스에 있는 내용도 같이 지울지 이야기 해봐야 함.
+                alert(_numberPost);
+                $.ajax({
+                    type: "DELETE", //DELETE 요청
+                    url: SERVER_ADDRESS + "/user",//목적지
+                    data: {
+                        phoneNumber: _numberPost,
+                    },
+                    dataType: "text",
+                    success: function (data) {
+                        alert("사용자 삭제 성공");
+                    }
+                });
+                //클라에서도 번호를 지우고 
+                jQuery('#SelectNumber_list_already').empty();
+
+                loadFile();//파일 시스템을 로딩한다.
+                var savedNumber_temp = readFile();
+                savedNumber = savedNumber_temp.split(',');
+                savedNumber_num = savedNumber.length;
+                savedNumber_temp = '';
+                for (var i = 0; i < savedNumber_num; i++) {
+                    if (savedNumber[i] != _numberPost) {//지우려는 번호만 빼고 다시 저장한다.
+                        if (i != 0)//첫번째 번호가 아니면 컴마도 같이 등록한다.
+                            savedNumber_temp += ',';
+                        savedNumber_temp += savedNumber[i];
+                    }
+                }
+                alert("다시 저장할 번호 : " + savedNumber_temp);
+                writeFile(savedNumber_temp);
+
+                //다시 로드한다.
+                savedNumber_temp = readFile();
+                savedNumber_num = savedNumber_temp.length;
+                alert("새로 불러온 번호의 개수:" + savedNumber_num + " " + savedNumber_temp);
+                //파일 시스템에서 TV에 저장되어 있는 번호들을 불러온다.
+                for (var i = 0; i < savedNumber_num; i++) {
+                    var tempString = '';
+                    tempString += '<div>';
+                    tempString += '<div class="number_left">' + (i + 1) + '</div>';
+                    tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
+                    tempString += '</div>';
+
+                    jQuery('#SelectNumber_list_already').append(tempString);
+                }
+
+                jQuery('#SelectNumber_list_new').empty();
+                var tempString = '';
+                tempString += '<div>번호추가</div>';
+                jQuery('#SelectNumber_list_new').append(tempString);
+
+                jQuery.extend(SelectNumberSpg, {
+                    number: jQuery('#SelectNumber_list_already>div'),
+                    register: jQuery('#SelectNumber_list_new>div'),
+                });
+
+                //새로운 번호에 포커스를 맞추고 시작한다.
+                SelectNumberSpg_index = 0;//'번호 선택'부분을 선택
+                SelectNumberSpg_registerIndex = 0;//'번호 추가'버튼이 떠있도록
+                SelectNumberSpg_numberIndex = 0;//다시 첫번째 번호로 포커스를 넘긴다.
+                inputNum = 0;
+                certificationNum = 0;
+
+                SelectNumberSpg.submit.eq(SelectNumberSpg_submitIndex--).removeClass('focus');
+                if (savedNumber_num == 0) {//번호 삭제후 아무 번호도 남지 않았을 때,
+                    //번호 추가 부분으로 포커스를 넘긴다.
+                    SelectNumberSpg.anchor.register.focus();
+                    SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).addClass('focus');
+                }
+                else {//삭제후에도 번호가 남아 있을 때,
+                    SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).addClass('focus');
+                    SelectNumberSpg.anchor.select.focus();
+                }
+                
+            }
 
             break;
         default:

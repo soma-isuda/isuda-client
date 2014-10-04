@@ -8,6 +8,9 @@ var MyPg_numberIndex;
 var MyPg_registerIndex;
 //0:'번호 추가 버튼' 또는 '새로운 번호 입력 버튼'
 //1:인증 번호 입력 버튼에 포커스
+var MyPg_submitIndex;
+//0:'선택완료'에 포커스
+//1:'번호삭제'에 포커스
 //--------------------------------------------------
 var savedNumber_num;
 
@@ -23,6 +26,7 @@ var inputNum = 0;//입력된 전화번호 숫자의 수를 체크한다.(일단 
 var certificationNum = 0;//서버에서 전송된 인증번호
 var phoneNumber_input;//사용자가 입력한 인증번호
 var MAX_INPUT;//입력창에 최대로 입력할 수 있는 숫자의 개수(11개 또는 6개)
+var _numberPost;//새롭게 입력된 번호를 저장하는 변수
 
 var MyPg = {
 
@@ -39,7 +43,7 @@ MyPg.onLoad = function () {
             submit: jQuery('#anchor_MyPg_submit'),
         }
     });
-    //this.focus();
+    this.focus();
 
     loadFile();//파일 시스템을 로딩한다.
     //writeFile(''); //전화번호 초기화
@@ -49,7 +53,7 @@ MyPg.onLoad = function () {
     writeFile(savedNumber);
     //번호 추가 방법*/
 
-    writeFile('01090897672');//test용 
+    //writeFile('01090897672');//test용 
 
     var savedNumber_temp = readFile();//파일 시스템에 저장되어 있는 번호들을 불러온다.
     alert(savedNumber_temp);
@@ -70,7 +74,7 @@ MyPg.onLoad = function () {
 
         jQuery('#MyPg_SelectNumber_list_already').append(tempString);
     }
-///////////////
+
     if (savedNumber_num < MAX_NUMBER) {//번호들을 더 추가할 수 있다면
         var tempString = '';
         //tempString += '<div id="new_first">번호추가</div>';
@@ -80,6 +84,7 @@ MyPg.onLoad = function () {
     jQuery.extend(MyPg, {
         number: jQuery('#MyPg_SelectNumber_list_already>div'),
         register: jQuery('#MyPg_SelectNumber_list_new>div'),
+        submit: jQuery('#MyPg_SelectNumber_submit>div')
     });
 
     if (savedNumber_num > 0)//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
@@ -100,14 +105,14 @@ MyPg.focus = function () {
     MyPg_index = 0;
     MyPg_numberIndex = 0;
     MyPg_registerIndex = 0;
-    MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+    MyPg_submitIndex = 0;
 };
 
 MyPg.enableKeys = function () {
     document.getElementById("anchor").focus();
 };
 
-//처음에 키를 받는 부분
+//처음에 키를 받는 부분, 번호를 선택하는 부분
 MyPg.selectKeyDown = function () {
     alert("MyPg Select keyDown");
     var keyCode = event.keyCode;
@@ -116,13 +121,14 @@ MyPg.selectKeyDown = function () {
     switch (keyCode) {
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
-        case tvKey.KEY_LEFT:
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("MyPg_key : RETURN");
-            Main.focus();//편성표로 다시 포커스를 넘긴다.
-            //jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
-        
+            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+            jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
+
+            break;
+        case tvKey.KEY_LEFT:
             alert("MyPg_key : Left");
             break;
         case tvKey.KEY_RIGHT:
@@ -132,9 +138,9 @@ MyPg.selectKeyDown = function () {
             alert("MyPg_key : Up");
 
             MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
-            if (MyPg_numberIndex > 0)
-             //   MyPg_numberIndex--;
-            MyPg.number.eq(--MyPg_numberIndex).addClass('focus');
+            if (MyPg_numberIndex - 1 >= 0)
+                MyPg_numberIndex--;
+            MyPg.number.eq(MyPg_numberIndex).addClass('focus');
 
             break;
         case tvKey.KEY_DOWN:
@@ -145,8 +151,9 @@ MyPg.selectKeyDown = function () {
             if (savedNumber_num < MAX_NUMBER) {
                 if (MyPg_numberIndex + 1 == savedNumber_num) {
                     MyPg_index = 1;
-                     MyPg.anchor.register.focus();
-                    MyPg.register.eq(MyPg_registerIndex).addClass('focus');     
+                    MyPg.register.eq(MyPg_registerIndex).addClass('focus');
+
+                    MyPg.anchor.register.focus();
                 }
                 else {
                     MyPg_numberIndex++;
@@ -156,14 +163,21 @@ MyPg.selectKeyDown = function () {
             else {
                 MyPg_index = 2;//'선택 완료' 부분으로 포커스를 넘긴다.
                 MyPg.anchor.submit.focus();
-
+                MyPg.submit.eq(MyPg_submitIndex).addClass('focus');
+                MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
             }
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             //focus move to selectWatchPg
             alert("MyPg_key : Enter");
-            
+            //번호 위에서 확인 버튼을 누르면,  '선택 완료' 부분으로 포커스를 넘긴다.
+            _numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
+
+            MyPg_index = 2;//'선택 완료' 부분으로 포커스를 넘긴다.
+            MyPg.anchor.submit.focus();
+            MyPg.submit.eq(MyPg_submitIndex).addClass('focus');
+            MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
             break;
         default:
             alert("Unhandled key");
@@ -183,16 +197,9 @@ MyPg.registerKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("MyPg_key : RETURN");
-            Main.focus();//마이페이지로 다시 포커스를 넘긴다.
-            // 추가할 번호 입력창과 안ㄴ창을 숨긴다.
-            // jQuery('#MyPg_SelectNumber_list_new>div').hide();
-            // // 다시 '번호추가'를 만들어준다.
-            //  var tempString = '';
-            // tempString += '<div>번호추가</div>';
-            // jQuery('#MyPg_SelectNumber_list_new').append(tempString);
-            // jQuery.extend(MyPg, {//div가 새로 추가된 시점에서 다시 'register'를 등록한다.
-            //         register: jQuery('#MyPg_SelectNumber_list_new>div'),
-            // });
+            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+            jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
+
             break;
         case tvKey.KEY_RIGHT:
             alert("MyPg_key : Right");
@@ -225,8 +232,8 @@ MyPg.registerKeyDown = function () {
                     register: jQuery('#MyPg_SelectNumber_list_new>div'),
                 });
                 //'새로운 번호'부분으로 포커스를 넘긴다.
-                //MyPg_registerInde++;
-                MyPg.register.eq(++MyPg_registerIndex).addClass('focus');
+                MyPg_registerIndex++;
+                MyPg.register.eq(MyPg_registerIndex).addClass('focus');
                 MAX_INPUT = 11;
             }
             else if (MyPg_registerIndex == 1) {
@@ -237,7 +244,7 @@ MyPg.registerKeyDown = function () {
                 if (inputNum == 11) {
                     //11자리의 전화번호가 모두 입력된 상태에서 확인이 눌리면, 인증번호를 전송한다.
                     var isOverlapped = 0;//번호가 중복되면 1, 아니면 0
-                    var _numberPost = MyPg.register.eq(MyPg_registerIndex).text();
+                    _numberPost = MyPg.register.eq(MyPg_registerIndex).text();
                     //입력된 번호가 이미 클라이언트에 있는 번호이면, 에러 메세지를 출력하고 다시 입력하도록 한다.
                     if (savedNumber_num != 0) {//번호가 하나라도 등록된 상태라면, 중복체크를 한다.
                         loadFile();
@@ -257,7 +264,7 @@ MyPg.registerKeyDown = function () {
                         // 서버로 인증번호 요청
                         $.ajax({
                             type: "POST", // POST형식으로 폼 전송
-                            url: "http://"+PHP_SERVER_ADDRESS+"/CertificationSMS.php", // 목적지
+                            url: "http://172.16.100.171/CertificationSMS.php", // 목적지
                             timeout: 10000,
                             data: ({ numberPost: _numberPost }),
                             cache: false,
@@ -288,7 +295,7 @@ MyPg.registerKeyDown = function () {
                     if (savedNumber_num == 0) {//첫번째로 등록한 번호일때는 '컴마'없이 번호만 등록한다.
                         savedNumber_temp += phoneNumber_input;
                     }
-                    else{
+                    else {
                         savedNumber_temp += ',' + phoneNumber_input;
                     }
                     writeFile(savedNumber_temp);
@@ -302,8 +309,8 @@ MyPg.registerKeyDown = function () {
                     for (var i = 0; i < savedNumber_num; i++) {
                         var tempString = '';
                         tempString += '<div>';
-                        tempString +=   '<div class="number_left">' + (i + 1) + '</div>';
-                        tempString +=   '<div class="number_right">' + savedNumber[i] + '</div>';
+                        tempString += '<div class="number_left">' + (i + 1) + '</div>';
+                        tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
                         tempString += '</div>';
 
                         jQuery('#MyPg_SelectNumber_list_already').append(tempString);
@@ -330,7 +337,19 @@ MyPg.registerKeyDown = function () {
                         MyPg.number.eq(++MyPg_numberIndex).addClass('focus');
 
                     MyPg.anchor.select.focus();
-                    
+
+                    //새로운 번호를 서버에 저장한다.
+                    $.ajax({
+                        type: "POST", // POST형식으로 폼 전송
+                        url: SERVER_ADDRESS + "/user", // 목적지
+                        data: {
+                            phoneNumber: _numberPost//"를 안붙이면 전화번호 맨 앞의 0이 사라짐
+                        },
+                        dataType: "text",
+                        success: function (data) {
+                            alert("번호 등록 성공");
+                        }
+                    });
                 }
                 else {//인증번호를 제대로 입력하지 않았을때,
                     MyPg.register.eq(MyPg_registerIndex).empty();
@@ -340,7 +359,7 @@ MyPg.registerKeyDown = function () {
             }
 
             break;
-           
+
         case tvKey.KEY_0:
 
             if (inputNum == 0) //아직 아무런 숫자도 입력되지 않았을 때
@@ -467,7 +486,7 @@ MyPg.registerKeyDown = function () {
     }
 };
 
-
+//'선택 완료'부분을 처리하는 곳
 MyPg.submitKeyDown = function () {
     alert("MyPg keyDown");
     var keyCode = event.keyCode;
@@ -486,6 +505,7 @@ MyPg.submitKeyDown = function () {
             break;
         case tvKey.KEY_LEFT:
             alert("MyPg_key : Left");
+            
             break;
         case tvKey.KEY_RIGHT:
             alert("MyPg_key : Right");
@@ -499,14 +519,86 @@ MyPg.submitKeyDown = function () {
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             alert("MyPg_key : Enter");
-            //productId와 userId로 상품 예약 요청을 한다.
-            /*
-            $.ajax{
+ 
+            MyPg.submit.eq(MyPg_submitIndex).removeClass('focus');
 
-            }*/
-            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-            jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
+            //선택된 번호를 삭제 요청한다.
+            if (MyPg_submitIndex == 0) {
+                //ajax 요청이 들어가는 부분
+                //번호 삭제시, 데이터베이스에 있는 내용도 같이 지울지 이야기 해봐야 함.
+                alert(_numberPost);
+                $.ajax({
+                    type: "DELETE", //DELETE 요청
+                    url: SERVER_ADDRESS + "/user",//목적지
+                    data: {
+                        phoneNumber: _numberPost,
+                    },
+                    dataType: "text",
+                    success: function (data) {
+                        alert("사용자 삭제 성공");
+                    }
+                });
+                //클라에서도 번호를 지우고 
+                jQuery('#MyPg_SelectNumber_list_already').empty();
+                
+                loadFile();//파일 시스템을 로딩한다.
+                var savedNumber_temp = readFile();
+                savedNumber = savedNumber_temp.split(',');
+                savedNumber_num = savedNumber.length;
+                savedNumber_temp = '';
+                for (var i = 0; i < savedNumber_num; i++) {
+                    if (savedNumber[i] != _numberPost) {//지우려는 번호만 빼고 다시 저장한다.
+                        if (i != 0)//첫번째 번호가 아니면 컴마도 같이 등록한다.
+                            savedNumber_temp += ',';
+                        savedNumber_temp += savedNumber[i];
+                    }
+                }
+                alert("다시 저장할 번호 : " + savedNumber_temp);
+                writeFile(savedNumber_temp);
 
+                //다시 로드한다.
+                savedNumber_temp = readFile();
+                savedNumber_num = savedNumber_temp.length;
+                alert("새로 불러온 번호의 개수:" + savedNumber_num + " " +savedNumber_temp);
+                //파일 시스템에서 TV에 저장되어 있는 번호들을 불러온다.
+                for (var i = 0; i < savedNumber_num; i++) {
+                    var tempString = '';
+                    tempString += '<div>';
+                    tempString += '<div class="number_left">' + (i + 1) + '</div>';
+                    tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
+                    tempString += '</div>';
+
+                    jQuery('#MyPg_SelectNumber_list_already').append(tempString);
+                }
+
+                jQuery('#MyPg_SelectNumber_list_new').empty();
+                var tempString = '';
+                tempString += '<div>번호추가</div>';
+                jQuery('#MyPg_SelectNumber_list_new').append(tempString);
+
+                jQuery.extend(MyPg, {
+                    number: jQuery('#MyPg_SelectNumber_list_already>div'),
+                    register: jQuery('#MyPg_SelectNumber_list_new>div'),
+                });
+
+                //새로운 번호에 포커스를 맞추고 시작한다.
+                MyPg_index = 0;//'번호 선택'부분을 선택
+                MyPg_registerIndex = 0;//'번호 추가'버튼이 떠있도록
+                MyPg_numberIndex = 0;//다시 첫번째 번호로 포커스를 넘긴다.
+                inputNum = 0;
+                certificationNum = 0;
+
+                if (savedNumber_num == 0) {//번호 삭제후 아무 번호도 남지 않았을 때,
+                    //번호 추가 부분으로 포커스를 넘긴다.
+                    MyPg.anchor.register.focus();
+                    MyPg.register.eq(MyPg_registerIndex).addClass('focus');
+                }
+                else {//삭제후에도 번호가 남아 있을 때,
+                    MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+                    MyPg.anchor.select.focus();
+                }
+            }
+            
             break;
         default:
             alert("Unhandled key");

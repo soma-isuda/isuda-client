@@ -1,5 +1,5 @@
 var DetailInfoSpg_index = 0;
-//0이면 '예약/시청 버튼'에 포커스 된 상태
+//0이면 '해당 카테고리 예약'에 포커스 된 상태
 //1이면 상품 상세 정보 이미지에 포커스된 상태
 //--------------------------------------------------
 var detailImageHeight;
@@ -25,7 +25,7 @@ DetailInfoSpg.onLoad = function()
     this.focus();
 
     //현재 방송중인 상품이면 '방송 시청',
-    //그렇지 않으면 '방송 예약'을 출력한다.
+    //그렇지 않으면 'SMS 알람 받기'를 출력한다.
     jQuery('#reserveButton').append('<div>SMS 알람 받기</div>');
 
 
@@ -40,6 +40,9 @@ DetailInfoSpg.onLoad = function()
         reserve: jQuery('#reserveButton').find('div'),
         image: jQuery('#detailImage')
     });
+
+    //'SMS 알람 받기' 버튼에 포커스를 맞추고 시작한다.
+    DetailInfoSpg.reserve.addClass('focus');
 };
 
 
@@ -70,6 +73,10 @@ DetailInfoSpg.keyDown = function()
 			//앱이 종료되는것을 방지해준다.
 			alert("DetailInfoSpg_key : RETURN");
 			widgetAPI.blockNavigation(event);
+
+			TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+			jQuery('#DetailInfoSpg').hide();//상세보기 페이지를 닫는다.
+
 		case tvKey.KEY_LEFT:
 			alert("DetailInfoSpg_key : Left");
 			//document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
@@ -125,6 +132,7 @@ DetailInfoSpg.keyDown = function()
 			//focus move to selectWatchPg
 		    alert("DetailInfoSpg_key : Enter");
 		    if (DetailInfoSpg_index == 0) {//버튼 부분에 포커스가 있을 때
+                //번호 선택 부분으로 포커스를 넘긴다.
 		        Main.layout.subPage.load(subPageArr[4].html);
 		        setTimeout(function () {
 		            subPageArr[4].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
