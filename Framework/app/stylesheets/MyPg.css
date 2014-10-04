@@ -119,7 +119,7 @@
     font-size:1.5em;
     text-align:center;
 }
-#MyPg_SelectNumber_submit>div:nth-child(1){
+#MyPg_SelectNumber_submit>div{
     position:absolute;
     width:400px;
     height:60px;
