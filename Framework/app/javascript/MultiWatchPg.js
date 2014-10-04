@@ -143,6 +143,7 @@ MultiWatchPg.enableKeys = function()
 
 MultiWatchPg.keyDown = function()
 {
+	//popupMessage("hi");
 	alert("MultiWatchPg keyDown");
 	var keyCode = event.keyCode;
 	alert("Key pressed: " + keyCode +" ,index:" + MultiWatchPg_index);
@@ -211,6 +212,7 @@ MultiWatchPg.keyDown = function()
 				$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
 				MultiWatchPg_index += 6;
 				$(productImg[MultiWatchPg_index]).css("display","block");
+				
 			}
 			else{
 				$(productImg[MultiWatchPg_index]).css("display","none");

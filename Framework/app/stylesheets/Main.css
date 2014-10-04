@@ -11,6 +11,7 @@ body
 	width: 1920px;
 	height: 1080px;
 	overflow: hidden;
+	position: absolute;
 	
 }
 #sideBar {
@@ -48,6 +49,7 @@ body
 
 #article {
 	margin-left: 430px;
+	position: absolute;
 	
 }
 #sideBar.focus{
@@ -85,4 +87,20 @@ body
 
 ul {
 	list-style: none;
+}
+
+#popup {
+	width:  800px;
+	height: 450px;
+	position: relative;
+	
+	margin-top: 300px;
+	margin-left: 630px;
+	display: none;
+	font-style: bold;
+	font-size: 500%;
+	text-align: center;
+	line-height: 450px;
+	overflow: hidden;
+	background-color: lightgrey;
 }

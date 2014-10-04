@@ -133,9 +133,11 @@ MyPg.SMSAlarmfocus = function () {
         //상품알람리스트 포커스 효과
         MyPg.SMSAlarm.elem.eq(SMSAlarm_index).addClass('focus');   
     }
-    else{
-        MyPg.focus();       
+    else if(MyPg.category_.arr.length > 0){
+        MyPg.categoryfocus();       
     }
+    else
+        MyPg.focus();
 };
 MyPg.categoryfocus = function () {
     alert("MyPg.categoryfocus");
@@ -144,9 +146,11 @@ MyPg.categoryfocus = function () {
         MyPg.category.anchor.focus();
         MyPg.category_.content.eq(MyPg.category_.index).addClass('focus');    	
     }
-    else{
+    else if(MyPg.SMSAlarm.elem.length > 0){
     	MyPg.SMSAlarmfocus(MyPg_numberIndex);    	
     }
+    else 
+        MyPg.focus();
 };
 
 MyPg.enableKeys = function () {
@@ -730,6 +734,7 @@ MyPg.DeleteCategory = function(idx, secondid){
         dataType : 'text',
         success : function (data) {
         	alert("카테고리 삭제 성공 ");
+            popupMessage("카테고리 알람이 삭제되었습니다.");
             MyPg.CategorySetting(idx);
         }
     });	        
@@ -876,6 +881,7 @@ MyPg.DeleteSMSAlarm = function(index, productId){
         dataType : 'text',
         success : function (data) {
             alert("상품 알림 삭제 성공 ");
+            popupMessage("방송상품 알람이 삭제되었습니다.");
             MyPg.SMSAlarmSetting(index);
         }
     });         
