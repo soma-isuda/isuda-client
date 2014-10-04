@@ -28,6 +28,8 @@ var phoneNumber_input;//사용자가 입력한 인증번호
 var MAX_INPUT;//입력창에 최대로 입력할 수 있는 숫자의 개수(11개 또는 6개)
 var _numberPost;//새롭게 입력된 번호를 저장하는 변수
 
+var SMSAlarm_index=0;//방송상품 알람리스트에서 몇 번쨰를 나타내는 인덱스
+
 var MyPg = {
 
 };
@@ -47,11 +49,11 @@ MyPg.onLoad = function () {
             submit  : jQuery('#MyPg_seletNumber_submit'),
             anchor  : jQuery('#anchor_MyPg_seletNumber')
         },
-        SMSAlarm : {
-            elem    : jQuery('#MyPg_SMSAlarm_list'),
-            submit  : jQuery('#MyPg_SMSAlarm_submit'),
-            anchor  : jQuery('#anchor_MyPg_SMSAlarm')
-        },
+        // SMSAlarm : {
+        //     elem    : jQuery('.MyPgItem'), //jQuery('#MyPg_SMSAlarm_list').find('ul>li'),
+        //     submit  : jQuery('#MyPg_SMSAlarm_submit'),
+        //     anchor  : jQuery('#anchor_MyPg_SMSAlarm')
+        // },
         category:{
         	elem 	: jQuery('#MyPg_CategoryAlarm_list'),
         	submit	: jQuery('#MyPg_CategoryAlarm_submit'),
@@ -117,7 +119,7 @@ MyPg.focus = function () {
         MyPg.anchor.register.focus();
     }
      _numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
-    MyPg_SMSAlarm();
+    MyPg_SMSAlarm(MyPg_numberIndex);
 };
 
 MyPg.enableKeys = function () {
@@ -131,7 +133,7 @@ MyPg.selectKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + MyPg_index);
     //nuberPost = 현재 포커스된 번호리스트의 번호
 
-    _numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
+    //_numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
     switch (keyCode) {
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
@@ -144,6 +146,14 @@ MyPg.selectKeyDown = function () {
             break;
         case tvKey.KEY_RIGHT:
             alert("MyPg_key : Right");
+            alert("length : "+MyPg.SMSAlarm.elem.length);
+            alert(SMSAlarm_index);
+            //번호 리스트 포커스효과 삭제
+            MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
+            //상품알람리스트에 엥커 -> 키다운함수도 바뀐다.
+            MyPg.SMSAlarm.anchor.focus();
+            //상품알람리스트 포커스 효과
+            MyPg.SMSAlarm.elem.eq(SMSAlarm_index).addClass('focus');
             break;
         case tvKey.KEY_UP:
             alert("MyPg_key : Up");
@@ -152,6 +162,7 @@ MyPg.selectKeyDown = function () {
             	MyPg_numberIndex--;
             	this.CategorySetting(MyPg_numberIndex);            
             	MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+                MyPg_SMSAlarm(MyPg_numberIndex);
             }
 
             break;
@@ -171,7 +182,7 @@ MyPg.selectKeyDown = function () {
                     MyPg_numberIndex++;
                 	this.CategorySetting(MyPg_numberIndex);                                
                     MyPg.number.eq(MyPg_numberIndex).addClass('focus');
-                    MyPg_SMSAlarm.onLoad();
+                    MyPg_SMSAlarm(MyPg_numberIndex);
                 }
             }
             else {
@@ -675,18 +686,18 @@ MyPg.CategorySetting = function(idx){
 ////////         MyPg 번호에 따른 예약 리스트 로드      ///////
 ////////////////////////////////////////////////////////
 
-MyPg_SMSAlarm = function(){
+MyPg_SMSAlarm = function(index){
     alert("MyPg_SMSAlarm.onLoad");
     jQuery.ajax({
         url: SERVER_ADDRESS + '/sAlarms',
         type : 'GET',
         data : {
-            phoneNumber : _numberPost
+            phoneNumber : savedNumber[index]
         },
         dataType : 'json',
         success : function (data) {
-            $.each(data, function() {
-                var tempString = '';
+            var tempString = '';
+            $.each(data, function() { 
                 tempString += '<li class="MyPgItem">                                                        ';
                 tempString += '     <div class="MyPg_imgArea">                                              ';
                 tempString += '         <img src="' +this.productImgURL+ '" alt="" class="MyPg_productImg"> ';
@@ -701,8 +712,16 @@ MyPg_SMSAlarm = function(){
                 tempString += '         </div>                                                              ';
                 tempString += '     </div>                                                                  ';
                 tempString += ' </li>                                                                       ';
-                jQuery('#MyPg_SMSAlarm_list').find('ul').append(tempString);             
-            });                 
+               
+            });    
+            jQuery('#MyPg_SMSAlarm_list').find('ul').html(tempString);                          
         }   
-    });     
+    });  
+    jQuery.extend(MyPg, {
+        SMSAlarm : {
+            elem    : jQuery('.MyPgItem'), //jQuery('#MyPg_SMSAlarm_list').find('ul>li'),
+            submit  : jQuery('#MyPg_SMSAlarm_submit'),
+            anchor  : jQuery('#anchor_MyPg_SMSAlarm')
+        }
+    });   
 }

@@ -39,6 +39,68 @@
     background-color: blue;
 
 }
+/*/////////////////////////////////
+/////// SMS Alarm 관련 css /////////
+/////////////////////////////////*/
+#MyPg_SMSAlarm_list > ul li{
+    width : 500px;
+    height: 100px;
+    text-align: center;
+    background-color: blue;
+    float: left;
+    position: relative;  
+}
+
+.MyPgItem div{
+    float: left;
+    position: relative;
+    display: inline-block;
+}
+.MyPg_imgArea {
+    width: 100px;
+    height: 100px;
+    
+    background-color: blue;
+}
+.MyPg_imgArea img {
+    width: 100px;
+
+}
+.MyPg_productInfoArea {
+    width: 400px;
+    height: 100px;
+    border: 0;
+}
+.MyPg_productInfoArea div{
+    display: block;
+    position: relative;
+    width: 400px;
+    color: white;
+    text-align: center;
+}
+.MyPg_name {
+    height: 50px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 130%;
+}
+.MyPg_price {
+    height: 50px;
+    font-size: 130%;
+}
+.MyPg_price p {
+    text-align: right;
+}
+.MyPg_productprice {
+    font-size: 180%;
+}
+.MyPgItem.focus{
+    border: 6px solid #c409d2;
+    background-color: red;
+}
+
+
+
 
 #MyPg_CategoryAlarm_list > div{
 	width : 500px;
