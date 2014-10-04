@@ -53,6 +53,9 @@ var Player = {
 			this.player.attr('src',videoURL[this.channel]);			
 		}
 	},
+	getChannel : function(){
+		return this.channel;
+	},
 	destroy	: function(){
 		this.player.attr('src','');
 		this.hide();
