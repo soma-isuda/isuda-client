@@ -1,4 +1,4 @@
-var MyPg_index;
+var MyPg_SelectNumber_index;
 //0 : 기존의 번호 선택 
 //1 : 새로운 번호 입력
 //2 : 번호 최종 선택
