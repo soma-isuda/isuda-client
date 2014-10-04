@@ -93,6 +93,7 @@ MultiWatchPg.focus = function(){
 	$(productImg[MultiWatchPg_index]).css("display","block");
 	setTimeout(function(){
 		refresh = setInterval(function(){MultiWatchPg.remainedTime();},1000);
+		adjustChange = setInterval(function(){MultiWatchPg.adjustChange();},10000);
 	},10);	
 
 };
@@ -124,7 +125,13 @@ MultiWatchPg.remainedTime = function(){
 	
 	}
 };
-
+MultiWatchPg.adjustChange = function(){
+	$('#adjust').css('background-image','url("'+adjustArr[++adjust_index]+'")');
+	//document.getElementById("adjust").style.background.image=adjustArr[++adjust_index];
+	if(adjust_index == adjustArr.length-1){
+		adjust_index=-1;
+	}
+}
 MultiWatchPg.enableKeys = function()
 {
 	document.getElementById("anchor").focus();
@@ -147,6 +154,7 @@ MultiWatchPg.keyDown = function()
 			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 			$(productImg[MultiWatchPg_index]).css("display","none");
 			clearInterval(refresh);
+			clearInterval(adjustChange);
 			Main.focus();
 			break;
 		case tvKey.KEY_LEFT:
