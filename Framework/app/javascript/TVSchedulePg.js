@@ -105,9 +105,6 @@ TVSchedulePg.bigKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("TVSchedulePg_key : RETURN");
-            //SelectWatchPg.onLoad();
-            //메인으로 포커스를 넘긴다.
-            break;
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
             //메뉴 선택으로 포커스를 다시 넘긴다.
@@ -181,8 +178,6 @@ TVSchedulePg.midKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("TVSchedulePg_key : RETURN");
-            SelectWatchPg.onLoad();
-            break;
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
 
@@ -302,8 +297,6 @@ TVSchedulePg.listKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("TVSchedulePg_key : RETURN");
-            SelectWatchPg.onLoad();
-            break;
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
             //상품 리스트의 제일 왼쪽에 있을때,
@@ -433,7 +426,7 @@ TVSchedulePg.KeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("TVSchedulePg_key : RETURN");
-            SelectWatchPg.onLoad();
+            //SelectWatchPg.onLoad();
             break;
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");

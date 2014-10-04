@@ -97,20 +97,23 @@ MyPg.onLoad = function () {
         register: jQuery('#MyPg_SelectNumber_list_new>div'),
         submit: jQuery('#MyPg_SelectNumber_submit>div')
     });
+
+    // 변수 초기화
+    MyPg_index = 0;
+    MyPg_numberIndex = 0;
+    MyPg_registerIndex = 0;
+    MyPg_submitIndex = 0;
+    
+    
 };
 
 
 MyPg.focus = function () {
     alert("MyPg.focus");
     MyPg.anchor.select.focus();
-    // 변수 초기화
-    MyPg_index = 0;
-    MyPg_numberIndex = 0;
-    MyPg_registerIndex = 0;
-    MyPg_submitIndex = 0;
     if (savedNumber_num > 0){//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
         MyPg.number.eq(MyPg_numberIndex).addClass('focus');
-        this.CategorySetting(0);
+        this.CategorySetting(MyPg_numberIndex);
     }
     else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
         //'번호 추가' 부분으로 포커스를 넘긴다.
@@ -120,6 +123,18 @@ MyPg.focus = function () {
     }
      _numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
     MyPg_SMSAlarm(MyPg_numberIndex);
+};
+
+MyPg.categoryfocus = function () {
+    alert("MyPg.categoryfocus");
+    alert(MyPg.category_.arr.length);
+    if(MyPg.category_.arr.length > 0){
+        MyPg.category.anchor.focus();
+        MyPg.category_.content.eq(MyPg.category_.index).addClass('focus');    	
+    }
+    else{
+    	MyPg.focus();    	
+    }
 };
 
 MyPg.enableKeys = function () {
@@ -141,6 +156,8 @@ MyPg.selectKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("MyPg_key : RETURN or LEFT");
+            MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
+            
             Main.focus();//사이드바 다시 포커스를 넘긴다.
             //jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
             break;
@@ -154,6 +171,9 @@ MyPg.selectKeyDown = function () {
             MyPg.SMSAlarm.anchor.focus();
             //상품알람리스트 포커스 효과
             MyPg.SMSAlarm.elem.eq(SMSAlarm_index).addClass('focus');
+        
+            //MyPg.categoryfocus();
+
             break;
         case tvKey.KEY_UP:
             alert("MyPg_key : Up");
@@ -627,59 +647,108 @@ MyPg.submitKeyDown = function () {
 
 };
 
-MyPg.KeyDown = function () {
-    alert("MyPg keyDown");
+//처음에 키를 받는 부분, 번호를 선택하는 부분
+MyPg.categoryKeyDown = function () {
+    alert("MyPg category keyDown");
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode + " ,index:" + MyPg_index);
 
     switch (keyCode) {
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
+        case tvKey.KEY_LEFT:
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
-            alert("MyPg_key : RETURN");
-            //SelectWatchPg.onLoad();
-            break;
-        case tvKey.KEY_LEFT:
-            alert("MyPg_key : Left");
+            MyPg.category_.content.eq(MyPg.category_.index).removeClass('focus');
+            MyPg.focus();
+            alert("MyPg_key : RETURN or LEFT");
             break;
         case tvKey.KEY_RIGHT:
             alert("MyPg_key : Right");
+
             break;
         case tvKey.KEY_UP:
             alert("MyPg_key : Up");
+            if (MyPg.category_.index > 0){
+                MyPg.category_.content.eq(MyPg.category_.index).removeClass('focus');
+                MyPg.category_.index--;
+            	MyPg.category_.content.eq(MyPg.category_.index).addClass('focus');
+            }
             break;
         case tvKey.KEY_DOWN:
             alert("MyPg_key : Down");
+            if (MyPg.category_.index < MyPg.category_.arr.length-1) {
+                MyPg.category_.content.eq(MyPg.category_.index).removeClass('focus');
+                MyPg.category_.index++;
+                MyPg.category_.content.eq(MyPg.category_.index).addClass('focus');
+            }
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
-            //focus move to selectWatchPg
             alert("MyPg_key : Enter");
+            if(!MyPg.category.submit.hasClass('focus')){
+            	MyPg.category_.content.eq(MyPg.category_.index).removeClass('focus');
+            	MyPg.category.submit.addClass('focus');
+            }
+            else{
+            	alert(MyPg.category_.arr[MyPg.category_.index]);
+            	MyPg.DeleteCategory(MyPg_numberIndex, MyPg.category_.arr[MyPg.category_.index]);            	
+            	MyPg.category.submit.removeClass('focus');
+            	setTimeout(function(){
+            		MyPg.categoryfocus();
+            	}, 500);
+            }
             break;
         default:
             alert("Unhandled key");
             break;
     }
-
 };
 
-
+MyPg.DeleteCategory = function(idx, secondid){
+	alert(idx);
+	alert(secondid);
+    jQuery.ajax({
+        url: SERVER_ADDRESS + '/cAlarms',
+        type : 'DELETE',
+        data: { phoneNumber: savedNumber[idx], secondId: secondid},    
+        dataType : 'text',
+        success : function (data) {
+        	alert("카테고리 삭제 성공 ");
+            MyPg.CategorySetting(idx);
+        }
+    });	        	
+	
+};
+////////////////////////////////////////////////////////
+//////        MyPg 번호에 따른 카테고리 리스트 로드      ///////
+////////////////////////////////////////////////////////
 MyPg.CategorySetting = function(idx){
     jQuery.ajax({
         url: SERVER_ADDRESS + '/cAlarms',
         type : 'GET',
-        data: ({ phoneNumber: savedNumber[idx] }),    
+        data: { phoneNumber: savedNumber[idx] },    
         dataType : 'json',
         success : function (data) {
         	var tempstring = "";
+        	var temparr= [];
         	$.each(data, function() {
-        		tempstring += "<div>" + firstCategory[this.firstId] + "  >  " + secondCategory[this.firstId][this.id] + "</div>";
+        		tempstring += "<div>" + firstCategory[this.firstId] + "  >  " + this.secondName + "</div>";
+        		temparr.push(this.secondId);
         	});
         	MyPg.category.elem.html(tempstring);
         	alert(tempstring);
+        	setTimeout(function(){
+         	    jQuery.extend(MyPg, {
+        	        category_: {
+        	        	content: jQuery('#MyPg_CategoryAlarm_list>div'),
+        	        	arr: temparr,
+        	        	index:0
+        	        }
+        	    });
+			},10);	
         } 
-    });	        	
+    });	 
 };
 
 ////////////////////////////////////////////////////////
@@ -715,13 +784,17 @@ MyPg_SMSAlarm = function(index){
                
             });    
             jQuery('#MyPg_SMSAlarm_list').find('ul').html(tempString);                          
+            
+            setTimeout(function(){  
+                jQuery.extend(MyPg, {
+                    SMSAlarm : {
+                        elem    : jQuery('.MyPgItem'), //jQuery('#MyPg_SMSAlarm_list').find('ul>li'),
+                        submit  : jQuery('#MyPg_SMSAlarm_submit'),
+                        anchor  : jQuery('#anchor_MyPg_SMSAlarm')
+                    }
+                }); 
+            },10);   
         }   
-    });  
-    jQuery.extend(MyPg, {
-        SMSAlarm : {
-            elem    : jQuery('.MyPgItem'), //jQuery('#MyPg_SMSAlarm_list').find('ul>li'),
-            submit  : jQuery('#MyPg_SMSAlarm_submit'),
-            anchor  : jQuery('#anchor_MyPg_SMSAlarm')
-        }
-    });   
+    });
+
 }
