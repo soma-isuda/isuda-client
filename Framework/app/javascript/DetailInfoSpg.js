@@ -1,5 +1,5 @@
 var DetailInfoSpg_index = 0;
-//0이면 '예약/시청 버튼'에 포커스 된 상태
+//0이면 '해당 카테고리 예약'에 포커스 된 상태
 //1이면 상품 상세 정보 이미지에 포커스된 상태
 //--------------------------------------------------
 var detailImageHeight;
@@ -73,6 +73,10 @@ DetailInfoSpg.keyDown = function()
 			//앱이 종료되는것을 방지해준다.
 			alert("DetailInfoSpg_key : RETURN");
 			widgetAPI.blockNavigation(event);
+
+			TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+			jQuery('#DetailInfoSpg').hide();//상세보기 페이지를 닫는다.
+
 		case tvKey.KEY_LEFT:
 			alert("DetailInfoSpg_key : Left");
 			//document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";

@@ -8,6 +8,13 @@ var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
 var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
 // pagearr : information about pages in pageinfo
 var page_index = 1;
+var subPage_index = 1;//현재 열려있는 서브 페이지의 넘버
+//0:상세보기 서브페이지
+//1:가격비교 서브페이지
+//2:SMS공유 서브페이지
+//3:상품구매 서브페이지
+//4:번호선택 서브페이지
+
 //var sideBarMenuImg = $(".sideBarMenuImg img");
 
 var Main =

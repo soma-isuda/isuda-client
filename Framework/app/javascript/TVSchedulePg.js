@@ -374,9 +374,10 @@ TVSchedulePg.listKeyDown = function () {
                 //$(img[MultiWatchPg_index]).css("display", "none");
                 jQuery('#product>#product_header>#reserve_Category').addClass('focus');
                 //번호 선택 subPage를 로드한다.
-                Main.layout.subPage.load(subPageArr[4].html);
+                subPage_index = 4;
+                Main.layout.subPage.load(subPageArr[subPage_index].html);
                 setTimeout(function () {
-                    subPageArr[4].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
+                    subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
                 }, 10);
             }
             else if (productIndex == 1) {//상품에 포커스가 있을 때
