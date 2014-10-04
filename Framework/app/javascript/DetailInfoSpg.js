@@ -103,7 +103,7 @@ DetailInfoSpg.keyDown = function () {
             widgetAPI.blockNavigation(event);
 
             if (page_index == 2) //선택보기에서 '상세보기'
-                SelectWatchPg.anchor.main.focus();//선택보기로 다시 포커스를 넘긴다.
+                SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
             else if (page_index == 3) //편성표에서 '상세보기'
                 TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.

@@ -264,7 +264,7 @@ SelectNumberSpg.registerKeyDown = function () {
                         // 서버로 인증번호 요청
                         $.ajax({
                             type: "POST", // POST형식으로 폼 전송
-                            url: "http://172.16.100.171/CertificationSMS.php", // 목적지
+                            url: PHP_SERVER_ADDRESS+"/CertificationSMS.php", // 목적지
                             timeout: 10000,
                             data: ({ numberPost: _numberPost }),
                             cache: false,
@@ -473,7 +473,7 @@ SelectNumberSpg.registerKeyDown = function () {
             if (SelectNumberSpg_registerIndex == 1 || SelectNumberSpg_registerIndex == 2) {
                 if (inputNum > 0) {//숫자가 하나라도 있을때
                     var tempNum = SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).text();
-                    var tempNum = tempNum.substring(0, --inputNum);
+                    tempNum = tempNum.substring(0, --inputNum);
                     SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).empty();
                     SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).append(tempNum);
                 }
