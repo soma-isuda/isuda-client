@@ -188,6 +188,8 @@
     box-sizing:border-box;
     width:256px;
     height:33px;
+    background-color:#1c1817;
+    color:white;
 
     margin-left:27px;
     margin-right:27px;

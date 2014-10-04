@@ -553,7 +553,7 @@ SelectNumberSpg.submitKeyDown = function () {
 
                     $.ajax({
                         type: "POST", // POST형식으로 폼 전송
-                        url: SERVER_ADDRESS + "/alarms", // 목적지
+                        url: SERVER_ADDRESS + "/sAlarms", // 목적지
                         data: {
                             productId: productLoadedId[productListIndex],
                             phoneNumber: _numberPost
