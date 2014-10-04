@@ -41,6 +41,21 @@ MyPg.onLoad = function () {
             select: jQuery('#anchor_MyPg_select'),
             register: jQuery('#anchor_MyPg_register'),
             submit: jQuery('#anchor_MyPg_submit'),
+        },
+        selectNumber : {
+            elem    : jQuery('#MyPg_seletNumber_list'),
+            submit  : jQuery('#MyPg_seletNumber_submit'),
+            anchor  : jQuery('#anchor_MyPg_seletNumber')
+        },
+        SMSAlarm : {
+            elem    : jQuery('#MyPg_SMSAlarm_list'),
+            submit  : jQuery('#MyPg_SMSAlarm_submit'),
+            anchor  : jQuery('#anchor_MyPg_SMSAlarm')
+        },
+        category:{
+        	elem 	: jQuery('#MyPg_CategoryAlarm_list'),
+        	submit	: jQuery('#MyPg_CategoryAlarm_submit'),
+        	anchor	: jQuery('#anchor_MyPg_Category')
         }
     });
     //this.focus();
@@ -80,8 +95,6 @@ MyPg.onLoad = function () {
         register: jQuery('#MyPg_SelectNumber_list_new>div'),
         submit: jQuery('#MyPg_SelectNumber_submit>div')
     });
-
-    
 };
 
 
@@ -93,14 +106,18 @@ MyPg.focus = function () {
     MyPg_numberIndex = 0;
     MyPg_registerIndex = 0;
     MyPg_submitIndex = 0;
-    if (savedNumber_num > 0)//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
+    if (savedNumber_num > 0){//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
         MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+        this.CategorySetting(0);
+    }
     else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
         //'번호 추가' 부분으로 포커스를 넘긴다.
         MyPg_index = 1;
         MyPg.register.eq(MyPg_registerIndex).addClass('focus');
         MyPg.anchor.register.focus();
     }
+     _numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
+    MyPg_SMSAlarm();
 };
 
 MyPg.enableKeys = function () {
@@ -112,7 +129,9 @@ MyPg.selectKeyDown = function () {
     alert("MyPg Select keyDown");
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode + " ,index:" + MyPg_index);
+    //nuberPost = 현재 포커스된 번호리스트의 번호
 
+    _numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
     switch (keyCode) {
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
@@ -128,11 +147,12 @@ MyPg.selectKeyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("MyPg_key : Up");
-
-            MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
-            if (MyPg_numberIndex - 1 >= 0)
-                MyPg_numberIndex--;
-            MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+            if (MyPg_numberIndex > 0){
+                MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
+            	MyPg_numberIndex--;
+            	this.CategorySetting(MyPg_numberIndex);            
+            	MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+            }
 
             break;
         case tvKey.KEY_DOWN:
@@ -144,12 +164,14 @@ MyPg.selectKeyDown = function () {
                 if (MyPg_numberIndex + 1 == savedNumber_num) {
                     MyPg_index = 1;
                     MyPg.register.eq(MyPg_registerIndex).addClass('focus');
-
+       
                     MyPg.anchor.register.focus();
                 }
                 else {
                     MyPg_numberIndex++;
+                	this.CategorySetting(MyPg_numberIndex);                                
                     MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+                    MyPg_SMSAlarm.onLoad();
                 }
             }
             else {
@@ -476,7 +498,7 @@ MyPg.registerKeyDown = function () {
     }
 };
 
-//'번호삭'부분을 처리하는 곳
+//'번호삭제'부분을 처리하는 곳
 MyPg.submitKeyDown = function () {
     alert("MyPg keyDown");
     var keyCode = event.keyCode;
@@ -630,24 +652,57 @@ MyPg.KeyDown = function () {
     }
 
 };
+
+
+MyPg.CategorySetting = function(idx){
+    jQuery.ajax({
+        url: SERVER_ADDRESS + '/cAlarms',
+        type : 'GET',
+        data: ({ phoneNumber: savedNumber[idx] }),    
+        dataType : 'json',
+        success : function (data) {
+        	var tempstring = "";
+        	$.each(data, function() {
+        		tempstring += "<div>" + firstCategory[this.firstId] + "  >  " + secondCategory[this.firstId][this.id] + "</div>";
+        	});
+        	MyPg.category.elem.html(tempstring);
+        	alert(tempstring);
+        } 
+    });	        	
+};
+
 ////////////////////////////////////////////////////////
 ////////         MyPg 번호에 따른 예약 리스트 로드      ///////
 ////////////////////////////////////////////////////////
 
-// jQuery.extend(MultiWatchPg,{
-//         MultiWatchPgList : jQuery('#MultiWatchPgList')
-//     });
-//     MultiWatchPg.MultiWatchPgList.empty();
-//     cnt=-1;
-//     alert("MultiWatchPg.onLoad");
-//     alert("start : "+cnt);
-//     jQuery.ajax({
-//         url: SERVER_ADDRESS + '/SMSAlarm',
-//         type : 'GET',
-//         dataType : 'json',
-//         success : function (data) {
-//             $.each(data, function() {
-                
-//             });                 
-//         }   
-//     });     
+MyPg_SMSAlarm = function(){
+    alert("MyPg_SMSAlarm.onLoad");
+    jQuery.ajax({
+        url: SERVER_ADDRESS + '/sAlarms',
+        type : 'GET',
+        data : {
+            phoneNumber : _numberPost
+        },
+        dataType : 'json',
+        success : function (data) {
+            $.each(data, function() {
+                var tempString = '';
+                tempString += '<li class="MyPgItem">                                                        ';
+                tempString += '     <div class="MyPg_imgArea">                                              ';
+                tempString += '         <img src="' +this.productImgURL+ '" alt="" class="MyPg_productImg"> ';
+                tempString += '     </div>                                                                  ';
+                tempString += '     <div class="MyPg_productInfoArea">                                      ';
+                tempString += '         <div class="MyPg_name">                                             ';
+                tempString += '             <p>' +this.productName+ '</p>                                   ';
+                tempString += '         </div>                                                              ';
+                tempString += '         <div class="MyPg_price">                                            ';
+                tempString += '             <p>최대 혜택가 :</p>                                               ';
+                tempString += '             <p class="MyPg_productPrice">' + this.productPrice + '</p>      ';
+                tempString += '         </div>                                                              ';
+                tempString += '     </div>                                                                  ';
+                tempString += ' </li>                                                                       ';
+                jQuery('#MyPg_SMSAlarm_list').find('ul').append(tempString);             
+            });                 
+        }   
+    });     
+}
