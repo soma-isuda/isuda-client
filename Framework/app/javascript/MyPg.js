@@ -43,16 +43,10 @@ MyPg.onLoad = function () {
             submit: jQuery('#anchor_MyPg_submit'),
         }
     });
-    this.focus();
+    //this.focus();
 
     loadFile();//파일 시스템을 로딩한다.
-    //writeFile(''); //전화번호 초기화
-    /*
-    savedNumber = readFile();
-    savedNumber += ',01090897672'
-    writeFile(savedNumber);
-    //번호 추가 방법*/
-
+ 
     //writeFile('01090897672');//test용 
 
     var savedNumber_temp = readFile();//파일 시스템에 저장되어 있는 번호들을 불러온다.
@@ -87,14 +81,7 @@ MyPg.onLoad = function () {
         submit: jQuery('#MyPg_SelectNumber_submit>div')
     });
 
-    if (savedNumber_num > 0)//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
-        MyPg.number.eq(MyPg_numberIndex).addClass('focus');
-    else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
-        //'번호 추가' 부분으로 포커스를 넘긴다.
-        MyPg_index = 1;
-        MyPg.register.eq(MyPg_registerIndex).addClass('focus');
-        MyPg.anchor.register.focus();
-    }
+    
 };
 
 
@@ -106,6 +93,14 @@ MyPg.focus = function () {
     MyPg_numberIndex = 0;
     MyPg_registerIndex = 0;
     MyPg_submitIndex = 0;
+    if (savedNumber_num > 0)//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
+        MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+    else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
+        //'번호 추가' 부분으로 포커스를 넘긴다.
+        MyPg_index = 1;
+        MyPg.register.eq(MyPg_registerIndex).addClass('focus');
+        MyPg.anchor.register.focus();
+    }
 };
 
 MyPg.enableKeys = function () {
@@ -121,15 +116,12 @@ MyPg.selectKeyDown = function () {
     switch (keyCode) {
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
+        case tvKey.KEY_LEFT:
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
-            alert("MyPg_key : RETURN");
-            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-            jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
-
-            break;
-        case tvKey.KEY_LEFT:
-            alert("MyPg_key : Left");
+            alert("MyPg_key : RETURN or LEFT");
+            Main.focus();//사이드바 다시 포커스를 넘긴다.
+            //jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
             break;
         case tvKey.KEY_RIGHT:
             alert("MyPg_key : Right");
@@ -194,12 +186,10 @@ MyPg.registerKeyDown = function () {
     switch (keyCode) {
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
-            //앱이 종료되는것을 방지해준다.
+             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("MyPg_key : RETURN");
-            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-            jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
-
+            Main.focus();//사이드바로 다시 포커스를 넘긴다.
             break;
         case tvKey.KEY_RIGHT:
             alert("MyPg_key : Right");
@@ -486,7 +476,7 @@ MyPg.registerKeyDown = function () {
     }
 };
 
-//'선택 완료'부분을 처리하는 곳
+//'번호삭'부분을 처리하는 곳
 MyPg.submitKeyDown = function () {
     alert("MyPg keyDown");
     var keyCode = event.keyCode;
@@ -495,13 +485,10 @@ MyPg.submitKeyDown = function () {
     switch (keyCode) {
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
-            //앱이 종료되는것을 방지해준다.
+             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("MyPg_key : RETURN");
-
-            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-            jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
-
+            Main.focus();//사이드바로 다시 포커스를 넘긴다.
             break;
         case tvKey.KEY_LEFT:
             alert("MyPg_key : Left");

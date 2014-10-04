@@ -15,10 +15,6 @@ var endTimeArr = ["1","1","1","1","1","1"];
 //};
 
 MultiWatchPg.onLoad = function(){
-	jQuery.extend(MultiWatchPg,{
-		MultiWatchPgList : jQuery('#MultiWatchPgList')
-	});
-	MultiWatchPg.MultiWatchPgList.empty();
 	cnt=-1;
 	alert("MultiWatchPg.onLoad");
 	alert("start : "+cnt);
@@ -27,6 +23,7 @@ MultiWatchPg.onLoad = function(){
 		type : 'GET',
 		dataType : 'json',
 		success : function (data) {
+			jQuery('#mainItem').find('ul').empty();
 			$.each(data, function() {
 				if (++cnt >5) {
 					alert("end : "+cnt);
@@ -39,6 +36,7 @@ MultiWatchPg.onLoad = function(){
 				endTime.minute = exitTime[4];//-date.getMinutes();
 				endTimeArr[cnt] = endTime;
 				alert("ing : "+cnt);
+
 			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"><div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="endTime"><p>방송 혜택 종료까지</p><p id="remainedTime' + cnt + '" class="remainedTime"><p></p></div><div class="name"><p>' +this.productName+ '</p></div><div class="price"><p>최대 혜택가 :</p><p class="productPrice">' + this.productPrice + '원 </p></div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
 			    var remainedTime = new Object();
 				
