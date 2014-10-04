@@ -97,6 +97,7 @@ DetailInfoSpg.keyDown = function () {
         case tvKey.KEY_PANEL_RETURN:
         case tvKey.KEY_LEFT:
             alert("DetailInfoSpg_key : Left");
+            widgetAPI.blockNavigation(event);
 
             if (page_index == 2) //선택보기에서 '상세보기'
                 SelectWatchPg.anchor.main.focus();//선택보기로 다시 포커스를 넘긴다.
