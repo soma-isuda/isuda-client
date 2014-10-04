@@ -116,15 +116,26 @@
 #SelectNumber_submit{
     width:480px;
     height:150px;
-    /*font-size:10px;*/
+    font-size:1.5em;
     text-align:center;
 }
-#SelectNumber_submit>div{
+#SelectNumber_submit>div:nth-child(1){
     position:absolute;
-    width:200px;
-    height:80px;
-    line-height:80px;
-    left:140px;
+    width:180px;
+    height:60px;
+    line-height:60px;
+    left:40px;
     border:1px solid black;
+}
+#SelectNumber_submit>div:nth-child(2){
+    position:absolute;
+    width:180px;
+    height:60px;
+    line-height:60px;
+    left:260px;
+    border:1px solid black;
+}
+#SelectNumber_submit>div.focus{
+    border: 6px solid #c409d2;
 }
 

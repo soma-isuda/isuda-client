@@ -25,7 +25,7 @@ DetailInfoSpg.onLoad = function()
     this.focus();
 
     //현재 방송중인 상품이면 '방송 시청',
-    //그렇지 않으면 '방송 예약'을 출력한다.
+    //그렇지 않으면 'SMS 알람 받기'를 출력한다.
     jQuery('#reserveButton').append('<div>SMS 알람 받기</div>');
 
 
@@ -40,6 +40,9 @@ DetailInfoSpg.onLoad = function()
         reserve: jQuery('#reserveButton').find('div'),
         image: jQuery('#detailImage')
     });
+
+    //'SMS 알람 받기' 버튼에 포커스를 맞추고 시작한다.
+    DetailInfoSpg.reserve.addClass('focus');
 };
 
 
@@ -125,6 +128,7 @@ DetailInfoSpg.keyDown = function()
 			//focus move to selectWatchPg
 		    alert("DetailInfoSpg_key : Enter");
 		    if (DetailInfoSpg_index == 0) {//버튼 부분에 포커스가 있을 때
+                //번호 선택 부분으로 포커스를 넘긴다.
 		        Main.layout.subPage.load(subPageArr[4].html);
 		        setTimeout(function () {
 		            subPageArr[4].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
