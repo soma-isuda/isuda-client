@@ -1,4 +1,4 @@
-var MyPg_index;
+var MyPg_SelectNumber_index;
 //0 : 기존의 번호 선택 
 //1 : 새로운 번호 입력
 //2 : 번호 최종 선택
@@ -643,3 +643,24 @@ MyPg.KeyDown = function () {
     }
 
 };
+////////////////////////////////////////////////////////
+////////         MyPg 번호에 따른 예약 리스트 로드      ///////
+////////////////////////////////////////////////////////
+
+// jQuery.extend(MultiWatchPg,{
+//         MultiWatchPgList : jQuery('#MultiWatchPgList')
+//     });
+//     MultiWatchPg.MultiWatchPgList.empty();
+//     cnt=-1;
+//     alert("MultiWatchPg.onLoad");
+//     alert("start : "+cnt);
+//     jQuery.ajax({
+//         url: SERVER_ADDRESS + '/SMSAlarm',
+//         type : 'GET',
+//         dataType : 'json',
+//         success : function (data) {
+//             $.each(data, function() {
+                
+//             });                 
+//         }   
+//     });     
