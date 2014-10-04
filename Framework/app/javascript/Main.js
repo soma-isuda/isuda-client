@@ -3,7 +3,9 @@ var tvKey = new Common.API.TVKeyValue();
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
 var SERVER_ADDRESS = SERVER_ADDRESS_IN;
-
+var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
+var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
+var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
 // pagearr : information about pages in pageinfo
 var page_index = 1;
 //var sideBarMenuImg = $(".sideBarMenuImg img");
@@ -91,6 +93,7 @@ Main.keyDown = function()
 				page_index = Main.sideBarMenu.btn.length;
 
 			Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
+			//alert("page_Index+5 : "+page_index+5);
 			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+5)]);
 			Main.layout.page.load(pagearr[page_index].html);
 			Player.hide();

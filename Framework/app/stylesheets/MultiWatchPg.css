@@ -23,16 +23,27 @@
 	display: inline-block;
 	width: 586px;
 	height: 100%;
-	background-image: url("../../img/main2.PNG");
+	
 }
-
+#main2Header{
+	height: 82px;
+	text-align: center;
+	line-height: 80px;
+	font-size: 200%;
+}
+#adjust{
+	width: 589px;
+	height: 589px;
+	background-image: url("../../img/main2_0.PNG");
+}
 #MultiWatchPg_btn1{
-	margin-top: 537px;
+	margin-top: 535px;
 	margin-left: 910px;
 	
 }
 #MultiWatchPg_btn2{
-	margin-top: 537px;
+	position: absolute;
+	margin-top: 457px;
 	margin-left: 189px;
 }
 
@@ -104,7 +115,7 @@
 	border-bottom: solid #ffffff;
 }
 .remainedTime{
-	color: red;
+	color: purple;
 	font-size: 150%;
 }
 .name {
