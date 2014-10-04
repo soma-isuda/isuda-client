@@ -1,8 +1,54 @@
 #SMSSharingSpg{
-	background-color: red;
+	background-color: white;
 	margin-left:  1460px;
 	position: absolute;
 	width: 480px;
 	height: 100%;
 }
+
+#SMSSharingSpg_header{
+    width:480px;
+    height:118px;
+    line-height:118px;
+    text-align:center;
+    font-size:1.5em;
+    border-top:1px solid black;
+}
+
+#SMSSharingSpg_body{
+    width:480px;
+    height:728px;
+    text-align:center;
+    
+}
+
+#SMSSharingSpg_body>div{
+    box-sizing:border-box;
+    width:400px;
+    height:75px;
+    line-height:75px;
+    background-color:#b7b7a4;
+    /*margin:8px 40px 8px 40px;*/
+    margin-top:8px;
+    margin-left:30px;
+    margin-bottom:8px;
+    font-size:1.5em;
+}
+#SMSSharingSpg_body>div.focus{
+    background-color:#001367;
+}
+
+#SMSSharingSpg_input{
+    width:480px;
+    height:116px;
+    text-align:center;
+}
+
+#SMSSharingSpg_submit{
+    width:480px;
+    height:118px;
+    text-align:center;
+    
+}
+
 

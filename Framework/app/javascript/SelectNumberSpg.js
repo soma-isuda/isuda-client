@@ -530,14 +530,15 @@ SelectNumberSpg.submitKeyDown = function () {
             //'선택 완료' 버튼을 눌렀을 때
             if (SelectNumberSpg_submitIndex == 0) {
                 //중분류 카테고리 예약이면
-                if (DetailInfoSpg_index == 0) {
+                if (productIndex == 0) {
 
                     $.ajax({
                         type: "POST",
                         url: SERVER_ADDRESS + "/cAlarms",
                         data: {
                             secondName: secondCategory[big_index][mid_index],//중분류의 이름
-                            phoneNumber: _numberPost//선택된 사용자의 번호
+                            phoneNumber: _numberPost,//선택된 사용자의 번호
+                            firstId: (big_index+1)//대분류의 id(DB에서는 대분류 id가 1부터 시작)
                         },
                         dataType: "text",
                         success: function (data) {
@@ -549,7 +550,7 @@ SelectNumberSpg.submitKeyDown = function () {
 
                 }
                     //단일 상품 예약이면
-                else if (DetailInfoSpg_index == 1) {
+                else if (productIndex == 1) {
 
                     $.ajax({
                         type: "POST", // POST형식으로 폼 전송
