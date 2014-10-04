@@ -33,6 +33,9 @@ DetailInfoSpg.onLoad = function () {
     else if (page_index == 3) {//편성표에서 '상세보기'
         jQuery('#reserveButton').append('<div>SMS 알람 받기</div>');
     }
+    else if (page_index == 4) {
+        jQuery('#reserveButton').append('<div>해당 상품 알람 삭제<div>');
+    }
 
     //상품 상세 정보 이미지를 로드한다.
     alert(productLoadedId[productListIndex]);
@@ -105,6 +108,11 @@ DetailInfoSpg.keyDown = function () {
             else if (page_index == 3) //편성표에서 '상세보기'
                 TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
 
+            else if (page_index == 4) {//마이페이지에서 '상세보기'
+                //어디로 포커스를 되돌리는지 정해지면 넣기
+            }
+
+
             jQuery('#DetailInfoSpg').hide();//상세보기 페이지를 닫는다.
 
             break;
@@ -154,12 +162,28 @@ DetailInfoSpg.keyDown = function () {
             alert("DetailInfoSpg_key : Enter");
             if (DetailInfoSpg_index == 0) {//버튼 부분에 포커스가 있을 때
                 //번호 선택 부분으로 포커스를 넘긴다.
-                Main.layout.subPage.load(subPageArr[4].html);
-                setTimeout(function () {
-                    subPageArr[4].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
-                }, 10);
-
+                if (page_index == 3) {//편성표에서 'SMS 알람 받기'를 눌렀을 때
+                    Main.layout.subPage.load(subPageArr[4].html);
+                    setTimeout(function () {
+                        subPageArr[4].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
+                    }, 10);
+                }
+                else if (page_index == 4) {//마이페이지에서 '알람 삭제'를 눌렀을 때(단일 상품 예약 삭제)
+                    $.ajax({
+                        type: "DELETE", // POST형식으로 폼 전송
+                        url: SERVER_ADDRESS + "/sAlarms", // 목적지
+                        data: {
+                            phoneNumber: savedNumber[MyPg_numberIndex],
+                            productId: MyPg_currentProductId
+                        },
+                        dataType: "text",
+                        success: function (data) {
+                            alert("단일 상품 예약 삭제 완료");
+                        }
+                    });
+                }
             }
+
             break;
         default:
             alert("Unhandled key");
