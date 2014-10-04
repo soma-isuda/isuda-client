@@ -70,8 +70,9 @@ MultiWatchPg.onLoad = function(){
 		//focus: 0
 	});
 	if(refresh==1){
+		alert("load refresh");
 		setTimeout(function(){
-			this.focus();
+			MultiWatchPg.focus();
 		},100);	
 		refresh=0;
 	}
