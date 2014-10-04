@@ -1,6 +1,13 @@
 
+
 var SMSSharingSpg= {
-	
+    messageIndex: 0,//현재 포커스 되어 있는 메세지의 인덱스
+    setMessageIndex:function(data){
+        this.messageIndex=data;
+    },
+    getMessageIndex: function () {
+        return this.messageIndex;
+    },
 };
 
 SMSSharingSpg.onLoad = function()
@@ -43,6 +50,10 @@ SMSSharingSpg.keyDown = function()
 			//앱이 종료되는것을 방지해준다.
 			widgetAPI.blockNavigation(event);
 			alert("SMSSharingSpg_key : RETURN");
+
+			SelectWatchPg.anchor.main.focus();//선택보기로 다시 포커스를 넘긴다.
+			jQuery('#SMSSharingSpg').hide();//번호 선택 페이지를 닫는다.
+
 		case tvKey.KEY_LEFT:
 			alert("SMSSharingSpg_key : Left");
 			jQuery('#SMSSharingSpg').hide();//페이지를 닫는다.			
