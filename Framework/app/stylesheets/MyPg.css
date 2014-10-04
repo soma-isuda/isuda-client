@@ -2,6 +2,7 @@
 	width: 1790px;
     height: 1080px;
     background-color: white;
+	position:absolute;
 
 }
 
@@ -25,10 +26,26 @@
 	height: 80%;	
 }
 
-.MyPg_button{
+.MyPg_bottom{
 	width: 100%;
-	height: 10%;
+	height: 10%;	
 	background-color:black;
+}
+
+.MyPg_button{
+	width:70%;
+    height:80%;
+    /*font-size:10px;*/
+    text-align:center;
+    background-color: blue;
+
+}
+
+#MyPg_CategoryAlarm_list > div{
+	width : 500px;
+	height: 40px;
+	text-align: center;
+	background-color: red;
 }
 
 #MyPg_SelectNumber_list{

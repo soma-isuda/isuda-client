@@ -41,9 +41,14 @@ MyPg.onLoad = function () {
             select: jQuery('#anchor_MyPg_select'),
             register: jQuery('#anchor_MyPg_register'),
             submit: jQuery('#anchor_MyPg_submit'),
+        },
+        category:{
+        	elem 	: jQuery('#MyPg_CategoryAlarm_list'),
+        	submit	: jQuery('#MyPg_CategoryAlarm_submit'),
+        	anchor	: jQuery('#anchor_MyPg_Category')
         }
     });
-    this.focus();
+//    this.focus();
 
     loadFile();//파일 시스템을 로딩한다.
     //writeFile(''); //전화번호 초기화
@@ -86,15 +91,6 @@ MyPg.onLoad = function () {
         register: jQuery('#MyPg_SelectNumber_list_new>div'),
         submit: jQuery('#MyPg_SelectNumber_submit>div')
     });
-
-    if (savedNumber_num > 0)//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
-        MyPg.number.eq(MyPg_numberIndex).addClass('focus');
-    else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
-        //'번호 추가' 부분으로 포커스를 넘긴다.
-        MyPg_index = 1;
-        MyPg.register.eq(MyPg_registerIndex).addClass('focus');
-        MyPg.anchor.register.focus();
-    }
 };
 
 
@@ -106,6 +102,16 @@ MyPg.focus = function () {
     MyPg_numberIndex = 0;
     MyPg_registerIndex = 0;
     MyPg_submitIndex = 0;
+    if (savedNumber_num > 0){//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
+        MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+        this.CategorySetting(0);
+    }
+    else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
+        //'번호 추가' 부분으로 포커스를 넘긴다.
+        MyPg_index = 1;
+        MyPg.register.eq(MyPg_registerIndex).addClass('focus');
+        MyPg.anchor.register.focus();
+    }    
 };
 
 MyPg.enableKeys = function () {
@@ -136,12 +142,12 @@ MyPg.selectKeyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("MyPg_key : Up");
-
-            MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
-            if (MyPg_numberIndex - 1 >= 0)
-                MyPg_numberIndex--;
-            MyPg.number.eq(MyPg_numberIndex).addClass('focus');
-
+            if (MyPg_numberIndex > 0){
+                MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
+            	MyPg_numberIndex--;
+            	this.CategorySetting(MyPg_numberIndex);            
+            	MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+            }
             break;
         case tvKey.KEY_DOWN:
             alert("MyPg_key : Down");
@@ -152,11 +158,12 @@ MyPg.selectKeyDown = function () {
                 if (MyPg_numberIndex + 1 == savedNumber_num) {
                     MyPg_index = 1;
                     MyPg.register.eq(MyPg_registerIndex).addClass('focus');
-
+       
                     MyPg.anchor.register.focus();
                 }
                 else {
                     MyPg_numberIndex++;
+                	this.CategorySetting(MyPg_numberIndex);                                
                     MyPg.number.eq(MyPg_numberIndex).addClass('focus');
                 }
             }
@@ -643,6 +650,25 @@ MyPg.KeyDown = function () {
     }
 
 };
+
+
+MyPg.CategorySetting = function(idx){
+    jQuery.ajax({
+        url: SERVER_ADDRESS + '/cAlarms',
+        type : 'GET',
+        data: ({ phoneNumber: savedNumber[idx] }),    
+        dataType : 'json',
+        success : function (data) {
+        	var tempstring = "";
+        	$.each(data, function() {
+        		tempstring += "<div>" + firstCategory[this.firstId] + "  >  " + secondCategory[this.firstId][this.id] + "</div>";
+        	});
+        	MyPg.category.elem.html(tempstring);
+        	alert(tempstring);
+        } 
+    });	        	
+};
+
 ////////////////////////////////////////////////////////
 ////////         MyPg 번호에 따른 예약 리스트 로드      ///////
 ////////////////////////////////////////////////////////

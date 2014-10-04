@@ -1,65 +1,56 @@
 <div id="MyPg">
 	<div id="MyPg_SelectNumber" class="MyPg_menu">
-	    <div class="MyPg_header">
-	    	번호를 선택하세요 
-	    </div>
-
-	    <div class="MyPg_list">
-	        <div id="MyPg_SelectNumber_list_already">
+		<div class="MyPg_header">
+		    번호를 선택하세요
+		</div>
+    	<div class="MyPg_list">
+        	<div id="MyPg_SelectNumber_list_already">
 	            <!--기존의 번호를 불러오는 부분-->
 	        </div>
-	        
-	        <div id="MyPg_SelectNumber_list_new" >
-	            <!-- 번호 개수에 따라 이부분에 번호 추가 버튼이 들어가게 됨-->
+        	<div id="MyPg_SelectNumber_list_new" >
+            	<!-- 번호 개수에 따라 이부분에 번호 추가 버튼이 들어가게 됨-->
 	        </div>
 	    </div>
-
-	    <div class="MyPg_button">
-	        <div id="MyPg_SelectNumber_submit">
-	            삭제 하시겠습니까? 
+    	<div class="MyPg_bottom">
+	        <div id="MyPg_SelectNumber_submit" class="MyPg_button">
+            삭제 하시겠습니까? 
 	        </div>
 	    </div>   
 	</div>
-
-
-
 	<div id="MyPg_SMSAlarm" class="MyPg_menu">
-	    <div class="MyPg_header">
-	    	방송 알람 
+    	<div class="MyPg_header">
+    		방송 알람 
 	    </div>
-
 	    <div id="MyPg_SMSAlarm_list" class="MyPg_list">
-	        <!--방송 알람 불러오는 부분 -->
-
+    	    <!--방송 알람 불러오는 부분 -->
 	    </div>
-
-	    <div id="MyPg_SMAAlarm_delete" class="MyPg_button">
-	        <div>
+	    <div class="MyPg_bottom">
+	        <div id="MyPg_SMSAlarm_submit" class="MyPg_button">
 	            삭제 하시겠습니까? 
 	        </div>
 	    </div>
 	</div>
-
 	<div id="MyPg_CategoryAlarm" class="MyPg_menu">
 	    <div class="MyPg_header">
-	    	카테고 알람 
+		    카테고리 알람 	
 	    </div>
-
-	    <div id="MyPg_SMSAlarm_list" class="MyPg_list">
+	    <div id="MyPg_CategoryAlarm_list" class="MyPg_list">
 	        <!--카테고리 알람 불러오는 부분 -->
-
 	    </div>
-
-	    <div class="MyPg_button">
-	        <div>
+	    <div class="MyPg_bottom">
+	        <div id ="MyPg_CategoryAlarm_submit" class="MyPg_button">
 	            삭제 하시겠습니까? 
 	        </div>
 	    </div>
-	</div>
-
+	</div>		
 </div>
+
+
 
 <a href="javascript:void(0);" id="anchor_MyPg" onkeydown="MyPg.keyDown();"></a>
 <a href="javascript:void(0);" id="anchor_MyPg_select" onkeydown="MyPg.selectKeyDown();"></a>
 <a href="javascript:void(0);" id="anchor_MyPg_register" onkeydown="MyPg.registerKeyDown();"></a>
 <a href="javascript:void(0);" id="anchor_MyPg_submit" onkeydown="MyPg.submitKeyDown();"></a>
+
+<a href="javascript:void(0);" id="anchor_MyPg_Category" onkeydown="MyPg.selectKeyDown();"></a>
+
