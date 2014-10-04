@@ -114,6 +114,7 @@ MyPg.focus = function () {
     if (savedNumber_num > 0){//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
         MyPg.number.eq(MyPg_numberIndex).addClass('focus');
         this.CategorySetting(MyPg_numberIndex);
+        MyPg.SMSAlarmSetting(MyPg_numberIndex);
     }
     else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
         //'번호 추가' 부분으로 포커스를 넘긴다.
@@ -121,10 +122,21 @@ MyPg.focus = function () {
         MyPg.register.eq(MyPg_registerIndex).addClass('focus');
         MyPg.anchor.register.focus();
     }
-     _numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
-    MyPg_SMSAlarm(MyPg_numberIndex);
+     //_numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
+    
 };
-
+MyPg.SMSAlarmfocus = function () {
+    alert("MyPg.SMSAlarmfocus");
+    if(MyPg.SMSAlarm.elem.length > 0){
+        //상품알람리스트에 엥커 -> 키다운함수도 바뀐다.
+        MyPg.SMSAlarm.anchor.focus();
+        //상품알람리스트 포커스 효과
+        MyPg.SMSAlarm.elem.eq(SMSAlarm_index).addClass('focus');   
+    }
+    else{
+        MyPg.focus();       
+    }
+};
 MyPg.categoryfocus = function () {
     alert("MyPg.categoryfocus");
     alert(MyPg.category_.arr.length);
@@ -133,7 +145,7 @@ MyPg.categoryfocus = function () {
         MyPg.category_.content.eq(MyPg.category_.index).addClass('focus');    	
     }
     else{
-    	MyPg.focus();    	
+    	MyPg.SMSAlarmfocus(MyPg_numberIndex);    	
     }
 };
 
@@ -167,11 +179,9 @@ MyPg.selectKeyDown = function () {
             alert(SMSAlarm_index);
             //번호 리스트 포커스효과 삭제
             MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
-            //상품알람리스트에 엥커 -> 키다운함수도 바뀐다.
-            MyPg.SMSAlarm.anchor.focus();
-            //상품알람리스트 포커스 효과
-            MyPg.SMSAlarm.elem.eq(SMSAlarm_index).addClass('focus');
-        
+            //상품알람 리스트 포커스
+            MyPg.SMSAlarmfocus();
+            
             //MyPg.categoryfocus();
 
             break;
@@ -180,9 +190,10 @@ MyPg.selectKeyDown = function () {
             if (MyPg_numberIndex > 0){
                 MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
             	MyPg_numberIndex--;
-            	this.CategorySetting(MyPg_numberIndex);            
+
             	MyPg.number.eq(MyPg_numberIndex).addClass('focus');
-                MyPg_SMSAlarm(MyPg_numberIndex);
+                MyPg.SMSAlarmSetting(MyPg_numberIndex);
+                this.CategorySetting(MyPg_numberIndex);  
             }
 
             break;
@@ -200,9 +211,10 @@ MyPg.selectKeyDown = function () {
                 }
                 else {
                     MyPg_numberIndex++;
-                	this.CategorySetting(MyPg_numberIndex);                                
+                	                              
                     MyPg.number.eq(MyPg_numberIndex).addClass('focus');
-                    MyPg_SMSAlarm(MyPg_numberIndex);
+                    MyPg.SMSAlarmSetting(MyPg_numberIndex);
+                    this.CategorySetting(MyPg_numberIndex);  
                 }
             }
             else {
@@ -647,6 +659,9 @@ MyPg.submitKeyDown = function () {
 
 };
 
+////////////////////////////////////////////////////////
+//////            Category List Part             ///////
+////////////////////////////////////////////////////////
 //처음에 키를 받는 부분, 번호를 선택하는 부분
 MyPg.categoryKeyDown = function () {
     alert("MyPg category keyDown");
@@ -660,7 +675,7 @@ MyPg.categoryKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             MyPg.category_.content.eq(MyPg.category_.index).removeClass('focus');
-            MyPg.focus();
+            MyPg.SMSAlarmfocus();
             alert("MyPg_key : RETURN or LEFT");
             break;
         case tvKey.KEY_RIGHT:
@@ -717,12 +732,9 @@ MyPg.DeleteCategory = function(idx, secondid){
         	alert("카테고리 삭제 성공 ");
             MyPg.CategorySetting(idx);
         }
-    });	        	
-	
+    });	        
 };
-////////////////////////////////////////////////////////
-//////        MyPg 번호에 따른 카테고리 리스트 로드      ///////
-////////////////////////////////////////////////////////
+
 MyPg.CategorySetting = function(idx){
     jQuery.ajax({
         url: SERVER_ADDRESS + '/cAlarms',
@@ -752,10 +764,9 @@ MyPg.CategorySetting = function(idx){
 };
 
 ////////////////////////////////////////////////////////
-////////         MyPg 번호에 따른 예약 리스트 로드      ///////
+//////            SMS Alam List Part             ///////
 ////////////////////////////////////////////////////////
-
-MyPg_SMSAlarm = function(index){
+MyPg.SMSAlarmSetting = function(index){
     alert("MyPg_SMSAlarm.onLoad");
     jQuery.ajax({
         url: SERVER_ADDRESS + '/sAlarms',
@@ -766,6 +777,7 @@ MyPg_SMSAlarm = function(index){
         dataType : 'json',
         success : function (data) {
             var tempString = '';
+            var temparr= [];
             $.each(data, function() { 
                 tempString += '<li class="MyPgItem">                                                        ';
                 tempString += '     <div class="MyPg_imgArea">                                              ';
@@ -781,20 +793,90 @@ MyPg_SMSAlarm = function(index){
                 tempString += '         </div>                                                              ';
                 tempString += '     </div>                                                                  ';
                 tempString += ' </li>                                                                       ';
-               
+                temparr.push(this.id);
             });    
             jQuery('#MyPg_SMSAlarm_list').find('ul').html(tempString);                          
             
             setTimeout(function(){  
                 jQuery.extend(MyPg, {
                     SMSAlarm : {
-                        elem    : jQuery('.MyPgItem'), //jQuery('#MyPg_SMSAlarm_list').find('ul>li'),
-                        submit  : jQuery('#MyPg_SMSAlarm_submit'),
-                        anchor  : jQuery('#anchor_MyPg_SMSAlarm')
+                        elem      : jQuery('.MyPgItem'), //jQuery('#MyPg_SMSAlarm_list').find('ul>li'),
+                        submit    : jQuery('#MyPg_SMSAlarm_submit'),
+                        productId : temparr,
+                        anchor    : jQuery('#anchor_MyPg_SMSAlarm')
                     }
                 }); 
             },10);   
         }   
     });
+};
 
-}
+MyPg.SMSAlarmKeyDown = function () {
+    alert("MyPg SMSAlarm keyDown");
+    var keyCode = event.keyCode;
+    alert("Key pressed: " + keyCode + " ,index:" + MyPg_index);
+
+    switch (keyCode) {
+        case tvKey.KEY_RETURN:
+        case tvKey.KEY_PANEL_RETURN:
+        case tvKey.KEY_LEFT:
+            //앱이 종료되는것을 방지해준다.
+            widgetAPI.blockNavigation(event);
+            MyPg.SMSAlarm.elem.eq(SMSAlarm_index).removeClass('focus');
+            MyPg.focus();
+            alert("MyPg_key : RETURN or LEFT");
+            break;
+        case tvKey.KEY_RIGHT:
+            alert("MyPg_key : Right");
+            MyPg.SMSAlarm.elem.eq(SMSAlarm_index).removeClass('focus');
+            MyPg.categoryfocus();
+            break;
+        case tvKey.KEY_UP:
+            alert("MyPg_key : Up");
+            if (SMSAlarm_index > 0){
+                MyPg.SMSAlarm.elem.eq(SMSAlarm_index).removeClass('focus');
+                MyPg.SMSAlarm.elem.eq(--SMSAlarm_index).addClass('focus');
+            }
+            break;
+        case tvKey.KEY_DOWN:
+            alert("MyPg_key : Down");
+            if (SMSAlarm_index < MyPg.SMSAlarm.elem.length-1) {
+                MyPg.SMSAlarm.elem.eq(SMSAlarm_index).removeClass('focus');
+                MyPg.SMSAlarm.elem.eq(++SMSAlarm_index).addClass('focus');
+            }
+            break;
+        case tvKey.KEY_ENTER:
+        case tvKey.KEY_PANEL_ENTER:
+            alert("MyPg_key : Enter");
+            if(!MyPg.SMSAlarm.submit.hasClass('focus')){
+                MyPg.SMSAlarm.elem.eq(SMSAlarm_index).removeClass('focus');
+                MyPg.SMSAlarm.submit.addClass('focus');
+            }
+            else{
+                //alert(MyPg.category_.arr[MyPg.category_.index]);
+                MyPg.DeleteSMSAlarm(MyPg_numberIndex, MyPg.SMSAlarm.productId[SMSAlarm_index]);                
+                MyPg.SMSAlarm.submit.removeClass('focus');
+                setTimeout(function(){
+                    MyPg.SMSAlarmfocus();
+                }, 500);
+            }
+            break;
+        default:
+            alert("Unhandled key");
+            break;
+    }
+};
+MyPg.DeleteSMSAlarm = function(index, productId){
+    alert("DeleteSMSAlam");
+    alert("productId : "+ productId);
+    jQuery.ajax({
+        url: SERVER_ADDRESS + '/sAlarms',
+        type : 'DELETE',
+        data: { phoneNumber: savedNumber[index], productId: productId},    
+        dataType : 'text',
+        success : function (data) {
+            alert("상품 알림 삭제 성공 ");
+            MyPg.SMSAlarmSetting(index);
+        }
+    });         
+};

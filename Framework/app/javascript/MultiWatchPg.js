@@ -47,7 +47,9 @@ MultiWatchPg.onLoad = function(){
 			 	// alert(remainedTime.hour);
 			 	// alert("-----------------");
 				if(remainedTime.hour <0)
-					remainedTime.hour = 24 + remainedTime.hour;
+					remainedTime.hour = remainedTime.hour +24;
+				else if(remainedTime.hour >=24)
+					remainedTime.hour = remainedTime.hour -24;
 				
 				remainedTime.minute = endTimeArr[cnt].minute-date.getMinutes()-1;
 				if(remainedTime.minute < 0)
@@ -118,7 +120,9 @@ MultiWatchPg.remainedTime = function(){
 			break;
 		}
 		if(remainedTime.hour <0)
-			remainedTime.hour = 24 + remainedTime.hour;
+			remainedTime.hour = remainedTime.hour +24;
+		else if(remainedTime.hour >=24)
+			remainedTime.hour = remainedTime.hour -24;
 		if(remainedTime.minute < 0)
 			remainedTime.minute = 60 + remainedTime.minute;
 		document.getElementById('remainedTime'+i).innerHTML = remainedTime.hour+' : '+remainedTime.minute+' : '+ remainedTime.second;
@@ -142,7 +146,7 @@ MultiWatchPg.keyDown = function()
 	alert("MultiWatchPg keyDown");
 	var keyCode = event.keyCode;
 	alert("Key pressed: " + keyCode +" ,index:" + MultiWatchPg_index);
-
+	$('#adfocusImg').css("display","none");
 	switch(keyCode)
 	{
 		case tvKey.KEY_RETURN:
@@ -181,9 +185,11 @@ MultiWatchPg.keyDown = function()
 			if(MultiWatchPg_index<1){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(++MultiWatchPg_index).addClass('focus');
+				$('#adfocusImg').css("display","block");
 			}
 			else if(MultiWatchPg_index==1){
 				alert("adjust.length : "+adjustArr.length+" index :"+adjust_index);
+				$('#adfocusImg').css("display","block");
 				$('#adjust').css('background-image','url("'+adjustArr[++adjust_index]+'")');
 				//document.getElementById("adjust").style.background.image=adjustArr[++adjust_index];
 				if(adjust_index == adjustArr.length-1){
@@ -210,10 +216,13 @@ MultiWatchPg.keyDown = function()
 				$(productImg[MultiWatchPg_index]).css("display","none");
 				MultiWatchPg_index -= 3;
 				if (MultiWatchPg_index<2) {
+					if(MultiWatchPg_index ==1)
+						$('#adfocusImg').css("display","block");
 					if (MultiWatchPg_index <0) 
 						MultiWatchPg_index=0;
 					$("#MultiWatchPg").animate({"top": "+=250px"}, "fast");
 					MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+					
 				}
 				else{
 					$(productImg[MultiWatchPg_index]).css("display","block");

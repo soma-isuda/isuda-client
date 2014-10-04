@@ -36,6 +36,15 @@
 	height: 589px;
 	background-image: url("../../img/main2_0.PNG");
 }
+#adfocusImg{
+	width: 589px;
+	height: 589px;
+	position: relative;
+	
+	margin-top: -589px;
+	margin-left: 0px;
+	display: none;
+}
 #MultiWatchPg_btn1{
 	margin-top: 535px;
 	margin-left: 910px;
