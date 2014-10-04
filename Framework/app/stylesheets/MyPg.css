@@ -37,7 +37,10 @@
     /*font-size:10px;*/
     text-align:center;
     background-color: blue;
+}
 
+.MyPg_button > div.focus{
+    border: 6px solid black;
 }
 
 #MyPg_CategoryAlarm_list > div{
@@ -45,6 +48,10 @@
 	height: 40px;
 	text-align: center;
 	background-color: red;
+}
+
+#MyPg_CategoryAlarm_list > div.focus{
+    border: 6px solid black;
 }
 
 #MyPg_SelectNumber_list{
