@@ -78,12 +78,12 @@
     position:relative;
     width: 100%;
     box-sizing:border-box;
-    margin-top:50px;
+    /*margin-top:50px;*/
 }
 
 #MyPg_SelectNumber_list_new>div{
     margin-left:47px;
-    margin-top:40px;
+   /* margin-top:40px;*/
 }
 
 

@@ -647,20 +647,20 @@ MyPg.KeyDown = function () {
 ////////         MyPg 번호에 따른 예약 리스트 로드      ///////
 ////////////////////////////////////////////////////////
 
-jQuery.extend(MultiWatchPg,{
-        MultiWatchPgList : jQuery('#MultiWatchPgList')
-    });
-    MultiWatchPg.MultiWatchPgList.empty();
-    cnt=-1;
-    alert("MultiWatchPg.onLoad");
-    alert("start : "+cnt);
-    jQuery.ajax({
-        url: SERVER_ADDRESS + '/SMSAlarm',
-        type : 'GET',
-        dataType : 'json',
-        success : function (data) {
-            $.each(data, function() {
+// jQuery.extend(MultiWatchPg,{
+//         MultiWatchPgList : jQuery('#MultiWatchPgList')
+//     });
+//     MultiWatchPg.MultiWatchPgList.empty();
+//     cnt=-1;
+//     alert("MultiWatchPg.onLoad");
+//     alert("start : "+cnt);
+//     jQuery.ajax({
+//         url: SERVER_ADDRESS + '/SMSAlarm',
+//         type : 'GET',
+//         dataType : 'json',
+//         success : function (data) {
+//             $.each(data, function() {
                 
-            });                 
-        }   
-    });     
+//             });                 
+//         }   
+//     });     
