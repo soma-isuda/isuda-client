@@ -1,8 +1,9 @@
 #MyPg{
-	width: 1790px;
-    height: 2000px;
+    background-color: white;
+    
     position: absolute;
-    background-color: #fffbf0;
+    width: 1790px;
+    height: 100%;
 }
 
 #MyPg_SelectNumber_header{
@@ -101,7 +102,7 @@
     height:80px;
     line-height:60px;
     text-align:center;
-    font-size:1em;
+    font-size:1.5em;
     border:1px solid black;
 }
 
@@ -115,15 +116,19 @@
 #MyPg_SelectNumber_submit{
     width:480px;
     height:150px;
-    /*font-size:10px;*/
+    font-size:1.5em;
     text-align:center;
 }
-#MyPg_SelectNumber_submit>div{
+#MyPg_SelectNumber_submit>div:nth-child(1){
     position:absolute;
-    width:200px;
-    height:80px;
-    line-height:80px;
-    left:140px;
+    width:400px;
+    height:60px;
+    line-height:60px;
+    left:40px;
     border:1px solid black;
+}
+
+#MyPg_SelectNumber_submit>div.focus{
+    border: 6px solid #c409d2;
 }
 
