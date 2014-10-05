@@ -17,6 +17,7 @@
     padding-top:10px;
     padding-bottom:10px;
 }
+
 /* 중분류 선택창 */
 #mid {
 	float: left;
@@ -34,13 +35,14 @@
 #big ul li {
     box-sizing:border-box;
 	width: 120px;
-	height: 95px;
+	height: 90px;
     margin:5px;
-    padding-top:10px;
-    padding-bottom:10px;
+    padding-top:30px;
+    padding-bottom:30px;
   /*   line-height:100px; */
    text-align:center; 
 	background-color: #f0f0d8;
+    font-size:1.1em;
 }
 
 #mid>div{
@@ -53,9 +55,10 @@
 	width: 94px;
 	height: 93px;
     margin:8px;
-    padding:5px;
+    padding-top:15px;
    /* line-height:100px; */
     text-align:center; 
+    font-size:1.1em;
 	background-color: #f0f0d8;
 }
 
@@ -146,6 +149,18 @@
 #product>#product_header>#reserve_Category.focus{
     background-color:#001367;
     color:white;
+}
+#product>#product_header>div:nth-child(2){
+    position:absolute;
+    width:800px;
+    height:60px;
+    line-height:60px;
+    
+    left:50px;
+    top:50px;
+    
+    font-size:1.5em;
+    
 }
 
 #product_list_pg ul li.focus {

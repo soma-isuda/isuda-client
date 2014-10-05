@@ -45,9 +45,8 @@ TVSchedulePg.onLoad = function () {
 
     // 대분류를 불러온다.
     for (var i = 0; i < firstCategory.length ; i++) {
-        TVSchedulePg.big.append('<li>' + firstCategory[i] + '</li>');
+            TVSchedulePg.big.append('<li>' + firstCategory[i] + '</li>');
     }
-    //this.focus();
 
     //CSS를 위한 선택자
     jQuery.extend(TVSchedulePg, {
@@ -186,6 +185,7 @@ TVSchedulePg.midKeyDown = function () {
             TVSchedulePg.anchor.big.focus();
             //포커스가 넘어가면 중분류를 없앤다.
             jQuery('#mid > div> ul').empty();
+            jQuery('#product_header').find('div:nth-child(2)').empty();
             jQuery('#mid').find('div>ul').css("margin-top","0");
             break;
 
@@ -282,9 +282,14 @@ TVSchedulePg.midKeyDown = function () {
                     });
                     if (productNumber == 0)//해당하는 중분류에 상품이 없을때,
                         jQuery('#product_list_pg').find('ul').append('<div style="width:1550px; height:876px; line-height:876px; font-size:3em; text-align:center;">해당 카테고리에 방송 예정 상품이 없습니다.</div>');
+                    jQuery('#product_header').find('div:nth-child(2)').empty();
+                    var tempString = firstCategory[big_index] + ' > ' + secondCategory[big_index][mid_index] + ' 에 총 ' + productNumber + '개의 상품이 있습니다.';
+                    jQuery('#product_header').find('div:nth-child(2)').append(tempString);
+
                 }
             });
-
+            
+            
             //편성표 페이지의 상단 anchor로 넘긴다
             TVSchedulePg.anchor.list.focus();
             productIndex = 0;
