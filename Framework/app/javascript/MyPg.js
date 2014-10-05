@@ -750,7 +750,7 @@ MyPg.CategorySetting = function(idx){
         	var tempstring = "";
         	var temparr= [];
         	$.each(data, function() {
-        		tempstring += "<div>" + firstCategory[this.firstId] + "  >  " + this.secondName + "</div>";
+        		tempstring += "<div class="MyPg_listItem">" + firstCategory[this.firstId] + "  >  " + this.secondName + "</div>";
         		temparr.push(this.secondId);
         	});
         	MyPg.category.elem.html(tempstring);
