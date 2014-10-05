@@ -130,6 +130,14 @@ SelectNumberSpg.selectKeyDown = function () {
             break;
         case tvKey.KEY_LEFT:
             alert("SelectNumberSpg_key : Left");
+            if (page_index == 3) //편성표에서 호출했을 때
+                TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+                
+
+            else if (page_index == 2) //선택보기에서 호출했을 때
+                SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+
+            jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
             break;
         case tvKey.KEY_RIGHT:
             alert("SelectNumberSpg_key : Right");
@@ -530,7 +538,7 @@ SelectNumberSpg.submitKeyDown = function () {
             //'선택 완료' 버튼을 눌렀을 때
             if (SelectNumberSpg_submitIndex == 0) {
                 //중분류 카테고리 예약이면
-                if (productIndex == 0) {
+                if (page_index == 3 && productIndex == 0) {
 
                     $.ajax({
                         type: "POST",
@@ -550,7 +558,7 @@ SelectNumberSpg.submitKeyDown = function () {
 
                 }
                     //단일 상품 예약이면
-                else if (productIndex == 1) {
+                else if (page_index == 3 && productIndex == 1) {
 
                     $.ajax({
                         type: "POST", // POST형식으로 폼 전송
@@ -566,12 +574,53 @@ SelectNumberSpg.submitKeyDown = function () {
                     });
                     TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
-
-
                 }
+                else if (page_index == 2 && SelectWatchPg_index == 3) {//선택보기에서 '직접 구매' 버튼을 눌렀을 때
+                    
+                    $.ajax({
+                        url: SERVER_ADDRESS + '/now',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            var tempIndex = 0;
+                            var currentChannel = Player.getChannel();
+                            var _URLPost;
+                            $.each(data, function (key, value) {
+                                if (tempIndex == currentChannel) {
+                                    _URLPost = value.productPgURL;
+                                }
+                                tempIndex++;
+                            });
+                            setTimeout(function () {
+                                $.ajax({
+                                    type: "POST", // POST형식으로 폼 전송
+                                    url: PHP_SERVER_ADDRESS + "/PaymentSMS.php", // 목적지
+                                    timeout: 10000,
+                                    data: {
+                                        myPhoneNumber:_numberPost,
+                                        url:_URLPost
+                                        },
+                                    cache: false,
+                                    dataType: "text",
+                                    error: function (xhr, textStatus, errorThrown) { // 전송 실패
+                                        alert("전송에 실패했습니다.");
+                                    },
+                                    success: function (data) {
+                                        alert(data);
+                                        alert("구매 url 문자 전송 성공");
+                                    }
+                                });
+                            }, 10);
+                        }
+                    });
+
+                    SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.   
+                    jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
+                }
+                
             }
             //'번호 삭제' 버튼을 눌렀을 때
-            if (SelectNumberSpg_submitIndex == 1) {
+            else if (SelectNumberSpg_submitIndex == 1) {
                 //ajax 요청이 들어가는 부분
                 //번호 삭제시, 데이터베이스에 있는 내용도 같이 지울지 이야기 해봐야 함.
                 alert(_numberPost);

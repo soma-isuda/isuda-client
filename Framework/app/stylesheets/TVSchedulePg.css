@@ -17,6 +17,7 @@
     padding-top:10px;
     padding-bottom:10px;
 }
+
 /* 중분류 선택창 */
 #mid {
 	float: left;
@@ -26,29 +27,38 @@
 	background-color: #b7b7a4;    
     border-right:1px solid black;
 
-    padding-top : 180px;
-    padding-bottom:180px;
+    padding-top : 130px;
+    padding-bottom:130px;
 }
+
 
 #big ul li {
     box-sizing:border-box;
-	width: 90px;
-	height: 85px;
-    margin:10px 20px 10px 20px;
-    padding-top:10px;
-    padding-bottom:10px;
+	width: 120px;
+	height: 90px;
+    margin:5px;
+    padding-top:30px;
+    padding-bottom:30px;
   /*   line-height:100px; */
    text-align:center; 
 	background-color: #f0f0d8;
+    font-size:1.1em;
+}
+
+#mid>div{
+    width:110px;
+    height:820px;
+    overflow:hidden;
 }
 #mid ul li {
     box-sizing:border-box;
-	width: 77px;
-	height: 77px;
-    margin:8px 16px 8px 16px;
-    padding:5px;
+	width: 94px;
+	height: 93px;
+    margin:8px;
+    padding-top:15px;
    /* line-height:100px; */
     text-align:center; 
+    font-size:1.1em;
 	background-color: #f0f0d8;
 }
 
@@ -57,11 +67,13 @@
 }
 
 #big > ul li.focus { 
- 	border: 6px solid #c409d2;
+ 	background-color:#001367;
+    color:white;
 }
 
-#mid > ul li.focus { 
- 	border: 6px solid #c409d2;
+#mid > div> ul li.focus { 
+ 	background-color:#001367;
+    color:white;
 }
 
 /* 선택된 중분류에 대해, 상품을 가져오는 부분*/
@@ -132,11 +144,23 @@
 
     font-size:2em;
     text-align:center;
-    border:1px solid black;
-    border-radius:10px;
+    background-color:#b7b7a4;
 }
 #product>#product_header>#reserve_Category.focus{
-    border: 6px solid #c409d2;
+    background-color:#001367;
+    color:white;
+}
+#product>#product_header>div:nth-child(2){
+    position:absolute;
+    width:800px;
+    height:60px;
+    line-height:60px;
+    
+    left:50px;
+    top:50px;
+    
+    font-size:1.5em;
+    
 }
 
 #product_list_pg ul li.focus {

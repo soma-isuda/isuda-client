@@ -299,7 +299,7 @@ SMSSharingSpg.submitKeyDown = function () {
         case tvKey.KEY_PANEL_ENTER:
             //focus move to selectWatchPg
             alert("SMSSharingSpg_key : Enter");
-            var _providerPost;
+            var _URLPost;
             var _numberPost = SMSSharingSpg.input.eq(1).text();
             var _messagePost;
             if (this.messageIndex == 7) {//메세지 없음을 선택했을 때
@@ -319,7 +319,7 @@ SMSSharingSpg.submitKeyDown = function () {
                     $.each(data, function (key, value) {
                         alert(value.providerId);
                         if (tempIndex == currentChannel) {
-                            _providerPost = value.providerId;
+                            _URLPost = value.productPgURL;
                         }
                         tempIndex++;
                     });
@@ -331,7 +331,7 @@ SMSSharingSpg.submitKeyDown = function () {
                             data: {
                                 friendPhoneNumber: _numberPost,
                                 message: _messagePost,
-                                provider: _providerPost
+                                url: _URLPost
                             },
                             cache: false,
                             dataType: "text",

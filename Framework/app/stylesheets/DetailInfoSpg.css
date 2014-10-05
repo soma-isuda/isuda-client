@@ -28,7 +28,7 @@
     text-align:center;
     font-size:1.5em;
     color:black;
-    border:1px solid black;
+    background-color:#b7b7a4;
 
 }
 
@@ -37,22 +37,11 @@
     color:white;
 }
 
-#reserveButton>div.focus{
-    border: 6px solid #c409d2;
-}
-
 #detailImage{
-    border-top:1px solid black;
     width:720px;
-    /*height:880px;*/
-    
     overflow:hidden;/*스크롤 구현을 위해 반드시 있어야 함*/
 }
 
 #detailImage>img{
     
-}
-
-#detailImage.foucs{
-    border: 6px solid #c409d2;
 }
