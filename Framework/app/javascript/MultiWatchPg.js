@@ -37,7 +37,7 @@ MultiWatchPg.onLoad = function(){
 				endTimeArr[cnt] = endTime;
 				alert("ing : "+cnt);
 
-			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"><div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="endTime"><p>방송 혜택 종료까지</p><p id="remainedTime' + cnt + '" class="remainedTime"><p></p></div><div class="name"><p>' +this.productName+ '</p></div><div class="price"><p>최대 혜택가 :</p><p class="productPrice">' + this.productPrice + '원 </p></div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
+			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"><div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="endTime"><p>방송 혜택 종료까지</p><p id="remainedTime' + cnt + '" class="remainedTime"></p></div><div class="name"><p>' +this.productName+ '</p></div><div class="price"><p>최대 혜택가 :</p><p class="productPrice">' + this.productPrice + '원 </p></div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
 			    var remainedTime = new Object();
 				
 				remainedTime.hour = endTimeArr[cnt].hour-date.getHours()-1+7;
@@ -77,7 +77,7 @@ MultiWatchPg.onLoad = function(){
 		refresh=0;
 	}
 	else if((MultiWatchPg_index>1)){
-		$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
+		$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
 	}
 	//this.focus();
 	
@@ -209,7 +209,7 @@ MultiWatchPg.keyDown = function()
 			alert("MultiWatchPg_key : Up");
 			if(MultiWatchPg_index<2){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
+				$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
 				MultiWatchPg_index += 6;
 				$(productImg[MultiWatchPg_index]).css("display","block");
 				
@@ -222,7 +222,7 @@ MultiWatchPg.keyDown = function()
 						$('#adfocusImg').css("display","block");
 					if (MultiWatchPg_index <0) 
 						MultiWatchPg_index=0;
-					$("#MultiWatchPg").animate({"top": "+=250px"}, "fast");
+					$("#MultiWatchPg").animate({"top": "+=280px"}, "fast");
 					MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
 					
 				}
@@ -238,7 +238,7 @@ MultiWatchPg.keyDown = function()
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				MultiWatchPg_index = MultiWatchPg_index+3;
 				$(productImg[MultiWatchPg_index]).css("display","block");
-				$("#MultiWatchPg").animate({"top": "-=250px"}, "fast");
+				$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
 			}
 			else if(MultiWatchPg_index>1){
 				$(productImg[MultiWatchPg_index]).css("display","none");

@@ -95,6 +95,8 @@ SMSSharingSpg.bodyKeyDown = function () {
         case tvKey.KEY_PANEL_ENTER:
             //focus move to selectWatchPg
             alert("SMSSharingSpg_key : Enter");
+            SMSSharingSpg.body.eq(this.messageIndex).removeClass('focus');
+            SMSSharingSpg.body.eq(this.messageIndex).addClass('selected');
             SMSSharingSpg.anchor.input.focus();//번호 입력 부분에 포커스를 넘긴다.
             SMSSharingSpg.input.eq(1).addClass('focus');
             break;
@@ -124,16 +126,25 @@ SMSSharingSpg.inputKeyDown = function () {
                 SMSSharingSpg.input.eq(1).empty();
                 SMSSharingSpg.input.eq(1).append(tempNum);
             }
+            else{
+                SMSSharingSpg.input.eq(1).removeClass('focus');
+                SMSSharingSpg.anchor.body.focus();
+                SMSSharingSpg.body.eq(this.messageIndex).removeClass('selected');
+                SMSSharingSpg.body.eq(this.messageIndex).addClass('focus');
+            }
             break;
         case tvKey.KEY_RIGHT:
             alert("SMSSharingSpg_key : Right");
             break;
         case tvKey.KEY_UP:
+            SMSSharingSpg.input.eq(1).removeClass('focus');
+            SMSSharingSpg.anchor.body.focus();
+            SMSSharingSpg.body.eq(this.messageIndex).removeClass('selected');
+            SMSSharingSpg.body.eq(this.messageIndex).addClass('focus');
             alert("SMSSharingSpg_key : Up");
             break;
         case tvKey.KEY_DOWN:
             alert("SMSSharingSpg_key : Down");
-            break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             //'공유하기'버튼으로 포커스를 이동한다.
@@ -266,6 +277,13 @@ SMSSharingSpg.submitKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("SMSSharingSpg_key : RETURN");
+        case tvKey.KEY_UP:
+            SMSSharingSpg.input.eq(1).addClass('focus');
+            SMSSharingSpg.submit.removeClass('focus');
+            SMSSharingSpg.anchor.input.focus();            
+            alert("SMSSharingSpg_key : Up");
+            break;
+
         case tvKey.KEY_LEFT:
             alert("SMSSharingSpg_key : Left");
             jQuery('#SMSSharingSpg').hide();//페이지를 닫는다.			
@@ -274,9 +292,6 @@ SMSSharingSpg.submitKeyDown = function () {
         case tvKey.KEY_RIGHT:
             alert("SMSSharingSpg_key : Right");
             break;
-        case tvKey.KEY_UP:
-            alert("SMSSharingSpg_key : Up");
-            break;
         case tvKey.KEY_DOWN:
             alert("SMSSharingSpg_key : Down");
             break;
@@ -284,7 +299,7 @@ SMSSharingSpg.submitKeyDown = function () {
         case tvKey.KEY_PANEL_ENTER:
             //focus move to selectWatchPg
             alert("SMSSharingSpg_key : Enter");
-            var _providerPost;
+            var _URLPost;
             var _numberPost = SMSSharingSpg.input.eq(1).text();
             var _messagePost;
             if (this.messageIndex == 7) {//메세지 없음을 선택했을 때
@@ -304,7 +319,7 @@ SMSSharingSpg.submitKeyDown = function () {
                     $.each(data, function (key, value) {
                         alert(value.providerId);
                         if (tempIndex == currentChannel) {
-                            _providerPost = value.providerId;
+                            _URLPost = value.productPgURL;
                         }
                         tempIndex++;
                     });
@@ -316,7 +331,7 @@ SMSSharingSpg.submitKeyDown = function () {
                             data: {
                                 friendPhoneNumber: _numberPost,
                                 message: _messagePost,
-                                provider: _providerPost
+                                url: _URLPost
                             },
                             cache: false,
                             dataType: "text",

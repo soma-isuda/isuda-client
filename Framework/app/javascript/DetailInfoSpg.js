@@ -163,9 +163,10 @@ DetailInfoSpg.keyDown = function () {
             if (DetailInfoSpg_index == 0) {//버튼 부분에 포커스가 있을 때
                 //번호 선택 부분으로 포커스를 넘긴다.
                 if (page_index == 3) {//편성표에서 'SMS 알람 받기'를 눌렀을 때
-                    Main.layout.subPage.load(subPageArr[4].html);
+                    subPage_index = 3;
+                    Main.layout.subPage.load(subPageArr[subPage_index].html);
                     setTimeout(function () {
-                        subPageArr[4].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
+                        subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
                     }, 10);
                 }
                 else if (page_index == 4) {//마이페이지에서 '알람 삭제'를 눌렀을 때(단일 상품 예약 삭제)
