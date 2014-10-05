@@ -48,24 +48,26 @@
 /////// SMS Alarm 관련 css /////////
 /////////////////////////////////*/
 #MyPg_SMSAlarm_list > ul li{
+    z-index: 0;
+    list-style: none;
     width : 500px;
     height: 100px;
     text-align: center;
-    background-color: blue;
     float: left;
-    position: relative;  
+    /*position: relative;  */
 }
 
-.MyPgItem div{
+.SMSAlarm_list div{
     float: left;
     position: relative;
     display: inline-block;
 }
+
 .MyPg_imgArea {
     width: 100px;
     height: 100px;
     
-    background-color: blue;
+    background-color: #b7b7a4;
 }
 .MyPg_imgArea img {
     width: 100px;
@@ -80,7 +82,6 @@
     display: block;
     position: relative;
     width: 400px;
-    color: white;
     text-align: center;
 }
 .MyPg_name {
@@ -99,10 +100,7 @@
 .MyPg_productprice {
     font-size: 180%;
 }
-.MyPgItem.focus{
-    border: 6px solid #c409d2;
-    background-color: red;
-}
+
 
 
 
@@ -111,14 +109,8 @@
     box-sizing:border-box;
     padding: 17px;    
 	width : 500px;
-	height: 62px;
-    background-color:#b7b7a4;
-    font-size:28px;
-    margin-bottom: 20px;
-}
-
-#MyPg_CategoryAlarm_list > div.focus{
-    border: 6px solid black;
+	height: 40px;
+	text-align: center;
 }
 
 #MyPg_SelectNumber_list{
@@ -138,46 +130,24 @@
 
     font-size:1.5em;
     text-align:center;
-}
-
-#MyPg_SelectNumber_list_already>div>.number_left{
-    
-    position:absolute;
-
-    width:100px;
-    height:100px;
     line-height:100px;
-
-    left:0px;
-}
-#MyPg_SelectNumber_list_already>div>.number_right{
-    position:absolute;
-
-    width:400px;
-    height:100px;
-    line-height:100px;
-
-    left:100px;
-    border-left:1px solid black;
-}
-#MyPg_SelectNumber_list_already>div.focus{
-    border: 6px solid #c409d2;
+    background-color: #b7b7a4;
 }
 
 #MyPg_SelectNumber_list_new{
     position:relative;
     width: 100%;
-    box-sizing:border-box;
-   /* margin-top:50px;*/
 }
 
 #MyPg_SelectNumber_list_new>div{
+    width: 500px;
     margin-left:47px;
+    background-color: #b7b7a4;
     /*margin-top:40px;*/
 }
 
 
-#MyPg_SelectNumber_list_new>div:nth-child(1){
+#MyPg_SelectNumber_list_new>div>div{
     /*'번호 추가' 버튼*/
     /*position:absolute;
     left:90px;*/
@@ -188,44 +158,34 @@
     font-size:1.5em;
     border:1px solid black;
 }
-#MyPg_SelectNumber_list_new>div:nth-child(2){
-    /*'새로운 번호' 입력 란*/
-    width:500px;
-    height:80px;
-    box-sizing:border-box;
-    padding-top:5px;
-    text-align:center;
-    font-size:1.5em;
-    border:1px solid black;
-}
-
-
-#MyPg_SelectNumber_list_new>div:nth-child(3){
-    /*'인증 번호' 입력 란*/
-    width:500px;
-    height:80px;
-    line-height:60px;
-    text-align:center;
-    font-size:1.5em;
-    border:1px solid black;
-}
-
-
-#MyPg_SelectNumber_list_new>div.focus{
-    border: 6px solid #c409d2;
-}
-
-
-
 #MyPg_SelectNumber_submit{
     width:70%;
     height:80%;
     /*font-size:10px;*/
     text-align:center;
 
-    background-color: blue;
+    background-color: #b7b7a4;
 }
 
 #MyPg_SelectNumber_submit>div.focus{
     border: 6px solid #c409d2;
+}
+/*/////////////////////////////////
+///////    focus css      /////////
+/////////////////////////////////*/
+.MyPg_menu.focus{
+    background-color: white;
+}
+.MyPgItem{
+    background-color: #b7b7a4;
+
+}
+
+.MyPgItem.focus{
+    background-color: #001367;
+    color: #f0f0d8;
+}
+.MyPgItem.select{
+    background-color: #ff4916;
+    color: #f0f0d8;
 }
