@@ -26,10 +26,11 @@
 	
 }
 #main2Header{
-	height: 82px;
+	box-sizing:border-box;	
+	height: 83px;
 	text-align: center;
-	line-height: 80px;
-	font-size: 200%;
+	font-size: 33px;
+	padding: 25px;
 }
 #adjust{
 	width: 589px;
@@ -52,7 +53,7 @@
 }
 #MultiWatchPg_btn2{
 	position: absolute;
-	margin-top: 457px;
+	margin-top: 452px;
 	margin-left: 189px;
 }
 
@@ -63,32 +64,28 @@
 
 }
 #mainTitle {
+	box-sizing:border-box;
 	width: 425px;
-	height: 55px;
-	margin: 4px 0 4px 44px;
+	height: 60px;
+	padding: 14px;
+	margin: 20px 0 20px 40px;
 	background-color: #ff4916;
 	color: #fafafa;
-	font-size: 33px; 
-	line-height: 200%;
-	text-indent: 10px;
+	font-size: 32px; 
+	text-indent: 20px;
 }
 
-#maintTitle div {
-	margin-left: 10px;
-}
 #mainItem {
 	background-color: white;
 }
-#mainItem ul {
-	list-style: none;
-}
+
 #mainItem ul li {
 	float: left;
 	position: relative;
 	width: 541px;
 	height: 270px;
-	margin-bottom: 41px;
-	margin-left: 41px;
+	margin-bottom: 20px;
+	margin-left: 40px;
 }
 
 .MultiWatchPgItem div{
@@ -107,41 +104,48 @@
 
 }
 .productInfoArea {
-	width: 255px;
+	width: 262px;
 	height: 270px;
-	border: 0;
+	box-sizing : border-box;
+	padding:10px;
 }
-.productInfoArea div{
+.productInfoArea > div{
+	box-sizing: border-box;
+
 	display: block;
 	position: relative;
-	width: 255px;
+	width: 242px;
 	color: white;
-	text-align: center;
 }
 .endTime {
-	height: 86px;
-	font-size: 140%;
+	height: 85px;
+	font-size: 26px;
 	border-bottom: solid #ffffff;
+	text-align: center;
+	padding:10px;	
+
 }
 .remainedTime{
 	color: purple;
-	font-size: 150%;
+	font-size: 125%;
 }
-.name {
-	height: 100px;
+.name {	
+	padding: 10px;
+	height: 94px;
 	overflow: hidden;
 	font-weight: bold;
-	font-size: 150%;
+	font-size: 24px;
 }
 .price {
 	height: 85px;
-	font-size: 140%;
-}
-.price p {
+	font-size: 18px;
+	border-bottom: solid #ffffff;
 	text-align: right;
+	padding:10px;
 }
-.productprice {
-	font-size: 140%;
+
+.productPrice {
+	font-size: 30px;
 }
 
 .focusImg {
