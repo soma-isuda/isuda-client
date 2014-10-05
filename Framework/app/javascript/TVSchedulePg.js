@@ -185,7 +185,7 @@ TVSchedulePg.midKeyDown = function () {
             TVSchedulePg.anchor.big.focus();
             //포커스가 넘어가면 중분류를 없앤다.
             jQuery('#mid > div> ul').empty();
-            jQuery('#product_header').find('div:nth-child(2)').empty();
+            jQuery('#product_header>div:nth-child(2)').empty();
             jQuery('#mid').find('div>ul').css("margin-top","0");
             break;
 
