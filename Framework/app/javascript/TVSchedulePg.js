@@ -58,7 +58,14 @@ TVSchedulePg.onLoad = function () {
     var tempString = '';
     tempString += tempDate.getFullYear() + "년 ";
     tempString += (tempDate.getMonth() + 1) + "월 ";
+    tempString += tempDate.getDate() + "일 ~ ";
+
+    //내일 날짜
+    tempDate = new Date(tempDate.valueOf() + (24 * 60 * 60 * 1000));
+    tempString += tempDate.getFullYear() + "년 ";
+    tempString += (tempDate.getMonth() + 1) + "월 ";
     tempString += tempDate.getDate() + "일";
+
     jQuery('#product>#product_nav').append(tempString);
 };
 
@@ -301,7 +308,7 @@ TVSchedulePg.midKeyDown = function () {
                     });
                     if (productNumber == 0)//해당하는 중분류에 상품이 없을때,
                         jQuery('#product_list_pg').find('ul').append('<div style="width:1550px; height:876px; line-height:876px; font-size:3em; text-align:center;">해당 카테고리에 방송 예정 상품이 없습니다.</div>');
-                    jQuery('#product_header').find('div:nth-child(2)').empty();
+                    //현재 카테고리에 몇개의 상품이 있는지 보여준다.
                     var tempString = firstCategory[big_index] + ' > ' + secondCategory[big_index][mid_index] + ' 에 총 ' + productNumber + '개의 상품이 있습니다.';
                     jQuery('#product_header').find('div:nth-child(2)').append(tempString);
 
