@@ -323,3 +323,12 @@ Main.numKeyDown = function()
 			break;
 	}
 };
+
+popupMessage = function(message){
+	alert("PopUp!!");
+	document.getElementById("popup").innerHTML= message;
+	$('#popup').css("display","block");
+	setTimeout(function(){
+		$('#popup').css("display","none");
+	},3000);
+}
