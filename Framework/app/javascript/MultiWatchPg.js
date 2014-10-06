@@ -22,6 +22,7 @@ MultiWatchPg.onLoad = function(){
 		url: SERVER_ADDRESS + '/now',
 		type : 'GET',
 		dataType : 'json',
+
 		success : function (data) {
 			jQuery('#mainItem').find('ul').empty();
 			$.each(data, function() {
@@ -37,26 +38,36 @@ MultiWatchPg.onLoad = function(){
 				endTimeArr[cnt] = endTime;
 				alert("ing : "+cnt);
 
-			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"><div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="endTime"><p>방송 혜택 종료까지</p><p id="remainedTime' + cnt + '" class="remainedTime"></p></div><div class="name"><p>' +this.productName+ '</p></div><div class="price"><p>최대 혜택가 :</p><p class="productPrice">' + this.productPrice + '원 </p></div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
+				var priceBefore;
+                var priceRefined = '';
+				priceRefined = '';
+                priceBefore = this.productPrice;
+                if (priceBefore) {//가격 값이 null이 아니면
+                    priceBefore = this.productPrice.toString();
+                    for (var i = priceBefore.length; i > 0; i = i - 3) {
+                        if (i == priceBefore.length)
+                            priceRefined = priceBefore.substring(i, i - 3);
+                        else
+                            priceRefined =priceBefore.substring(i, i - 3) + ',' + priceRefined;
+                    }
+                    priceRefined += ' 원';
+                }
+                else//가격 값이 null 이면
+                    priceRefined += '방송 중 확인';
+
+
+			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"><div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="endTime"><p>방송 혜택 종료까지</p><p id="remainedTime' + cnt + '" class="remainedTime"></p></div><div class="name"><p>' +this.productName+ '</p></div><div class="price"><p>최대 혜택가 :</p><p class="productPrice">' + priceRefined + '</p></div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
 			    var remainedTime = new Object();
 				
 				remainedTime.hour = endTimeArr[cnt].hour-date.getHours()-1+9;
-			 	// alert("-----------------");
-			 	// alert(endTimeArr[cnt].hour);
-			 	// alert(date.getHours());
-			 	// alert(remainedTime.hour);
-			 	// alert("-----------------");
-				if(remainedTime.hour <0)
-					remainedTime.hour = remainedTime.hour +24;
-				else if(remainedTime.hour >=24)
-					remainedTime.hour = remainedTime.hour -24;
-				
 				remainedTime.minute = endTimeArr[cnt].minute-date.getMinutes()-1;
-				if(remainedTime.minute < 0)
-					remainedTime.minute = 60 + remainedTime.minute;
-				
 				remainedTime.second = 59-date.getSeconds();
-			    document.getElementById('remainedTime'+cnt).innerHTML = remainedTime.hour+' : '+remainedTime.minute+' : '+ remainedTime.second;
+
+			    if(remainedTime.minute < 0){
+					remainedTime.hour = remainedTime.hour-1;
+					remainedTime.minute = 60 + remainedTime.minute;
+				}
+				document.getElementById('remainedTime'+cnt).innerHTML = remainedTime.hour+'시 '+remainedTime.minute+'분 '+ remainedTime.second+'초';
 			    $(MultiWatchPgItem[cnt]).css('background-color',color[cnt]);
 			});					
 		} 	
@@ -107,11 +118,11 @@ MultiWatchPg.remainedTime = function(){
 	for(i=0; i<6; i++){
 	//alert(endTimeArr[0].hour+"c");
 		var remainedTime = new Object();
-		remainedTime.hour = endTimeArr[i].hour-date.getHours()-1+9;
+		remainedTime.hour = endTimeArr[i].hour-date.getHours()+9;
 		remainedTime.minute = endTimeArr[i].minute-date.getMinutes()-1;
 		remainedTime.second = 59-date.getSeconds();
 
-		alert(remainedTime.hour+" : "+ remainedTime.minute+ " : "+remainedTime.second);
+		alert(remainedTime.hour+"시 "+ remainedTime.minute+ "분+ "+remainedTime.second)+"초";
 		if((remainedTime.hour == 0)&&(remainedTime.minute == 0 )&&(remainedTime.second == 0 )) {
 			alert("refresh Item");
 			refresh=1;
@@ -119,13 +130,12 @@ MultiWatchPg.remainedTime = function(){
 
 			break;
 		}
-		if(remainedTime.hour <0)
-			remainedTime.hour = remainedTime.hour +24;
-		else if(remainedTime.hour >=24)
-			remainedTime.hour = remainedTime.hour -24;
-		if(remainedTime.minute < 0)
+		
+		if(remainedTime.minute < 0){
+			remainedTime.hour = remainedTime.hour-1;
 			remainedTime.minute = 60 + remainedTime.minute;
-		document.getElementById('remainedTime'+i).innerHTML = remainedTime.hour+' : '+remainedTime.minute+' : '+ remainedTime.second;
+		}
+		document.getElementById('remainedTime'+i).innerHTML = remainedTime.hour+'시 '+remainedTime.minute+'분 '+ remainedTime.second+'초';
 	
 	}
 };

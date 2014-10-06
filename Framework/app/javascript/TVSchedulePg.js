@@ -163,7 +163,7 @@ TVSchedulePg.bigKeyDown = function () {
             tabMenu();
             TVSchedulePg.anchor.mid.focus();//중분류로 anchor를 넘긴다
             //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
-            TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+            //TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
             TVSchedulePg.bigElem.eq(big_index).addClass('select');
             TVSchedulePg.midElem.eq(mid_index).addClass('focus');
 
@@ -193,6 +193,7 @@ TVSchedulePg.midKeyDown = function () {
             //다시 대분류로 포커스를 넘긴다.
             TVSchedulePg.anchor.big.focus();
             //포커스가 넘어가면 중분류를 없앤다.
+            TVSchedulePg.bigElem.eq(big_index).removeClass('select');
             jQuery('#mid > div> ul').empty();
             jQuery('#mid').find('div>ul').css("margin-top","0");
             break;
