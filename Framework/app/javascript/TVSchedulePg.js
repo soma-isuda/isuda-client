@@ -67,6 +67,8 @@ TVSchedulePg.onLoad = function () {
     tempString += tempDate.getDate() + "일";
 
     jQuery('#product>#product_nav').append(tempString);
+
+
 };
 
 
