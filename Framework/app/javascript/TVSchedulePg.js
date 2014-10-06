@@ -74,6 +74,7 @@ TVSchedulePg.focus = function () {
     alert("");
     alert("TVSchedulePg.focus");
     TVSchedulePg.anchor.big.focus();
+    TVSchedulePg.bigElem.eq(big_index).removeClass('select');
     TVSchedulePg.bigElem.eq(big_index).addClass('focus');
     tabMenu();
 };
@@ -162,7 +163,8 @@ TVSchedulePg.bigKeyDown = function () {
             tabMenu();
             TVSchedulePg.anchor.mid.focus();//중분류로 anchor를 넘긴다
             //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
-
+            TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+            TVSchedulePg.bigElem.eq(big_index).addClass('select');
             TVSchedulePg.midElem.eq(mid_index).addClass('focus');
 
             break;
@@ -247,6 +249,8 @@ TVSchedulePg.midKeyDown = function () {
         case tvKey.KEY_PANEL_ENTER:
 
             alert("TVSchedulePg_key : Enter");
+            TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
+            TVSchedulePg.midElem.eq(mid_index).addClass('select');
             productNumber = 0;
             //해당 중분류의 상품들을 불러온다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             //ajax요청
@@ -351,6 +355,7 @@ TVSchedulePg.listKeyDown = function () {
             //상품 리스트의 제일 왼쪽에 있을때,
             if (productListIndex % 4 == 0) {
                 //다시 중분류로 포커스를 넘긴다.
+                TVSchedulePg.midElem.eq(mid_index).removeClass('select');
                 TVSchedulePg.anchor.mid.focus();
                 //포커스가 넘어가면 상품들을 없앤다.
                 jQuery('#product_list_pg > ul').empty();

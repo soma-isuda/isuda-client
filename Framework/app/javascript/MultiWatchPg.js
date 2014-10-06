@@ -257,7 +257,7 @@ MultiWatchPg.keyDown = function()
 				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
 				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
 				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
-				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+5)]);
+				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+10)]);
 				Main.layout.page.load(pagearr[page_index].html);
 				clearInterval(refresh);
 				focusCurrent = "SelectWatchPg";

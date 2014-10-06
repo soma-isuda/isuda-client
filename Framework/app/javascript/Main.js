@@ -59,6 +59,7 @@ Main.focus = function()
 	Main.anchor.main.focus();
 	Main.layout.sideBar.addClass('focus');
 	$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index+5]);
+	Main.sideBarMenu.btn.eq(page_index).removeClass('select');
 	Main.sideBarMenu.btn.eq(page_index).addClass('focus');
 	$("#sideBar").css("width","460px");
 	$(".sideBarMenuText").css("display","block");
@@ -137,6 +138,10 @@ Main.keyDown = function()
 				pagearr[page_index].object.focus();
 			},10);			
 			Main.layout.sideBar.removeClass('focus');
+			// select 
+			Main.sideBarMenu.btn.eq(page_index).addClass('select');
+			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+10)]);
+			
 			//Main.sideBarMenu.btn.removeClass('focus');
 			$("#sideBar").css("width","300px");
 			$(".sideBarMenuText").css("display","none");

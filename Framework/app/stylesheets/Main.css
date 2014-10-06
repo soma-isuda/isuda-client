@@ -19,15 +19,19 @@ body
 	width: 430px;
 	height: 100%;
 	position: absolute;
-	background-color: #f0f0d8;
+	background-color: #232323;
+	/*background-color: #f0f0d8;*/
 }
 #sideBar ul {
 	list-style: none;
 }
 #sideBar ul li {
 	height: 130px;
-	border-bottom: solid #b7b7a4;
+	border-bottom: solid #585858;
+	/*border-bottom: solid #b7b7a4;*/
+	
 }
+
 .sideBarMenu div{
 	float: left;
 	position: relative;
@@ -44,7 +48,8 @@ body
 	height: 130px;
 	text-align: left;
 	line-height: 130px;
-	font-size: 25px;
+	font-weight: bold;
+	font-size: 50px;
 }
 
 #article {
@@ -58,14 +63,20 @@ body
 }
 
 #sideBar > ul li.focus { 
- 	background-color: #7f1c00;
+	/*background-color: #5ccece;*/
+ 	/*background-color: #7f1c00;*/
  	color: white;
 }
-
+#sideBar > ul li.select { 
+	/*background-color: #ce534d;*/
+ 	/*background-color: #7f1c00;*/
+ 	color: #232323;
+}
 
 #sideBar > ul{
    list-style:none;
    padding-left:0px;
+   color: #585858;
 }
 
 #player{

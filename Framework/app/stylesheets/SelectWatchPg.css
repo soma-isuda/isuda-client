@@ -3,11 +3,16 @@
 }
 #SelectWatchPgMenu {
 	float: left;
-	border-left: solid #ffffff;
-	border-right: solid #ffffff;	
+	
 	width: 168px;
 	height: 1080px;
-	background-color: #f0f0d8;
+
+	/*border-left: solid #ffffff;
+	border-right: solid #ffffff;	
+	background-color: #f0f0d8;*/
+	border-left: solid #585858;
+	border-right: solid #585858;	
+	background-color: #232323;
 }
 #SelectWatchPgMenu ul li {
 	list-style:none;
@@ -18,18 +23,23 @@
 	height: 80px;
 	font-size: 30px;
 	text-align: center;
-	background-color: #b7b7a4;
+	/*background-color: #b7b7a4;*/
+	background-color: #989898;
+	color: white;
+
 }
 #SelectWatchPg.focus{
 	
 }
 #SelectWatchPgMenu ul li.focus { 
- 	background-color: #001367;
- 	color: #f0f0d8;
+ 	/*background-color: #001367;*/
+ 	background-color: #5ccece;
+ 	color: black;
 }
 #SelectWatchPgMenu ul li.select { 
- 	background-color: #ff4916;
- 	color: #f0f0d8; 	
+ 	/*background-color: #ff4916;*/
+ 	background-color: #ce534d;
+ 	color: white;	
 }
 
 
