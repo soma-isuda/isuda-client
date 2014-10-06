@@ -33,7 +33,7 @@
     font-size:1.5em;
     text-align:center;
 }
-
+/*번호에 숫자 붙이는 부분 삭제
 #SelectNumber_list_already>div>.number_left{
     
     position:absolute;
@@ -43,15 +43,15 @@
     line-height:100px;
 
     left:0px;
-}
+}*/
 #SelectNumber_list_already>div>.number_right{
     position:absolute;
 
-    width:300px;
+    width:400px;
     height:100px;
     line-height:100px;
     
-    left:100px;
+    left:0px;
    
 }
 #SelectNumber_list_already>div.focus{
