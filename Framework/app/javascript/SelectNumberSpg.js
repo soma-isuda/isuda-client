@@ -221,11 +221,21 @@ SelectNumberSpg.registerKeyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("SelectNumberSpg_key : Up");
-            if (SelectNumberSpg_registerIndex == 0) {//'번호 추가'버튼에 있을 때
                 SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).removeClass('focus');
                 SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).addClass('focus');
+                jQuery('#SelectNumber_list_new').empty();
+                if (savedNumber_num < MAX_NUMBER) {//번호들을 더 추가할 수 있다면
+                    var tempString = '';
+                    tempString += '<div>번호추가</div>';
+                    jQuery('#SelectNumber_list_new').append(tempString);
+                }
+                jQuery.extend(SelectNumberSpg, {
+                    number: jQuery('#SelectNumber_list_already>div'),
+                    register: jQuery('#SelectNumber_list_new>div'),
+                });
+                SelectNumberSpg_registerIndex = 0;//'번호 추가'버튼이 떠있도록
+
                 SelectNumberSpg.anchor.select.focus(); //번호 선택부분으로 포커스를 넘긴다.
-            }
             break;
         case tvKey.KEY_DOWN:
             alert("SelectNumberSpg_key : Down");
