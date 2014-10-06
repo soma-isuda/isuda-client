@@ -17,6 +17,7 @@ SelectWatchPg.onLoad = function(ch)
 		}
 		//focus: 0
 	});
+	jQuery('#SelectWatchPgMenu').hide();
 		
 	Player.init(ch);
 	
@@ -30,6 +31,8 @@ SelectWatchPg.focus = function(){
 	//alert(SelectWatchPgMenu.size);
 	SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
 	SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
+	jQuery('#SelectWatchPgMenu').show();
+
 };
 
 SelectWatchPg.enableKeys = function()
@@ -62,6 +65,8 @@ SelectWatchPg.keyDown = function()
 			alert("SelectWatchPg_key : Left");
 			SelectWatchPg.anchor.main.removeClass('focus');
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
+				jQuery('#SelectWatchPgMenu').hide();
+
 			Main.focus();
 			break;
 		case tvKey.KEY_UP:
