@@ -43,7 +43,7 @@
     height: 62px;
     box-sizing:border-box;
     padding: 17px;
-    background-color:#585858;
+    background-color:#989898;
     color:white;
     font-size:28px;
 
@@ -68,10 +68,12 @@
 #MyPg_SMSAlarm_list > ul li{
     z-index: 0;
     list-style: none;
-    width : 500px;
-    height: 100px;
-    text-align: center;
+    width : 490px;
+    height: 144px;
     float: left;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+
     /*position: relative;  */
 }
 
@@ -82,41 +84,42 @@
 }
 
 .MyPg_imgArea {
-    width: 100px;
-    height: 100px;
+    width: 144px;
+    height: 144px;
     
-    background-color: #b7b7a4;
+    background-color: white;
 }
 .MyPg_imgArea img {
-    width: 100px;
+    width: 144px;
 
 }
 .MyPg_productInfoArea {
-    width: 400px;
-    height: 100px;
-    border: 0;
+    width: 340px;
+    height: 144px;
 }
 .MyPg_productInfoArea div{
     display: block;
     position: relative;
-    width: 400px;
-    text-align: center;
+    width:340px;
+
 }
 .MyPg_name {
-    height: 50px;
+    box-sizing: border-box;
+    padding: 12px 20px 12px 20px;
+    height: 75px;
     overflow: hidden;
-    font-weight: bold;
-    font-size: 130%;
+    font-size: 25px;
+    text-align: left;
 }
 .MyPg_price {
-    height: 50px;
-    font-size: 130%;
+      box-sizing: border-box;
+    padding: 0px 20px 12px 20px;  
+    height: 69px;
+    font-size: 20px;
+    text-align: right;   
 }
-.MyPg_price p {
-    text-align: right;
-}
-.MyPg_productprice {
-    font-size: 180%;
+.MyPg_productPrice {
+    font-size: 25px;
 }
 
 /*
@@ -195,6 +198,7 @@
 }
 .MyPgItem{
     background-color: #989898;
+    color : white;
 
 }
 
@@ -211,5 +215,10 @@
 .MyPg_button.focus{
     background-color: #5ccece;
     color: black;
+}
+
+.MyPg_button.focus_{
+    background-color: #585858;
+    color: white;
 }
 
