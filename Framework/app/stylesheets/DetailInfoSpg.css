@@ -6,7 +6,7 @@
 	height: 100%;
 }
 
-/*»ó¼¼Á¤º¸ ÀÌ¹ÌÁö¸¦ ÁöÁ¤ÇÏ´Â ºÎºĞ*/
+/*Â»Ã³Â¼Â¼ÃÂ¤ÂºÂ¸ Ã€ÃŒÂ¹ÃŒÃÃ¶Â¸Â¦ ÃÃ¶ÃÂ¤Ã‡ÃÂ´Ã‚ ÂºÃÂºÃ*/
 #detailImg{
     width:720px;
 }
@@ -39,9 +39,28 @@
 
 #detailImage{
     width:720px;
-    overflow:hidden;/*½ºÅ©·Ñ ±¸ÇöÀ» À§ÇØ ¹İµå½Ã ÀÖ¾î¾ß ÇÔ*/
+    overflow:hidden;/*Â½ÂºÃ…Â©Â·Ã‘ Â±Â¸Ã‡Ã¶Ã€Â» Ã€Â§Ã‡Ã˜ Â¹ÃÂµÃ¥Â½Ãƒ Ã€Ã–Â¾Ã®Â¾ÃŸ Ã‡Ã”*/
 }
 
 #detailImage>img{
     
 }
+/* ì„œë¸Œí˜ì´ì¦ˆ í™”ì‚´í‘œ css*/
+#arrow1 {
+    position: absolute;
+}
+.arrow {
+    width:  180px;
+    height: 60px;
+    position: relative;
+    display: none;
+}
+#arrow_up{
+    margin-top: 200px;
+    margin-left: 1470px;
+}
+#arrow_down{
+    margin-top: 760px;
+    margin-left: 1470px;
+}
+
