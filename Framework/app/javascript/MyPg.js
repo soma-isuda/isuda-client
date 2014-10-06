@@ -80,9 +80,9 @@ MyPg.onLoad = function () {
     //파일 시스템에서 TV에 저장되어 있는 번호들을 불러온다.
     for (var i = 0; i < savedNumber_num; i++) {
         var tempString = '';
-        tempString += '<div>';
-        //tempString += '<div class="number_left">' + (i + 1) + '</div>';
-        tempString += '<div class="number_right MyPgItem">' + savedNumber[i] + '</div>';
+        tempString += '<div class="MyPgItem MyPg_list_Item">';
+                                //tempString += '<div class="number_left">' + (i + 1) + '</div>';
+        tempString += savedNumber[i];
         tempString += '</div>';
 
         jQuery('#MyPg_SelectNumber_list_already').append(tempString);
@@ -91,14 +91,15 @@ MyPg.onLoad = function () {
     if (savedNumber_num < MAX_NUMBER) {//번호들을 더 추가할 수 있다면
         var tempString = '';
         //tempString += '<div id="new_first">번호추가</div>';
-        tempString += '<div class="MyPgItem">번호추가</div>';
-        jQuery('#MyPg_SelectNumber_list_new>div').append(tempString);
+        tempString += '<div>번호추가</div>';
+        jQuery('#MyPg_SelectNumber_list_new').append(tempString);
     }
     jQuery.extend(MyPg, {
-        number: jQuery('#MyPg_SelectNumber_list_already>div>div'),
-        register: jQuery('#MyPg_SelectNumber_list_new>div>div'),
-        submit: jQuery('#MyPg_SelectNumber_submit>div')
+        number: jQuery('#MyPg_SelectNumber_list_already>div'),
+        register: jQuery('#MyPg_SelectNumber_list_new>div'),
+        submit: jQuery('#MyPg_SelectNumber_submit')
     });
+
 
     // 변수 초기화
     MyPg_index = 0;
@@ -120,7 +121,7 @@ MyPg.focus = function () {
         MyPg.number.eq(MyPg_numberIndex).removeClass('select');
         MyPg.number.eq(MyPg_numberIndex).addClass('focus');
         this.CategorySetting(MyPg_numberIndex);
-        MyPg.SMSAlarmSetting(MyPg_numberIndex);
+        this.SMSAlarmSetting(MyPg_numberIndex);
     }
     else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
         //'번호 추가' 부분으로 포커스를 넘긴다.
@@ -238,6 +239,7 @@ MyPg.selectKeyDown = function () {
             MyPg.anchor.submit.focus();
             MyPg.submit.eq(MyPg_submitIndex).addClass('focus');
             MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
+            MyPg.number.eq(MyPg_numberIndex).addClass('select');
             break;
         default:
             alert("Unhandled key");
@@ -280,15 +282,15 @@ MyPg.registerKeyDown = function () {
             if (MyPg_registerIndex == 0) {
                 var tempString = '';
                 //번호 입력창
-                tempString += '<div class="MyPgItem">(번호 입력후 확인키를 누르면 인증번호가 전송됩니다)</div>';
+                tempString += '<div>(전화 번호를 입력해주세요)</div>';
                 //인증번호 입력창
-                tempString += '<div class="MyPgItem">(인증 번호 입력후 확인키를 누르세요)</div>';
+                tempString += '<div>(인증 번호를 입력해주세)</div>';
 
-                MyPg.register.eq(MyPg_registerIndex).removeClass('focus');
-                jQuery('#MyPg_SelectNumber_list_new>div>div:nth-child(1)').hide();//'번호 추가'를 숨긴다.
-                jQuery('#MyPg_SelectNumber_list_new>div').append(tempString);
+//                MyPg.register.eq(MyPg_registerIndex).removeClass('focus');
+                jQuery('#MyPg_SelectNumber_list_new>div:nth-child(1)').hide();//'번호 추가'를 숨긴다.
+                jQuery('#MyPg_SelectNumber_list_new').append(tempString);
                 jQuery.extend(MyPg, {//div가 새로 추가된 시점에서 다시 'register'를 등록한다.
-                    register: jQuery('#MyPg_SelectNumber_list_new>div>div'),
+                    register: jQuery('#MyPg_SelectNumber_list_new>div'),
                 });
                 //'새로운 번호'부분으로 포커스를 넘긴다.
                 alert("MyPg_registerIndex : "+MyPg_registerIndex );
@@ -368,22 +370,22 @@ MyPg.registerKeyDown = function () {
                     //파일 시스템에서 TV에 저장되어 있는 번호들을 불러온다.
                     for (var i = 0; i < savedNumber_num; i++) {
                         var tempString = '';
-                        tempString += '<div>';
+                        tempString += '<div class="MyPgItem MyPg_list_Item">';
                         //tempString += '<div class="number_left">' + (i + 1) + '</div>';
-                        tempString += '<div class="number_right MyPgItem">' + savedNumber[i] + '</div>';
+                        tempString += savedNumber[i];
                         tempString += '</div>';
 
                         jQuery('#MyPg_SelectNumber_list_already').append(tempString);
                     }
-                    jQuery('#MyPg_SelectNumber_list_new>div').empty();
+                    jQuery('#MyPg_SelectNumber_list_new').empty();
                     if (savedNumber_num < MAX_NUMBER) {//번호들을 더 추가할 수 있다면
                         var tempString = '';
-                        tempString += '<div class="MyPgItem">번호추가</div>';
-                        jQuery('#MyPg_SelectNumber_list_new>div').append(tempString);
+                        tempString += '<div>번호추가</div>';
+                        jQuery('#MyPg_SelectNumber_list_new').append(tempString);
                     }
                     jQuery.extend(MyPg, {
-                        number: jQuery('#MyPg_SelectNumber_list_already>div>div'),
-                        register: jQuery('#MyPg_SelectNumber_list_new>div>div'),
+                        number: jQuery('#MyPg_SelectNumber_list_already>div'),
+                        register: jQuery('#MyPg_SelectNumber_list_new>div'),
                     });
 
                     //새로운 번호에 포커스를 맞추고 시작한다.
@@ -530,7 +532,7 @@ MyPg.registerKeyDown = function () {
 
             break;
         case tvKey.KEY_LEFT://왼쪽 버튼을 누르면 글자를 하나씩 지운다.
-            if (MyPg_registerIndex == 1) {
+            if (MyPg_registerIndex == 1 || SelectNumberSpg_registerIndex == 2) {
                 if (inputNum > 0) {//숫자가 하나라도 있을때
                     var tempNum = MyPg.register.eq(MyPg_registerIndex).text();
                     var tempNum = tempNum.substring(0, --inputNum);
@@ -626,22 +628,22 @@ MyPg.submitKeyDown = function () {
                 //파일 시스템에서 TV에 저장되어 있는 번호들을 불러온다.
                 for (var i = 0; i < savedNumber_num; i++) {
                     var tempString = '';
-                    tempString += '<div>';
-                    //tempString += '<div class="number_left">' + (i + 1) + '</div>';
-                    tempString += '<div class="number_right MyPgItem">' + savedNumber[i] + '</div>';
-                    tempString += '</div>';
+                        tempString += '<div class="MyPgItem MyPg_list_Item">';
+                        //tempString += '<div class="number_left">' + (i + 1) + '</div>';
+                        tempString += savedNumber[i];
+                        tempString += '</div>';
 
                     jQuery('#MyPg_SelectNumber_list_already').append(tempString);
                 }
 
-                jQuery('#MyPg_SelectNumber_list_new>div').empty();
+                jQuery('#MyPg_SelectNumber_list_new').empty();
                 var tempString = '';
-                tempString += '<div class="MyPgItem">번호추가</div>';
-                jQuery('#MyPg_SelectNumber_list_new>div').append(tempString);
+                tempString += '<div>번호추가</div>';
+                jQuery('#MyPg_SelectNumber_list_new').append(tempString);
 
                 jQuery.extend(MyPg, {
                     number: jQuery('#MyPg_SelectNumber_list_already>div'),
-                    register: jQuery('#MyPg_SelectNumber_list_new>div>div'),
+                    register: jQuery('#MyPg_SelectNumber_list_new>div'),
                 });
 
                 //새로운 번호에 포커스를 맞추고 시작한다.
@@ -757,11 +759,11 @@ MyPg.CategorySetting = function(idx){
         	var tempstring = "";
         	var temparr= [];
         	$.each(data, function() {
-        		tempstring += '<div class="MyPgItem">' + firstCategory[this.firstId] + "  >  " + this.secondName + "</div>";
-        		temparr.push(this.secondId);
+        		tempstring += '<div class="MyPgItem MyPg_list_Item">' + firstCategory[this.firstId] + "  >  " + this.secondName + "</div>";
+                temparr.push(this.secondId);
         	});
         	MyPg.category.elem.html(tempstring);
-        	alert(tempstring);
+        	alert('asda'+tempstring);
         	setTimeout(function(){
          	    jQuery.extend(MyPg, {
         	        category_: {
