@@ -2,10 +2,10 @@ var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_IN;
+var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
 var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
 var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
-var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
+var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_OUT;
 // pagearr : information about pages in pageinfo
 var page_index = 1;
 var subPage_index = 1;//현재 열려있는 서브 페이지의 넘버
@@ -23,6 +23,7 @@ var Main =
 		sideBar : jQuery('#sideBar'),
 		page	: jQuery('#article'),
 		subPage : jQuery('#subPage')
+		//popUp   : jQuery('#popup')
 	},
 	sideBarMenu:{
 		btn : jQuery('#sideBar').find('ul > li')
@@ -30,7 +31,8 @@ var Main =
 	anchor:{
 //		menu	: jQuery('#menu'),
 		main	: jQuery('#anchor_main'),
-		subPage : jQuery('#anchor_subPage')
+		subPage : jQuery('#anchor_subPage'),
+		popUp 	: jQuery('#anchor_popup')
 	},
 	focus: 0	
 };
@@ -45,7 +47,7 @@ Main.onLoad = function()
 			},10);		
 	// Enable key event processing
 	this.focus();
-
+	//Main.layout.popUp.load('app/html/popUp.html');
 	Player.hide();
 	widgetAPI.sendReadyEvent();
 	alert('Main_onLoad completed');
@@ -93,10 +95,11 @@ Main.keyDown = function()
 			alert("main_key : Return");
 			//widgetAPI.sendReturnEvent();
 			widgetAPI.blockNavigation(event);
-			popupMessage("스마트 홈쇼핑을<br>종료합니다. <br><br>행복한 하루 되세요.");
-			setTimeout(function(){
-				widgetAPI.sendExitEvent();
-			},2000);
+			// popupMessage("스마트 홈쇼핑을<br>종료합니다. <br><br>행복한 하루 되세요.");
+			// setTimeout(function(){
+			// 	widgetAPI.sendExitEvent();
+			// },2000);
+			popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",Main);
 			
 			break;
 			
@@ -171,35 +174,63 @@ Main.keyDown = function()
 };
 
 popupMessage = function(message){
-	alert("PopUp!!");
+	alert("PopUp m!!");
 	jQuery('#popup').append('<div id="popupMessage">'+message+'</div>');
 	$('#popupMessage').css("display","block");
 	setTimeout(function(){
 		$('#popupMessage').css("display","none");
 	},2000);
 };
-popupMessageButton = function(keyCode, message, returnFocus){
-	alert("PopUp!!");
+var popup_index;
+var focusBack;
+popupMessageButton = function(message, returnFocus){
+	alert("PopUp b!!");
+	focusBack = returnFocus;
 	var tempString='';
 	tempString += '<div id="popupMessageButton">		';
-	tempString += '		message 						';
-	tempString += '		<div id="popupBtn1">확인</div>	';
-	tempString += '		<div id="popupBtn2">취소</div>   ';
+	tempString += '		<div>'+message+'</div>';
+	tempString += '		<div id="popupBtn1" class ="popupBtn">확인</div>	';
+	tempString += '		<div id="popupBtn2" class ="popupBtn">취소</div>   ';
 	tempString += '</div>								';
 	jQuery('#popup').append(tempString);
-	$('#popup').css("display","block");
-	anchor_popup.focus();	
+	$('#popupMessageButton').css("display","block");
+	
+    popup_index=0;
+	jQuery('#anchor_popup').focus();
+	jQuery('.popupBtn').eq(1).removeClass('focus');
+	jQuery('.popupBtn').eq(popup_index).addClass('focus');	
 };
 popupkeyDown = function(){
 	var keyCode = event.keyCode;
-	
+	alert("popup keyDown");
+	//jQuery('.popupBtn').addClass('focus');
 	switch(keyCode) {	
+		case tvKey.KEY_LEFT:
+		case tvKey.KEY_RIGHT:
+			jQuery('.popupBtn').eq(popup_index).removeClass('focus');
+			if(popup_index==0)
+				jQuery('.popupBtn').eq(++popup_index).addClass('focus');
+			else
+				jQuery('.popupBtn').eq(--popup_index).addClass('focus');
+			break;
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
-			widgetAPI.sendExitEvent();
+			if(popup_index==0)
+				widgetAPI.sendExitEvent();
+			else
+				focusBack.focus();
+				$('#popupMessageButton').css("display","none");
+			break;
+		case tvKey.KEY_EXIT:
+		case tvKey.KEY_RETURN:
+		case tvKey.KEY_PANEL_RETURN:
+			widgetAPI.blockNavigation(event);
+			focusBack.focus();
+			$('#popupMessageButton').css("display","none");
+			break;
 		default:
 			alert("Unhandled key");
 			break;
 	}
 
-}
+};

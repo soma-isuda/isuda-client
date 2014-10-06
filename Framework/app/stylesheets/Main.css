@@ -104,6 +104,7 @@ ul {
 #popup {
 	
 }
+
 #popupMessage {
 	box-sizing:border-box;
 	width:  800px;
@@ -125,4 +126,67 @@ ul {
 
 	border: 10px solid #5ccece;
 	border-radius: 20px;
+}
+#popupMessageButton{
+	box-sizing:border-box;
+	width:  800px;
+	height: 450px;
+	position: relative;
+	
+	margin-top: 300px;
+	margin-left: 630px;
+	display: none;
+	padding: 100px;
+	
+	text-align: center;
+	font-style: bold;
+	font-size: 50px;
+	color: white;
+	letter-spacing: 5px;
+	
+	background-color: #232323;
+
+	border: 10px solid #ce534d;
+	border-radius: 20px;
+}
+.popupBtn{
+	float: left;
+	display: inline-block;
+	background-color: #585858;
+}
+#popupBtn1{
+	box-sizing:border-box;
+	float: left;
+	display: inline;
+	position: relative;
+	width: 200px;
+	height: 80px;
+	
+	
+	border-radius: 5px;
+	padding: 10px;
+	color: white;
+	
+	margin-top: 60px;
+	margin-left: 50px;
+}
+#popupBtn2{
+	box-sizing:border-box;
+	float: left;
+	display: inline;
+	position: relative;
+	width: 200px;
+	height: 80px;
+	
+	border-radius: 5px;
+	padding: 10px;
+	color: white;
+
+	margin-top: 60px;
+	margin-left: 100px;
+}
+
+.popupBtn.focus{
+	background-color: #5ccece;
+	color: black;
 }
