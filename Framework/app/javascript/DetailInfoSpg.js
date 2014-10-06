@@ -28,7 +28,9 @@ DetailInfoSpg.onLoad = function () {
 
     if (page_index == 2) {//선택보기에서 '상세보기'
         jQuery('#reserveButton').hide();//'SMS 알람 받기' 버튼을 없앤다.
-
+        $('.arrow').css("display","block");
+        document.getElementById('arrow_up').style.marginTop="20px";
+        document.getElementById('arrow_down').style.marginTop="900px";
     }
     else if (page_index == 3) {//편성표에서 '상세보기'
         jQuery('#reserveButton').append('<div>SMS 알람 받기</div>');
@@ -101,7 +103,7 @@ DetailInfoSpg.keyDown = function () {
         case tvKey.KEY_LEFT:
             alert("DetailInfoSpg_key : Left");
             widgetAPI.blockNavigation(event);
-
+            $('.arrow').css("display","none");
             if (page_index == 2) //선택보기에서 '상세보기'
                 SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
@@ -128,10 +130,19 @@ DetailInfoSpg.keyDown = function () {
                     DetailInfoSpg.image.removeClass('focus');
                     DetailInfoSpg.reserve.addClass('focus');
                     DetailInfoSpg_index = 0;
+
+                    // arrow image display none
+                    $('.arrow').css("display","none");
                 }
                 detailImageScrollNumber--;
                 var pxMove = '-' + 200 * detailImageScrollNumber + 'px';
                 DetailInfoSpg.image.find('img').css("margin-top", pxMove);
+
+                // arrow animate
+                $("#arrow_up").attr('src',arrowImgArr[2]);
+                    setTimeout(function(){
+                        $("#arrow_up").attr('src',arrowImgArr[0]);
+                },300); 
             }
             break;
         case tvKey.KEY_DOWN:
@@ -144,6 +155,8 @@ DetailInfoSpg.keyDown = function () {
                 //detailImageHeight = jQuery('#detailImage').find('img').height();
                 detailImageHeight = document.getElementById('detailImg').height;
                 alert(detailImageHeight);
+                // arrow image display block
+                $('.arrow').css("display","block");
             }
             else if (DetailInfoSpg_index == 1) {//상품 이미지에 포커스가 있을 때
                 //스크롤 구현하는 부분
@@ -153,6 +166,13 @@ DetailInfoSpg.keyDown = function () {
                     //한번에 200px씩 스크롤 된다고 가정
                     var pxMove = '-' + 200 * detailImageScrollNumber + 'px';
                     DetailInfoSpg.image.find('img').css("margin-top", pxMove);
+
+                    // arrow image
+                    $("#arrow_down").attr('src',arrowImgArr[3]);
+                    setTimeout(function(){
+                        $("#arrow_down").attr('src',arrowImgArr[1]);
+                    },300); 
+                    
                 }
             }
             break;
