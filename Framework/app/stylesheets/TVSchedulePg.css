@@ -167,12 +167,13 @@
     text-align:center;
     /*background-color:#b7b7a4;*/
     background-color: #989898;
+    color: white;
 }
 #product>#product_header>#reserve_Category.focus{
     /*background-color:#001367;*/
     background-color:#5ccece;
    /* color:white;*/
-    color: #ce534d;
+    color: black;
 }
 #product>#product_header>div:nth-child(2){
     position:absolute;
