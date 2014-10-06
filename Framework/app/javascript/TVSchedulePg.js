@@ -308,7 +308,8 @@ TVSchedulePg.midKeyDown = function () {
                 });
             }
             else {//'중분류 전체보기'가 아닐 경우
-                
+                //중분류 예약 부분에 포커스를 맞추고 시작한다.
+                jQuery('#product>#product_header>#reserve_Category').addClass('focus');
                 $.ajax({
                     url: SERVER_ADDRESS + '/productInfo?secondId=' + secondCategoryNumber[secondCategory[big_index][mid_index]],
                     type: 'GET',
@@ -325,8 +326,7 @@ TVSchedulePg.midKeyDown = function () {
             productIndex = 0;
             productListIndex = 0;
             productListLine = 0;
-            //중분류 예약 부분에 포커스를 맞추고 시작한다.
-            jQuery('#product>#product_header>#reserve_Category').addClass('focus');
+            
             jQuery('#product').css("top", "0px");
 
 
