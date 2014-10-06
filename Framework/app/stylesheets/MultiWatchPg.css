@@ -2,7 +2,9 @@
 #MultiWatchPg{
 	height: 2000px;
 	position: absolute;
-	background-color: #fffbf0;
+	background-color: white;
+
+	/*background-color: #fffbf0;*/
 }
 #mainImage {
 	width: 1790px;
@@ -48,29 +50,32 @@
 }
 #MultiWatchPg_btn1{
 	margin-top: 535px;
-	margin-left: 910px;
+	margin-left: 920px;
 	
 }
 #MultiWatchPg_btn2{
 	position: absolute;
 	margin-top: 452px;
-	margin-left: 189px;
+	margin-left: 200px;
 }
 
-#mainImage div button {
-	width: 208px;
-	height: 68px;
+.button {
+	width: 180px;
+	height: 25px;
 	font-size: 25px;
-
+	background-color: white;
+	text-align: center;
+	padding: 15px;
 }
+/*화면 중간 스마트 홈쇼핑 문구*/
 #mainTitle {
 	box-sizing:border-box;
 	width: 425px;
 	height: 60px;
 	padding: 14px;
 	margin: 20px 0 20px 40px;
-	background-color: #ff4916;
-	color: #fafafa;
+	background-color: #ce534d;
+	color: white;
 	font-size: 32px; 
 	text-indent: 20px;
 }
@@ -127,7 +132,7 @@
 }
 .remainedTime{
 	color: purple;
-	font-size: 125%;
+	font-size: 30px;
 }
 .name {	
 	padding: 10px;
@@ -160,6 +165,7 @@
 }
 
 .MultiWatchPgElem.focus { 
- 	background-color: #001367;
-	color: white;
+	background-color: #5ccece;
+ 	/*background-color: #001367;*/
+	color: black;
  }

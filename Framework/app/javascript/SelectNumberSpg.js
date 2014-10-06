@@ -13,13 +13,12 @@ var SelectNumberSpg_submitIndex;
 //1:'번호삭제'에 포커스
 //--------------------------------------------------
 var savedNumber_num;
-
 //현재 TV에 저장되어 있는 번호의 개수.
 //api를 통해 파일 시스템에 저장되어 있는 번호를 가져온다.
 var savedNumber;
 //현재 TV에 저장되어 있는 번호의 배열
 //--------------------------------------------------
-var MAX_NUMBER = 5;
+var MAX_NUMBER = 6;
 //TV에 저장될 수 있는 번호의 최대 개수 -- 변할 수 있음
 //--------------------------------------------------
 var inputNum = 0;//입력된 전화번호 숫자의 수를 체크한다.(일단 최대 11자리로 제한) 
@@ -63,14 +62,17 @@ SelectNumberSpg.onLoad = function () {
     else {
         savedNumber = savedNumber_temp.split(',');
         savedNumber_num = savedNumber.length;
+        alert(savedNumber_num);
     }
     //파일 시스템에서 TV에 저장되어 있는 번호들을 불러온다.
     for (var i = 0; i < savedNumber_num; i++) {
         var tempString = '';
         tempString += '<div>';
+
 //        tempString += '<div class="number_left">' + (i + 1) + '</div>';
 //        tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
         tempString += savedNumber[i];
+
         tempString += '</div>';
 
         jQuery('#SelectNumber_list_already').append(tempString);
@@ -97,7 +99,6 @@ SelectNumberSpg.onLoad = function () {
         SelectNumberSpg.anchor.register.focus();
     }
 };
-
 
 SelectNumberSpg.focus = function () {
     alert("SelectNumberSpg.focus");

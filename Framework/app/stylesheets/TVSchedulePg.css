@@ -1,6 +1,7 @@
 #TVSchedulePg{
 	position: absolute;
-	background-color: #fffbf0;
+	/*background-color: #fffbf0;*/
+    background-color: white;
 	width: 1790px;
 	height: 1080px;
 }
@@ -11,7 +12,8 @@
     box-sizing:border-box;
 	width: 130px;
 	height: 100%;
-	background-color: #b7b7a4;
+	/*background-color: #b7b7a4;*/
+    background-color: #232323;
 	border-right:1px solid black;
     
     padding-top:10px;
@@ -24,7 +26,8 @@
     box-sizing:border-box;
 	width: 110px;
 	height: 100%;
-	background-color: #b7b7a4;    
+	/*background-color: #b7b7a4;*/
+    background-color: #232323;  
     border-right:1px solid black;
 
     padding-top : 130px;
@@ -41,8 +44,10 @@
     padding-bottom:30px;
   /*   line-height:100px; */
    text-align:center; 
-	background-color: #f0f0d8;
+	/*background-color: #f0f0d8;*/
+    background-color: #989898;
     font-size:1.1em;
+    color: white;
 }
 
 #mid>div{
@@ -59,21 +64,37 @@
    /* line-height:100px; */
     text-align:center; 
     font-size:1.1em;
-	background-color: #f0f0d8;
+	/*background-color: #f0f0d8;*/
+    background-color: #989898;
+    color: white;
 }
-
+/* focus */
 #big.focus{
-	color: orange;
+	color: #989898;
 }
 
 #big > ul li.focus { 
- 	background-color:#001367;
-    color:white;
+ 	/*background-color:#001367;*/
+    background-color:#5ccece;
+    color: black;
 }
 
 #mid > div> ul li.focus { 
- 	background-color:#001367;
-    color:white;
+ 	/*background-color:#001367;*/
+    background-color:#5ccece;
+    color: black;
+}
+ /* select*/
+#big > ul li.select { 
+    /*background-color:#001367;*/
+    background-color:#ce534d;
+    color: white;
+}
+
+#mid > div> ul li.select { 
+    /*background-color:#001367;*/
+    background-color:#ce534d;
+    color: white;
 }
 
 /* 선택된 중분류에 대해, 상품을 가져오는 부분*/
@@ -144,11 +165,15 @@
 
     font-size:2em;
     text-align:center;
-    background-color:#b7b7a4;
+    /*background-color:#b7b7a4;*/
+    background-color: #989898;
+    color: white;
 }
 #product>#product_header>#reserve_Category.focus{
-    background-color:#001367;
-    color:white;
+    /*background-color:#001367;*/
+    background-color:#5ccece;
+   /* color:white;*/
+    color: black;
 }
 #product>#product_header>div:nth-child(2){
     position:absolute;
@@ -157,18 +182,21 @@
     line-height:60px;
     
     left:50px;
-    top:50px;
+    top:30px;
     
-    font-size:1.5em;
+    font-size: 25px;
     
 }
 
 #product_list_pg ul li.focus {
-	border: 6px solid #c409d2;
+
+	border: 6px solid #5ccece;
 }
+
 
 /*상품 하나가 차지하는 공간*/
 .schedule_product_list_item{
+    position:relative;
     float:left;
     width:310px;
     height:480px;
@@ -180,11 +208,26 @@
     border : 1px solid black;
     border-radius:10px;
 
-    background-color:#fffbf0;
+    /*background-color:#fffbf0;*/
+    background-color: white;
     overflow:hidden;
 }
 .schedule_product_list_item div{
 	position: relative;
+}
+/* 상품 포커스 됬을 때 처리하는 부분*/
+.schedule_product_list_item>.schedule_product_focus{
+    position:absolute;
+    width:310px;
+    height:70px;
+    line-height:70px;
+    font-size:1.5em;
+    background-color:#64B6B1;
+    text-align:center;
+    color:white;
+    /*포커스 위치를 지정하는 부분*/
+    left:0px;
+    top:200px;
 }
 .schedule_product_list_item>.imgArea {
     position:relative;
@@ -209,16 +252,16 @@
 .schedule_product_list_item>.schedule_productTime{
     box-sizing:border-box;
     width:256px;
-    height:33px;
-    background-color:#1c1817;
+    height:40px;
+    background-color:#989898;
     color:white;
 
     margin-left:27px;
     margin-right:27px;
     margin-bottom:7px;
 
-    font-size:0.7em;
-    /*z-index:1000;*/
+    font-size:14px;
+    padding: 13px;
 }
 .schedule_product_list_item>.schedule_productInfoArea {
 	width: 310px;
@@ -236,9 +279,7 @@
     box-sizing:border-box;
     padding:15px;
 }
-.schedule_productTime {
-	height:33px;
-}
+
 .schedule_product_list_item>.schedule_productInfoArea>.schedule_productName {
     width:310px;
 	height: 105px;
