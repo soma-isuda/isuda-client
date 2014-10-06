@@ -68,8 +68,9 @@ SelectNumberSpg.onLoad = function () {
     for (var i = 0; i < savedNumber_num; i++) {
         var tempString = '';
         tempString += '<div>';
-        tempString += '<div class="number_left">' + (i + 1) + '</div>';
-        tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
+//        tempString += '<div class="number_left">' + (i + 1) + '</div>';
+//        tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
+        tempString += savedNumber[i];
         tempString += '</div>';
 
         jQuery('#SelectNumber_list_already').append(tempString);
@@ -176,12 +177,14 @@ SelectNumberSpg.selectKeyDown = function () {
             //focus move to selectWatchPg
             alert("SelectNumberSpg_key : Enter");
             //번호 위에서 확인 버튼을 누르면,  '선택 완료' 부분으로 포커스를 넘긴다.
-            _numberPost = SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).find('.number_right').text();
+            _numberPost = SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).text();
+            alert(_numberPost);
 
             SelectNumberSpg_index = 2;//'선택 완료' 부분으로 포커스를 넘긴다.
             SelectNumberSpg.anchor.submit.focus();
             SelectNumberSpg.submit.eq(SelectNumberSpg_submitIndex).addClass('focus');
             SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).removeClass('focus');
+            SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).addClass('selected');            
             break;
         default:
             alert("Unhandled key");
@@ -233,9 +236,9 @@ SelectNumberSpg.registerKeyDown = function () {
             if (SelectNumberSpg_registerIndex == 0) {
                 var tempString = '';
                 //번호 입력창
-                tempString += '<div>(번호 입력후 확인키를 누르면 인증번호가 전송됩니다)</div>';
+                tempString += '<div>(전화 번호를 입력해주세요)</div>';
                 //인증번호 입력창
-                tempString += '<div>(인증 번호 입력후 확인키를 누르세요)</div>';
+                tempString += '<div>(인증 번호를 입력해주세요)</div>';
 
                 jQuery('#SelectNumber_list_new>div:nth-child(1)').hide();//'번호 추가'를 숨긴다.
                 jQuery('#SelectNumber_list_new').append(tempString);
@@ -320,8 +323,9 @@ SelectNumberSpg.registerKeyDown = function () {
                     for (var i = 0; i < savedNumber_num; i++) {
                         var tempString = '';
                         tempString += '<div>';
-                        tempString += '<div class="number_left">' + (i + 1) + '</div>';
-                        tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
+//                        tempString += '<div class="number_left">' + (i + 1) + '</div>';
+//                        tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
+                        tempString += savedNumber[i];                        
                         tempString += '</div>';
 
                         jQuery('#SelectNumber_list_already').append(tempString);
@@ -488,7 +492,25 @@ SelectNumberSpg.registerKeyDown = function () {
                     SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).empty();
                     SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).append(tempNum);
                 }
+                else {
+                    alert("asdasd");
+                    if (page_index == 3) //편성표에서 호출했을 때
+                        TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+                    else if (page_index == 2) //선택보기에서 호출했을 때
+                        SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+
+                    jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
+                }
             }
+                else {
+                    alert("asdasd");
+                    if (page_index == 3) //편성표에서 호출했을 때
+                        TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+                    else if (page_index == 2) //선택보기에서 호출했을 때
+                        SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+
+                    jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
+                }            
             alert("SelectNumberSpg_key : Left");
             break;
         default:
@@ -527,6 +549,15 @@ SelectNumberSpg.submitKeyDown = function () {
                 SelectNumberSpg.submit.eq(SelectNumberSpg_submitIndex).removeClass('focus');
                 SelectNumberSpg.submit.eq(--SelectNumberSpg_submitIndex).addClass('focus');
             }
+            else{
+                if (page_index == 3) //편성표에서 호출했을 때
+                    TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+
+                else if (page_index == 2) //선택보기에서 호출했을 때
+                    SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+
+                jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.                
+            }
             break;
         case tvKey.KEY_RIGHT:
             alert("SelectNumberSpg_key : Right");
@@ -537,6 +568,12 @@ SelectNumberSpg.submitKeyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("SelectNumberSpg_key : Up");
+            SelectNumberSpg.anchor.select.focus();           
+            SelectNumberSpg.submit.eq(SelectNumberSpg_submitIndex).removeClass('focus');
+            SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).addClass('focus');
+            SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).removeClass('selected');            
+            SelectNumberSpg_submitIndex = 0; 
+
             break;
         case tvKey.KEY_DOWN:
             alert("SelectNumberSpg_key : Down");
@@ -671,8 +708,9 @@ SelectNumberSpg.submitKeyDown = function () {
                 for (var i = 0; i < savedNumber_num; i++) {
                     var tempString = '';
                     tempString += '<div>';
-                    tempString += '<div class="number_left">' + (i + 1) + '</div>';
-                    tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
+//                    tempString += '<div class="number_left">' + (i + 1) + '</div>';
+//                    tempString += '<div class="number_right">' + savedNumber[i] + '</div>';
+                    tempString += savedNumber[i];
                     tempString += '</div>';
 
                     jQuery('#SelectNumber_list_already').append(tempString);
