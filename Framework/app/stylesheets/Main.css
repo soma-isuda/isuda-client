@@ -102,6 +102,10 @@ ul {
 
 /* popup CSS*/
 #popup {
+	
+}
+#popupMessage {
+	box-sizing:border-box;
 	width:  800px;
 	height: 450px;
 	position: relative;
@@ -109,10 +113,16 @@ ul {
 	margin-top: 300px;
 	margin-left: 630px;
 	display: none;
-	font-style: bold;
-	font-size: 500%;
+	padding: 100px;
+	
 	text-align: center;
-	line-height: 450px;
-	overflow: hidden;
-	background-color: lightgrey;
+	font-style: bold;
+	font-size: 50px;
+	color: white;
+	letter-spacing: 5px;
+	
+	background-color: #585858;
+
+	border: 10px solid #5ccece;
+	border-radius: 20px;
 }
