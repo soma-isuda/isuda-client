@@ -32,8 +32,7 @@ TVSchedulePg.helloWorld = function () {
 }
 TVSchedulePg.onLoad = function () {
     alert("TVSchedulePg onLoad");
-    //TVSchedulePg.append('<div id="product"><div id="product_header"><div id="reserve_Category">해당 카테고리 예약</div></div><div id="product_nav">2014년 09월 29일</div><div id="product_list_pg"><ul id="product_list"></ul></div></div>');
-    //document.getElementById("TVSchedulePg").style.marginLeft="1460px";
+    
     this.firstAccess = 0;
     jQuery.extend(TVSchedulePg, {
         big: jQuery('#big').find('ul'),
@@ -55,8 +54,7 @@ TVSchedulePg.onLoad = function () {
     //CSS를 위한 선택자
     jQuery.extend(TVSchedulePg, {
         midElem: jQuery('#mid').find('div>ul>li'),
-        bigElem: jQuery('#big').find('ul>li'),
-
+        bigElem: jQuery('#big').find('ul>li')
     });
     var tempDate = new Date();
     var tempString = '';
@@ -64,8 +62,8 @@ TVSchedulePg.onLoad = function () {
     tempString += (tempDate.getMonth() + 1) + "월 ";
     tempString += tempDate.getDate() + "일 ~ ";
 
-    //내일 날짜
-    tempDate = new Date(tempDate.valueOf() + (24 * 60 * 60 * 1000));
+    //내일 모레 날짜
+    tempDate = new Date(tempDate.valueOf() + (48 * 60 * 60 * 1000));
     tempString += tempDate.getFullYear() + "년 ";
     tempString += (tempDate.getMonth() + 1) + "월 ";
     tempString += tempDate.getDate() + "일";
@@ -80,7 +78,6 @@ TVSchedulePg.onLoad = function () {
         success: function (data) {
             TVSchedulePg.listProcess(data);
         }
-
     }), 10);
 };
 
@@ -300,6 +297,7 @@ TVSchedulePg.midKeyDown = function () {
             //ajax요청
             alert(secondCategoryNumber[secondCategory[big_index][mid_index]]);
             if (mid_index == 0) {//'중분류 전체보기'일 경우
+                jQuery('#product>#product_header>#reserve_Category').hide();
                 $.ajax({
                     url: SERVER_ADDRESS + '/productInfo?firstId=' + big_index,//대분류 아이디를 넘긴다.
                     type: 'GET',
@@ -309,7 +307,8 @@ TVSchedulePg.midKeyDown = function () {
                     }
                 });
             }
-            else {
+            else {//'중분류 전체보기'가 아닐 경우
+                
                 $.ajax({
                     url: SERVER_ADDRESS + '/productInfo?secondId=' + secondCategoryNumber[secondCategory[big_index][mid_index]],
                     type: 'GET',
@@ -543,15 +542,15 @@ TVSchedulePg.listProcess = function (data) {
     var priceBefore;
     var priceRefined = '';
     jQuery('#product_list_pg').find('ul').empty();
-
+    productNumber = 0;
     $.each(data, function (key, value) {
 
         productNumber++;
         //시간을 형태에 맞게 바꾼다.
         var tempString = '';
-        tempString = value.productStartTime.split(/[-T:\.Z]/);
+        tempString = value.productStartTime.split('/[-T:\.Z]/');
         timeRefined += tempString[1] + "월" + tempString[2] + "일 " + tempString[3] + "시" + tempString[4] + "분 ~ ";
-        tempString = value.productEndTime.split(/[-T:\.Z]/);
+        tempString = value.productEndTime.split('/[-T:\.Z]/');
         timeRefined += tempString[3] + "시" + tempString[4] + "분";
 
 
@@ -574,15 +573,15 @@ TVSchedulePg.listProcess = function (data) {
         //상품 데이터들을 적절한 위치에 삽입한다.
         tempString = '';
         tempString += '<li class="schedule_product_list_item">';
-        tempString += '<div class="imgArea">'
-        tempString += '<img src="' + value.productImgURL + '" alt="" class="schedule_productImg">'
-        tempString += '</div>'
-        tempString += '<div class="schedule_productTime">' + timeRefined + '</div>'
-        tempString += '<div class="schedule_productInfoArea">'
-        tempString += '<div class="schedule_productName">' + value.productName + '</div>'
-        tempString += '<div class="schedule_productPrice">최대 혜택가: ' + priceRefined + '</div>'
-        tempString += '</div>'
-        tempString += '</li>'
+        tempString += '<div class="imgArea">';
+        tempString += '<img src="' + value.productImgURL + '" alt="" class="schedule_productImg">';
+        tempString += '</div>';
+        tempString += '<div class="schedule_productTime">' + timeRefined + '</div>';
+        tempString += '<div class="schedule_productInfoArea">';
+        tempString += '<div class="schedule_productName">' + value.productName + '</div>';
+        tempString += '<div class="schedule_productPrice">최대 혜택가: ' + priceRefined + '</div>';
+        tempString += '</div>';
+        tempString += '</li>';
         jQuery('#product_list_pg').find('ul').append(tempString);
         productLoadedId.push(value.id); // 로드된 상품들의 id를 저장해 놓는다.(상세정보 페이지를 위해)
         timeRefined = '';
@@ -597,4 +596,4 @@ TVSchedulePg.listProcess = function (data) {
         tempString = '총 ' + productNumber + '개의 상품이 있습니다.';
 
     jQuery('#product_header').find('div:nth-child(2)').append(tempString);
-}
+};

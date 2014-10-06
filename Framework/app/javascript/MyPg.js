@@ -890,8 +890,27 @@ MyPg.SMSAlarmSetting = function(index){
         dataType : 'json',
         success : function (data) {
             var tempString = '';
-            var temparr= [];
-            $.each(data, function() { 
+            var temparr = [];
+            //가격을 적절한 형태로 변형한다.(콤마와 원 추가)
+            var priceRefined;
+            var priceBefore;
+            $.each(data, function () {
+                priceRefined = '';
+                priceBefore = this.productPrice;
+                alert(this.productPrice);
+                if (priceBefore) {//가격 값이 null이 아니면
+                    priceBefore = this.productPrice.toString();
+                    for (var i = priceBefore.length; i > 0; i = i - 3) {
+                        if (i == priceBefore.length)
+                            priceRefined = priceBefore.substring(i, i - 3);
+                        else
+                            priceRefined = priceBefore.substring(i, i - 3) + ',' + priceRefined;
+                    }
+                    priceRefined += ' 원';
+                }
+                else//가격 값이 null 이면
+                    priceRefined += '방송 중 확인';
+
                 tempString += '<li class="SMSAlarm_list MyPgItem">                                          ';
                 tempString += '     <div class="MyPg_imgArea">                                              ';
                 tempString += '         <img src="' +this.productImgURL+ '" alt="" class="MyPg_productImg"> ';
@@ -902,7 +921,7 @@ MyPg.SMSAlarmSetting = function(index){
                 tempString += '         </div>                                                              ';
                 tempString += '         <div class="MyPg_price">                                            ';
                 tempString += '             <p>최대 혜택가 :</p>                                               ';
-                tempString += '             <p class="MyPg_productPrice">' + this.productPrice + '</p>      ';
+                tempString += '             <p class="MyPg_productPrice">' + priceRefined + '</p>      ';
                 tempString += '         </div>                                                              ';
                 tempString += '     </div>                                                                  ';
                 tempString += ' </li>                                                                       ';
