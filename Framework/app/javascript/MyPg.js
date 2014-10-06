@@ -598,6 +598,7 @@ MyPg.submitKeyDown = function () {
                     },
                     dataType: "text",
                     success: function (data) {
+                        popupMessage( _numberPost+" 이 <br> 삭제되었습니다.");
                         alert("사용자 삭제 성공");
                         //클라에서도 번호를 지우고 
                         
@@ -743,7 +744,7 @@ MyPg.DeleteCategory = function(idx, secondid){
         dataType : 'text',
         success : function (data) {
         	alert("카테고리 삭제 성공 ");
-            popupMessage("카테고리 알람이 삭제되었습니다.");
+            popupMessage("카테고리 알람이 <br> 삭제되었습니다.");
             MyPg.CategorySetting(idx);
         }
     });	        
@@ -911,7 +912,7 @@ MyPg.DeleteSMSAlarm = function(index, productId){
         dataType : 'text',
         success : function (data) {
             alert("상품 알림 삭제 성공 ");
-            popupMessage("방송상품 알람이 삭제되었습니다.");
+            popupMessage("방송상품 알람이 <br> 삭제되었습니다.");
             MyPg.SMSAlarmSetting(index);
         }
     });         

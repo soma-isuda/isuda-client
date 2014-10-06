@@ -83,13 +83,21 @@ Main.keyDown = function()
 	if(page_index != 1)
 		cnt=-1;
 	alert("Main");
-	popupMessage("카테고리 알람이 <br> 삭제되었습니다.");
+	
 	switch(keyCode)
 	{
+		case tvKey.KEY_EXIT:
+			//widgetAPI.sendExitEvent();
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
 			alert("main_key : Return");
-			widgetAPI.sendReturnEvent();
+			//widgetAPI.sendReturnEvent();
+			widgetAPI.blockNavigation(event);
+			popupMessage("스마트 홈쇼핑을<br>종료합니다. <br><br>행복한 하루 되세요.");
+			setTimeout(function(){
+				widgetAPI.sendExitEvent();
+			},2000);
+			
 			break;
 			
 		case tvKey.KEY_UP:
@@ -331,9 +339,34 @@ Main.numKeyDown = function()
 
 popupMessage = function(message){
 	alert("PopUp!!");
-	document.getElementById("popup").innerHTML= message;
-	$('#popup').css("display","block");
+	jQuery('#popup').append('<div id="popupMessage">'+message+'</div>');
+	$('#popupMessage').css("display","block");
 	setTimeout(function(){
-		$('#popup').css("display","none");
-	},3000);
+		$('#popupMessage').css("display","none");
+	},2000);
+};
+popupMessageButton = function(keyCode, message, returnFocus){
+	alert("PopUp!!");
+	var tempString='';
+	tempString += '<div id="popupMessageButton">		';
+	tempString += '		message 						';
+	tempString += '		<div id="popupBtn1">확인</div>	';
+	tempString += '		<div id="popupBtn2">취소</div>   ';
+	tempString += '</div>								';
+	jQuery('#popup').append(tempString);
+	$('#popup').css("display","block");
+	anchor_popup.focus();	
+};
+popupkeyDown = function(){
+	var keyCode = event.keyCode;
+	
+	switch(keyCode) {	
+		case tvKey.KEY_ENTER:
+		case tvKey.KEY_PANEL_ENTER:
+			widgetAPI.sendExitEvent();
+		default:
+			alert("Unhandled key");
+			break;
+	}
+
 }
