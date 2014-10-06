@@ -548,9 +548,9 @@ TVSchedulePg.listProcess = function (data) {
         productNumber++;
         //시간을 형태에 맞게 바꾼다.
         var tempString = '';
-        tempString = value.productStartTime.split('/[-T:\.Z]/');
+        tempString = value.productStartTime.split(/[-T:\.Z]/);
         timeRefined += tempString[1] + "월" + tempString[2] + "일 " + tempString[3] + "시" + tempString[4] + "분 ~ ";
-        tempString = value.productEndTime.split('/[-T:\.Z]/');
+        tempString = value.productEndTime.split(/[-T:\.Z]/);
         timeRefined += tempString[3] + "시" + tempString[4] + "분";
 
 
