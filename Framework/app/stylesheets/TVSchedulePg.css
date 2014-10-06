@@ -189,11 +189,14 @@
 }
 
 #product_list_pg ul li.focus {
+
 	border: 6px solid #5ccece;
 }
 
+
 /*상품 하나가 차지하는 공간*/
 .schedule_product_list_item{
+    position:relative;
     float:left;
     width:310px;
     height:480px;
@@ -211,6 +214,20 @@
 }
 .schedule_product_list_item div{
 	position: relative;
+}
+/* 상품 포커스 됬을 때 처리하는 부분*/
+.schedule_product_list_item>.schedule_product_focus{
+    position:absolute;
+    width:310px;
+    height:70px;
+    line-height:70px;
+    font-size:1.5em;
+    background-color:#64B6B1;
+    text-align:center;
+    color:white;
+    /*포커스 위치를 지정하는 부분*/
+    left:0px;
+    top:200px;
 }
 .schedule_product_list_item>.imgArea {
     position:relative;
@@ -244,7 +261,6 @@
     margin-bottom:7px;
 
     font-size:0.7em;
-    /*z-index:1000;*/
 }
 .schedule_product_list_item>.schedule_productInfoArea {
 	width: 310px;
@@ -262,9 +278,7 @@
     box-sizing:border-box;
     padding:15px;
 }
-.schedule_productTime {
-	height:33px;
-}
+
 .schedule_product_list_item>.schedule_productInfoArea>.schedule_productName {
     width:310px;
 	height: 105px;
