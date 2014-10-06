@@ -83,7 +83,7 @@ Main.keyDown = function()
 	if(page_index != 1)
 		cnt=-1;
 	alert("Main");
-		
+	popupMessage("카테고리 알람이 <br> 삭제되었습니다.");
 	switch(keyCode)
 	{
 		case tvKey.KEY_RETURN:

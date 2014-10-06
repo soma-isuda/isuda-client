@@ -102,6 +102,7 @@ ul {
 
 /* popup CSS*/
 #popup {
+	box-sizing:border-box;
 	width:  800px;
 	height: 450px;
 	position: relative;
@@ -109,10 +110,18 @@ ul {
 	margin-top: 300px;
 	margin-left: 630px;
 	display: none;
+	padding: 100px;
+
 	font-style: bold;
-	font-size: 500%;
+	font-size: 50px;
+
+	color: white;
 	text-align: center;
-	line-height: 450px;
-	overflow: hidden;
-	background-color: lightgrey;
+	
+	background-color: #585858;
+
+	border: 10px solid #5ccece;
+	border-radius: 20px;
+
+	
 }
