@@ -9,6 +9,7 @@ $(document).ready(function(){
     //get ALL category information
     //전체보기를 대분류의 첫번째로 넣는다.
     firstCategory[0] = '전체보기';
+    secondCategory[0] = new Array();
 	jQuery.ajax({
 	    url: SERVER_ADDRESS + '/getFirstCategory',
 	    type: 'GET',
@@ -31,8 +32,10 @@ $(document).ready(function(){
 	    	                temp = 0;
 	    	                firstCategoryTemp = Number(value.firstId);
 	    	            }
-	    	            if (temp == 0) 
-	    	                secondCategory[Number(value.firstId)][temp] = '전체보기';//중분류의 처음(temp==0)에는 '전체보기'를 넣는다. 
+	    	            if (temp == 0){
+	    	                secondCategory[Number(value.firstId)][temp++] = '전체보기';//중분류의 처음(temp==0)에는 '전체보기'를 넣는다. 
+	    	                secondCategory[Number(value.firstId)][temp] = value.name;//
+	    	            }
                         else
 	    	                secondCategory[Number(value.firstId)][temp]=value.name;//2-dimensional array
 
@@ -43,7 +46,5 @@ $(document).ready(function(){
 	        
 	    }
 	});
-
-	
 });
 
