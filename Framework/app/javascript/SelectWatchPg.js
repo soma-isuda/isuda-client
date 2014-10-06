@@ -42,6 +42,7 @@ SelectWatchPg.keyDown = function()
 	alert("SelectWatchPg keyDown");
 	var keyCode = event.keyCode;
 	alert("Key pressed: " + keyCode);
+	alert(SelectWatchPg_index);
 
 	switch(keyCode)
 	{
@@ -63,23 +64,22 @@ SelectWatchPg.keyDown = function()
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
 			Main.focus();
 			break;
-		case tvKey.KEY_RIGHT:
-			alert("SelectWatchPg_key : Right");
-			break;
 		case tvKey.KEY_UP:
 			alert("SelectWatchPg_key : Up");
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');			
-			SelectWatchPg_index = (SelectWatchPg_index-1)%SelectWatchPg.SelectWatchPgMenu.size();
+			SelectWatchPg_index = (SelectWatchPg_index+SelectWatchPg.SelectWatchPgMenu.size()-1)%SelectWatchPg.SelectWatchPgMenu.size();
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');			
 			break;
 
 		case tvKey.KEY_DOWN:
 			alert("SelectWatchPg_key : Down");
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');			
-			SelectWatchPg_index = (SelectWatchPg_index+1)%SelectWatchPg.SelectWatchPgMenu.size();
+			SelectWatchPg_index = (SelectWatchPg_index+SelectWatchPg.SelectWatchPgMenu.size()+1)%SelectWatchPg.SelectWatchPgMenu.size();
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');			
 			break;
-
+			
+		case tvKey.KEY_RIGHT:
+			alert("SelectWatchPg_key : Right");
 		case tvKey.KEY_ENTER: 
 		case tvKey.KEY_PANEL_ENTER:
 
