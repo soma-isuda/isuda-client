@@ -182,9 +182,9 @@
     line-height:60px;
     
     left:50px;
-    top:50px;
+    top:30px;
     
-    font-size:1.5em;
+    font-size: 25px;
     
 }
 
@@ -209,7 +209,7 @@
     border-radius:10px;
 
     /*background-color:#fffbf0;*/
-    background-color: #989898;
+    background-color: white;
     overflow:hidden;
 }
 .schedule_product_list_item div{
@@ -252,15 +252,16 @@
 .schedule_product_list_item>.schedule_productTime{
     box-sizing:border-box;
     width:256px;
-    height:33px;
-    background-color:#1c1817;
+    height:40px;
+    background-color:#989898;
     color:white;
 
     margin-left:27px;
     margin-right:27px;
     margin-bottom:7px;
 
-    font-size:0.7em;
+    font-size:14px;
+    padding: 13px;
 }
 .schedule_product_list_item>.schedule_productInfoArea {
 	width: 310px;

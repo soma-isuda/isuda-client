@@ -3,6 +3,7 @@
 	height: 2000px;
 	position: absolute;
 	background-color: white;
+
 	/*background-color: #fffbf0;*/
 }
 #mainImage {
@@ -49,22 +50,22 @@
 }
 #MultiWatchPg_btn1{
 	margin-top: 535px;
-	margin-left: 910px;
+	margin-left: 920px;
 	
 }
 #MultiWatchPg_btn2{
 	position: absolute;
 	margin-top: 452px;
-	margin-left: 189px;
+	margin-left: 200px;
 }
 
 .button {
-	width: 208px;
-	height: 20px;
-	font-size: 20px;
+	width: 180px;
+	height: 25px;
+	font-size: 25px;
 	background-color: white;
 	text-align: center;
-	padding: 24px;
+	padding: 15px;
 }
 /*화면 중간 스마트 홈쇼핑 문구*/
 #mainTitle {
@@ -131,7 +132,7 @@
 }
 .remainedTime{
 	color: purple;
-	font-size: 125%;
+	font-size: 30px;
 }
 .name {	
 	padding: 10px;
