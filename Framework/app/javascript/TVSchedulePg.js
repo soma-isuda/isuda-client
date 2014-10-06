@@ -58,7 +58,14 @@ TVSchedulePg.onLoad = function () {
     var tempString = '';
     tempString += tempDate.getFullYear() + "년 ";
     tempString += (tempDate.getMonth() + 1) + "월 ";
+    tempString += tempDate.getDate() + "일 ~ ";
+
+    //내일 날짜
+    tempDate = new Date(tempDate.valueOf() + (24 * 60 * 60 * 1000));
+    tempString += tempDate.getFullYear() + "년 ";
+    tempString += (tempDate.getMonth() + 1) + "월 ";
     tempString += tempDate.getDate() + "일";
+
     jQuery('#product>#product_nav').append(tempString);
 };
 
@@ -185,7 +192,6 @@ TVSchedulePg.midKeyDown = function () {
             TVSchedulePg.anchor.big.focus();
             //포커스가 넘어가면 중분류를 없앤다.
             jQuery('#mid > div> ul').empty();
-            jQuery('#product_header').find('div:nth-child(2)').empty();
             jQuery('#mid').find('div>ul').css("margin-top","0");
             break;
 
@@ -254,6 +260,8 @@ TVSchedulePg.midKeyDown = function () {
                     var firstCategoryTemp = -1;
                     var cnt = 0;
                     var timeRefined = '';
+                    var priceBefore;
+                    var priceRefined = '';
                     jQuery('#product_list_pg').find('ul').empty();
                     $.each(data, function (key, value) {
                         
@@ -264,6 +272,24 @@ TVSchedulePg.midKeyDown = function () {
                         timeRefined += tempString[1] + "월" + tempString[2] + "일 " + tempString[3] + "시" + tempString[4] + "분 ~ ";
                         tempString = value.productEndTime.split(/[-T:\.Z]/);
                         timeRefined += tempString[3] + "시" + tempString[4] + "분";
+                        
+                        
+                        //가격을 적절한 형태로 변형한다.(콤마와 원 추가)
+                        priceRefined = '';
+                        priceBefore = value.productPrice;
+                        if (priceBefore) {//가격 값이 null이 아니면
+                            priceBefore = value.productPrice.toString();
+                            for (var i = priceBefore.length; i > 0; i = i - 3) {
+                                if (i == priceBefore.length)
+                                    priceRefined = priceBefore.substring(i, i - 3);
+                                else
+                                    priceRefined =priceBefore.substring(i, i - 3) + ',' + priceRefined;
+                            }
+                            priceRefined += ' 원';
+                        }
+                        else//가격 값이 null 이면
+                            priceRefined += '방송 중 확인';
+
                         //상품 데이터들을 적절한 위치에 삽입한다.
                         tempString = '';
                         tempString += '<li class="schedule_product_list_item">';
@@ -273,7 +299,7 @@ TVSchedulePg.midKeyDown = function () {
                         tempString += '<div class="schedule_productTime">' + timeRefined + '</div>'
                         tempString += '<div class="schedule_productInfoArea">'
                         tempString +=   '<div class="schedule_productName">' + value.productName + '</div>'
-                        tempString +=   '<div class="schedule_productPrice">최대 혜택가: ' + value.productPrice + '</div>'
+                        tempString +=   '<div class="schedule_productPrice">최대 혜택가: ' + priceRefined + '</div>'
                         tempString += '</div>'
                         tempString += '</li>'
                         jQuery('#product_list_pg').find('ul').append(tempString);
@@ -282,7 +308,7 @@ TVSchedulePg.midKeyDown = function () {
                     });
                     if (productNumber == 0)//해당하는 중분류에 상품이 없을때,
                         jQuery('#product_list_pg').find('ul').append('<div style="width:1550px; height:876px; line-height:876px; font-size:3em; text-align:center;">해당 카테고리에 방송 예정 상품이 없습니다.</div>');
-                    jQuery('#product_header').find('div:nth-child(2)').empty();
+                    //현재 카테고리에 몇개의 상품이 있는지 보여준다.
                     var tempString = firstCategory[big_index] + ' > ' + secondCategory[big_index][mid_index] + ' 에 총 ' + productNumber + '개의 상품이 있습니다.';
                     jQuery('#product_header').find('div:nth-child(2)').append(tempString);
 
@@ -307,7 +333,7 @@ TVSchedulePg.midKeyDown = function () {
     }
 };
 
-//카테고리에서 중분류를 선택하고 상품 리스트로 들어왔을 때,
+//카테고리에서 중분류를 선택하고 '상품 리스트'로 들어왔을 때,
 //키처리를 담당하는 부분
 TVSchedulePg.listKeyDown = function () {
     alert("TVSchedulePg product List keyDown");
@@ -328,6 +354,8 @@ TVSchedulePg.listKeyDown = function () {
                 TVSchedulePg.anchor.mid.focus();
                 //포커스가 넘어가면 상품들을 없앤다.
                 jQuery('#product_list_pg > ul').empty();
+                //'총 몇개의 상품이 있습니다' 부분을 없앤다.
+                jQuery('#product_header>div:nth-child(2)').empty();
             }
             if (productIndex == 0) {//중분류 예약에 포커스가 있을 때
                 jQuery('#product>#product_header>#reserve_Category').removeClass('focus');

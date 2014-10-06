@@ -124,10 +124,6 @@ SelectNumberSpg.selectKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("SelectNumberSpg_key : RETURN");
-            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-            jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
-
-            break;
         case tvKey.KEY_LEFT:
             alert("SelectNumberSpg_key : Left");
             if (page_index == 3) //편성표에서 호출했을 때
@@ -205,10 +201,17 @@ SelectNumberSpg.registerKeyDown = function () {
             //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
             alert("SelectNumberSpg_key : RETURN");
-            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-            jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
 
+            if (page_index == 3) //편성표에서 호출했을 때
+                TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+
+
+            else if (page_index == 2) //선택보기에서 호출했을 때
+                SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+
+            jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
             break;
+
         case tvKey.KEY_RIGHT:
             alert("SelectNumberSpg_key : Right");
             break;
@@ -507,8 +510,15 @@ SelectNumberSpg.submitKeyDown = function () {
             widgetAPI.blockNavigation(event);
             alert("SelectNumberSpg_key : RETURN");
 
-            TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+            if (page_index == 3) //편성표에서 호출했을 때
+                TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
+
+
+            else if (page_index == 2) //선택보기에서 호출했을 때
+                SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+
             jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
+            break;
 
             break;
         case tvKey.KEY_LEFT:
