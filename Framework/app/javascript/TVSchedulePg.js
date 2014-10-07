@@ -213,7 +213,10 @@ TVSchedulePg.bigKeyDown = function () {
                 TVSchedulePg.anchor.list.focus();
                 //변수 초기화
                 productIndex = 1;//바로 리스트 부분에 있으므로
-                productListIndex = 0;
+                productListIndex = 0;//첫번째 상품에 포커스를 맞춘다.
+                productListLine = 0;
+                productNumber = 0;
+
                 jQuery('#product').css("top", "0px");
                 jQuery('#product>#product_header>#reserve_Category').hide();//예약 버튼을 없앤다.
                 setTimeout(function () {//상품 리스트들을 다 불러오고 난 다음에 첫번째 상품에 포커스를 넘긴다.
@@ -227,7 +230,6 @@ TVSchedulePg.bigKeyDown = function () {
                 tabMenu();
                 TVSchedulePg.anchor.mid.focus();//중분류로 anchor를 넘긴다
                 //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
-                //TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
                 TVSchedulePg.bigElem.eq(big_index).addClass('select');
                 TVSchedulePg.midElem.eq(mid_index).addClass('focus');
             }
@@ -325,7 +327,7 @@ TVSchedulePg.midKeyDown = function () {
             alert("TVSchedulePg_key : Enter");
             //TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
             TVSchedulePg.midElem.eq(mid_index).addClass('select');
-            productNumber = 0;
+           
             jQuery('#product>#product_header>#reserve_Category').show();//예약 버튼을 일단 다시 표시한다.
             jQuery('#product_header>#totalNumber').empty();//토탈 개수를 일단 지운다.
             //해당 중분류의 상품들을 불러온다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -364,7 +366,7 @@ TVSchedulePg.midKeyDown = function () {
 
             //편성표 페이지의 상단 anchor로 넘긴다
             TVSchedulePg.anchor.list.focus();
-            
+            productNumber = 0;
             productListIndex = 0;
             productListLine = 0;
             
@@ -502,7 +504,9 @@ TVSchedulePg.listKeyDown = function () {
                             productListIndex += 4;//상품의 다음 줄로 이동
                         else if ((productListIndex + 4) >= productNumber)//바로 밑에 다음 상품이 없으면
                             productListIndex = productNumber - 1;//마지막 상품으로 이동
+
                         productListLine++;
+                        
                         jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus">상세보기</div>');
                         if (productListLine != 0) {
                             var pxMove = '-' + (542 * productListLine) + 'px';
@@ -598,6 +602,7 @@ TVSchedulePg.listProcess = function (data) {
     var priceRefined = '';
     jQuery('#product_list_pg').find('ul').empty();
     productNumber = 0;
+    productLoadedId = new Array();//배열을초기화한다.
     $.each(data, function (key, value) {
 
         productNumber++;

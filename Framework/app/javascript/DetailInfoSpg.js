@@ -41,8 +41,8 @@ DetailInfoSpg.onLoad = function () {
 
     //상품 상세 정보 이미지를 로드한다.
     alert(productLoadedId[productListIndex]);
-    var detailImgPath = SERVER_ADDRESS + '/pageShots/CJ201410030200.jpeg';
-    /* // !!!!!!!!!!!!!일단 서버쪽에서 이미지를 다 넣으면 주석만 풀면 됨!!!!!!!!!!!!!!!!
+    //var detailImgPath = SERVER_ADDRESS + '/pageShots/CJ201410030200.jpeg';
+     // !!!!!!!!!!!!!일단 서버쪽에서 이미지를 다 넣으면 주석만 풀면 됨!!!!!!!!!!!!!!!!
     if (page_index == 2) { //선택보기에서 '상세보기'
         $.ajax({
             url: SERVER_ADDRESS + '/now',
@@ -62,12 +62,11 @@ DetailInfoSpg.onLoad = function () {
     }
     else if (page_index == 3) //편성표에서 '상세보기'
         var detailImgPath = SERVER_ADDRESS + '/pageShots/' + productLoadedId[productListIndex] + '.jpeg';
-        */
-
-
-
-
-    jQuery('#detailImage').append('<img src="' + detailImgPath + '"  alt="이미지가 없습니다"  id="detailImg"/>');
+        
+    var tempString = "<img src='"+detailImgPath+"' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
+    tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
+    tempString += "'/>";
+    jQuery('#detailImage').append(tempString);
 
     jQuery.extend(DetailInfoSpg, {
         reserve: jQuery('#reserveButton').find('div'),
@@ -103,6 +102,7 @@ DetailInfoSpg.keyDown = function () {
         case tvKey.KEY_LEFT:
             alert("DetailInfoSpg_key : Left");
             widgetAPI.blockNavigation(event);
+            alert("LEFT!!!!!");
             $('.arrow').css("display","none");
             if (page_index == 2) //선택보기에서 '상세보기'
                 SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
@@ -110,9 +110,6 @@ DetailInfoSpg.keyDown = function () {
             else if (page_index == 3) //편성표에서 '상세보기'
                 TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
 
-            else if (page_index == 4) {//마이페이지에서 '상세보기'
-                //어디로 포커스를 되돌리는지 정해지면 넣기
-            }
 
 
             jQuery('#DetailInfoSpg').hide();//상세보기 페이지를 닫는다.
