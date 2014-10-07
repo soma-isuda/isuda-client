@@ -222,6 +222,8 @@ popupkeyDown = function(){
 				$('#popupMessageButton').css("display","none");
 			break;
 		case tvKey.KEY_EXIT:
+			widgetAPI.sendExitEvent();
+			break;
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
 			widgetAPI.blockNavigation(event);

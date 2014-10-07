@@ -159,7 +159,11 @@ MultiWatchPg.keyDown = function()
 	alert("Key pressed: " + keyCode +" ,index:" + MultiWatchPg_index);
 	$('#adfocusImg').css("display","none");
 	switch(keyCode)
-	{
+	{	
+		case tvKey.KEY_EXIT:
+			widgetAPI.blockNavigation(event);
+			popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",MultiWatchPg);
+			break;
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
 			alert("MultiWatchPg_key : RETURN");
