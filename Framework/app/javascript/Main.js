@@ -2,10 +2,10 @@ var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_IN;
+var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
 var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
 var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
-var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
+var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_OUT;
 // pagearr : information about pages in pageinfo
 var page_index = 1;
 var subPage_index = 1;//현재 열려있는 서브 페이지의 넘버
@@ -95,7 +95,7 @@ Main.keyDown = function()
 			alert("main_key : Return");
 			//widgetAPI.sendReturnEvent();
 			widgetAPI.blockNavigation(event);
-			popupMessage("스마트 홈쇼핑을<br>종료합니다. <br><br>행복한 하루 되세요.");
+			//popupMessage("스마트 홈쇼핑을<br>종료합니다. <br><br>행복한 하루 되세요.");
 			// setTimeout(function(){
 			// 	widgetAPI.sendExitEvent();
 			// },2000);
