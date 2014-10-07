@@ -145,7 +145,7 @@ MultiWatchPg.adjustChange = function(){
 	if(adjust_index == adjustArr.length-1){
 		adjust_index=-1;
 	}
-}
+};
 MultiWatchPg.enableKeys = function()
 {
 	document.getElementById("anchor").focus();

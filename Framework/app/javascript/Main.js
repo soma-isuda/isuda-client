@@ -95,7 +95,7 @@ Main.keyDown = function()
 			alert("main_key : Return");
 			//widgetAPI.sendReturnEvent();
 			widgetAPI.blockNavigation(event);
-			// popupMessage("스마트 홈쇼핑을<br>종료합니다. <br><br>행복한 하루 되세요.");
+			popupMessage("스마트 홈쇼핑을<br>종료합니다. <br><br>행복한 하루 되세요.");
 			// setTimeout(function(){
 			// 	widgetAPI.sendExitEvent();
 			// },2000);
