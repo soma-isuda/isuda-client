@@ -1,8 +1,17 @@
 #ComparePriceSpg{
-	background-color: red;
-	margin-left:  1460px;
+	background-color: white;
+	margin-left:  1200px;
 	position: absolute;
-	width: 480px;
+	width: 720px;
 	height: 100%;
 }
 
+#ComparePriceSpg_header{
+    width:100%;
+    height:100px;
+    text-align:left;
+    font-size:30px;
+    box-sizing: border-box;
+    padding: 45px 60px 25px 60px;
+
+}

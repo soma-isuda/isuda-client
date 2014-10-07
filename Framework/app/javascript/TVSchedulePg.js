@@ -32,6 +32,7 @@ var TVSchedulePg = {
 TVSchedulePg.onLoad = function () {
     alert("TVSchedulePg onLoad");
     
+    big_index=0;
     this.firstAccess = 0;
     this.midScrollNum = 0;
     this.bigScrollNum = 0;
@@ -147,6 +148,8 @@ TVSchedulePg.bigKeyDown = function () {
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
             //메뉴 선택으로 포커스를 다시 넘긴다.
+                        TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+
             Main.focus();
             break;
 
@@ -671,6 +674,8 @@ TVSchedulePg.listProcess = function (data) {
         tempString = '* ' + firstCategory[big_index] + ' > ' + secondCategory[big_index][mid_index] + ' 에 총 ' + productNumber + '개의 상품이 있습니다.';
     else
         tempString = '* 총 ' + productNumber + '개의 상품이 있습니다.';
+
+                jQuery('#product_header>#totalNumber').empty();
 
     jQuery('#product_header').find('div:nth-child(2)').append(tempString);
 };
