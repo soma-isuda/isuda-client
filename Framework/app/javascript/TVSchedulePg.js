@@ -118,7 +118,7 @@ TVSchedulePg.bigKeyDown = function () {
     alert("TVSchedulePg big Category keyDown");
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode + " ,index:" + TVSchedulePg_index);
-
+    
     switch (keyCode) {
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
