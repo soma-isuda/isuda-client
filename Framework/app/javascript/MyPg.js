@@ -209,6 +209,10 @@ MyPg.selectKeyDown = function () {
 
     //_numberPost = MyPg.number.eq(MyPg_numberIndex).find('.number_right').text();
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",MyPg.anchor.select);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
         case tvKey.KEY_LEFT:
@@ -301,6 +305,10 @@ MyPg.registerKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + MyPg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",MyPg.anchor.register);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
              //앱이 종료되는것을 방지해준다.
@@ -652,6 +660,10 @@ MyPg.submitKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + MyPg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",MyPg.anchor.submit);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
         case tvKey.KEY_LEFT:
@@ -773,6 +785,10 @@ MyPg.categoryKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + MyPg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",MyPg.category.anchor);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
         case tvKey.KEY_LEFT:
@@ -949,6 +965,10 @@ MyPg.SMSAlarmKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + MyPg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",MyPg.SMSAlarm.anchor);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
         case tvKey.KEY_LEFT:

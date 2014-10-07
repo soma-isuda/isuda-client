@@ -49,6 +49,10 @@ SelectWatchPg.keyDown = function()
 
 	switch(keyCode)
 	{
+		case tvKey.KEY_EXIT:
+			widgetAPI.blockNavigation(event);
+			popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",SelectWatchPg);
+			break;
 //		 채널 퀵변경 
 		case tvKey.KEY_CH_UP:
 			Player.channelUp();

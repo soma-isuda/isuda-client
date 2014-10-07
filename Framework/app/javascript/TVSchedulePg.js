@@ -120,6 +120,10 @@ TVSchedulePg.bigKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + TVSchedulePg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",TVSchedulePg);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
             //앱이 종료되는것을 방지해준다.
