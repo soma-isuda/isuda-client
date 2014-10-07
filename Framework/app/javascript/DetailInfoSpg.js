@@ -51,30 +51,44 @@ DetailInfoSpg.onLoad = function () {
             success: function (data) {
                 var tempIndex = 0;
                 var currentChannel = Player.getChannel();
+                alert('현재 채널 : ' + currentChannel);
                 $.each(data, function (key, value) {
                     if (tempIndex == currentChannel) {
                         var detailImgPath = SERVER_ADDRESS + '/pageShots/' + value.id + '.jpeg';
+                        var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
+                        tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
+                        tempString += "'/>";
+                        jQuery('#detailImage').append(tempString);
+                        jQuery.extend(DetailInfoSpg, {
+                            reserve: jQuery('#reserveButton').find('div'),
+                            image: jQuery('#detailImage')
+                        });
+                        //상품 이미지로 바로 포커스를 맞춘다.
+                        DetailInfoSpg.image.addClass('focus');
                     }
                     tempIndex++;
                 });
             }
         });
     }
-    else if (page_index == 3) //편성표에서 '상세보기'
+    else if (page_index == 3) { //편성표에서 '상세보기'
         var detailImgPath = SERVER_ADDRESS + '/pageShots/' + productLoadedId[productListIndex] + '.jpeg';
-        
-    var tempString = "<img src='"+detailImgPath+"' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
-    tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
-    tempString += "'/>";
-    jQuery('#detailImage').append(tempString);
 
-    jQuery.extend(DetailInfoSpg, {
-        reserve: jQuery('#reserveButton').find('div'),
-        image: jQuery('#detailImage')
-    });
 
-    //'SMS 알람 받기' 버튼에 포커스를 맞추고 시작한다.
-    DetailInfoSpg.reserve.addClass('focus');
+        var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
+        tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
+        tempString += "'/>";
+        jQuery('#detailImage').append(tempString);
+        jQuery.extend(DetailInfoSpg, {
+            reserve: jQuery('#reserveButton').find('div'),
+            image: jQuery('#detailImage')
+        });
+        //'SMS 알람 받기' 버튼에 포커스를 맞추고 시작한다.
+        DetailInfoSpg.reserve.addClass('focus');
+    }
+    
+
+    
 };
 
 
