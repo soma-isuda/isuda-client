@@ -353,6 +353,7 @@ SMSSharingSpg.submitKeyDown = function () {
                             success: function (data) {
                                 alert(data);
                                 alert("지인에게 문자 발송 성공");
+                                popupMessage("해당 번호로 <br> 전송되었습니다.");
                             }
                         });
                     }, 10);

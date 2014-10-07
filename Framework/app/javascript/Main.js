@@ -178,7 +178,8 @@ Main.keyDown = function()
 };
 
 popupMessage = function(message){
-	alert("PopUp m!!");
+    alert("PopUp m!!");
+    jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
 	jQuery('#popup').append('<div id="popupMessage">'+message+'</div>');
 	$('#popupMessage').css("display","block");
 	setTimeout(function(){

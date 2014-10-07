@@ -276,6 +276,7 @@ SelectNumberSpg.registerKeyDown = function () {
                 }
                 if (inputNum == 11) {
                     //11자리의 전화번호가 모두 입력된 상태에서 확인이 눌리면, 인증번호를 전송한다.
+                    
                     var isOverlapped = 0;//번호가 중복되면 1, 아니면 0
                     _numberPost = SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).text();
                     //입력된 번호가 이미 클라이언트에 있는 번호이면, 에러 메세지를 출력하고 다시 입력하도록 한다.
@@ -307,6 +308,7 @@ SelectNumberSpg.registerKeyDown = function () {
                             },
                             success: function (data) {
                                 certificationNum = data;
+                                popupMessage("인증번호가 <br> 전송되었습니다.");
                             }
                         });
                         phoneNumber_input = SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).text();
@@ -382,6 +384,7 @@ SelectNumberSpg.registerKeyDown = function () {
                         dataType: "text",
                         success: function (data) {
                             alert("번호 등록 성공");
+                            popupMessage("새로운 번호가 <br> 등록되었습니다.");
                         }
                     });
                 }
@@ -619,6 +622,7 @@ SelectNumberSpg.submitKeyDown = function () {
                         dataType: "text",
                         success: function (data) {
                             alert("중분류 예약 성공");
+                            popupMessage("해당 카테고리가 <br> 예약되었습니다.");
                         }
                     });
                     TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
@@ -638,6 +642,7 @@ SelectNumberSpg.submitKeyDown = function () {
                         dataType: "text",
                         success: function (data) {
                             alert("알람 등록 성공");
+                            popupMessage("해당 상품이 <br> 예약되었습니다.");
                         }
                     });
                     TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
@@ -676,6 +681,7 @@ SelectNumberSpg.submitKeyDown = function () {
                                     success: function (data) {
                                         alert(data);
                                         alert("구매 url 문자 전송 성공");
+                                        popupMessage("상품 구매 URL이 <br> 전송되었습니다.");
                                     }
                                 });
                             }, 10);
@@ -701,6 +707,7 @@ SelectNumberSpg.submitKeyDown = function () {
                     dataType: "text",
                     success: function (data) {
                         alert("사용자 삭제 성공");
+                        popupMessage("해당 번호가 <br>삭제되었습니다.");
                     }
                 });
                 //클라에서도 번호를 지우고 

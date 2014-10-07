@@ -874,7 +874,7 @@ MyPg.DeleteCategory = function(idx, secondid){
 };
 
 MyPg.CategorySetting = function(idx){
-        jQuery("#MyPg_CategoryAlarm_header").html('* '+savedNumber[MyPg_numberIndex]+' 님의 카테고 알람');        
+        jQuery("#MyPg_CategoryAlarm_header").html('* '+savedNumber[MyPg_numberIndex]+' 님의 카테고리 알람');        
 
     jQuery.ajax({
         url: SERVER_ADDRESS + '/cAlarms',
