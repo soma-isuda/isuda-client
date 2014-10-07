@@ -1,25 +1,25 @@
-//»ï¼º ÆÄÀÏ ½Ã½ºÅÛ API¸¦ ÀÌ¿ëÇÏ¿©, 
-//ÀúÀåµÈ ¹øÈ£µéÀ» ºÒ·¯¿Â´Ù.
+//ï¿½ï¼º ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ APIï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¿ï¿½, 
+//ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½Â´ï¿½.
 var fileSystemObj = new FileSystem();
 
-var path;//µ¥ÀÌÅÍ°¡ ÀÖ´Â °æ·Î
+var path;//ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½
 
 var loadFile = function () {
-    //curWidget µð·ºÅä¸®°¡ ÀÖ´ÂÁö È®ÀÎÇÑ´Ù.
+    //curWidget ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ñ´ï¿½.
     if (fileSystemObj.isValidCommonPath(curWidget.id) != 1) {
-        //¾øÀ¸¸é ¸¸µç´Ù.
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
         fileSystemObj.createCommonDir(curWidget.id);
     }
     path = curWidget.id + "/isuda.dat";
-}
+};
 
-//ÆÄÀÏ ÀÐ±â
+//ï¿½ï¿½ï¿½ï¿½ ï¿½Ð±ï¿½
 var readFile = function () {
     var result, jsFileObj;
 
     jsFileObj = fileSystemObj.openCommonFile(path, "r");
     if (jsFileObj) {
-        //ÆÄÀÏÀÌ ÀÖÀ¸¸é µ¥ÀÌÅÍ¸¦ ÀÐ´Â´Ù.
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ð´Â´ï¿½.
         result = jsFileObj.readAll();
 
         fileSystemObj.closeFile(jsFileObj);
@@ -29,17 +29,17 @@ var readFile = function () {
     }
 
     return result;
-}
+};
 
-//ÆÄÀÏ ¾²±â
+//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 var writeFile = function (val) {
     var jsFileObj;
 
-    //ÆÄÀÏÀ» »õ·Î ¾´´Ù.
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
     jsFileObj = fileSystemObj.openCommonFile(path, "w");
     jsFileObj.writeAll(val);
 
-    //ÆÄÀÏÀ» ´Ý´Â´Ù.
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý´Â´ï¿½.
     fileSystemObj.closeFile(jsFileObj);
 
-}
+};
