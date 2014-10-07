@@ -121,6 +121,10 @@ SelectNumberSpg.selectKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + SelectNumberSpg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SelectNumberSpg.anchor.select);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
             //앱이 종료되는것을 방지해준다.
@@ -200,6 +204,10 @@ SelectNumberSpg.registerKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + SelectNumberSpg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SelectNumberSpg.anchor.register);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
             //앱이 종료되는것을 방지해준다.
@@ -535,6 +543,10 @@ SelectNumberSpg.submitKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + SelectNumberSpg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SelectNumberSpg.anchor.submit);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
             //앱이 종료되는것을 방지해준다.
@@ -769,6 +781,10 @@ SelectNumberSpg.KeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + SelectNumberSpg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SelectNumberSpg);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
             //앱이 종료되는것을 방지해준다.

@@ -265,7 +265,7 @@ TVSchedulePg.midKeyDown = function () {
     switch (keyCode) {
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
-            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", TVSchedulePg);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", TVSchedulePg.anchor.mid);
             break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
@@ -405,7 +405,7 @@ TVSchedulePg.listKeyDown = function () {
     switch (keyCode) {
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
-            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", TVSchedulePg);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", TVSchedulePg.anchor.list);
             break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:

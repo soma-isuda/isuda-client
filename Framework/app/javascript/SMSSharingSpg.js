@@ -55,6 +55,10 @@ SMSSharingSpg.bodyKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + SMSSharingSpg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SMSSharingSpg.anchor.body);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
             //앱이 종료되는것을 방지해준다.
@@ -113,6 +117,10 @@ SMSSharingSpg.inputKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + SMSSharingSpg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SMSSharingSpg.anchor.input);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
             //앱이 종료되는것을 방지해준다.
@@ -272,6 +280,10 @@ SMSSharingSpg.submitKeyDown = function () {
     alert("Key pressed: " + keyCode + " ,index:" + SMSSharingSpg_index);
 
     switch (keyCode) {
+        case tvKey.KEY_EXIT:
+            widgetAPI.blockNavigation(event);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SMSSharingSpg.anchor.submit);
+            break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
             //앱이 종료되는것을 방지해준다.
@@ -362,6 +374,10 @@ SMSSharingSpg.keyDown = function()
 	
 	switch(keyCode)
 	{
+	    case tvKey.KEY_EXIT:
+	        widgetAPI.blockNavigation(event);
+	        popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SMSSharingSpg);
+	        break;
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
 			//앱이 종료되는것을 방지해준다.

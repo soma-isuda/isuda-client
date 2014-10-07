@@ -2,10 +2,10 @@ var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_IN;
+var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
 var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
 var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
-var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
+var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_OUT;
 // pagearr : information about pages in pageinfo
 var page_index = 1;
 var subPage_index = 1;//현재 열려있는 서브 페이지의 넘버
@@ -88,6 +88,10 @@ Main.keyDown = function()
 	
 	switch(keyCode)
 	{
+	    case tvKey.KEY_EXIT:
+	        widgetAPI.blockNavigation(event);
+	        popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", Main);
+	        break;
 		case tvKey.KEY_EXIT:
 			//widgetAPI.sendExitEvent();
 		case tvKey.KEY_RETURN:
