@@ -14,27 +14,26 @@
 #reserveButton{
     box-sizing:border-box;
     width:720px;
-    height:200px;
+    height:122px;
     position:relative;
 }
 
 #reserveButton > div{
     position:absolute;
     top:30px;
-    left:260px;
-    width:200px;
-    height:100px;
-    line-height:100px;
+    left:235px;
+    width:250px;
+    height:62px;
+    line-height:62px;
     text-align:center;
-    font-size:1.5em;
-    color:black;
-    background-color:#b7b7a4;
-
+    font-size:30px;
+    color:white;
+    background-color:#989898;
 }
 
 #reserveButton>div.focus{
-    background-color:#001367;
-    color:white;
+    background-color:#5ccece;
+    color:black;
 }
 
 #detailImage{
@@ -56,11 +55,11 @@
     display: none;
 }
 #arrow_up{
-    margin-top: 200px;
+    margin-top: 125px;
     margin-left: 1470px;
 }
 #arrow_down{
-    margin-top: 760px;
+    margin-top: 835px;
     margin-left: 1470px;
 }
 

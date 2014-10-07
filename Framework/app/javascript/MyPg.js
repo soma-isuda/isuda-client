@@ -485,6 +485,8 @@ MyPg.registerKeyDown = function () {
                     else//원래 번호가 하나라도 있었을 경우에는 다음 번호에 포커스를 맞춘다.
                         MyPg.number.eq(++MyPg_numberIndex).addClass('focus');
                     MyPg.SMSAlarmSetting(MyPg_numberIndex);
+                                                this.CategorySetting(MyPg_numberIndex);
+
                     MyPg.anchor.select.focus();
 
                     //새로운 번호를 서버에 저장한다.
@@ -672,6 +674,9 @@ MyPg.submitKeyDown = function () {
         case tvKey.KEY_LEFT:
              //앱이 종료되는것을 방지해준다.
             widgetAPI.blockNavigation(event);
+            MyPg.number.eq(MyPg_numberIndex).removeClass('select');
+            MyPg.submit.eq(MyPg_submitIndex).removeClass('focus');
+
             alert("MyPg_key : RETURN");
             Main.focus();//사이드바로 다시 포커스를 넘긴다.            
             break;
@@ -680,6 +685,12 @@ MyPg.submitKeyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("MyPg_key : Up");
+            MyPg.submit.eq(MyPg_submitIndex).removeClass('focus');
+            MyPg.number.eq(MyPg_numberIndex).removeClass('select');            
+            MyPg.number.eq(MyPg_numberIndex).addClass('focus');
+                        MyPg.anchor.select.focus(); //번호 선택부분으로 포커스를 넘긴다.
+
+
             break;
         case tvKey.KEY_DOWN:
             alert("MyPg_key : Down");
@@ -808,7 +819,7 @@ MyPg.categoryKeyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("MyPg_key : Up");
-            if (MyPg.category_.index > 0){
+            if (MyPg.category_.index > 0 && !MyPg.category.submit.hasClass('focus')){
                 MyPg.category_.content.eq(MyPg.category_.index).removeClass('focus');
                 MyPg.category_.index--;
             	MyPg.category_.content.eq(MyPg.category_.index).addClass('focus');
