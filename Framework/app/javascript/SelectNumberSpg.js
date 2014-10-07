@@ -504,7 +504,6 @@ SelectNumberSpg.registerKeyDown = function () {
                     SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).append(tempNum);
                 }
                 else {
-                    alert("asdasd");
                     if (page_index == 3) //편성표에서 호출했을 때
                         TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
                     else if (page_index == 2) //선택보기에서 호출했을 때
@@ -514,7 +513,6 @@ SelectNumberSpg.registerKeyDown = function () {
                 }
             }
                 else {
-                    alert("asdasd");
                     if (page_index == 3) //편성표에서 호출했을 때
                         TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
                     else if (page_index == 2) //선택보기에서 호출했을 때
@@ -604,7 +602,7 @@ SelectNumberSpg.submitKeyDown = function () {
                         data: {
                             secondName: secondCategory[big_index][mid_index],//중분류의 이름
                             phoneNumber: _numberPost,//선택된 사용자의 번호
-                            firstId: (big_index+1)//대분류의 id(DB에서는 대분류 id가 1부터 시작)
+                            firstId: big_index//대분류의 id(DB에서는 대분류 id가 1부터 시작)
                         },
                         dataType: "text",
                         success: function (data) {
