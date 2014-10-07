@@ -71,7 +71,7 @@
 	color: #989898;
 }
 
-#big > ul li.focus { 
+#big > div> ul li.focus { 
  	/*background-color:#001367;*/
     background-color:#5ccece;
     color: black;
@@ -83,7 +83,7 @@
     color: black;
 }
  /* select*/
-#big > ul li.select { 
+#big >div> ul li.select { 
     /*background-color:#001367;*/
     background-color:#ce534d;
     color: white;
