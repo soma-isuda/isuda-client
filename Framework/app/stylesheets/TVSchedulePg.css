@@ -119,8 +119,6 @@
 
     top:0px;
     left:370px;
-
-/*    background-color:white;  */
 }
 
 #product_nav{
@@ -206,7 +204,6 @@
     text-align:center;
     font-size:1.5em;
     border : 1px solid black;
-    border-radius:10px;
 
     /*background-color:#fffbf0;*/
     background-color: white;
