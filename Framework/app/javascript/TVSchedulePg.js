@@ -28,9 +28,7 @@ var TVSchedulePg = {
     bigScrollNum:0,
     firstAccess: 0,//편성표 페이지에 처음 접근했으면 0, 아니면 1(대분류 전체보기를 위한 변수)
 };
-TVSchedulePg.helloWorld = function () {
-    alert("hello,World");
-}
+
 TVSchedulePg.onLoad = function () {
     alert("TVSchedulePg onLoad");
     
@@ -39,7 +37,7 @@ TVSchedulePg.onLoad = function () {
     this.bigScrollNum = 0;
     jQuery.extend(TVSchedulePg, {
         big: jQuery('#big').find('ul'),
-        mid: jQuery('#mid').find('div>ul'),
+        mid: jQuery('#mid').find('ul'),
 
         anchor: {
             big: jQuery('#anchor_TVSchedulePg_bigCategory'),
@@ -51,13 +49,13 @@ TVSchedulePg.onLoad = function () {
 
     // 대분류를 불러온다.
     for (var i = 0; i < firstCategory.length ; i++) {
-        TVSchedulePg.big.append('<li>' + firstCategory[i] + '</li>');
+        TVSchedulePg.big.append('<li><div>' + firstCategory[i] + '</div></li>');
     }
 
     //CSS를 위한 선택자
     jQuery.extend(TVSchedulePg, {
-        midElem: jQuery('#mid').find('div>ul>li'),
-        bigElem: jQuery('#big').find('div>ul>li')
+        midElem: jQuery('#mid').find('ul>li'),
+        bigElem: jQuery('#big').find('ul>li')
     });
     var tempDate = new Date();
     var tempString = '';
@@ -104,14 +102,16 @@ tabMenu = function () {
     alert("tabMenu");
     //clear mid tag
     //jQuery('#mid').find('ul').empty();
-    jQuery('#mid > div> ul').empty();
+    //jQuery('#mid > ul').empty();
+    var tempString='';
 
     //중분류를 불러온다.
     for (var i = 0; i < secondCategory[big_index].length ; i++) {
-        TVSchedulePg.mid.append('<li>' + secondCategory[big_index][i] + '</li>');
+        tempString +=     '<li> <div>' + secondCategory[big_index][i] + '</div> </li>';
     }
+    TVSchedulePg.mid.html(tempString);
     jQuery.extend(TVSchedulePg, {
-        midElem: jQuery('#mid').find('div>ul>li'),
+        midElem: jQuery('#mid').find('ul>li'),
     });
     this.midScrollNum = 0;
 };
@@ -145,13 +145,13 @@ TVSchedulePg.bigKeyDown = function () {
 
             if (big_index < (this.bigScrollNum + 2)) {
                 this.pxMove = '-' + (109 * (--this.bigScrollNum)) + 'px';
-                jQuery('#big').find('div>ul').css("margin-top", this.pxMove);
+                jQuery('#big').find('ul').css("margin-top", this.pxMove);
             }
             //대분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
             if (big_index == 0) {
                 big_index = firstCategory.length - 1;
                 this.pxMove = '-' + (109 * (big_index - 7)) + 'px';
-                jQuery('#big').find('div>ul').css("margin-top", this.pxMove);
+                jQuery('#big').find('ul').css("margin-top", this.pxMove);
                 this.bigScrollNum = (big_index - 7);
             }
             else
@@ -167,7 +167,7 @@ TVSchedulePg.bigKeyDown = function () {
             //대분류를 표시할 수 있는 영역을 넘쳤을 때는 스크롤한다.
             if (big_index >= 7 && big_index < (firstCategory.length - 1)) {
                 this.pxMove = '-' + (109 * (++this.bigScrollNum)) + 'px';
-                jQuery('#big').find('div>ul').css("margin-top", this.pxMove);
+                jQuery('#big').find('ul').css("margin-top", this.pxMove);
             }
 
             TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
@@ -175,7 +175,7 @@ TVSchedulePg.bigKeyDown = function () {
             //대분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
             if (big_index == firstCategory.length - 1) {
                 big_index = 0;
-                jQuery('#big').find('div>ul').css("margin-top", "0px");
+                jQuery('#big').find('ul').css("margin-top", "0px");
                 this.bigScrollNum = 0;
             }
             else
@@ -262,8 +262,10 @@ TVSchedulePg.midKeyDown = function () {
             TVSchedulePg.anchor.big.focus();
             //포커스가 넘어가면 중분류를 없앤다.
             TVSchedulePg.bigElem.eq(big_index).removeClass('select');
-            jQuery('#mid > div> ul').empty();
-            jQuery('#mid').find('div>ul').css("margin-top", "0");
+            TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
+
+            jQuery('#mid > ul').empty();
+            jQuery('#mid').find('ul').css("margin-top", "0");
 
             break;
 
@@ -273,13 +275,15 @@ TVSchedulePg.midKeyDown = function () {
 
             if (mid_index < (this.midScrollNum + 2)) {
                 this.pxMove = '-' + (109 * (--this.midScrollNum)) + 'px';
-                jQuery('#mid').find('div>ul').css("margin-top", this.pxMove);
+                jQuery('#mid').find('ul').css("margin-top", this.pxMove);
+
             }
             //중분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
             if (mid_index == 0) {
                 mid_index = secondCategory[big_index].length - 1;
                 this.pxMove = '-' + (109 * (mid_index - 7)) + 'px';
-                jQuery('#mid').find('div>ul').css("margin-top", this.pxMove);
+
+                jQuery('#mid').find('ul').css("margin-top", this.pxMove);
                 this.midScrollNum = (mid_index - 7);
             }
             else
@@ -292,7 +296,7 @@ TVSchedulePg.midKeyDown = function () {
             //중분류를 표시할 수 있는 영역을 넘쳤을 때는 스크롤한다.
             if (mid_index >= 7 && mid_index < (secondCategory[big_index].length - 1)) {//중분류는 한번에 최대 8개까지 보여줌
                 this.pxMove = '-' + (109 * (++this.midScrollNum)) + 'px';
-                jQuery('#mid').find('div>ul').css("margin-top", this.pxMove);
+                jQuery('#mid').find('ul').css("margin-top", this.pxMove);
             }
 
             TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
@@ -301,7 +305,7 @@ TVSchedulePg.midKeyDown = function () {
             alert('mid_index:' + mid_index);//for debug
             if (mid_index == secondCategory[big_index].length - 1) {
                 mid_index = 0;
-                jQuery('#mid').find('div>ul').css("margin-top", "0px");
+                jQuery('#mid').find('ul').css("margin-top", "0px");
                 this.midScrollNum = 0;
             }
             else
@@ -642,9 +646,9 @@ TVSchedulePg.listProcess = function (data) {
     //현재 카테고리에 몇개의 상품이 있는지 보여준다.
     var tempString;
     if (big_index != 0)//'전체보기'가 아닐 경우
-        tempString = firstCategory[big_index] + ' > ' + secondCategory[big_index][mid_index] + ' 에 총 ' + productNumber + '개의 상품이 있습니다.';
+        tempString = '* ' + firstCategory[big_index] + ' > ' + secondCategory[big_index][mid_index] + ' 에 총 ' + productNumber + '개의 상품이 있습니다.';
     else
-        tempString = '총 ' + productNumber + '개의 상품이 있습니다.';
+        tempString = '* 총 ' + productNumber + '개의 상품이 있습니다.';
 
     jQuery('#product_header').find('div:nth-child(2)').append(tempString);
 };

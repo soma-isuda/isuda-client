@@ -1,286 +1,273 @@
-#TVSchedulePg{
-	position: absolute;
-	/*background-color: #fffbf0;*/
+#TVSchedulePg {
+    position: absolute;
+    /*background-color: #fffbf0;*/
     background-color: #e4e3e3;
-	width: 1790px;
-	height: 1080px;
+    width: 1790px;
+    height: 1080px;
 }
 
 /*대분류 선택창*/
 #big {
-    float:left;
-    box-sizing:border-box;
-	width: 130px;
-	height: 100%;
-	/*background-color: #b7b7a4;*/
+    float: left;
+    box-sizing: border-box;
+    width: 130px;
+    height: 100%;
+    /*background-color: #b7b7a4;*/
     background-color: #232323;
     border-left: solid #585858;
-    border-right: solid #585858;    
-    
-    padding:40px 8px 0px 8px;
+    border-right: solid #585858;
+    padding: 40px 8px 0px 8px;
 }
 
 /* 중분류 선택창 */
 #mid {
-	float: left;
-    box-sizing:border-box;
-	width: 110px;
-	height: 100%;
-	/*background-color: #b7b7a4;*/
-    background-color: #232323;  
-    border-right: solid #585858;    
-
-    padding-top : 120px;
+    float: left;
+    box-sizing: border-box;
+    width: 110px;
+    height: 100%;
+    /*background-color: #b7b7a4;*/
+    background-color: #232323;
+    border-right: solid #585858;
+    padding: 120px 8px 0px 8px;
 }
 
 
 #big ul li {
-    box-sizing:border-box;
-	width: 110px;
-	height: 110px;
-    margin-bottom:10px;
-    padding:26px 6px 26px 6px;
-  /*   line-height:100px; */
-    text-align:center; 
-	/*background-color: #f0f0d8;*/
+    display: table;
+    box-sizing: border-box;
+    width: 110px;
+    height: 110px;
+    margin-bottom: 10px;
+    padding: 0px 5px;
     background-color: #989898;
-    font-size:28px;
     color: white;
 }
 
-#mid>div{
-    width:100%;
-    height:960px;
-    overflow:hidden;
-}
+    #big ul li > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 28px;
+    }
+
+
 #mid ul li {
-    box-sizing:border-box;
-	width: 94px;
-	height: 93px;
-    margin:8px;
-    padding-top:15px;
-   /* line-height:100px; */
-    text-align:center; 
-    font-size:1.1em;
-	/*background-color: #f0f0d8;*/
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 0px 8px;
     background-color: #989898;
     color: white;
+    width: 90px;
+    height: 90px;
+    display: table;
 }
+
+    #mid ul li > div {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 22px;
+    }
+
 /* focus */
-#big.focus{
-	color: #989898;
+#big.focus {
+    color: #989898;
 }
 
-#big > div> ul li.focus { 
- 	/*background-color:#001367;*/
-    background-color:#5ccece;
-    color: black;
-}
-
-#mid > div> ul li.focus { 
- 	/*background-color:#001367;*/
-    background-color:#5ccece;
-    color: black;
-}
- /* select*/
-#big >div> ul li.select { 
+#big > ul li.focus {
     /*background-color:#001367;*/
-    background-color:#ce534d;
+    background-color: #5ccece;
+    color: black;
+}
+
+#mid > ul li.focus {
+    /*background-color:#001367;*/
+    background-color: #5ccece;
+    color: black;
+}
+/* select*/
+#big > ul li.select {
+    /*background-color:#001367;*/
+    background-color: #ce534d;
     color: white;
 }
 
-#mid > div> ul li.select { 
+#mid > ul li.select {
     /*background-color:#001367;*/
-    background-color:#ce534d;
+    background-color: #ce534d;
     color: white;
 }
 
 /* 선택된 중분류에 대해, 상품을 가져오는 부분*/
 
-#product{
-    position:absolute;
-    left:-130px;
-    top:0px;
-
+#product {
+    position: absolute;
+    left: -130px;
+    top: 0px;
     /*transition-duration:0.3s;*/
 }
 
-#product > div{
-    box-sizing:border-box;
-}
+    #product > div {
+        box-sizing: border-box;
+    }
 
 /*중분류예약 들어가는 부분*/
-#product_header{
-    position:absolute;
-    width:1550px;
-    height:118px;
-
-    top:0px;
-    left:370px;
+#product_header {
+    position: absolute;
+    width: 1550px;
+    height: 120px;
+    left: 370px;
+    padding: 38px 60px 0px 60px;
 }
 
-#product_nav{
-       position:absolute;
-       width:1550px;
-       height:86px;
-       line-height:86px;
-
-       top:118px;
-       left:370px;
-
-/*       background-color:white;  */
-       border-top:1px solid black;
-       border-bottom:1px solid black;
-       text-align:center;
-       font-size:2em;
-}
-
-#product_list_pg{
-    position:absolute;
-    width:1550px;
-    height:876px;
-
-    top:204px;
-    left:370px;
-
-    box-sizing:border-box;
-    padding:31px;
-/*    background-color:green;  */
-}
-    
-
-#product>#product_header>#reserve_Category{
-    position:absolute;
-
-    width:400px;
-    height:68px;
-    line-height:68px;
-
-    right:50px;
-    top:25px;
-
-    font-size:2em;
-    text-align:center;
+#product > #product_header > #reserve_Category {
+    width: 400px;
+    height: 62px;
+    line-height: 62px;
+    float: right;
+    display: inline-block;
+    font-size: 28px;
+    text-align: center;
     /*background-color:#b7b7a4;*/
     background-color: #989898;
     color: white;
 }
-#product>#product_header>#reserve_Category.focus{
-    /*background-color:#001367;*/
-    background-color:#5ccece;
-   /* color:white;*/
-    color: black;
-}
-#product>#product_header>div:nth-child(2){
-    position:absolute;
-    width:800px;
-    height:60px;
-    line-height:60px;
-    
-    left:50px;
-    top:30px;
-    
-    font-size: 25px;
-    
+
+    #product > #product_header > #reserve_Category.focus {
+        /*background-color:#001367;*/
+        background-color: #5ccece;
+        /* color:white;*/
+        color: black;
+    }
+
+#product > #product_header > div:nth-child(2) {
+    display: inline-block;
+    margin-top: 17px;
+    float: left;
+    font-size: 30px;
 }
 
-#product_list_pg ul li.focus {
 
-	border: 6px solid #5ccece;
+#product_nav {
+    position: absolute;
+    width: 1430px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0px 60px;
+    top: 120px;
+    left: 370px;
+    text-align: center;
+    font-size: 30px;
+    background-color: #989898;
+    color: white;
 }
+
+#product_list_pg {
+    position: absolute;
+    width: 1550px;
+    height: 876px;
+    top: 200px;
+    left: 370px;
+    box-sizing: border-box;
+    padding: 30px;
+    /*    background-color:green;  */
+}
+
+
+    #product_list_pg ul li.focus {
+        border: 6px solid #5ccece;
+    }
 
 
 /*상품 하나가 차지하는 공간*/
-.schedule_product_list_item{
-    position:relative;
-    float:left;
-    width:310px;
-    height:480px;
-    box-sizing:border-box;
-    margin:31px;
-
-    text-align:center;
-    font-size:1.5em;
-    border : 1px solid black;
-
+.schedule_product_list_item {
+    position: relative;
+    float: left;
+    width: 310px;
+    height: 480px;
+    box-sizing: border-box;
+    margin: 31px;
+    text-align: center;
+    font-size: 1.5em;
+    border: 1px solid black;
     /*background-color:#fffbf0;*/
     background-color: white;
-    overflow:hidden;
-}
-.schedule_product_list_item div{
-	position: relative;
-}
-/* 상품 포커스 됬을 때 처리하는 부분*/
-.schedule_product_list_item>.schedule_product_focus{
-    position:absolute;
-    width:310px;
-    height:70px;
-    line-height:70px;
-    font-size:1.5em;
-    background-color:#64B6B1;
-    text-align:center;
-    color:white;
-    /*포커스 위치를 지정하는 부분*/
-    left:0px;
-    top:200px;
-}
-.schedule_product_list_item>.imgArea {
-    position:relative;
-	width: 310px;
-	height: 223px;
-	border: 0;
-    box-sizing:border-box;
-
-    margin-left:27px;
-    margin-right:27px;
-    margin-top:7px;
-}
-/*사진 크기*/
-.schedule_product_list_item>.imgArea>img{
-    position:absolute;
-    left:0px;
-    top:0px;
-    width:256px;
-    height:256px;
-}
-/*방송 시간*/
-.schedule_product_list_item>.schedule_productTime{
-    box-sizing:border-box;
-    width:256px;
-    height:40px;
-    background-color:#989898;
-    color:white;
-
-    margin-left:27px;
-    margin-right:27px;
-    margin-bottom:7px;
-
-    font-size:14px;
-    padding: 13px;
-}
-.schedule_product_list_item>.schedule_productInfoArea {
-	width: 310px;
-	height: 210px;
-	border: 0;
-}
-.schedule_product_list_item>.schedule_productInfoArea div{
-	display: block;
-	position: relative;
-	width: 310px;
-	border: 0;
-	background-color:#fffbf0;
-    border-top:1px solid black;
-    
-    box-sizing:border-box;
-    padding:15px;
+    overflow: hidden;
 }
 
-.schedule_product_list_item>.schedule_productInfoArea>.schedule_productName {
-    width:310px;
-	height: 105px;
-}
-.schedule_product_list_item>.schedule_productInfoArea>.schedule_productPrice {
-    width:310px;
-	height: 105px;
-    
-}
+    .schedule_product_list_item div {
+        position: relative;
+    }
+    /* 상품 포커스 됬을 때 처리하는 부분*/
+    .schedule_product_list_item > .schedule_product_focus {
+        position: absolute;
+        width: 310px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 1.5em;
+        background-color: #64B6B1;
+        text-align: center;
+        color: white;
+        /*포커스 위치를 지정하는 부분*/
+        left: 0px;
+        top: 200px;
+    }
+
+    .schedule_product_list_item > .imgArea {
+        position: relative;
+        width: 310px;
+        height: 223px;
+        border: 0;
+        box-sizing: border-box;
+        margin-left: 27px;
+        margin-right: 27px;
+        margin-top: 7px;
+    }
+        /*사진 크기*/
+        .schedule_product_list_item > .imgArea > img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 256px;
+            height: 256px;
+        }
+    /*방송 시간*/
+    .schedule_product_list_item > .schedule_productTime {
+        box-sizing: border-box;
+        width: 256px;
+        height: 40px;
+        background-color: #989898;
+        color: white;
+        margin-left: 27px;
+        margin-right: 27px;
+        margin-bottom: 7px;
+        font-size: 14px;
+        padding: 13px;
+    }
+
+    .schedule_product_list_item > .schedule_productInfoArea {
+        width: 310px;
+        height: 210px;
+        border: 0;
+    }
+
+        .schedule_product_list_item > .schedule_productInfoArea div {
+            display: block;
+            position: relative;
+            width: 310px;
+            border: 0;
+            background-color: #fffbf0;
+            border-top: 1px solid black;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+
+        .schedule_product_list_item > .schedule_productInfoArea > .schedule_productName {
+            width: 310px;
+            height: 105px;
+        }
+
+        .schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice {
+            width: 310px;
+            height: 105px;
+        }
