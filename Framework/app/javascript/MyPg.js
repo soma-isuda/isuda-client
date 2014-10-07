@@ -169,7 +169,7 @@ MyPg.categoryfocus = function () {
         MyPg.focus();
 };
 
-MyPg.SMSAlarmfocus = function () {
+MyPg.SMSAlarmfocus = function (key) {
     alert("MyPg.SMSAlarmfocus");
     alert("MyPg_SMSAlarm.elem.length : " + MyPg.SMSAlarm.elem.length);
     MyPg.menu.eq(0).removeClass('focus');
@@ -190,7 +190,10 @@ MyPg.SMSAlarmfocus = function () {
         MyPg.SMSAlarm.elem.eq(SMSAlarm_index).addClass('focus');   
     }
     else if(MyPg.category_.arr.length > 0){
-        MyPg.categoryfocus();       
+        if(key == tvKey.KEY_RIGHT)
+            MyPg.categoryfocus();
+        else
+            MyPg.focus();   
     }
     else
         MyPg.focus();
@@ -232,7 +235,7 @@ MyPg.selectKeyDown = function () {
             MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
             MyPg.number.eq(MyPg_numberIndex).addClass('select');
             //상품알람 리스트 포커스
-            MyPg.SMSAlarmfocus();
+            MyPg.SMSAlarmfocus(keyCode);
             
             //MyPg.categoryfocus();
 
@@ -335,7 +338,7 @@ MyPg.registerKeyDown = function () {
             MyPg_registerIndex = 0;//'번호 추가'버튼이 떠있도록
 
             //상품알람 리스트 포커스
-            MyPg.SMSAlarmfocus();
+            MyPg.SMSAlarmfocus(keyCode);
 
 
             break;
