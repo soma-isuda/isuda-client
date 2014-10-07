@@ -122,7 +122,7 @@ ul {
 	color: white;
 	letter-spacing: 5px;
 	
-	background-color: #585858;
+	background-color: #232323;
 
 	border: 10px solid #5ccece;
 	border-radius: 20px;
@@ -163,7 +163,7 @@ ul {
 	height: 80px;
 	
 	
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	padding: 10px;
 	color: white;
 	
@@ -178,7 +178,7 @@ ul {
 	width: 200px;
 	height: 80px;
 	
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	padding: 10px;
 	color: white;
 
