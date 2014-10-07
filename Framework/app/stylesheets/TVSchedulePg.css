@@ -158,8 +158,9 @@
     left: 370px;
     text-align: center;
     font-size: 30px;
-    background-color: #989898;
-    color: white;
+    border-top: 1px double #232323;
+    border-bottom: 1px double #232323;
+    color: #232323;
 }
 
 #product_list_pg {
@@ -174,9 +175,9 @@
 }
 
 
-    #product_list_pg ul li.focus {
+/*#product_list_pg ul li.focus {
         border: 6px solid #5ccece;
-    }
+    }*/
 
 
 /*상품 하나가 차지하는 공간*/
@@ -186,88 +187,93 @@
     width: 310px;
     height: 480px;
     box-sizing: border-box;
-    margin: 31px;
-    text-align: center;
-    font-size: 1.5em;
-    border: 1px solid black;
+    margin: 30px;
+    border: 1px solid #989898;
     /*background-color:#fffbf0;*/
     background-color: white;
     overflow: hidden;
 }
 
-    .schedule_product_list_item div {
-        position: relative;
-    }
-    /* 상품 포커스 됬을 때 처리하는 부분*/
-    .schedule_product_list_item > .schedule_product_focus {
-        position: absolute;
-        width: 310px;
-        height: 70px;
-        line-height: 70px;
-        font-size: 1.5em;
-        background-color: #64B6B1;
-        text-align: center;
-        color: white;
-        /*포커스 위치를 지정하는 부분*/
-        left: 0px;
-        top: 200px;
-    }
+/* 상품 포커스 됬을 때 처리하는 부분*/
+.schedule_product_list_item > .schedule_product_focus_ {
+    position: absolute;
+    width: 310px;
+    height: 480px;
+    background-color: #232323;
+    opacity: 0.5;
+    /*포커스 위치를 지정하는 부분*/
+    left: 0px;
+    top: 0px;
+}
+/* 상품 포커스 됬을 때 처리하는 부분*/
+.schedule_product_list_item > .schedule_product_focus {
+    position: absolute;
+    width: 310px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 30px;
+    background-color: #5ccece;
+    text-align: center;
+    color: black;
+    /*포커스 위치를 지정하는 부분*/
+    left: 0px;
+    top: 205px;
+}
 
-    .schedule_product_list_item > .imgArea {
-        position: relative;
-        width: 310px;
-        height: 223px;
-        border: 0;
-        box-sizing: border-box;
-        margin-left: 27px;
-        margin-right: 27px;
-        margin-top: 7px;
-    }
-        /*사진 크기*/
-        .schedule_product_list_item > .imgArea > img {
-            position: absolute;
-            left: 0px;
-            top: 0px;
-            width: 256px;
-            height: 256px;
-        }
-    /*방송 시간*/
-    .schedule_product_list_item > .schedule_productTime {
-        box-sizing: border-box;
-        width: 256px;
-        height: 40px;
-        background-color: #989898;
-        color: white;
-        margin-left: 27px;
-        margin-right: 27px;
-        margin-bottom: 7px;
-        font-size: 14px;
-        padding: 13px;
-    }
 
-    .schedule_product_list_item > .schedule_productInfoArea {
-        width: 310px;
-        height: 210px;
-        border: 0;
-    }
+.schedule_product_list_item > .imgArea {
+    width: 310px;
+    height: 270px;
+    box-sizing: border-box;
+}
+/*사진 크기*/
+.schedule_product_list_item > .imgArea > img {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 310px;
+    height: 310px;
+}
+/*방송 시간*/
+.schedule_product_list_item > .schedule_productTime {
+    box-sizing: border-box;
+    width: 310px;
+    height: 40px;
+    background-color: #989898;
+    color: yellow;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0.8;
+}
 
-        .schedule_product_list_item > .schedule_productInfoArea div {
-            display: block;
-            position: relative;
-            width: 310px;
-            border: 0;
-            background-color: #fffbf0;
-            border-top: 1px solid black;
-            box-sizing: border-box;
-            padding: 15px;
-        }
+.schedule_product_list_item > .schedule_productInfoArea {
+    width: 310px;
+    height: 180px;
+    color: #232323;
+}
 
-        .schedule_product_list_item > .schedule_productInfoArea > .schedule_productName {
-            width: 310px;
-            height: 105px;
-        }
 
-        .schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice {
-            width: 310px;
-            height: 105px;
-        }
+.schedule_product_list_item > .schedule_productInfoArea div {
+    width: 310px;
+    box-sizing: border-box;
+    padding: 15px 15px 0px 15px;
+}
+
+.schedule_product_list_item > .schedule_productInfoArea > .schedule_productName {
+    width: 310px;
+    height: 90px;
+    font-size: 21px;
+    overflow: hidden;
+}
+
+.schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice {
+    text-align: right;
+    width: 310px;
+    height: 90px;
+    font-size: 25px;    
+}
+
+.schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice > p{
+    font-size: 18px;    
+}
