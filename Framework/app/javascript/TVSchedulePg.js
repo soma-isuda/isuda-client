@@ -25,14 +25,14 @@ var productLoadedId = new Array();
 var TVSchedulePg = {
     pxMove: 0,//중분류 스크롤을 위한 변수
     midScrollNum: 0,//스크롤한 횟수를 위한 변수
-    bigScrollNum:0,
+    bigScrollNum: 0,
     firstAccess: 0,//편성표 페이지에 처음 접근했으면 0, 아니면 1(대분류 전체보기를 위한 변수)
 };
 
 TVSchedulePg.onLoad = function () {
     alert("TVSchedulePg onLoad");
-    
-    big_index=0;
+
+    big_index = 0;
     this.firstAccess = 0;
     this.midScrollNum = 0;
     this.bigScrollNum = 0;
@@ -49,8 +49,29 @@ TVSchedulePg.onLoad = function () {
     });
 
     // 대분류를 불러온다.
+    var bigTemp;
     for (var i = 0; i < firstCategory.length ; i++) {
-        TVSchedulePg.big.append('<li><div>' + firstCategory[i] + '</div></li>');
+        bigTemp = '';
+        if (firstCategory[i] == '면세점') {
+            bigTemp += firstCategory[i];//그대로
+        }
+        else {
+            if (~firstCategory[i].indexOf('/')) {//대분류 이름에 '/'가 있으면
+                for (var j = 0; j < firstCategory[i].length; j++) {
+                    bigTemp += firstCategory[i][j];
+                    if (firstCategory[i][j] == '/')
+                        bigTemp += '<br/>';
+                }
+            }
+            else {//없으면
+                for (var j = 0; j < firstCategory[i].length; j++) {
+                    bigTemp += firstCategory[i][j];
+                    if (j == 1)
+                        bigTemp += '<br/>';
+                }
+            }
+        }
+        TVSchedulePg.big.append('<li><div>' + bigTemp + '</div></li>');
     }
 
     //CSS를 위한 선택자
@@ -86,7 +107,7 @@ TVSchedulePg.onLoad = function () {
     setTimeout(getProductInfo, 10);
 };
 
-function getProductInfo(){
+function getProductInfo() {
     $.ajax({
         url: SERVER_ADDRESS + '/productInfo',//전체 상품을 얻어오는 URL
         type: 'GET',
@@ -94,7 +115,7 @@ function getProductInfo(){
         success: function (data) {
             TVSchedulePg.listProcess(data);
         }
-    });    
+    });
 };
 
 TVSchedulePg.focus = function () {
@@ -116,13 +137,39 @@ tabMenu = function () {
     //clear mid tag
     //jQuery('#mid').find('ul').empty();
     //jQuery('#mid > ul').empty();
-    var tempString='';
+    var tempString = '';
 
     //중분류를 불러온다.
+    
     for (var i = 0; i < secondCategory[big_index].length ; i++) {
         tempString +=     '<li> <div>' + secondCategory[big_index][i] + '</div> </li>';
     }
     TVSchedulePg.mid.html(tempString);
+    
+    /*
+    var midTemp;
+    for (var i = 0; i < secondCategory[big_index].length ; i++) {
+        midTemp = '';
+
+
+        if (~secondCategory[big_index][i].indexOf('/')) {//대분류 이름에 '/'가 있으면
+            for (var j = 0; j < secondCategory[big_index][i].length; j++) {
+                midTemp += secondCategory[big_index][i][j];
+                if (secondCategory[big_index][i][j] == '/')
+                    midTemp += '<br/>';
+            }
+        }
+        else {//없으면
+            for (var j = 0; j < secondCategory[big_index][i].length; j++) {
+                midTemp += secondCategory[big_index][i][j];
+                if (j == 1)
+                    midTemp += '<br/>';
+            }
+        }
+
+        TVSchedulePg.mid.append('<li><div>' + midTemp + '</div></li>');
+    }*/
+
     jQuery.extend(TVSchedulePg, {
         midElem: jQuery('#mid').find('ul>li'),
     });
@@ -134,11 +181,11 @@ TVSchedulePg.bigKeyDown = function () {
     alert("TVSchedulePg big Category keyDown");
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode + " ,index:" + TVSchedulePg_index);
-    
+
     switch (keyCode) {
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
-            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",TVSchedulePg);
+            popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", TVSchedulePg);
             break;
         case tvKey.KEY_RETURN:
         case tvKey.KEY_PANEL_RETURN:
@@ -148,7 +195,7 @@ TVSchedulePg.bigKeyDown = function () {
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
             //메뉴 선택으로 포커스를 다시 넘긴다.
-                        TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
+            TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
 
             Main.focus();
             break;
@@ -171,7 +218,7 @@ TVSchedulePg.bigKeyDown = function () {
             }
             else
                 big_index--;
-                
+
             TVSchedulePg.bigElem.eq(big_index).addClass('focus');
             tabMenu();
 
@@ -340,7 +387,7 @@ TVSchedulePg.midKeyDown = function () {
             alert("TVSchedulePg_key : Enter");
             //TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
             TVSchedulePg.midElem.eq(mid_index).addClass('select');
-           
+
             jQuery('#product>#product_header>#reserve_Category').show();//예약 버튼을 일단 다시 표시한다.
             jQuery('#product_header>#totalNumber').empty();//토탈 개수를 일단 지운다.
             //해당 중분류의 상품들을 불러온다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -349,8 +396,8 @@ TVSchedulePg.midKeyDown = function () {
             if (mid_index == 0) {//'중분류 전체보기'일 경우
                 productIndex = 1;
                 jQuery('#product>#product_header>#reserve_Category').hide();
-                
-                
+
+
                 $.ajax({
                     url: SERVER_ADDRESS + '/productInfo?firstId=' + big_index,//대분류 아이디를 넘긴다.
                     type: 'GET',
@@ -358,7 +405,7 @@ TVSchedulePg.midKeyDown = function () {
                     success: function (data) {
                         TVSchedulePg.listProcess(data);
                         //첫번째 상품에 포커스를 맞추고 시작한다.
-                                            jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus_"></div><div class="schedule_product_focus">상세보기</div>');
+                        jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus_"></div><div class="schedule_product_focus">상세보기</div>');
                     }
                 });
             }
@@ -379,10 +426,10 @@ TVSchedulePg.midKeyDown = function () {
 
             //편성표 페이지의 상단 anchor로 넘긴다
             TVSchedulePg.anchor.list.focus();
-            
+
             productListIndex = 0;
             productListLine = 0;
-            
+
             jQuery('#product').css("top", "0px");
 
 
@@ -425,7 +472,7 @@ TVSchedulePg.listKeyDown = function () {
                     jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus_').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
 
                     TVSchedulePg.bigElem.eq(big_index).removeClass('select');
-                    
+
                 }
                 else {//'대분류 전체보기'가 아니면
                     //다시 중분류로 포커스를 넘긴다.
@@ -433,7 +480,7 @@ TVSchedulePg.listKeyDown = function () {
                     TVSchedulePg.anchor.mid.focus();
                     //포커스가 넘어가면 상품들을 없앤다.
                     jQuery('#product_list_pg > ul').empty();
-                    
+
                 }
                 //'총 몇개의 상품이 있습니다' 부분을 없앤다.
                 jQuery('#product_header>#totalNumber').empty();
@@ -446,12 +493,12 @@ TVSchedulePg.listKeyDown = function () {
                 //그렇지 않을때
             else {
                 jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus').hide();
-                                    jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus_').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
+                jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus_').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
 
                 productListIndex--;//이전 상품으로 포커스를 되돌려준다.
 
                 //상품 포커스 처리
-                    jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus_"></div><div class="schedule_product_focus">상세보기</div>');
+                jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus_"></div><div class="schedule_product_focus">상세보기</div>');
 
             }
 
@@ -464,11 +511,11 @@ TVSchedulePg.listKeyDown = function () {
             else if (productIndex == 1 && productListIndex != (productNumber - 1)) {
                 //상품 리스트에 포커스가 있으면서, 마지막 상품이 아닌경우
                 jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus').hide();
-                                    jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus_').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
+                jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus_').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
 
                 productListIndex++;//다음 상품으로 이동
 
-                    jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus_"></div><div class="schedule_product_focus">상세보기</div>');
+                jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus_"></div><div class="schedule_product_focus">상세보기</div>');
                 if ((productListIndex - 1) % 4 == 3) {
                     var pxMove = '-' + (542 * (++productListLine)) + 'px';
                     jQuery('#product').css("top", pxMove);
@@ -481,7 +528,7 @@ TVSchedulePg.listKeyDown = function () {
             if (productIndex == 1) {
                 //상품 리스트의 맨 윗줄에 있으면서 '전체보기'가 아니면, 중분류 예약으로 이동한다.
                 if (productListIndex >= 0 && productListIndex <= 3) {
-                    if (big_index != 0 && mid_index!=0) {
+                    if (big_index != 0 && mid_index != 0) {
                         jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus').hide();
                         jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus_').hide();
 
@@ -505,9 +552,9 @@ TVSchedulePg.listKeyDown = function () {
             break;
 
         case tvKey.KEY_DOWN:
-            alert("productListLine:"+productListLine+" productNumber:"+productNumber);
+            alert("productListLine:" + productListLine + " productNumber:" + productNumber);
             alert("TVSchedulePg_key : Down");
-            
+
             //첫번째 줄이 아니면 ,한줄씩 내려갈때 마다 조금씩 레이어를 올린다.
             if (productNumber != 0) {//상품이 하나라도 있을 때만(상품이 하나도 없을 때는 아무것도 안한다.)
                 if (productIndex == 0) {//중분류 예약버튼에서 아래 버튼을 누르면,
@@ -531,7 +578,7 @@ TVSchedulePg.listKeyDown = function () {
 
                         productListLine++;
 
-                    jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus_"></div><div class="schedule_product_focus">상세보기</div>');
+                        jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus_"></div><div class="schedule_product_focus">상세보기</div>');
 
                         if (productListLine != 0) {
                             var pxMove = '-' + (542 * productListLine) + 'px';
@@ -680,7 +727,7 @@ TVSchedulePg.listProcess = function (data) {
     else
         tempString = '* 총 ' + productNumber + '개의 상품이 있습니다.';
 
-                jQuery('#product_header>#totalNumber').empty();
+    jQuery('#product_header>#totalNumber').empty();
 
     jQuery('#product_header').find('div:nth-child(2)').append(tempString);
 };
