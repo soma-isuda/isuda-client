@@ -1,115 +1,113 @@
 ﻿<!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>RemoteInputTest</title>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>RemoteInputTest</title>
 
-		<!-- TODO : Style sheets code -->
-		<link rel="stylesheet" href="app/stylesheets/Main.css" type="text/css">
-		<link rel="stylesheet" href="app/stylesheets/MultiWatchPg.css" type="text/css">
-		<link rel="stylesheet" href="app/stylesheets/SelectWatchPg.css" type="text/css">
-		<link rel="stylesheet" href="app/stylesheets/TVSchedulePg.css" type="text/css">
-		<link rel="stylesheet" href="app/stylesheets/MyPg.css" type="text/css">
+    <!-- TODO : Style sheets code -->
+    <link rel="stylesheet" href="app/stylesheets/Main.css" type="text/css">
+    <link rel="stylesheet" href="app/stylesheets/MultiWatchPg.css" type="text/css">
+    <link rel="stylesheet" href="app/stylesheets/SelectWatchPg.css" type="text/css">
+    <link rel="stylesheet" href="app/stylesheets/TVSchedulePg.css" type="text/css">
+    <link rel="stylesheet" href="app/stylesheets/MyPg.css" type="text/css">
 
-		<link rel="stylesheet" href="app/stylesheets/DetailInfoSpg.css" type="text/css">
-		<link rel="stylesheet" href="app/stylesheets/ComparePriceSpg.css" type="text/css">
-		<link rel="stylesheet" href="app/stylesheets/SMSSharingSpg.css" type="text/css">
-		<link rel="stylesheet" href="app/stylesheets/DirectBuySpg.css" type="text/css">
-		<link rel="stylesheet" href="app/stylesheets/SelectNumberSpg.css" type="text/css">
-		<!-- TODO: Plugins -->
+    <link rel="stylesheet" href="app/stylesheets/DetailInfoSpg.css" type="text/css">
+    <link rel="stylesheet" href="app/stylesheets/ComparePriceSpg.css" type="text/css">
+    <link rel="stylesheet" href="app/stylesheets/SMSSharingSpg.css" type="text/css">
+    <link rel="stylesheet" href="app/stylesheets/DirectBuySpg.css" type="text/css">
+    <link rel="stylesheet" href="app/stylesheets/SelectNumberSpg.css" type="text/css">
+    <!-- TODO: Plugins -->
 
-	</head>
+</head>
 
-	<body onload="Main.onLoad();" onunload="Main.onUnload();">
-		<div id="player">
-			<video src=""  width="1610">
-			</video>
-		</div>
-	
-		<div id="sideBar">
-			<ul>
-				<li class="sideBarMenu">
-					<div class="sideBarMenuImg"><img id="sideBarMenuImg0" src="img/icon0.PNG" alt=""></div>
-					<div class="sideBarMenuText">Shopping</div>
-				</li>
-				<li class="sideBarMenu">
-					<div class="sideBarMenuImg"><img id="sideBarMenuImg1" src="img/icon1_.PNG" alt=""></div>
-					<div class="sideBarMenuText">모아보기</div>
-				</li>
-				<li class="sideBarMenu">
-					<div class="sideBarMenuImg"><img id="sideBarMenuImg2" src="img/icon2_.PNG" alt=""></div>
-					<div class="sideBarMenuText">선택보기</div>
-				</li>
-				<li class="sideBarMenu">
-					<div class="sideBarMenuImg"><img id="sideBarMenuImg3" src="img/icon3_.PNG" alt=""></div>
-					<div class="sideBarMenuText">편성표</div>
-				</li>
-				<li class="sideBarMenu">
-					<div class="sideBarMenuImg"><img id="sideBarMenuImg4" src="img/icon4_.PNG" alt=""></div>
-					<div class="sideBarMenuText">마이페이지</div>
-				</li>
-			</ul>
-		</div>
-		<!-- 	
-		<div id=subplayer">
-			<video src="" controls="controls"  width="805">
-			</video>
-		</div> 
-		-->
-		<div id = "article">
+<body onload="Main.onLoad();" onunload="Main.onUnload();">
+    <video id="player" src="" width="1610" loop="loop"></video>
 
-		</div>
+    <div id="sideBar">
+        <ul>
+            <li class="sideBarMenu">
+                <div class="sideBarMenuImg"><img id="sideBarMenuImg0" src="img/icon0.PNG" alt=""></div>
+                <div class="sideBarMenuText">Shopping</div>
+            </li>
+            <li class="sideBarMenu">
+                <div class="sideBarMenuImg"><img id="sideBarMenuImg1" src="img/icon1_.PNG" alt=""></div>
+                <div class="sideBarMenuText">모아보기</div>
+            </li>
+            <li class="sideBarMenu">
+                <div class="sideBarMenuImg"><img id="sideBarMenuImg2" src="img/icon2_.PNG" alt=""></div>
+                <div class="sideBarMenuText">선택보기</div>
+            </li>
+            <li class="sideBarMenu">
+                <div class="sideBarMenuImg"><img id="sideBarMenuImg3" src="img/icon3_.PNG" alt=""></div>
+                <div class="sideBarMenuText">편성표</div>
+            </li>
+            <li class="sideBarMenu">
+                <div class="sideBarMenuImg"><img id="sideBarMenuImg4" src="img/icon4_.PNG" alt=""></div>
+                <div class="sideBarMenuText">마이페이지</div>
+            </li>
+        </ul>
+    </div>
+    <!--
+    <div id=subplayer">
+        <video src="" controls="controls"  width="805">
+        </video>
+    </div>
+    -->
+    <div id="article">
 
-		<div id="subPage">			
+    </div>
 
-		</div>
-		
+    <div id="subPage">
 
-		<a href="javascript:void(0);" id="anchor_main" onkeydown="Main.keyDown();"></a>	
-		<a href="javascript:void(0);" id="anchor_subPage" onkeydown="SubPage.keyDown();"></a>	
-	
-
-	</body>
-	<div id="popup">
-		<!-- <div id="popupMessage">'+message+'</div> -->
-		<!-- <div id="popupMessageButton">
-			message
-			<div id="popupBtn1">확인</div>
-			<div id='popupBtn2'>취소</div>
-		</div> -->
-	</div>
-	<a href="javascript:void(0);" id="anchor_popup" onkeydown="popupkeyDown();"></a>
-	<!-- TODO : Common API -->
-	<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
-	<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
-	<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/jquery.js"></script>
-	<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/webapi/1.0/webapis.js"></script>	
-
-	<!-- TODO : Javascript code -->
-	<script language="javascript" type="text/javascript" src="app/javascript/sideBarMenuImgArr.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/adjustArr.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/Player.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/FileSystem.js"></script>	
-
-	<script language="javascript" type="text/javascript" src="app/javascript/DetailInfoSpg.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/ComparePriceSpg.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/SMSSharingSpg.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/DirectBuySpg.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/SelectNumberSpg.js"></script>
-	
-	
-	<script language="javascript" type="text/javascript" src="app/javascript/MultiWatchPg.js"></script>	
-	<script language="javascript" type="text/javascript" src="app/javascript/SelectWatchPg.js"></script>	
-	<script language="javascript" type="text/javascript" src="app/javascript/TVSchedulePg.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/MyPg.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/SubPageInfo.js"></script>	
-	<script language="javascript" type="text/javascript" src="app/javascript/PageInfo.js"></script>
-	<script language="javascript" type="text/javascript" src="app/javascript/CategoryInfo.js"></script>	
-
-	<script language="javascript" type="text/javascript" src="app/javascript/Main.js"></script>
+    </div>
 
 
-	
-	
-	
+
+    <a href="javascript:void(0);" id="anchor_main" onkeydown="Main.keyDown();"></a>
+    <a href="javascript:void(0);" id="anchor_subPage" onkeydown="SubPage.keyDown();"></a>
+
+
+</body>
+<div id="popup">
+    <!-- <div id="popupMessage">'+message+'</div> -->
+    <!-- <div id="popupMessageButton">
+        message
+        <div id="popupBtn1">확인</div>
+        <div id='popupBtn2'>취소</div>
+    </div> -->
+</div>
+<a href="javascript:void(0);" id="anchor_popup" onkeydown="popupkeyDown();"></a>
+<!-- TODO : Common API -->
+<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
+<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/webapi/1.0/webapis.js"></script>
+
+<!-- TODO : Javascript code -->
+<script language="javascript" type="text/javascript" src="app/javascript/sideBarMenuImgArr.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/adjustArr.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/Player.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/FileSystem.js"></script>
+
+<script language="javascript" type="text/javascript" src="app/javascript/DetailInfoSpg.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/ComparePriceSpg.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/SMSSharingSpg.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/DirectBuySpg.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/SelectNumberSpg.js"></script>
+
+
+<script language="javascript" type="text/javascript" src="app/javascript/MultiWatchPg.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/SelectWatchPg.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/TVSchedulePg.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/MyPg.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/SubPageInfo.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/PageInfo.js"></script>
+<script language="javascript" type="text/javascript" src="app/javascript/CategoryInfo.js"></script>
+
+<script language="javascript" type="text/javascript" src="app/javascript/Main.js"></script>
+
+
+
+
+
 </html>

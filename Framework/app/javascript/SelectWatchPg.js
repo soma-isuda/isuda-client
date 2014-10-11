@@ -35,11 +35,6 @@ SelectWatchPg.focus = function(){
 
 };
 
-SelectWatchPg.enableKeys = function()
-{
-	document.getElementById("anchor").focus();
-};
-
 SelectWatchPg.keyDown = function()
 {
 	alert("SelectWatchPg keyDown");
@@ -67,7 +62,7 @@ SelectWatchPg.keyDown = function()
 			widgetAPI.blockNavigation(event);	
 		case tvKey.KEY_LEFT:
 			alert("SelectWatchPg_key : Left");
-			SelectWatchPg.anchor.main.removeClass('focus');
+//			SelectWatchPg.anchor.main.removeClass('focus');
 			SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
 				jQuery('#SelectWatchPgMenu').hide();
 
