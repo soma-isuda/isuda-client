@@ -48,7 +48,7 @@ Main.onLoad = function()
 	// Enable key event processing
 	this.focus();
 	//Main.layout.popUp.load('app/html/popUp.html');
-	Player.hide();
+	Player.destroy();
 	widgetAPI.sendReadyEvent();
 	alert('Main_onLoad completed');
 
@@ -119,7 +119,7 @@ Main.keyDown = function()
 			//alert("page_Index+5 : "+page_index+5);
 			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+5)]);
 			Main.layout.page.load(pagearr[page_index].html);
-			Player.hide();
+			Player.destroy();
 			setTimeout(function(){
 				pagearr[page_index].object.onLoad();
 			},10);
@@ -135,7 +135,7 @@ Main.keyDown = function()
 			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+5)]);
 			Main.layout.page.load(pagearr[page_index].html);
-			Player.hide();
+			Player.destroy();
 
 			setTimeout(function(){
 				pagearr[page_index].object.onLoad();
@@ -150,7 +150,8 @@ Main.keyDown = function()
 			alert("main_key : Right");
 			//focus move to Page
 			setTimeout(function(){
-				pagearr[page_index].object.focus();
+			    pagearr[page_index].object.focus();
+			    alert("포커스 넘기기 성공");
 			},10);			
 			Main.layout.sideBar.removeClass('focus');
 			// select 

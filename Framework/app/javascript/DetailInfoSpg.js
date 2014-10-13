@@ -30,7 +30,7 @@ DetailInfoSpg.onLoad = function () {
         jQuery('#reserveButton').hide();//'SMS 알람 받기' 버튼을 없앤다.
         $('.arrow').css("display","block");
         document.getElementById('arrow_up').style.marginTop="20px";
-        document.getElementById('arrow_down').style.marginTop="900px";
+        document.getElementById('arrow_down').style.marginTop = "900px";
     }
     else if (page_index == 3) {//편성표에서 '상세보기'
         jQuery('#reserveButton').append('<div>SMS 알람 받기</div>');
@@ -65,6 +65,7 @@ DetailInfoSpg.onLoad = function () {
                         });
                         //상품 이미지로 바로 포커스를 맞춘다.
                         DetailInfoSpg.image.addClass('focus');
+                        DetailInfoSpg_index = 1;
                     }
                     tempIndex++;
                 });
@@ -85,12 +86,9 @@ DetailInfoSpg.onLoad = function () {
         });
         //'SMS 알람 받기' 버튼에 포커스를 맞추고 시작한다.
         DetailInfoSpg.reserve.addClass('focus');
+        
     }
-    
-
-    
 };
-
 
 
 DetailInfoSpg.focus = function () {
@@ -99,6 +97,7 @@ DetailInfoSpg.focus = function () {
     // focus initialize
     DetailInfoSpg_index = 0;
     detailImageScrollNumber = 0;
+    detailImageHeight = 0;
 };
 
 DetailInfoSpg.enableKeys = function () {
@@ -109,6 +108,8 @@ DetailInfoSpg.keyDown = function () {
     alert("DetailInfoSpg keyDown");
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode + " ,index:" + DetailInfoSpg_index);
+    if (detailImageHeight==0)//아직 이미지의 높이가 구해지지 않았으면
+        detailImageHeight = document.getElementById('detailImg').height;
 
     switch (keyCode) {
         case tvKey.KEY_EXIT:
@@ -127,8 +128,6 @@ DetailInfoSpg.keyDown = function () {
 
             else if (page_index == 3) //편성표에서 '상세보기'
                 TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-
-
 
             jQuery('#DetailInfoSpg').hide();//상세보기 페이지를 닫는다.
 
@@ -166,10 +165,7 @@ DetailInfoSpg.keyDown = function () {
                 DetailInfoSpg.image.addClass('focus');
                 DetailInfoSpg.reserve.removeClass('focus');
                 DetailInfoSpg_index = 1;
-                //사진 높이를 구한다. -- 스크롤에 이용됨
-                //detailImageHeight = jQuery('#detailImage').find('img').height();
-                detailImageHeight = document.getElementById('detailImg').height;
-                alert(detailImageHeight);
+                
                 // arrow image display block
                 $('.arrow').css("display","block");
             }
