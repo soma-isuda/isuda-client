@@ -18,7 +18,7 @@
 	margin:40px 20px 0px 40px;
 	width: 1703px;
 	height: 100%;
-	background-image: url("../../img/kkk.png");
+	background-image: url("../../img/main1.PNG");
 
 }
 
@@ -53,10 +53,8 @@
 	display: none;
 }
 #MultiWatchPg_btn1{
-	margin-top: 240px;
-	margin-left: 90px;
-	font-size: 50px;
-
+	margin-top: 280px;
+	margin-left: 1300px;
 }
 
 #MultiWatchPg_btn2{
@@ -66,12 +64,12 @@
 }
 
 .button {
-	width: 720px;
-	height: 80px;
-	font-size: 25px;
+	width: 300px;
+	height: 62px;
+	font-size: 30px;
+	line-height: 62px;
 	background-color: white;
 	text-align: center;
-	padding: 15px;
 }
 /*화면 중간 스마트 홈쇼핑 문구*/
 #mainTitle {
