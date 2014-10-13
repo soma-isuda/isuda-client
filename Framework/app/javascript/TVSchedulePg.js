@@ -79,17 +79,19 @@ TVSchedulePg.onLoad = function () {
         midElem: jQuery('#mid').find('ul>li'),
         bigElem: jQuery('#big').find('ul>li')
     });
+    var day = new Array('일', '월', '화', '수', '목', '금', '토');
     var tempDate = new Date();
     var tempString = '';
     tempString += tempDate.getFullYear() + "년 ";
     tempString += (tempDate.getMonth() + 1) + "월 ";
-    tempString += tempDate.getDate() + "일 ~ ";
-
+    tempString += tempDate.getDate() + "일  ";
+    tempString += day[tempDate.getDay()]+"요일 ~";
     //내일 모레 날짜
     tempDate = new Date(tempDate.valueOf() + (48 * 60 * 60 * 1000));
     tempString += tempDate.getFullYear() + "년 ";
     tempString += (tempDate.getMonth() + 1) + "월 ";
-    tempString += tempDate.getDate() + "일";
+    tempString += tempDate.getDate() + "일 ";
+    tempString += day[tempDate.getDay()] + "요일";
 
     jQuery('#product>#product_nav').append(tempString);
 
@@ -196,7 +198,7 @@ TVSchedulePg.bigKeyDown = function () {
             alert("TVSchedulePg_key : Left");
             //메뉴 선택으로 포커스를 다시 넘긴다.
             TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
-
+            $(".sideBarMenuText").css("display", "block");
             Main.focus();
             break;
 
@@ -679,10 +681,19 @@ TVSchedulePg.listProcess = function (data) {
 
         productNumber++;
         //시간을 형태에 맞게 바꾼다.
+        //    tempDate = new Date(tempDate.valueOf() + (48 * 60 * 60 * 1000));
+
+        var beforeTime = new Date(value.productStartTime);
+        beforeTime = new Date(beforeTime.valueOf() + (60 * 60 * 9 * 1000));
+        beforeTime = beforeTime.toISOString();
+        var beforeTime_end = new Date(value.productEndTime);
+        beforeTime_end = new Date(beforeTime_end.valueOf() + (60 * 60 * 9 * 1000));
+        beforeTime_end = beforeTime_end.toISOString();
+
         var tempString = '';
-        tempString = value.productStartTime.split(/[-T:\.Z]/);
+        tempString = beforeTime.split(/[-T:\.Z]/);
         timeRefined += tempString[1] + "월" + tempString[2] + "일 " + tempString[3] + "시" + tempString[4] + "분 ~ ";
-        tempString = value.productEndTime.split(/[-T:\.Z]/);
+        tempString = beforeTime_end.split(/[-T:\.Z]/);
         timeRefined += tempString[3] + "시" + tempString[4] + "분";
 
 

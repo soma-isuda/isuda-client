@@ -28,8 +28,8 @@ DetailInfoSpg.onLoad = function () {
 
     if (page_index == 2 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
         jQuery('#reserveButton').hide();//'SMS 알람 받기' 버튼을 없앤다.
-        $('.arrow').css("display","block");
-        document.getElementById('arrow_up').style.marginTop="20px";
+        $('.arrow').css("display", "block");
+        document.getElementById('arrow_up').style.marginTop = "20px";
         document.getElementById('arrow_down').style.marginTop = "900px";
     }
         //편성표에서 '상세보기' || 선택보기에서 '추천상품'->'상세보기'
@@ -42,40 +42,35 @@ DetailInfoSpg.onLoad = function () {
 
     //상품 상세 정보 이미지를 로드한다.
     alert(productLoadedId[productListIndex]);
-    //var detailImgPath = SERVER_ADDRESS + '/pageShots/CJ201410030200.jpeg';
-     // !!!!!!!!!!!!!일단 서버쪽에서 이미지를 다 넣으면 주석만 풀면 됨!!!!!!!!!!!!!!!!
-    if (page_index == 2 && SelectWatchPg_index==0) { //선택보기에서 '상세보기'
+    if (page_index == 2 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
+        var currentChannel = Player.getChannel();
         $.ajax({
             url: SERVER_ADDRESS + '/now',
             type: 'GET',
             dataType: 'json',
+            data: ({
+                providerNum: currentChannel
+            }),
             success: function (data) {
-                var tempIndex = 0;
-                var currentChannel = Player.getChannel();
                 alert('현재 채널 : ' + currentChannel);
-                $.each(data, function (key, value) {
-                    if (tempIndex == currentChannel) {
-                        var detailImgPath = SERVER_ADDRESS + '/pageShots/' + value.id + '.jpeg';
-                        var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
-                        tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
-                        tempString += "'/>";
-                        jQuery('#detailImage').append(tempString);
-                        jQuery.extend(DetailInfoSpg, {
-                            reserve: jQuery('#reserveButton').find('div'),
-                            image: jQuery('#detailImage')
-                        });
-                        //상품 이미지로 바로 포커스를 맞춘다.
-                        DetailInfoSpg.image.addClass('focus');
-                        DetailInfoSpg_index = 1;
-                    }
-                    tempIndex++;
+                var detailImgPath = SERVER_ADDRESS + '/pageShots/' + data.id + '.jpeg';
+                var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
+                tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
+                tempString += "'/>";
+                jQuery('#detailImage').append(tempString);
+                jQuery.extend(DetailInfoSpg, {
+                    reserve: jQuery('#reserveButton').find('div'),
+                    image: jQuery('#detailImage')
                 });
+                //상품 이미지로 바로 포커스를 맞춘다.
+                DetailInfoSpg.image.addClass('focus');
+                DetailInfoSpg_index = 1;
             }
         });
     }
-    
+
     else if (page_index == 3 || (page_index == 2 && SelectWatchPg_index == 1)) { //편성표에서 '상세보기' 또는 //선택보기에서 '추천상품'->'상세보기'
-        if(page_index==3)
+        if (page_index == 3)
             var detailImgPath = SERVER_ADDRESS + '/pageShots/' + productLoadedId[productListIndex] + '.jpeg';
         else if (page_index == 2 && SelectWatchPg_index == 1)
             var detailImgPath = SERVER_ADDRESS + '/pageShots/' + ComparePriceSpg.currentProductId + '.jpeg';
@@ -112,7 +107,7 @@ DetailInfoSpg.keyDown = function () {
     alert("DetailInfoSpg keyDown");
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode + " ,index:" + DetailInfoSpg_index);
-    if (detailImageHeight==0)//아직 이미지의 높이가 구해지지 않았으면
+    if (detailImageHeight == 0)//아직 이미지의 높이가 구해지지 않았으면
         detailImageHeight = document.getElementById('detailImg').height;
 
     switch (keyCode) {
@@ -126,7 +121,7 @@ DetailInfoSpg.keyDown = function () {
             alert("DetailInfoSpg_key : Left");
             widgetAPI.blockNavigation(event);
             alert("LEFT!!!!!");
-            $('.arrow').css("display","none");
+            $('.arrow').css("display", "none");
             if (page_index == 2) //선택보기에서 '상세보기'
                 SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
@@ -150,17 +145,17 @@ DetailInfoSpg.keyDown = function () {
                     DetailInfoSpg_index = 0;
 
                     // arrow image display none
-                    $('.arrow').css("display","none");
+                    $('.arrow').css("display", "none");
                 }
                 detailImageScrollNumber--;
                 var pxMove = '-' + 200 * detailImageScrollNumber + 'px';
                 DetailInfoSpg.image.find('img').css("margin-top", pxMove);
 
                 // arrow animate
-                $("#arrow_up").attr('src',arrowImgArr[2]);
-                    setTimeout(function(){
-                        $("#arrow_up").attr('src',arrowImgArr[0]);
-                },300); 
+                $("#arrow_up").attr('src', arrowImgArr[2]);
+                setTimeout(function () {
+                    $("#arrow_up").attr('src', arrowImgArr[0]);
+                }, 300);
             }
             break;
         case tvKey.KEY_DOWN:
@@ -169,9 +164,9 @@ DetailInfoSpg.keyDown = function () {
                 DetailInfoSpg.image.addClass('focus');
                 DetailInfoSpg.reserve.removeClass('focus');
                 DetailInfoSpg_index = 1;
-                
+
                 // arrow image display block
-                $('.arrow').css("display","block");
+                $('.arrow').css("display", "block");
             }
             else if (DetailInfoSpg_index == 1) {//상품 이미지에 포커스가 있을 때
                 //스크롤 구현하는 부분
@@ -183,11 +178,11 @@ DetailInfoSpg.keyDown = function () {
                     DetailInfoSpg.image.find('img').css("margin-top", pxMove);
 
                     // arrow image
-                    $("#arrow_down").attr('src',arrowImgArr[3]);
-                    setTimeout(function(){
-                        $("#arrow_down").attr('src',arrowImgArr[1]);
-                    },300); 
-                    
+                    $("#arrow_down").attr('src', arrowImgArr[3]);
+                    setTimeout(function () {
+                        $("#arrow_down").attr('src', arrowImgArr[1]);
+                    }, 300);
+
                 }
             }
             break;
@@ -197,28 +192,28 @@ DetailInfoSpg.keyDown = function () {
             alert("DetailInfoSpg_key : Enter");
             if (DetailInfoSpg_index == 0) {//버튼 부분에 포커스가 있을 때
                 //번호 선택 부분으로 포커스를 넘긴다.
-                if (page_index == 3 || (page_index == 2 && SelectWatchPg_index == 1)){//편성표 또는 추천상품->상세보기에서 'SMS 알람 받기'를 눌렀을 때
+                if (page_index == 3 || (page_index == 2 && SelectWatchPg_index == 1)) {//편성표 또는 추천상품->상세보기에서 'SMS 알람 받기'를 눌렀을 때
                     subPage_index = 3;
                     Main.layout.subPage.load(subPageArr[subPage_index].html);
                     setTimeout(function () {
                         subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
                     }, 10);
                 }
-                    /*
-                else if (page_index == 4) {//마이페이지에서 '알람 삭제'를 눌렀을 때(단일 상품 예약 삭제)
-                    $.ajax({
-                        type: "DELETE", // POST형식으로 폼 전송
-                        url: SERVER_ADDRESS + "/sAlarms", // 목적지
-                        data: {
-                            phoneNumber: savedNumber[MyPg_numberIndex],
-                            productId: MyPg_currentProductId
-                        },
-                        dataType: "text",
-                        success: function (data) {
-                            alert("단일 상품 예약 삭제 완료");
-                        }
-                    });
-                }*/
+                /*
+            else if (page_index == 4) {//마이페이지에서 '알람 삭제'를 눌렀을 때(단일 상품 예약 삭제)
+                $.ajax({
+                    type: "DELETE", // POST형식으로 폼 전송
+                    url: SERVER_ADDRESS + "/sAlarms", // 목적지
+                    data: {
+                        phoneNumber: savedNumber[MyPg_numberIndex],
+                        productId: MyPg_currentProductId
+                    },
+                    dataType: "text",
+                    success: function (data) {
+                        alert("단일 상품 예약 삭제 완료");
+                    }
+                });
+            }*/
             }
 
             break;

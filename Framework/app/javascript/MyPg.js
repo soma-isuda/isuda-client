@@ -223,7 +223,7 @@ MyPg.selectKeyDown = function () {
             widgetAPI.blockNavigation(event);
             alert("MyPg_key : RETURN or LEFT");
             MyPg.number.eq(MyPg_numberIndex).removeClass('focus');
-            
+            $(".sideBarMenuText").css("display", "block");
             Main.focus();//사이드바 다시 포커스를 넘긴다.
             //jQuery('#MyPg').hide();//번호 선택 페이지를 닫는다.
             break;

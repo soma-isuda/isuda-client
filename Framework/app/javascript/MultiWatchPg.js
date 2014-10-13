@@ -176,6 +176,7 @@ MultiWatchPg.keyDown = function()
 			$(productImg[MultiWatchPg_index]).css("display","none");
 			clearInterval(refresh);
 			clearInterval(adjustChange);
+			$(".sideBarMenuText").css("display", "block");
 			Main.focus();
 			break;
 		case tvKey.KEY_LEFT:
