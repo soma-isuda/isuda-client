@@ -43,6 +43,16 @@ ComparePriceSpg.onLoad = function () {
                                 //시간을 형태에 맞게 바꾼다.
                                 var tempString = '';
                                 var timeRefined = '';
+
+                                //시간에 9시간을 더한다.
+                                var beforeTime = new Date(value.productStartTime);
+                                beforeTime = new Date(beforeTime.valueOf() + (60 * 60 * 9 * 1000));
+                                beforeTime = beforeTime.toISOString();
+                                var beforeTime_end = new Date(value.productEndTime);
+                                beforeTime_end = new Date(beforeTime_end.valueOf() + (60 * 60 * 9 * 1000));
+                                beforeTime_end = beforeTime_end.toISOString();
+                                //-----------------------------
+
                                 tempString = value.productStartTime.split(/[-T:\.Z]/);
                                 timeRefined += tempString[1] + "월" + tempString[2] + "일 " + tempString[3] + "시" + tempString[4] + "분 ~ ";
                                 tempString = value.productEndTime.split(/[-T:\.Z]/);
