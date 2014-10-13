@@ -688,10 +688,28 @@ SelectNumberSpg.submitKeyDown = function () {
                         }
                     });
 
+                
                     SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.   
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
                 }
-                
+                else if (page_index == 2 && SelectWatchPg_index == 1) {//'선택보기'->'추천상품'->'상세보기'
+                    $.ajax({
+                        type: "POST", // POST형식으로 폼 전송
+                        url: SERVER_ADDRESS + "/sAlarms", // 목적지
+                        data: {
+                            productId: ComparePriceSpg.currentProductId,
+                            phoneNumber: _numberPost
+                        },
+                        dataType: "text",
+                        success: function (data) {
+                            alert("알람 등록 성공");
+                            popupMessage("해당 상품이 <br> 예약되었습니다.");
+                        }
+                    });
+                    ComparePriceSpg.body.empty();//'추천 상품'부분의 내용을 지운다.
+                    SelectWatchPg.focus();//선택보기로 포커스를 넘긴다.
+                    jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
+                }
             }
             //'번호 삭제' 버튼을 눌렀을 때
             else if (SelectNumberSpg_submitIndex == 1) {

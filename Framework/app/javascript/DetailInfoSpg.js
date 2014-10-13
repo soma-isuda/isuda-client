@@ -26,13 +26,14 @@ DetailInfoSpg.onLoad = function () {
     //현재 방송중인 상품이면 '방송 시청',
     //그렇지 않으면 'SMS 알람 받기'를 출력한다. -> 일단 보류
 
-    if (page_index == 2) {//선택보기에서 '상세보기'
+    if (page_index == 2 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
         jQuery('#reserveButton').hide();//'SMS 알람 받기' 버튼을 없앤다.
         $('.arrow').css("display","block");
         document.getElementById('arrow_up').style.marginTop="20px";
         document.getElementById('arrow_down').style.marginTop = "900px";
     }
-    else if (page_index == 3) {//편성표에서 '상세보기'
+        //편성표에서 '상세보기' || 선택보기에서 '추천상품'->'상세보기'
+    else if (page_index == 3 || (page_index == 2 && SelectWatchPg_index == 1)) {
         jQuery('#reserveButton').append('<div>SMS 알람 받기</div>');
     }
     else if (page_index == 4) {
@@ -43,7 +44,7 @@ DetailInfoSpg.onLoad = function () {
     alert(productLoadedId[productListIndex]);
     //var detailImgPath = SERVER_ADDRESS + '/pageShots/CJ201410030200.jpeg';
      // !!!!!!!!!!!!!일단 서버쪽에서 이미지를 다 넣으면 주석만 풀면 됨!!!!!!!!!!!!!!!!
-    if (page_index == 2) { //선택보기에서 '상세보기'
+    if (page_index == 2 && SelectWatchPg_index==0) { //선택보기에서 '상세보기'
         $.ajax({
             url: SERVER_ADDRESS + '/now',
             type: 'GET',
@@ -72,8 +73,12 @@ DetailInfoSpg.onLoad = function () {
             }
         });
     }
-    else if (page_index == 3) { //편성표에서 '상세보기'
-        var detailImgPath = SERVER_ADDRESS + '/pageShots/' + productLoadedId[productListIndex] + '.jpeg';
+    
+    else if (page_index == 3 || (page_index == 2 && SelectWatchPg_index == 1)) { //편성표에서 '상세보기' 또는 //선택보기에서 '추천상품'->'상세보기'
+        if(page_index==3)
+            var detailImgPath = SERVER_ADDRESS + '/pageShots/' + productLoadedId[productListIndex] + '.jpeg';
+        else if (page_index == 2 && SelectWatchPg_index == 1)
+            var detailImgPath = SERVER_ADDRESS + '/pageShots/' + ComparePriceSpg.currentProductId + '.jpeg';
 
 
         var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
@@ -86,7 +91,6 @@ DetailInfoSpg.onLoad = function () {
         });
         //'SMS 알람 받기' 버튼에 포커스를 맞추고 시작한다.
         DetailInfoSpg.reserve.addClass('focus');
-        
     }
 };
 
@@ -193,13 +197,14 @@ DetailInfoSpg.keyDown = function () {
             alert("DetailInfoSpg_key : Enter");
             if (DetailInfoSpg_index == 0) {//버튼 부분에 포커스가 있을 때
                 //번호 선택 부분으로 포커스를 넘긴다.
-                if (page_index == 3) {//편성표에서 'SMS 알람 받기'를 눌렀을 때
+                if (page_index == 3 || (page_index == 2 && SelectWatchPg_index == 1)){//편성표 또는 추천상품->상세보기에서 'SMS 알람 받기'를 눌렀을 때
                     subPage_index = 3;
                     Main.layout.subPage.load(subPageArr[subPage_index].html);
                     setTimeout(function () {
                         subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
                     }, 10);
                 }
+                    /*
                 else if (page_index == 4) {//마이페이지에서 '알람 삭제'를 눌렀을 때(단일 상품 예약 삭제)
                     $.ajax({
                         type: "DELETE", // POST형식으로 폼 전송
@@ -213,7 +218,7 @@ DetailInfoSpg.keyDown = function () {
                             alert("단일 상품 예약 삭제 완료");
                         }
                     });
-                }
+                }*/
             }
 
             break;

@@ -581,7 +581,7 @@ TVSchedulePg.listKeyDown = function () {
                         jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).append('<div class="schedule_product_focus_"></div><div class="schedule_product_focus">상세보기</div>');
 
                         if (productListLine != 0) {
-                            var pxMove = '-' + (542 * productListLine) + 'px';
+                            var pxMove = '-' + (540 * productListLine) + 'px';
                             jQuery('#product').css("top", pxMove);
                         }
                     }
@@ -726,7 +726,6 @@ TVSchedulePg.listProcess = function (data) {
         tempString = '* ' + firstCategory[big_index] + ' > ' + secondCategory[big_index][mid_index] + ' 에 총 ' + productNumber + '개의 상품이 있습니다.';
     else
         tempString = '* 총 ' + productNumber + '개의 상품이 있습니다.';
-
     jQuery('#product_header>#totalNumber').empty();
 
     jQuery('#product_header').find('div:nth-child(2)').append(tempString);

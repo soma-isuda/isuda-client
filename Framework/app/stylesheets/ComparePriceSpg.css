@@ -9,9 +9,111 @@
 #ComparePriceSpg_header{
     width:100%;
     height:100px;
+    line-height:100px;
     text-align:left;
     font-size:30px;
     box-sizing: border-box;
     padding: 45px 60px 25px 60px;
 
+}
+
+
+
+
+/*상품 하나가 차지하는 공간*/
+.recommended_product {
+    position: relative;
+    
+    width: 650px;
+    height: 700px;
+    box-sizing: border-box;
+    margin: 35px;
+    /*border: 1px solid #989898;*/
+    /*background-color:#fffbf0;*/
+    background-color: white;
+    overflow: hidden;
+    text-align:center;
+}
+
+.recommended_product > .recommended_imgArea{
+    width: 650px;
+    /*height: 270px;*/
+    box-sizing: border-box;
+}
+/*사진 크기*/
+.recommended_product > .recommended_imgArea > img {
+   /* position: absolute;*/
+    width: 400px;
+    height: 400px;
+    margin-left:125px;
+    margin-right:125px;
+}
+/*방송 시간*/
+.recommended_product > .recommended_productTime {
+    box-sizing: border-box;
+    width: 650px;
+    height: 80px;
+    background-color: #989898;
+    color: yellow;
+    line-height: 80px;
+    font-size: 30px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.recommended_product > .recommended_productInfoArea {
+    width: 650px;
+    height: 180px;
+    color: #232323;
+}
+
+
+.recommended_product > .recommended_productInfoArea div {
+    width: 650px;
+    box-sizing: border-box;
+    padding: 15px 15px 0px 15px;
+}
+
+.recommended_product > .recommended_productInfoArea > .recommended_productName {
+    width: 650px;
+    height: 90px;
+    font-size: 30px;
+    overflow: hidden;
+}
+
+.recommended_product > .recommended_productInfoArea > .recommended_productPrice {
+    text-align: right;
+    width: 650px;
+    height: 90px;
+    font-size: 30px;    
+}
+
+.recommended_product > .recommended_productInfoArea > .recommended_productPrice > p{
+    font-size: 25px;    
+}
+
+#ComparePriceSpg_footer{
+    box-sizing:border-box;
+    position:relative;
+    width:720px;
+    height:122px;
+}
+
+#ComparePriceSpg_footer > div{
+    position:absolute;
+    top:30px;
+    left:235px;
+    width:250px;
+    height:62px;
+    line-height:62px;
+    text-align:center;
+    font-size:30px;
+    color:black;
+    background-color:#989898;
+}
+
+
+#ComparePriceSpg_footer>div.focus{
+    background-color:#5ccece;
+    color:black;
 }
