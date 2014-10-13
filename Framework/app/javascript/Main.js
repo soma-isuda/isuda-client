@@ -1,12 +1,15 @@
 var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
-// volume
-var PL_NNAVI_STATE_BANNER_VOL = 1;
-var pluginAPI = new Common.API.Plugin();
 
-	pluginAPI.unregistKey(tvKey.KEY_VOL_UP);
-	pluginAPI.unregistKey(tvKey.KEY_VOL_DOWN);
-	pluginAPI.unregistKey(tvKey.KEY_MUTE);
+var PL_NNAVI_STATE_BANNER_NONE = 0;
+var PL_NNAVI_STATE_BANNER_VOL = 1;
+var PL_NNAVI_STATE_BANNER_VOL_CH = 2;
+var pluginAPI = new Common.API.Plugin();
+var tvKey = new Common.API.TVKeyValue();
+    pluginAPI.unregistKey(tvKey.KEY_VOL_UP);
+    pluginAPI.unregistKey(tvKey.KEY_VOL_DOWN);
+    pluginAPI.unregistKey(tvKey.KEY_MUTE);
+    pluginAPI.SetBannerState(PL_NNAVI_STATE_BANNER_VOL);
 
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
@@ -248,6 +251,22 @@ popupkeyDown = function(){
 			focusBack.focus();
 			$('#popupMessageButton').css("display","none");
 			break;
+		case tvKey.KEY_VOL_UP:
+        case tvKey.KEY_PANEL_VOL_UP:
+            alert("VOL_UP");
+            if(this.mute == 0)
+            	Audio.setRelativeVolume(0);
+            break;
+        case tvKey.KEY_VOL_DOWN:
+        case tvKey.KEY_PANEL_VOL_DOWN:
+            alert("VOL_DOWN");
+            if(this.mute == 0)
+            	 Audio.setRelativeVolume(1);
+            break;     
+        case tvKey.KEY_MUTE:
+            alert("MUTE");
+            this.muteMode();
+            break;
 		default:
 			alert("Unhandled key");
 			break;

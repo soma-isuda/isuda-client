@@ -104,6 +104,22 @@ SMSSharingSpg.bodyKeyDown = function () {
             SMSSharingSpg.anchor.input.focus();//번호 입력 부분에 포커스를 넘긴다.
             SMSSharingSpg.input.eq(1).addClass('focus');
             break;
+        case tvKey.KEY_VOL_UP:
+        case tvKey.KEY_PANEL_VOL_UP:
+            alert("VOL_UP");
+            if(this.mute == 0)
+                Audio.setRelativeVolume(0);
+            break;
+        case tvKey.KEY_VOL_DOWN:
+        case tvKey.KEY_PANEL_VOL_DOWN:
+            alert("VOL_DOWN");
+            if(this.mute == 0)
+                 Audio.setRelativeVolume(1);
+            break;     
+        case tvKey.KEY_MUTE:
+            alert("MUTE");
+            this.muteMode();
+            break;
         default:
             alert("Unhandled key");
             break;
@@ -269,6 +285,22 @@ SMSSharingSpg.inputKeyDown = function () {
             }
 
             break;
+        case tvKey.KEY_VOL_UP:
+        case tvKey.KEY_PANEL_VOL_UP:
+            alert("VOL_UP");
+            if(this.mute == 0)
+                Audio.setRelativeVolume(0);
+            break;
+        case tvKey.KEY_VOL_DOWN:
+        case tvKey.KEY_PANEL_VOL_DOWN:
+            alert("VOL_DOWN");
+            if(this.mute == 0)
+                 Audio.setRelativeVolume(1);
+            break;     
+        case tvKey.KEY_MUTE:
+            alert("MUTE");
+            this.muteMode();
+            break;
         default:
             alert("Unhandled key");
             break;
@@ -362,6 +394,22 @@ SMSSharingSpg.submitKeyDown = function () {
             jQuery('#SMSSharingSpg').hide();//페이지를 닫는다.			
             SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.         
             break;
+        case tvKey.KEY_VOL_UP:
+        case tvKey.KEY_PANEL_VOL_UP:
+            alert("VOL_UP");
+            if(this.mute == 0)
+                Audio.setRelativeVolume(0);
+            break;
+        case tvKey.KEY_VOL_DOWN:
+        case tvKey.KEY_PANEL_VOL_DOWN:
+            alert("VOL_DOWN");
+            if(this.mute == 0)
+                 Audio.setRelativeVolume(1);
+            break;     
+        case tvKey.KEY_MUTE:
+            alert("MUTE");
+            this.muteMode();
+            break;
         default:
             alert("Unhandled key");
             break;
@@ -403,6 +451,22 @@ SMSSharingSpg.keyDown = function()
 			//focus move to selectWatchPg
 			alert("SMSSharingSpg_key : Enter");
 			break;
+        case tvKey.KEY_VOL_UP:
+        case tvKey.KEY_PANEL_VOL_UP:
+            alert("VOL_UP");
+            if(this.mute == 0)
+                Audio.setRelativeVolume(0);
+            break;
+        case tvKey.KEY_VOL_DOWN:
+        case tvKey.KEY_PANEL_VOL_DOWN:
+            alert("VOL_DOWN");
+            if(this.mute == 0)
+                 Audio.setRelativeVolume(1);
+            break;     
+        case tvKey.KEY_MUTE:
+            alert("MUTE");
+            this.muteMode();
+            break;
 		default:
 			alert("Unhandled key");
 			break;
