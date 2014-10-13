@@ -468,9 +468,6 @@ TVSchedulePg.listKeyDown = function () {
                 if (big_index == 0) {//'대분류 전체보기' 이면
                     //다시 대분류로 포커스를 넘긴다.
                     TVSchedulePg.anchor.big.focus();
-                    jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
-                    jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus_').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
-
                     TVSchedulePg.bigElem.eq(big_index).removeClass('select');
 
                 }
@@ -479,15 +476,18 @@ TVSchedulePg.listKeyDown = function () {
                     TVSchedulePg.midElem.eq(mid_index).removeClass('select');
                     TVSchedulePg.anchor.mid.focus();
                     //포커스가 넘어가면 상품들을 없앤다.
-                    jQuery('#product_list_pg > ul').empty();
+//                    jQuery('#product_list_pg > ul').empty();
 
                 }
                 //'총 몇개의 상품이 있습니다' 부분을 없앤다.
-                jQuery('#product_header>#totalNumber').empty();
+//                jQuery('#product_header>#totalNumber').empty();
 
                 if (productIndex == 0) {//중분류 예약에 포커스가 있었을 때
                     jQuery('#product>#product_header>#reserve_Category').removeClass('focus');
                 }
+                    jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
+                    jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus_').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
+                
             }
 
                 //그렇지 않을때

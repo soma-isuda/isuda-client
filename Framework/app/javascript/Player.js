@@ -8,13 +8,18 @@ var videoURL = ["http://cjmall.live.cdn.visioncloud.co.kr/cjmalllive/stream2/pla
 var Player = {
     channel: 0,
     player: document.getElementById("player"),
+    playing: false,
     //	외부 호출 함수 
     init: function (ch) {
         this.setChannel(ch);
         this.play();
+        this.playing = true;
     },
     destroy: function () {
-        this.getPlayer().src = '';
+        if(this.playing){
+            this.getPlayer().src = '';
+            this.playing = false;
+        }
     },
     channelUp: function () {
         this.setChannel((this.channel + 1) % videoURL.length);
