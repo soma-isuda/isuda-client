@@ -1,11 +1,12 @@
 var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
+var pluginAPI = new Common.API.Plugin();
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_IN;
+var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
 var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
 var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
-var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
+var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_OUT;
 // pagearr : information about pages in pageinfo
 var page_index = 1;
 var subPage_index = 1;//현재 열려있는 서브 페이지의 넘버
@@ -49,6 +50,13 @@ Main.onLoad = function()
 	this.focus();
 	//Main.layout.popUp.load('app/html/popUp.html');
 	Player.destroy();
+
+	// volume
+	pluginAPI.unregistKey(tvKey.KEY_VOL_UP);
+	pluginAPI.unregistKey(tvKey.KEY_VOL_DOWN);
+	pluginAPI.unregistKey(tvKey.KEY_MUTE);
+
+
 	widgetAPI.sendReadyEvent();
 	alert('Main_onLoad completed');
 

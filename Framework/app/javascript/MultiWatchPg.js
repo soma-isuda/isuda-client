@@ -92,7 +92,7 @@ MultiWatchPg.onLoad = function(){
 		$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
 	}
 	//this.focus();
-	
+	widgetAPI.sendReadyEvent();
 	
 };
 
@@ -107,7 +107,7 @@ MultiWatchPg.focus = function(){
 	$(productImg[MultiWatchPg_index]).css("display","block");
 	setTimeout(function(){
 		refresh = setInterval(function(){MultiWatchPg.remainedTime();},1000);
-		adjustChange = setInterval(function(){MultiWatchPg.adjustChange();},10000);
+		//adjustChange = setInterval(function(){MultiWatchPg.adjustChange();},10000);
 	},10);	
 
 };
