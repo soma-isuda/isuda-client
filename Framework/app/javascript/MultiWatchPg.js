@@ -1,3 +1,4 @@
+
 var productImg = ["dummy","dummy","#productImg0","#productImg1","#productImg2","#productImg3","#productImg4","#productImg5"];
 var MultiWatchPgItem = ["#MultiWatchPgItem0","#MultiWatchPgItem1","#MultiWatchPgItem2","#MultiWatchPgItem3","#MultiWatchPgItem4","#MultiWatchPgItem5"];
 var color = ["#00a9e0","#cadb2a","#f4614d","#e4010d","#e51937","#f4811f"];
@@ -286,4 +287,5 @@ MultiWatchPg.keyDown = function()
 			alert("Unhandled key");
 			break;
 	}
+
 };
