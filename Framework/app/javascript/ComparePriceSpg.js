@@ -29,7 +29,7 @@ ComparePriceSpg.onLoad = function () {
             alert('현재 채널 : ' + currentChannel);
             $.each(data, function (key, value) {
                 if (tempIndex == currentChannel) {
-                    this.currentProductId = value.id;
+                    ComparePriceSpg.currentProductId = value.id;
                     alert(value.id);
                     $.ajax({
                         url: SERVER_ADDRESS + "/recommendedProducts",
