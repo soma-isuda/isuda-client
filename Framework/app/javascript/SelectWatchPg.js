@@ -20,19 +20,18 @@ SelectWatchPg.onLoad = function(ch)
 	jQuery('#SelectWatchPgMenu').hide();
 		
 	Player.init(ch);
-	
+	SelectWatchPg_index = 0;
 };
 
 SelectWatchPg.focus = function(){ 
 	
 	alert("SelectWatchPg focus");
-	SelectWatchPg.anchor.main.focus();
-	// focus initialize
-	//alert(SelectWatchPgMenu.size);
-	SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
-	SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
-	jQuery('#SelectWatchPgMenu').show();
-
+    
+	jQuery('#SelectWatchPgMenu').show(0, function () {
+	    SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
+	    SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
+	    SelectWatchPg.anchor.main.focus();
+	});
 };
 
 SelectWatchPg.keyDown = function()

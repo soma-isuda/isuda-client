@@ -150,7 +150,8 @@ Main.keyDown = function()
 			alert("main_key : Right");
 			//focus move to Page
 			setTimeout(function(){
-				pagearr[page_index].object.focus();
+			    pagearr[page_index].object.focus();
+			    alert("포커스 넘기기 성공");
 			},10);			
 			Main.layout.sideBar.removeClass('focus');
 			// select 
