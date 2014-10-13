@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #SelectWatchPg{
 	position: absolute;
 }
@@ -46,3 +47,56 @@
 	margin-left: 1920px;
 }
 */
+=======
+#SelectWatchPg{
+	position: absolute;
+}
+#SelectWatchPgMenu {
+	float: left;
+	
+	width: 168px;
+	height: 1080px;
+
+	/*border-left: solid #ffffff;
+	border-right: solid #ffffff;	
+	background-color: #f0f0d8;*/
+	border-left: solid #585858;
+	border-right: solid #585858;	
+	background-color: #232323;
+}
+#SelectWatchPgMenu ul li {
+	list-style:none;
+	margin: 0 auto;
+	margin-top:25px;
+	padding: 35px;
+	width: 80px;
+	height: 80px;
+	font-size: 30px;
+	text-align: center;
+	/*background-color: #b7b7a4;*/
+	background-color: #989898;
+	color: white;
+
+}
+#SelectWatchPg.focus{
+	
+}
+#SelectWatchPgMenu ul li.focus { 
+ 	/*background-color: #001367;*/
+ 	background-color: #5ccece;
+ 	color: black;
+}
+#SelectWatchPgMenu ul li.select { 
+ 	/*background-color: #ff4916;*/
+ 	background-color: #ce534d;
+ 	color: white;	
+}
+
+
+/*#subPage{
+	width: 480px;
+	height: 100%;
+	margin-left: 1920px;
+}
+*/
+>>>>>>> 6d6531882c156d4bbbd293184c639e1354bfa45d

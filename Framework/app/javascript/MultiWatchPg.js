@@ -59,7 +59,7 @@ MultiWatchPg.onLoad = function(){
 			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"><div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="endTime"><p>방송 혜택 종료까지</p><p id="remainedTime' + cnt + '" class="remainedTime"></p></div><div class="name"><p>' +this.productName+ '</p></div><div class="price"><p>최대 혜택가 :</p><p class="productPrice">' + priceRefined + '</p></div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
 			    var remainedTime = new Object();
 				
-				remainedTime.hour = endTimeArr[cnt].hour-date.getHours()-1+9;
+				remainedTime.hour = endTimeArr[cnt].hour-date.getHours()+9;
 				remainedTime.minute = endTimeArr[cnt].minute-date.getMinutes()-1;
 				remainedTime.second = 59-date.getSeconds();
 

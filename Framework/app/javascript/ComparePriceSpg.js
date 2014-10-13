@@ -1,6 +1,6 @@
 
 var ComparePriceSpg= {
-	
+
 };
 
 ComparePriceSpg.onLoad = function()
@@ -12,7 +12,44 @@ ComparePriceSpg.onLoad = function()
 			main : jQuery('#anchor_ComparePriceSpg')
 		}
 	});
-	this.focus();	
+	this.focus();
+
+	$.ajax({
+	    url: SERVER_ADDRESS + '/now',
+	    type: 'GET',
+	    dataType: 'json',
+	    success: function (data) {
+	        var tempIndex = 0;
+	        var currentChannel = Player.getChannel();
+	        alert('현재 채널 : ' + currentChannel);
+	        $.each(data, function (key, value) {
+	            if (tempIndex == currentChannel) {
+	                var detailImgPath = SERVER_ADDRESS + '/pageShots/' + value.id + '.jpeg';
+	                var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
+	                tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
+	                tempString += "'/>";
+	                jQuery('#detailImage').append(tempString);
+	                jQuery.extend(DetailInfoSpg, {
+	                    reserve: jQuery('#reserveButton').find('div'),
+	                    image: jQuery('#detailImage')
+	                });
+	                //상품 이미지로 바로 포커스를 맞춘다.
+	                DetailInfoSpg.image.addClass('focus');
+	                DetailInfoSpg_index = 1;
+	            }
+	            tempIndex++;
+	        });
+	    }
+	});
+
+	$.ajax({
+	    url: SERVER_ADDRESS + "/recommendedProducts",
+	    type: 'GET',
+        dataType:'json',
+	    data: {
+            id=
+	    }
+	})
 };
 
 var ComparePriceSpg_index =0;

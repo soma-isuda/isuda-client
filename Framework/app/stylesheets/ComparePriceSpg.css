@@ -9,9 +9,18 @@
 #ComparePriceSpg_header{
     width:100%;
     height:100px;
+    line-height:100px;
     text-align:left;
     font-size:30px;
     box-sizing: border-box;
     padding: 45px 60px 25px 60px;
+
+}
+
+#ComparePriceSpg_body{
+
+}
+
+#ComparePriceSpg_footer{
 
 }
