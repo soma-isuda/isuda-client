@@ -89,7 +89,7 @@ MultiWatchPg.onLoad = function(){
 		refresh=0;
 	}
 	else if((MultiWatchPg_index>1)){
-		$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
+		//$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
 	}
 	//this.focus();
 	widgetAPI.sendReadyEvent();
@@ -224,7 +224,7 @@ MultiWatchPg.keyDown = function()
 			alert("MultiWatchPg_key : Up");
 			if(MultiWatchPg_index<2){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
+				//$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
 				MultiWatchPg_index += 6;
 				$(productImg[MultiWatchPg_index]).css("display","block");
 				
@@ -237,7 +237,7 @@ MultiWatchPg.keyDown = function()
 						$('#adfocusImg').css("display","block");
 					if (MultiWatchPg_index <0) 
 						MultiWatchPg_index=0;
-					$("#MultiWatchPg").animate({"top": "+=280px"}, "fast");
+					//$("#MultiWatchPg").animate({"top": "+=280px"}, "fast");
 					MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
 					
 				}
@@ -253,7 +253,7 @@ MultiWatchPg.keyDown = function()
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				MultiWatchPg_index = MultiWatchPg_index+3;
 				$(productImg[MultiWatchPg_index]).css("display","block");
-				$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
+				//$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
 			}
 			else if(MultiWatchPg_index>1){
 				$(productImg[MultiWatchPg_index]).css("display","none");
@@ -265,7 +265,8 @@ MultiWatchPg.keyDown = function()
 			break;
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
-			//focus move to selectWatchPg
+			//focus move to selectWatchPgㄴ
+			if ( MultiWatchPg_index==0) popupMessage("쿠폰이 발급<br>되었습니다.");
 			if (MultiWatchPg_index>=2) {
 				MultiWatchPg.anchor.main.removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
