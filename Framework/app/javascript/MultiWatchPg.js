@@ -23,8 +23,9 @@ MultiWatchPg.onLoad = function(){
 		url: SERVER_ADDRESS + '/now',
 		type : 'GET',
 		dataType : 'json',
-
+		
 		success : function (data) {
+			alert("ajax : success");
 			jQuery('#mainItem').find('ul').empty();
 			$.each(data, function() {
 				if (++cnt >5) {
