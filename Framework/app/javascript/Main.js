@@ -1,9 +1,8 @@
 var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 
-var PL_NNAVI_STATE_BANNER_NONE = 0;
+
 var PL_NNAVI_STATE_BANNER_VOL = 1;
-var PL_NNAVI_STATE_BANNER_VOL_CH = 2;
 var pluginAPI = new Common.API.Plugin();
 var tvKey = new Common.API.TVKeyValue();
     pluginAPI.unregistKey(tvKey.KEY_VOL_UP);
