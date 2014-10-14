@@ -15,7 +15,8 @@ SelectWatchPg.onLoad = function (ch) {
         }
         //focus: 0
     });
-    jQuery('#SelectWatchPgMenu').hide();
+    //    jQuery('#SelectWatchPgMenu').hide();
+    //    alert("hide");
 
     Player.init(ch);
     SelectWatchPg_index = 0;
@@ -24,12 +25,14 @@ SelectWatchPg.onLoad = function (ch) {
 SelectWatchPg.focus = function () {
 
     alert("SelectWatchPg focus");
+    jQuery('#SelectWatchPgMenu').addClass('show');
+    //   jQuery('#SelectWatchPgMenu').show(0, function () {
+    SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
+    SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
+    SelectWatchPg.anchor.main.focus();
+    //       alert("asdads");
+    //   });
 
-    jQuery('#SelectWatchPgMenu').show(0, function () {
-        SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
-        SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
-        SelectWatchPg.anchor.main.focus();
-    });
 };
 
 SelectWatchPg.keyDown = function () {
@@ -59,8 +62,8 @@ SelectWatchPg.keyDown = function () {
             alert("SelectWatchPg_key : Left");
             //			SelectWatchPg.anchor.main.removeClass('focus');
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-            jQuery('#SelectWatchPgMenu').hide();
-            $(".sideBarMenuText").css("display", "block");
+            jQuery('#SelectWatchPgMenu').removeClass('show');
+            jQuery(".sideBarMenuText").css("display", "block");
             Main.focus();
             break;
         case tvKey.KEY_UP:
@@ -92,27 +95,25 @@ SelectWatchPg.keyDown = function () {
             setTimeout(function () {
                 subPageArr[SelectWatchPg_index].object.onLoad();
             }, 10);
-			break;
-		case tvKey.KEY_VOL_UP:
+            break;
+        case tvKey.KEY_VOL_UP:
         case tvKey.KEY_PANEL_VOL_UP:
             alert("VOL_UP");
             if(this.mute == 0)
             	Audio.setRelativeVolume(0);
-              
             break;
         case tvKey.KEY_VOL_DOWN:
         case tvKey.KEY_PANEL_VOL_DOWN:
             alert("VOL_DOWN");
             if(this.mute == 0)
             	 Audio.setRelativeVolume(1);
-
             break;     
         case tvKey.KEY_MUTE:
             alert("MUTE");
             this.muteMode();
             break;
-		default:
-			alert("Unhandled key");
-			break;
-	}
+        default:
+            alert("Unhandled key");
+            break;
+    }
 };

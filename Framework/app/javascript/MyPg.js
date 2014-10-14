@@ -371,7 +371,7 @@ MyPg.registerKeyDown = function () {
                 //번호 입력창
                 tempString += '<div>(전화 번호를 입력해주세요)</div>';
                 //인증번호 입력창
-                tempString += '<div>(인증 번호를 입력해주세)</div>';
+                tempString += '<div>(인증 번호를 입력해주세요)</div>';
 
 //                MyPg.register.eq(MyPg_registerIndex).removeClass('focus');
                 jQuery('#MyPg_SelectNumber_list_new>div:nth-child(1)').hide();//'번호 추가'를 숨긴다.
@@ -413,7 +413,7 @@ MyPg.registerKeyDown = function () {
                         // 서버로 인증번호 요청
                         $.ajax({
                             type: "POST", // POST형식으로 폼 전송
-                            url: "http://172.16.100.171/CertificationSMS.php", // 목적지
+                            url: PHP_SERVER_ADDRESS + "/CertificationSMS.php", // 목적지
                             timeout: 10000,
                             data: ({ numberPost: _numberPost }),
                             cache: false,
@@ -423,6 +423,7 @@ MyPg.registerKeyDown = function () {
                             },
                             success: function (data) {
                                 certificationNum = data;
+                                popupMessage("인증번호가 <br> 전송되었습니다.");
                             }
                         });
                         phoneNumber_input = MyPg.register.eq(MyPg_registerIndex).text();
@@ -499,6 +500,7 @@ MyPg.registerKeyDown = function () {
                         dataType: "text",
                         success: function (data) {
                             alert("번호 등록 성공");
+                            popupMessage("새로운 번호가 <br> 등록되었습니다.");
                         }
                     });
                 }

@@ -61,7 +61,7 @@ MultiWatchPg.onLoad = function(){
 			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"><div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="endTime"><p>방송 혜택 종료까지</p><p id="remainedTime' + cnt + '" class="remainedTime"></p></div><div class="name"><p>' +this.productName+ '</p></div><div class="price"><p>최대 혜택가 :</p><p class="productPrice">' + priceRefined + '</p></div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
 			    var remainedTime = new Object();
 				
-				remainedTime.hour = endTimeArr[cnt].hour-date.getHours()+9;
+				remainedTime.hour = (endTimeArr[cnt].hour-date.getHours()+9)%24;
 				remainedTime.minute = endTimeArr[cnt].minute-date.getMinutes()-1;
 				remainedTime.second = 59-date.getSeconds();
 
@@ -120,7 +120,7 @@ MultiWatchPg.remainedTime = function(){
 	for(i=0; i<6; i++){
 	//alert(endTimeArr[0].hour+"c");
 		var remainedTime = new Object();
-		remainedTime.hour = endTimeArr[i].hour-date.getHours()+9;
+		remainedTime.hour = (endTimeArr[i].hour-date.getHours()+9)%24;
 		remainedTime.minute = endTimeArr[i].minute-date.getMinutes()-1;
 		remainedTime.second = 59-date.getSeconds();
 
@@ -276,13 +276,14 @@ MultiWatchPg.keyDown = function()
 				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
 				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
 				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+10)]);
-				Main.layout.page.load(pagearr[page_index].html);
+				Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
+				    if (status == "success") {
+				        pagearr[page_index].object.onLoad(MultiWatchPg_index - 2);
+                        SelectWatchPg.focus();
+				    }
+				});
 				clearInterval(refresh);
 				focusCurrent = "SelectWatchPg";
-				setTimeout(function(){
-					pagearr[page_index].object.onLoad(MultiWatchPg_index-2);
-					SelectWatchPg.focus();
-				},10);
 			};
 			alert("MultiWatchPg_key : Enter");
 			break;
