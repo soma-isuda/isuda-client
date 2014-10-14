@@ -2,12 +2,18 @@
 	position: absolute;
 }
 #SelectWatchPgMenu {
-	display: none;
+    opacity:0;
 	float: left;
 	
 	width: 168px;
 	height: 1080px;
 }
+
+#SelectWatchPgMenu.show{
+    opacity:1;
+
+}
+
 #SelectWatchPgMenu ul li {
 	box-sizing:border-box;
 	margin:25px 25px 25px 25px;

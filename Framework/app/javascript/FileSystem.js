@@ -43,3 +43,4 @@ var writeFile = function (val) {
     fileSystemObj.closeFile(jsFileObj);
 
 };
+

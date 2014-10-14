@@ -51,9 +51,9 @@ ComparePriceSpg.onLoad = function () {
                                 beforeTime_end = beforeTime_end.toISOString();
                                 //-----------------------------
 
-                                tempString = value.productStartTime.split(/[-T:\.Z]/);
+                                tempString = beforeTime.split(/[-T:\.Z]/);
                                 timeRefined += tempString[1] + "월" + tempString[2] + "일 " + tempString[3] + "시" + tempString[4] + "분 ~ ";
-                                tempString = value.productEndTime.split(/[-T:\.Z]/);
+                                tempString = beforeTime_end.split(/[-T:\.Z]/);
                                 timeRefined += tempString[3] + "시" + tempString[4] + "분";
 
 
