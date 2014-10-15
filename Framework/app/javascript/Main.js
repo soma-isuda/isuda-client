@@ -4,18 +4,14 @@ var tvKey = new Common.API.TVKeyValue();
 
 var PL_NNAVI_STATE_BANNER_VOL = 1;
 var pluginAPI = new Common.API.Plugin();
-var tvKey = new Common.API.TVKeyValue();
-    pluginAPI.unregistKey(tvKey.KEY_VOL_UP);
-    pluginAPI.unregistKey(tvKey.KEY_VOL_DOWN);
-    pluginAPI.unregistKey(tvKey.KEY_MUTE);
-    pluginAPI.SetBannerState(PL_NNAVI_STATE_BANNER_VOL);
+
 
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
+var SERVER_ADDRESS = SERVER_ADDRESS_IN;
 var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
 var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
-var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_OUT;
+var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
 // pagearr : information about pages in pageinfo
 var page_index = 1;
 var subPage_index = 1;//현재 열려있는 서브 페이지의 넘버
@@ -26,7 +22,7 @@ var subPage_index = 1;//현재 열려있는 서브 페이지의 넘버
 
 
 //var sideBarMenuImg = $(".sideBarMenuImg img");
-
+var volume = Player.player.volume;
 var Main =
 {
 	layout:{
@@ -50,6 +46,7 @@ var Main =
 Main.onLoad = function()
 {
 	alert("Main.onLoad");
+	alert("volume : "+ volume);
 	//alert(sideBarMenuImg.length);
 	Main.layout.page.load(pagearr[page_index].html);
 	setTimeout(function(){
@@ -60,6 +57,10 @@ Main.onLoad = function()
 	//Main.layout.popUp.load('app/html/popUp.html');
 	Player.destroy();
 
+	pluginAPI.unregistKey(tvKey.KEY_VOL_UP);
+    pluginAPI.unregistKey(tvKey.KEY_VOL_DOWN);
+    pluginAPI.unregistKey(tvKey.KEY_MUTE);
+    pluginAPI.SetBannerState(PL_NNAVI_STATE_BANNER_VOL);
 	
 
 

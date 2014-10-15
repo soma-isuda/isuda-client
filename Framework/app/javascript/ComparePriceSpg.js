@@ -156,21 +156,24 @@ ComparePriceSpg.keyDown = function () {
                 subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
             }, 10);
             break;
-         case tvKey.KEY_VOL_UP:
+        case tvKey.KEY_VOL_UP:
         case tvKey.KEY_PANEL_VOL_UP:
             alert("VOL_UP");
-            if(this.mute == 0)
-                Audio.setRelativeVolume(0);
+            if(webapis.audiocontrol.getMute() ==false)
+                webapis.audiocontrol.setVolumeUp();
             break;
         case tvKey.KEY_VOL_DOWN:
         case tvKey.KEY_PANEL_VOL_DOWN:
             alert("VOL_DOWN");
-            if(this.mute == 0)
-                 Audio.setRelativeVolume(1);
+            if(webapis.audiocontrol.getMute() ==false)
+                webapis.audiocontrol.setVolumeDown();
             break;     
         case tvKey.KEY_MUTE:
             alert("MUTE");
-            this.muteMode();
+            if(webapis.audiocontrol.getMute() ==false)
+                webapis.audiocontrol.setMute(true);
+            else
+                webapis.audiocontrol.setMute(false);
             break;
         default:
             alert("Unhandled key");
