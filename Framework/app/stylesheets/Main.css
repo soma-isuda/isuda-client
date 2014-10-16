@@ -17,7 +17,7 @@ body
 
 #sideBar {
 	float: left;
-	width: 430px;
+	width: 130px;
 	height: 100%;
 	position: absolute;
 	background-color: #232323;
@@ -33,10 +33,6 @@ body
 	color:white;
 }
 
-#sideBar ul li {
-	height: 130px;
-}
-
 .sideBarMenu div{
 	float: left;
 	position: relative;
@@ -46,7 +42,7 @@ body
 	height: 130px;
 	
 }
-
+/*
 .sideBarMenuText {
 	margin-left:10px;
 	width: 300px;
@@ -54,10 +50,10 @@ body
 	text-align: left;
 	line-height: 130px;
 	font-size: 35px;
-}
+}*/
 
 #article {
-	margin-left: 430px;
+	margin-left: 130px;
 	position: absolute;
 	
 }
