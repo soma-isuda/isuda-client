@@ -170,7 +170,7 @@ DetailInfoSpg.keyDown = function () {
             }
             else if (DetailInfoSpg_index == 1) {//상품 이미지에 포커스가 있을 때
                 //스크롤 구현하는 부분
-                if (200 * (detailImageScrollNumber + 1) < detailImageHeight) {
+                if (200 * (detailImageScrollNumber + 1) < detailImageHeight-1050) {
 
                     detailImageScrollNumber++;
                     //한번에 200px씩 스크롤 된다고 가정
