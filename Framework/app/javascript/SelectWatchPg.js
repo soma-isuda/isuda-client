@@ -9,6 +9,8 @@ var SelectWatchPg = {
 SelectWatchPg.onLoad = function (ch) {
     alert("SelectWatchPg onLoad");
     jQuery.extend(SelectWatchPg, {
+        UpCh: jQuery("#ChannelUp"),
+        DownCh : jQuery("#ChannelDown"),
         SelectWatchPgMenu: jQuery('#SelectWatchPgMenu').find('ul > li'),
         anchor: {
             main: jQuery('#anchor_SelectWatchPg')
@@ -20,19 +22,108 @@ SelectWatchPg.onLoad = function (ch) {
 
     Player.init(ch);
     SelectWatchPg_index = 0;
+    SelectWatchPg.setData();
 };
 
 SelectWatchPg.focus = function () {
-
     alert("SelectWatchPg focus");
     jQuery('#SelectWatchPgMenu').addClass('show');
-    //   jQuery('#SelectWatchPgMenu').show(0, function () {
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
-    //       alert("asdads");
-    //   });
+};
 
+SelectWatchPg.setData = function(){
+    var upch = Player.getUpChannel();
+    var downch = Player.getDownChannel();
+
+    console.log(upch);
+    console.log(downch);
+    jQuery.ajax({
+        url: SERVER_ADDRESS + '/now',
+        type : 'GET',
+        data: ({ providerNum: upch }),    
+        dataType : 'json',
+        success : function (data) {
+            var priceBefore = date.productPrice;
+            var priceRefined = '';
+            if (priceBefore) {//가격 값이 null이 아니면
+                priceBefore = data.productPrice.toString();
+                for (var i = priceBefore.length; i > 0; i = i - 3) {
+                    if (i == priceBefore.length)
+                        priceRefined = priceBefore.substring(i, i - 3);
+                    else
+                        priceRefined =priceBefore.substring(i, i - 3) + ',' + priceRefined;
+                }
+                priceRefined += ' 원';
+            }
+            else//가격 값이 null 이면
+                priceRefined += '방송 중 확인';
+
+            var tempstring = '';
+            tempstring += '<div class="SimgArea">';
+            tempstring +=   '<img src="' +data.productImgURL+ '" alt="" class="SproductImg">';
+            tempstring += '</div>';
+            tempstring += '<div class="SproductInfoArea">';
+            tempstring +=   '<div class="Sprovider">';
+            tempstring +=       data.providerId;
+            tempstring +=   '</div>';
+            tempstring +=   '<div class="Sname">';
+            tempstring +=       data.productName;
+            tempstring +=   '</div>';
+//            tempstring +=   '<div class="Sprice">';
+//            tempstring +=       '<p>최대 혜택가 :</p>';
+//            tempstring +=       '<p class="SproductPrice">' + priceRefined + '</p>';
+//            tempstring +=   '</div>';
+            tempstring += '</div>';
+
+            SelectWatchPg.UpCh.html(tempstring);
+            SelectWatchPg.UpCh.css('background-color', color[upch]);
+        }
+    });  
+
+    jQuery.ajax({
+        url: SERVER_ADDRESS + '/now',
+        type : 'GET',
+        data: ({ providerNum: downch }),    
+        dataType : 'json',
+        success : function (data) {
+            var priceBefore = date.productPrice;
+            var priceRefined = '';
+            if (priceBefore) {//가격 값이 null이 아니면
+                priceBefore = data.productPrice.toString();
+                for (var i = priceBefore.length; i > 0; i = i - 3) {
+                    if (i == priceBefore.length)
+                        priceRefined = priceBefore.substring(i, i - 3);
+                    else
+                        priceRefined =priceBefore.substring(i, i - 3) + ',' + priceRefined;
+                }
+                priceRefined += ' 원';
+            }
+            else//가격 값이 null 이면
+                priceRefined += '방송 중 확인';
+
+            var tempstring = '';
+            tempstring += '<div class="SimgArea">';
+            tempstring +=   '<img src="' +data.productImgURL+ '" alt="" class="SproductImg">';
+            tempstring += '</div>';
+            tempstring += '<div class="SproductInfoArea">';
+            tempstring +=   '<div class="Sprovider">';
+            tempstring +=       '<p>'+data.providerId+'</p>';
+            tempstring +=   '</div>';
+            tempstring +=   '<div class="Sname">';
+            tempstring +=       '<p>' +data.productName+ '</p>';
+            tempstring +=   '</div>';
+//            tempstring +=   '<div class="Sprice">';
+//            tempstring +=       '<p>최대 혜택가 :</p>';
+//            tempstring +=       '<p class="SproductPrice">' + priceRefined + '</p>';
+//            tempstring +=   '</div>';
+            tempstring += '</div>';
+
+            SelectWatchPg.DownCh.html(tempstring);
+            SelectWatchPg.DownCh.css('background-color', color[downch]);
+        }
+    });  
 };
 
 SelectWatchPg.keyDown = function () {
@@ -49,9 +140,13 @@ SelectWatchPg.keyDown = function () {
             //		 채널 퀵변경 
         case tvKey.KEY_CH_UP:
             Player.channelUp();
+            SelectWatchPg.setData();
+
             break;
         case tvKey.KEY_CH_DOWN:
             Player.channelDown();
+            SelectWatchPg.setData();
+
             break;
 
         case tvKey.KEY_RETURN:
@@ -88,10 +183,6 @@ SelectWatchPg.keyDown = function () {
             alert("SelectWatchPg_index : " + SelectWatchPg_index);
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
             Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html);
-            // setTimeout(function(){
-            // 	document.getElementById(subPageArr[SelectWatchPg_index].name).style.marginLeft="1920px";
-            // 	$("#"+subPageArr[SelectWatchPg_index].name).animate({left:'-460px'}, 1000);
-            //  },1);
             setTimeout(function () {
                 subPageArr[SelectWatchPg_index].object.onLoad();
             }, 10);

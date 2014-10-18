@@ -155,6 +155,7 @@ MultiWatchPg.enableKeys = function()
 
 MultiWatchPg.keyDown = function()
 {
+	console.log("page : " + page_index);
 	//popupMessage("hi");
 	alert("MultiWatchPg keyDown");
 	var keyCode = event.keyCode;

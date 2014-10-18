@@ -16,8 +16,8 @@
 
 #SelectWatchPgMenu ul li {
 	box-sizing:border-box;
-	margin:25px 25px 25px 25px;
-	padding:20px 20px 20px 20px;
+	margin:25px;
+	padding:20px;
 	width: 118px;
 	height: 118px;
 	font-size: 30px;
@@ -25,9 +25,10 @@
 	/*background-color: #b7b7a4;*/
 	background-color: #989898;
 	color: white;
+	border-radius: 50%;
 }
 #SelectWatchPgMenu ul li:first-child {
-	margin-top: 260px;
+	margin-top: 270px;
 
 }
 
@@ -44,6 +45,82 @@
  	background-color: #ce534d;
  	color: white;	
 }
+
+#ChannelUp{
+	position:absolute;
+	top:54px;	
+}
+
+#ChannelDown{
+	position:absolute;
+	top:801px;
+}
+
+.ChannelHelper {
+	width:300px;
+	height: 150px;
+	margin : 25px;
+}
+
+.ChannelHelper div{
+	float: left;
+	position: relative;
+	display: inline-block;
+
+}
+
+.SimgArea {
+	width: 150px;
+	height: 150px;
+	background-color: white;
+}
+
+.SimgArea img {
+	width: 150px;
+}
+
+.SproductInfoArea {
+	width: 150px;
+	height: 150px;
+	box-sizing : border-box;
+}
+
+.SproductInfoArea > div{
+	box-sizing: border-box;
+
+	display: block;
+	position: relative;
+	width: 150px;
+	color: white;
+	text-align: center;
+	padding:10px;
+
+}
+
+.Sprovider{
+	font-size: 30px;
+	height: 50px;
+	font-weight: bold;
+
+}
+
+.Sname {	
+	height: 80px;
+	overflow: hidden;
+	font-size: 20px;
+}
+.Sprice {
+	height: 85px;
+	font-size: 18px;
+	text-align: right;
+	padding:5px;
+}
+
+.SproductPrice {
+	font-size: 30px;
+}
+
+/*458 158*/
 
 
 /*#subPage{

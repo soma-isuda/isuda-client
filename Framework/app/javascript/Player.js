@@ -6,6 +6,7 @@ var videoURL = ["http://cjmall.live.cdn.visioncloud.co.kr/cjmalllive/stream2/pla
                 "http://124.243.50.23/live/livestream/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD"];
 
 var Player = {
+    videoURLlen: videoURL.length,
     channel: 0,
     player: document.getElementById("player"),
     playing: false,
@@ -22,11 +23,11 @@ var Player = {
         }
     },
     channelUp: function () {
-        this.setChannel((this.channel + 1) % videoURL.length);
+        this.setChannel((this.channel + 1) % this.videoURLlen);
         this.play();
     },
     channelDown: function () {
-        this.setChannel((this.channel - 1 + videoURL.length) % videoURL.length);
+        this.setChannel((this.channel - 1 + this.videoURLlen) % this.videoURLlen);
         this.play();
     },
 
@@ -69,6 +70,12 @@ var Player = {
     getChannel: function () {
         return this.channel;
     },
+    getUpChannel: function () {
+        return (this.channel + 1) % this.videoURLlen;
+    },
+    getDownChannel: function () {
+        return (this.channel - 1 + this.videoURLlen) % this.videoURLlen;
+    },    
     setPlayer: function (player) {
         this.player = player;
     },
