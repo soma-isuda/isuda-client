@@ -1,3 +1,4 @@
+
 //씨제이, 지에스, 현대,   홈앤쇼핑, 롯데,  
 var videoURL = ["http://cjmall.live.cdn.visioncloud.co.kr/cjmalllive/stream2/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD",
 				"http://livem.gsshop.com:80/gsshop/_definst_/gsshop.sdp/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD",

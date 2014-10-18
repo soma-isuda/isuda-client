@@ -15,10 +15,7 @@ SelectWatchPg.onLoad = function (ch) {
         anchor: {
             main: jQuery('#anchor_SelectWatchPg')
         }
-        //focus: 0
     });
-    //    jQuery('#SelectWatchPgMenu').hide();
-    //    alert("hide");
 
     Player.init(ch);
     SelectWatchPg_index = 0;
@@ -28,9 +25,20 @@ SelectWatchPg.onLoad = function (ch) {
 SelectWatchPg.focus = function () {
     alert("SelectWatchPg focus");
     jQuery('#SelectWatchPgMenu').addClass('show');
+    SelectWatchPg.UpCh.addClass('show');
+    SelectWatchPg.DownCh.addClass('show');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
+
+    clearTimeout(menuDisplayNone);
+    menuDisplayNone = setTimeout(function () {
+        jQuery('#SelectWatchPgMenu').removeClass('show');
+        SelectWatchPg.UpCh.removeClass('show');
+        SelectWatchPg.DownCh.removeClass('show');
+    }, 5000);
+    //       alert("asdads");
+    //   });
 };
 
 SelectWatchPg.setData = function(){
@@ -119,12 +127,13 @@ SelectWatchPg.setData = function(){
 //            tempstring +=       '<p class="SproductPrice">' + priceRefined + '</p>';
 //            tempstring +=   '</div>';
             tempstring += '</div>';
-
             SelectWatchPg.DownCh.html(tempstring);
             SelectWatchPg.DownCh.css('background-color', color[downch]);
         }
     });  
 };
+
+var menuDisplayNone;
 
 SelectWatchPg.keyDown = function () {
     alert("SelectWatchPg keyDown");
@@ -132,6 +141,15 @@ SelectWatchPg.keyDown = function () {
     alert("Key pressed: " + keyCode);
     alert(SelectWatchPg_index);
 
+    jQuery('#SelectWatchPgMenu').addClass('show');
+    SelectWatchPg.UpCh.addClass('show');
+    SelectWatchPg.DownCh.addClass('show');
+    clearTimeout(menuDisplayNone);
+    menuDisplayNone = setTimeout(function () {
+        jQuery('#SelectWatchPgMenu').removeClass('show');
+        SelectWatchPg.UpCh.removeClass('show');
+        SelectWatchPg.DownCh.removeClass('show');
+    }, 5000);
     switch (keyCode) {
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
@@ -211,3 +229,4 @@ SelectWatchPg.keyDown = function () {
             break;
     }
 };
+

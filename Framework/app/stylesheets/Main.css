@@ -25,14 +25,15 @@ body
 }
 
 #sideBar ul {
+	margin-top: 280px;
 	list-style: none;
 }
 
-#sideBar ul li:first-child{
+/*#sideBar ul li:first-child{
 	height: 280px;
 	color:white;
 }
-
+*/
 /*.sideBarMenu div{
 	float: left;
 	position: relative;
