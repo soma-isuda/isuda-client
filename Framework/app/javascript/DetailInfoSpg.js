@@ -26,23 +26,23 @@ DetailInfoSpg.onLoad = function () {
     //현재 방송중인 상품이면 '방송 시청',
     //그렇지 않으면 'SMS 알람 받기'를 출력한다. -> 일단 보류
 
-    if (page_index == 2 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
+    if (page_index == 1 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
         jQuery('#reserveButton').hide();//'SMS 알람 받기' 버튼을 없앤다.
         $('.arrow').css("display", "block");
         document.getElementById('arrow_up').style.marginTop = "20px";
         document.getElementById('arrow_down').style.marginTop = "900px";
     }
         //편성표에서 '상세보기' || 선택보기에서 '추천상품'->'상세보기'
-    else if (page_index == 3 || (page_index == 2 && SelectWatchPg_index == 1)) {
+    else if (page_index == 2 || (page_index == 1 && SelectWatchPg_index == 1)) {
         jQuery('#reserveButton').append('<div>SMS 알람 받기</div>');
     }
-    else if (page_index == 4) {
+    else if (page_index == 3) {
         jQuery('#reserveButton').append('<div>해당 상품 알람 삭제<div>');
     }
 
     //상품 상세 정보 이미지를 로드한다.
     alert(productLoadedId[productListIndex]);
-    if (page_index == 2 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
+    if (page_index == 1 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
         var currentChannel = Player.getChannel();
         $.ajax({
             url: SERVER_ADDRESS + '/now',
@@ -69,10 +69,10 @@ DetailInfoSpg.onLoad = function () {
         });
     }
 
-    else if (page_index == 3 || (page_index == 2 && SelectWatchPg_index == 1)) { //편성표에서 '상세보기' 또는 //선택보기에서 '추천상품'->'상세보기'
-        if (page_index == 3)
+    else if (page_index == 2 || (page_index == 1 && SelectWatchPg_index == 1)) { //편성표에서 '상세보기' 또는 //선택보기에서 '추천상품'->'상세보기'
+        if (page_index == 2)
             var detailImgPath = SERVER_ADDRESS + '/pageShots/' + productLoadedId[productListIndex] + '.jpeg';
-        else if (page_index == 2 && SelectWatchPg_index == 1)
+        else if (page_index == 1 && SelectWatchPg_index == 1)
             var detailImgPath = SERVER_ADDRESS + '/pageShots/' + ComparePriceSpg.currentProductId + '.jpeg';
 
 
@@ -122,10 +122,10 @@ DetailInfoSpg.keyDown = function () {
             widgetAPI.blockNavigation(event);
             alert("LEFT!!!!!");
             $('.arrow').css("display", "none");
-            if (page_index == 2) //선택보기에서 '상세보기'
+            if (page_index == 1) //선택보기에서 '상세보기'
                 SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
-            else if (page_index == 3) //편성표에서 '상세보기'
+            else if (page_index == 2) //편성표에서 '상세보기'
                 TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
 
             jQuery('#DetailInfoSpg').hide();//상세보기 페이지를 닫는다.
@@ -170,7 +170,7 @@ DetailInfoSpg.keyDown = function () {
             }
             else if (DetailInfoSpg_index == 1) {//상품 이미지에 포커스가 있을 때
                 //스크롤 구현하는 부분
-                if (200 * (detailImageScrollNumber + 1) < detailImageHeight-1050) {
+                if (200 * (detailImageScrollNumber + 2)+1080 < detailImageHeight) {
 
                     detailImageScrollNumber++;
                     //한번에 200px씩 스크롤 된다고 가정
@@ -192,7 +192,7 @@ DetailInfoSpg.keyDown = function () {
             alert("DetailInfoSpg_key : Enter");
             if (DetailInfoSpg_index == 0) {//버튼 부분에 포커스가 있을 때
                 //번호 선택 부분으로 포커스를 넘긴다.
-                if (page_index == 3 || (page_index == 2 && SelectWatchPg_index == 1)) {//편성표 또는 추천상품->상세보기에서 'SMS 알람 받기'를 눌렀을 때
+                if (page_index == 2 || (page_index == 1 && SelectWatchPg_index == 1)) {//편성표 또는 추천상품->상세보기에서 'SMS 알람 받기'를 눌렀을 때
                     subPage_index = 3;
                     Main.layout.subPage.load(subPageArr[subPage_index].html);
                     setTimeout(function () {

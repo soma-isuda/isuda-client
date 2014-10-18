@@ -30,17 +30,27 @@ SelectWatchPg.focus = function () {
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
+    clearTimeout(menuDisplayNone);
+    document.getElementById("SelectWatchPgMenu").style.display = "block";
+    menuDisplayNone = setTimeout(function () {
+                document.getElementById("SelectWatchPgMenu").style.display = "none";
+    }, 5000);
     //       alert("asdads");
     //   });
 
 };
-
+var menuDisplayNone;
 SelectWatchPg.keyDown = function () {
     alert("SelectWatchPg keyDown");
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode);
     alert(SelectWatchPg_index);
 
+    clearTimeout(menuDisplayNone);
+    document.getElementById("SelectWatchPgMenu").style.display = "block";
+    menuDisplayNone = setTimeout(function () {
+                document.getElementById("SelectWatchPgMenu").style.display = "none";
+    }, 5000);
     switch (keyCode) {
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
@@ -120,3 +130,4 @@ SelectWatchPg.keyDown = function () {
             break;
     }
 };
+

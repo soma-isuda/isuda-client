@@ -1,3 +1,4 @@
+
 var ComparePriceSpg = {
     currentProductId:0,
 };

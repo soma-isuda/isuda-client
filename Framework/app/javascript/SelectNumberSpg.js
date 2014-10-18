@@ -132,11 +132,11 @@ SelectNumberSpg.selectKeyDown = function () {
             alert("SelectNumberSpg_key : RETURN");
         case tvKey.KEY_LEFT:
             alert("SelectNumberSpg_key : Left");
-            if (page_index == 3) //편성표에서 호출했을 때
+            if (page_index == 2) //편성표에서 호출했을 때
                 TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
                 
 
-            else if (page_index == 2) //선택보기에서 호출했을 때
+            else if (page_index == 1) //선택보기에서 호출했을 때
                 SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
             jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
@@ -233,11 +233,11 @@ SelectNumberSpg.registerKeyDown = function () {
             widgetAPI.blockNavigation(event);
             alert("SelectNumberSpg_key : RETURN");
 
-            if (page_index == 3) //편성표에서 호출했을 때
+            if (page_index == 2) //편성표에서 호출했을 때
                 TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
 
 
-            else if (page_index == 2) //선택보기에서 호출했을 때
+            else if (page_index == 1) //선택보기에서 호출했을 때
                 SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
             jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
@@ -534,18 +534,18 @@ SelectNumberSpg.registerKeyDown = function () {
                     SelectNumberSpg.register.eq(SelectNumberSpg_registerIndex).append(tempNum);
                 }
                 else {
-                    if (page_index == 3) //편성표에서 호출했을 때
+                    if (page_index == 2) //편성표에서 호출했을 때
                         TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-                    else if (page_index == 2) //선택보기에서 호출했을 때
+                    else if (page_index == 1) //선택보기에서 호출했을 때
                         SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
                 }
             }
                 else {
-                    if (page_index == 3) //편성표에서 호출했을 때
+                    if (page_index == 2) //편성표에서 호출했을 때
                         TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
-                    else if (page_index == 2) //선택보기에서 호출했을 때
+                    else if (page_index == 1) //선택보기에서 호출했을 때
                         SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
@@ -594,11 +594,11 @@ SelectNumberSpg.submitKeyDown = function () {
             widgetAPI.blockNavigation(event);
             alert("SelectNumberSpg_key : RETURN");
 
-            if (page_index == 3) //편성표에서 호출했을 때
+            if (page_index == 2) //편성표에서 호출했을 때
                 TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
 
 
-            else if (page_index == 2) //선택보기에서 호출했을 때
+            else if (page_index == 1) //선택보기에서 호출했을 때
                 SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
             jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
@@ -612,10 +612,10 @@ SelectNumberSpg.submitKeyDown = function () {
                 SelectNumberSpg.submit.eq(--SelectNumberSpg_submitIndex).addClass('focus');
             }
             else{
-                if (page_index == 3) //편성표에서 호출했을 때
+                if (page_index == 2) //편성표에서 호출했을 때
                     TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
 
-                else if (page_index == 2) //선택보기에서 호출했을 때
+                else if (page_index == 1) //선택보기에서 호출했을 때
                     SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
                 jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.                
@@ -647,7 +647,7 @@ SelectNumberSpg.submitKeyDown = function () {
             //'선택 완료' 버튼을 눌렀을 때
             if (SelectNumberSpg_submitIndex == 0) {
                 //중분류 카테고리 예약이면
-                if (page_index == 3 && productIndex == 0) {
+                if (page_index == 2 && productIndex == 0) {
 
                     $.ajax({
                         type: "POST",
@@ -668,7 +668,7 @@ SelectNumberSpg.submitKeyDown = function () {
 
                 }
                     //단일 상품 예약이면
-                else if (page_index == 3 && productIndex == 1) {
+                else if (page_index == 2 && productIndex == 1) {
 
                     $.ajax({
                         type: "POST", // POST형식으로 폼 전송
@@ -686,7 +686,7 @@ SelectNumberSpg.submitKeyDown = function () {
                     TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
                 }
-                else if (page_index == 2 && SelectWatchPg_index == 3) {//선택보기에서 '직접 구매' 버튼을 눌렀을 때
+                else if (page_index == 1 && SelectWatchPg_index == 3) {//선택보기에서 '직접 구매' 버튼을 눌렀을 때
                     
                     $.ajax({
                         url: SERVER_ADDRESS + '/now',
@@ -730,7 +730,7 @@ SelectNumberSpg.submitKeyDown = function () {
                     SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.   
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
                 }
-                else if (page_index == 2 && SelectWatchPg_index == 1) {//'선택보기'->'추천상품'->'상세보기'
+                else if (page_index == 1 && SelectWatchPg_index == 1) {//'선택보기'->'추천상품'->'상세보기'
                     $.ajax({
                         type: "POST", // POST형식으로 폼 전송
                         url: SERVER_ADDRESS + "/sAlarms", // 목적지

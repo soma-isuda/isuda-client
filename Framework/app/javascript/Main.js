@@ -8,13 +8,13 @@ var pluginAPI = new Common.API.Plugin();
 
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
+var SERVER_ADDRESS = SERVER_ADDRESS_IN;
 var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
 var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
-var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_OUT;
+var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
 // pagearr : information about pages in pageinfo
-var page_index = 1;
-var subPage_index = 1;//현재 열려있는 서브 페이지의 넘버
+var page_index = 0;
+var subPage_index = 0;//현재 열려있는 서브 페이지의 넘버
 //0:상세보기 서브페이지
 //1:가격비교 서브페이지
 //2:SMS공유 서브페이지
@@ -80,7 +80,7 @@ Main.focus = function()
 
 	Main.anchor.main.focus();
 	Main.layout.sideBar.addClass('focus');
-	$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index+5]);
+	$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index+4]);
 	Main.sideBarMenu.btn.eq(page_index).removeClass('select');
 	Main.sideBarMenu.btn.eq(page_index).addClass('focus');
 	//$("#sideBar").css("width","460px");
@@ -132,12 +132,12 @@ Main.keyDown = function()
 			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
 			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
 			//on.Unload();
-			if(page_index == 1)
+			if(page_index == 0)
 				page_index = Main.sideBarMenu.btn.length;
 
 			Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
 			//alert("page_Index+5 : "+page_index+5);
-			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+5)]);
+			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+4)]);
 			Main.layout.page.load(pagearr[page_index].html);
 			Player.destroy();
 			setTimeout(function(){
@@ -150,10 +150,10 @@ Main.keyDown = function()
 			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
 			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
 			if(page_index == Main.sideBarMenu.btn.length-1)
-				page_index = 0;
+				page_index = -1;
 
 			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
-			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+5)]);
+			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+4)]);
 			Main.layout.page.load(pagearr[page_index].html);
 			Player.destroy();
 
@@ -176,7 +176,7 @@ Main.keyDown = function()
 			Main.layout.sideBar.removeClass('focus');
 			// select 
 			Main.sideBarMenu.btn.eq(page_index).addClass('select');
-			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+10)]);
+			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+8)]);
 			
 			//Main.sideBarMenu.btn.removeClass('focus');
 			//$("#sideBar").css("width","300px");
