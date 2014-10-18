@@ -45,6 +45,8 @@
 
     background-color: #989898;
     color: white;
+    border-radius: 50%;
+
 }
 
     #big ul li > div {
@@ -68,7 +70,8 @@
     height: 90px;*/
     width: 118px;
 	height: 118px;
-
+    border-radius: 50%;
+    overflow: hidden;
     display: table;
 }
 

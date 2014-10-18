@@ -144,12 +144,14 @@ SelectWatchPg.keyDown = function () {
     jQuery('#SelectWatchPgMenu').addClass('show');
     SelectWatchPg.UpCh.addClass('show');
     SelectWatchPg.DownCh.addClass('show');
+
     clearTimeout(menuDisplayNone);
     menuDisplayNone = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
         SelectWatchPg.UpCh.removeClass('show');
         SelectWatchPg.DownCh.removeClass('show');
     }, 5000);
+
     switch (keyCode) {
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
@@ -175,8 +177,9 @@ SelectWatchPg.keyDown = function () {
             alert("SelectWatchPg_key : Left");
             //			SelectWatchPg.anchor.main.removeClass('focus');
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-            jQuery('#SelectWatchPgMenu').removeClass('show');
-            jQuery(".sideBarMenuText").css("display", "block");
+        jQuery('#SelectWatchPgMenu').removeClass('show');
+        SelectWatchPg.UpCh.removeClass('show');
+        SelectWatchPg.DownCh.removeClass('show');
             Main.focus();
             break;
         case tvKey.KEY_UP:
