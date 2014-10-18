@@ -73,7 +73,7 @@ DetailInfoSpg.onLoad = function () {
         if (page_index == 3)
             var detailImgPath = SERVER_ADDRESS + '/pageShots/' + productLoadedId[productListIndex] + '.jpeg';
         else if (page_index == 2 && SelectWatchPg_index == 1)
-            var detailImgPath = SERVER_ADDRESS + '/pageShots/' + ComparePriceSpg.currentProductId + '.jpeg';
+            var detailImgPath = SERVER_ADDRESS + '/pageShots/' + ComparePriceSpg.recommendedProductId + '.jpeg';
 
 
         var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";

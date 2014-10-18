@@ -1,5 +1,6 @@
 var ComparePriceSpg = {
-    currentProductId:0,
+    currentProductId: 0,
+    recommendedProductId: 0,
 };
 
 ComparePriceSpg.onLoad = function () {
@@ -16,6 +17,7 @@ ComparePriceSpg.onLoad = function () {
     });
     this.focus();
     this.currentProductId = 0;
+    this.recommendedProductId = 0;
     $.ajax({
         url: SERVER_ADDRESS + '/now',
         type: 'GET',
@@ -39,6 +41,7 @@ ComparePriceSpg.onLoad = function () {
                             $.each(data, function (key, value) {
                                 //페이지에 상세정보를 보여준다.
                                 //시간을 형태에 맞게 바꾼다.
+                                ComparePriceSpg.recommendedProductId = value.id;
                                 var tempString = '';
                                 var timeRefined = '';
 
@@ -159,18 +162,18 @@ ComparePriceSpg.keyDown = function () {
         case tvKey.KEY_VOL_UP:
         case tvKey.KEY_PANEL_VOL_UP:
             alert("VOL_UP");
-            if(webapis.audiocontrol.getMute() ==false)
+            if (webapis.audiocontrol.getMute() == false)
                 webapis.audiocontrol.setVolumeUp();
             break;
         case tvKey.KEY_VOL_DOWN:
         case tvKey.KEY_PANEL_VOL_DOWN:
             alert("VOL_DOWN");
-            if(webapis.audiocontrol.getMute() ==false)
+            if (webapis.audiocontrol.getMute() == false)
                 webapis.audiocontrol.setVolumeDown();
-            break;     
+            break;
         case tvKey.KEY_MUTE:
             alert("MUTE");
-            if(webapis.audiocontrol.getMute() ==false)
+            if (webapis.audiocontrol.getMute() == false)
                 webapis.audiocontrol.setMute(true);
             else
                 webapis.audiocontrol.setMute(false);
