@@ -64,6 +64,10 @@ var Player = {
     setChannel: function (ch) {
         if (typeof ch != 'undefined')
             this.channel = ch;
+        // if (this.channel <3)
+        //     document.getElementById("player").style.width="1790px";
+        // else
+        //     document.getElementById("player").style.width="1610px";
         if (this.getPlayer().src != videoURL[this.channel]) {
             this.getPlayer().src = videoURL[this.channel];
         }
