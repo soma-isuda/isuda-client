@@ -206,6 +206,17 @@ TVSchedulePg.bigKeyDown = function () {
             TVSchedulePg.bigElem.eq(big_index).addClass('focus');
             //tabMenu();//중분류 미리보기를 없앤다.
 
+            //미리 로드하는 부분
+            mid_index = 0;
+            if (big_index == 0) {//대분류 '전체보기' 일때 
+                if (this.firstAccess != 0) { //'대분류 전체보기'에 처음 접근하는게 아니라면
+                    //전체 상품을 다시 불러온다.
+                    TVSchedulePg.firstLoad(allProduct[0]);
+                }
+            }
+            else {//대분류 '전체보기'가 아닐때
+                TVSchedulePg.firstLoad(midProduct[big_index]);
+            }
             break;
         case tvKey.KEY_DOWN:
             alert("TVSchedulePg_key : Down");
@@ -229,8 +240,21 @@ TVSchedulePg.bigKeyDown = function () {
             TVSchedulePg.bigElem.eq(big_index).addClass('focus');
             //tabMenu();//중분류 미리 보여주기를 없앤다.
 
-            break;
+            
 
+            //미리 로드하는 부분
+            mid_index = 0;
+            if (big_index == 0) {//대분류 '전체보기' 일때 
+                if (this.firstAccess != 0) { //'대분류 전체보기'에 처음 접근하는게 아니라면
+                    //전체 상품을 다시 불러온다.
+                    TVSchedulePg.firstLoad(allProduct[0]);
+                }
+            }
+            else {//대분류 '전체보기'가 아닐때
+                TVSchedulePg.firstLoad(midProduct[big_index]);
+            }
+
+            break;
             //오른쪽 버튼,엔터버튼을 누르면 
             //현재 보고 있던 대분류의 포커스는 유지한 상태로
             //중분류 첫번째에 포커스를 준뒤,
@@ -336,6 +360,10 @@ TVSchedulePg.midKeyDown = function () {
                 mid_index--;
 
             TVSchedulePg.midElem.eq(mid_index).addClass('focus');
+            if(mid_index==0)
+                TVSchedulePg.firstLoad(midProduct[big_index]);
+            else
+                TVSchedulePg.firstLoad(allProduct[big_index][secondCategoryNumber[secondCategory[big_index][mid_index]]]);
             break;
         case tvKey.KEY_DOWN:
             alert("TVSchedulePg_key : Down");
@@ -359,7 +387,10 @@ TVSchedulePg.midKeyDown = function () {
 
             TVSchedulePg.midElem.eq(mid_index).addClass('focus');
 
-
+            if (mid_index == 0)
+                TVSchedulePg.firstLoad(midProduct[big_index]);
+            else
+                TVSchedulePg.firstLoad(allProduct[big_index][secondCategoryNumber[secondCategory[big_index][mid_index]]]);
 
             break;
             //중분류에서 오른쪽 키나 엔터를 누르면, 상품리스트로 이동한다.
@@ -432,8 +463,6 @@ TVSchedulePg.listKeyDown = function () {
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
             //상품 리스트의 제일 왼쪽에 있을때,
-
-
             if (productListIndex % 4 == 0 || productIndex == 0) {//상품 리스트의 제일 왼쪽에 있거나 '중분류 예약'에 포커스가 있을 때 
 
                 if (big_index == 0) {//'대분류 전체보기' 이면
@@ -459,6 +488,7 @@ TVSchedulePg.listKeyDown = function () {
                 jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
                 jQuery('#product>#product_list_pg>#product_list>li').eq(productListIndex).find('div.schedule_product_focus_').hide();//포커스를 제거한 상태에서 전체보기 상품은 계속 보여준다.
 
+                jQuery('#product').css("top", "0");
             }
 
                 //그렇지 않을때
