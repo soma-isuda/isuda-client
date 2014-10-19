@@ -378,7 +378,7 @@ TVSchedulePg.midKeyDown = function () {
             //해당 중분류의 상품들을 불러온다
             alert(secondCategoryNumber[secondCategory[big_index][mid_index]]);
             if (mid_index == 0) {//'중분류 전체보기'일 경우
-                //productIndex = 1;
+                productIndex = 1;
                 productListIndex = 0;
                 jQuery('#product>#product_header>#reserve_Category').hide();
 
