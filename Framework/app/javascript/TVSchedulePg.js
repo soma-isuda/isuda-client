@@ -206,6 +206,17 @@ TVSchedulePg.bigKeyDown = function () {
             TVSchedulePg.bigElem.eq(big_index).addClass('focus');
             //tabMenu();//중분류 미리보기를 없앤다.
 
+            //미리 로드하는 부분
+            mid_index = 0;
+            if (big_index == 0) {//대분류 '전체보기' 일때 
+                if (this.firstAccess != 0) { //'대분류 전체보기'에 처음 접근하는게 아니라면
+                    //전체 상품을 다시 불러온다.
+                    TVSchedulePg.firstLoad(allProduct[0]);
+                }
+            }
+            else {//대분류 '전체보기'가 아닐때
+                TVSchedulePg.firstLoad(midProduct[big_index]);
+            }
             break;
         case tvKey.KEY_DOWN:
             alert("TVSchedulePg_key : Down");
@@ -230,6 +241,18 @@ TVSchedulePg.bigKeyDown = function () {
             //tabMenu();//중분류 미리 보여주기를 없앤다.
 
             break;
+
+            //미리 로드하는 부분
+            mid_index = 0;
+            if (big_index == 0) {//대분류 '전체보기' 일때 
+                if (this.firstAccess != 0) { //'대분류 전체보기'에 처음 접근하는게 아니라면
+                    //전체 상품을 다시 불러온다.
+                    TVSchedulePg.firstLoad(allProduct[0]);
+                }
+            }
+            else {//대분류 '전체보기'가 아닐때
+                TVSchedulePg.firstLoad(midProduct[big_index]);
+            }
 
             //오른쪽 버튼,엔터버튼을 누르면 
             //현재 보고 있던 대분류의 포커스는 유지한 상태로
