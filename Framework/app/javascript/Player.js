@@ -3,9 +3,58 @@
 var videoURL = ["http://cjmall.live.cdn.visioncloud.co.kr/cjmalllive/stream2/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD",
 				"http://livem.gsshop.com:80/gsshop/_definst_/gsshop.sdp/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD",
 				"http://live.hmall.gscdn.com/hmall/_definst_/live.stream/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD",
-				"http://218.232.67.62:1935/live/mp4:a.stream/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD",
+				"http://182.162.174.62:1935/live/mp4:a.stream/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD",
                 "http://124.243.50.23/live/livestream/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD"];
+/*
+function channel(idx, name, url, player){
+    this.idx = idx;
+    this.name = name;
+    this.url = url;
+    this.player = document.getElementById("player"+idx);
 
+    if(this.url != null)
+        this.player.src = this.url;
+};
+
+
+function Player_(name, player, channel, url){
+    this.name = name;
+    this.player = player;
+    this.channel = channel;
+    this.url = url;
+    this.playing = false;
+
+    this.setPlayer = function(player){
+
+    }
+}
+
+Player_.prototype.show = function(){
+
+
+}
+
+Player_.prototype.hide = function(){
+
+
+}
+
+Player_.prototype.getUpChannel = function(){
+
+}
+
+Player_.prototype.getDownChannel = function(){
+    
+}
+
+Player_.prototype.ispaused = function () {
+    return this.player.paused;
+}
+
+Player_.prototype.isended = function () {
+    return this.player.ended;
+}
+*/
 var Player = {
     videoURLlen: videoURL.length,
     channel: 0,
@@ -49,14 +98,6 @@ var Player = {
     },
     isended: function () {
         return this.getPlayer().ended;
-    },
-    intolog: function (string) {
-        var logstring = "";
-        if (typeof string != undefined)
-            logstring += string;
-        logstring += "<br>paused ? " + this.ispaused();
-        logstring += "<br>ended ? " + this.isended();
-        this.log.innerHTML = logstring;
     },
 
 

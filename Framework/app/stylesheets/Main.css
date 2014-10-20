@@ -87,6 +87,10 @@ body
 	top:0;
 }
 
+.player{
+	opacity : 0;
+}
+
 #player.hide{
 	opacity:0;
 }
