@@ -5,7 +5,23 @@ var secondCategoryNumber = new Array();
 var allProduct = new Array();//모든 상품정보를 담아놓는 배열
 var midProduct = new Array();//중분류 전체보기를 위한 배열
 
+var channels = new Array();
+
 $(document).ready(function () {
+
+    jQuery.ajax({
+        url: SERVER_ADDRESS + '/getProviders',
+        type : 'GET',
+        dataType : 'json',
+        success : function (data) {
+            $.each(data, function (key, value) {
+                alert(key+" : " + value.providerName);
+                if(value.chURL != null)
+                    channels.push(new channel(key, value.providerName, value.chURL));
+            });
+            document.getElementById("player0").load();
+        }
+    });  
 
     //refresh = setInterval(function(){MultiWatchPg.remainedTime();},1000);
     //get ALL category information

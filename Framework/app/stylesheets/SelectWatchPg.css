@@ -97,32 +97,21 @@
 	width: 150px;
 	color: white;
 	text-align: center;
-	padding:10px;
 
 }
 
 .Sprovider{
-	font-size: 30px;
-	height: 50px;
+	padding-top: 15px;
+	font-size: 23px;
+	height: 33px;
 	font-weight: bold;
-
 }
 
 .Sname {	
-	height: 80px;
+	padding : 15px 5px;
+	height: 117px;
 	overflow: hidden;
 	font-size: 20px;
-	line-height: 80px;
-}
-.Sprice {
-	height: 85px;
-	font-size: 18px;
-	text-align: right;
-	padding:5px;
-}
-
-.SproductPrice {
-	font-size: 30px;
 }
 
 /*458 158*/

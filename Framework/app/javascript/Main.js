@@ -22,7 +22,6 @@ var subPage_index = 0;//현재 열려있는 서브 페이지의 넘버
 
 
 //var sideBarMenuImg = $(".sideBarMenuImg img");
-var volume = Player.player.volume;
 var Main =
 {
 	layout:{
@@ -57,7 +56,7 @@ onShowEvent = function() {
 Main.onLoad = function()
 {
 	alert("Main.onLoad");
-	alert("volume : "+ volume);
+
 	//alert(sideBarMenuImg.length);
 	Main.layout.page.load(pagearr[page_index].html);
 	setTimeout(function(){
@@ -258,18 +257,13 @@ popupkeyDown = function(){
 		case tvKey.KEY_VOL_UP:
         case tvKey.KEY_PANEL_VOL_UP:
             alert("VOL_UP");
-            if(this.mute == 0)
-            	Audio.setRelativeVolume(0);
             break;
         case tvKey.KEY_VOL_DOWN:
         case tvKey.KEY_PANEL_VOL_DOWN:
             alert("VOL_DOWN");
-            if(this.mute == 0)
-            	 Audio.setRelativeVolume(1);
             break;     
         case tvKey.KEY_MUTE:
             alert("MUTE");
-            this.muteMode();
             break;
 		default:
 			alert("Unhandled key");
