@@ -8,10 +8,10 @@ var pluginAPI = new Common.API.Plugin();
 
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_IN;
+var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
 var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
 var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
-var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
+var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_OUT;
 // pagearr : information about pages in pageinfo
 var page_index = 0;
 var subPage_index = 0;//현재 열려있는 서브 페이지의 넘버
@@ -22,7 +22,6 @@ var subPage_index = 0;//현재 열려있는 서브 페이지의 넘버
 
 
 //var sideBarMenuImg = $(".sideBarMenuImg img");
-var volume = Player.player.volume;
 var Main =
 {
 	layout:{
@@ -57,7 +56,7 @@ onShowEvent = function() {
 Main.onLoad = function()
 {
 	alert("Main.onLoad");
-	alert("volume : "+ volume);
+
 	//alert(sideBarMenuImg.length);
 	Main.layout.page.load(pagearr[page_index].html);
 	setTimeout(function(){
@@ -259,18 +258,13 @@ popupkeyDown = function(){
 		case tvKey.KEY_VOL_UP:
         case tvKey.KEY_PANEL_VOL_UP:
             alert("VOL_UP");
-            if(this.mute == 0)
-            	Audio.setRelativeVolume(0);
             break;
         case tvKey.KEY_VOL_DOWN:
         case tvKey.KEY_PANEL_VOL_DOWN:
             alert("VOL_DOWN");
-            if(this.mute == 0)
-            	 Audio.setRelativeVolume(1);
             break;     
         case tvKey.KEY_MUTE:
             alert("MUTE");
-            this.muteMode();
             break;
 		default:
 			alert("Unhandled key");

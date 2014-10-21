@@ -74,7 +74,7 @@ SelectWatchPg.setData = function(){
             tempstring += '</div>';
             tempstring += '<div class="SproductInfoArea">';
             tempstring +=   '<div class="Sprovider">';
-            tempstring +=       data.providerId;
+            tempstring +=       channels[upch].name + '∧';
             tempstring +=   '</div>';
             tempstring +=   '<div class="Sname">';
             tempstring +=       data.productName;
@@ -117,10 +117,10 @@ SelectWatchPg.setData = function(){
             tempstring += '</div>';
             tempstring += '<div class="SproductInfoArea">';
             tempstring +=   '<div class="Sprovider">';
-            tempstring +=       '<p>'+data.providerId+'</p>';
+            tempstring +=       channels[downch].name + '∨';
             tempstring +=   '</div>';
             tempstring +=   '<div class="Sname">';
-            tempstring +=       '<p>' +data.productName+ '</p>';
+            tempstring +=       data.productName;
             tempstring +=   '</div>';
 //            tempstring +=   '<div class="Sprice">';
 //            tempstring +=       '<p>최대 혜택가 :</p>';

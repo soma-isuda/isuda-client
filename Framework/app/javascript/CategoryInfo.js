@@ -8,20 +8,21 @@ var midProduct = new Array();//중분류 전체보기를 위한 배열
 var channels = new Array();
 
 $(document).ready(function () {
-/*
+
     jQuery.ajax({
         url: SERVER_ADDRESS + '/getProviders',
         type : 'GET',
         dataType : 'json',
         success : function (data) {
-            var idx = 0;
             $.each(data, function (key, value) {
-                alert(idx+" : " + value.providerName);
-                channels.push(new channel(idx++, value.providerName, value.chURL));
+                alert(key+" : " + value.providerName);
+                if(value.chURL != null)
+                    channels.push(new channel(key, value.providerName, value.chURL));
             });
+            document.getElementById("player0").load();
         }
     });  
-*/
+
     //refresh = setInterval(function(){MultiWatchPg.remainedTime();},1000);
     //get ALL category information
     //전체보기를 대분류의 첫번째로 넣는다.
