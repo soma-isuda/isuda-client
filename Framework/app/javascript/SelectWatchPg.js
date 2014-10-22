@@ -153,8 +153,11 @@ SelectWatchPg.keyDown = function () {
     alert("Key pressed: " + keyCode);
     alert(SelectWatchPg_index);
 
-    jQuery('#SelectWatchPgMenu').addClass('show');
-    SelectWatchPg.ChannelHelper.addClass('show');
+    if(!SelectWatchPg.ChannelHelper.hasClass('show')){
+        jQuery('#SelectWatchPgMenu').addClass('show');
+        SelectWatchPg.ChannelHelper.addClass('show');
+        return;
+    }
 //    SelectWatchPg.DownCh.addClass('show');
 
     clearTimeout(menuDisplayNone);
