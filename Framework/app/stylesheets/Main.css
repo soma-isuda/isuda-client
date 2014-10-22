@@ -87,6 +87,14 @@ body
 	top:0;
 }
 
+.player{
+	position:absolute;
+	left: 130px;
+	top:0;
+	opacity:0;
+	
+}
+
 #player.hide{
 	opacity:0;
 }
