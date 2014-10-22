@@ -187,7 +187,7 @@ popupAdjust = function(){
     var tempString='';
     tempString += '<div id="popupAdjust">';
     tempString += '	<div id="adjustImg">';
-    tempString += '		<img src="img/adjust.PNG" style="max-width: 100%; max-heigh: 100%;">';
+    tempString += '		<img src="img/adjust.png" style="max-width: 100%; max-heigh: 100%;">';
     tempString += '	</div>';
     tempString += '	<div id="adjustFooter">';
     tempString += '		<div><img src="img/button_A.png"></div>';
