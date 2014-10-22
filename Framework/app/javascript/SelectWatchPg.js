@@ -39,6 +39,7 @@ SelectWatchPg.focus = function () {
     }, 5000);
     //       alert("asdads");
     //   });
+    popupAdjust();
 };
 
 SelectWatchPg.setData = function(){
@@ -153,6 +154,10 @@ SelectWatchPg.keyDown = function () {
     }, 5000);
 
     switch (keyCode) {
+        case tvKey.KEY_RED:
+            if(adjustState =true)
+                popupAdjustFull();
+            break;
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
             popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SelectWatchPg);
@@ -203,6 +208,7 @@ SelectWatchPg.keyDown = function () {
 
             alert("SelectWatchPg_index : " + SelectWatchPg_index);
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+            jQuery('#popup').empty();
             Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html);
             setTimeout(function () {
                 subPageArr[SelectWatchPg_index].object.onLoad();

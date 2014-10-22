@@ -204,14 +204,51 @@ popupMessage = function(message){
 	jQuery('#popup').append('<div id="popupMessage">'+message+'</div>');
 	$('#popupMessage').css("display","block");
 	setTimeout(function(){
-		$('#popupMessage').css("display","none");
+		jQuery('#popup').empty();
 	},2000);
+};
+var adjustState =false;
+popupAdjust = function(){
+    alert("PopUp a!!");
+    jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
+    var tempString='';
+    tempString += '<div id="popupAdjust">';
+    tempString += '	<div id="adjustImg">';
+    tempString += '		<img src="img/adjust.PNG" style="max-width: 100%; max-heigh: 100%;">';
+    tempString += '	</div>';
+    tempString += '	<div id="adjustFooter">';
+    tempString += '		<div><img src="img/button_A.png"></div>';
+    tempString += '		<div>상세페이지</div>';
+    tempString += '	</div>';
+    tempString += '</div>';
+	jQuery('#popup').append(tempString);
+	adjustState = true;
+	$('#popupAdjust').css("display","inline");
+	// $('#popupAdjust').animate({height: "-=288px"},slow);
+	setTimeout(function(){
+		jQuery('#popup').empty();
+		adjustState = false;
+	},60000);
+};
+popupAdjustFull = function(){
+    alert("PopUp a!!");
+    jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
+    var tempString='';
+    tempString += '<div id="popupAdjustFull">';
+    tempString += '		<img src="img/adjustFull.png" width="100%" height="100%">';
+    tempString += '</div>';
+	jQuery('#popup').append(tempString);
+	$('#popupAdjustFull').css("display","inline");
+	focusBack = SelectWatchPg;
+	jQuery('#anchor_popup').focus();
+	// $('#popupAdjust').animate({height: "-=288px"},slow);
 };
 var popup_index;
 var focusBack;
 popupMessageButton = function(message, returnFocus){
 	alert("PopUp b!!");
 	focusBack = returnFocus;
+	jQuery('#popup').empty();
 	var tempString='';
 	tempString += '<div id="popupMessageButton">		';
 	tempString += '		<div>'+message+'</div>';
@@ -245,16 +282,22 @@ popupkeyDown = function(){
 				widgetAPI.sendExitEvent();
 			else
 				focusBack.focus();
-				$('#popupMessageButton').css("display","none");
+				jQuery('#popup').empty();
 			break;
 		case tvKey.KEY_EXIT:
-			widgetAPI.sendExitEvent();
+			widgetAPI.blockNavigation(event);
+			if(adjustState == true){
+				adjustState = false;
+				popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SelectWatchPg);
+			}
+			else widgetAPI.sendExitEvent();
 			break;
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
+			adjustState = false;
 			widgetAPI.blockNavigation(event);
 			focusBack.focus();
-			$('#popupMessageButton').css("display","none");
+			jQuery('#popup').empty();
 			break;
 		case tvKey.KEY_VOL_UP:
         case tvKey.KEY_PANEL_VOL_UP:

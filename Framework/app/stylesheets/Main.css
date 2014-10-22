@@ -183,7 +183,6 @@ ul {
 	/*border-radius: 5px;*/
 	padding: 10px;
 	color: white;
-
 	margin-top: 60px;
 	margin-left: 100px;
 }
@@ -191,4 +190,51 @@ ul {
 .popupBtn.focus{
 	background-color: #5ccece;
 	color: black;
+}
+
+#popupAdjust {
+	box-sizing:border-box;
+	width:  480px;
+	height: 227px;
+	position: absolute;
+	
+	margin-top: 20px;
+	margin-left: 1420px;
+	display: none;
+	overflow: hidden;
+}
+#adjustImg {
+	width: 100%;
+	height: 177px;
+	border: none;
+}
+#adjustFooter {
+	width: 480px;
+	height: 50px;
+	border: none;
+
+	background-color: black;
+	color: white;
+	font-size: 25px;
+	padding-left: 20px;
+}
+#adjustFooter div {
+	height: 100px;
+	display: inline;
+}
+#adjustFooter div img {
+	width: 70px;
+	height: 50px;
+}
+
+#popupAdjustFull {
+	box-sizing:border-box;
+	width:  1920px;
+	height: 1080px;
+	position: absolute;
+	
+	margin-top: 0px;
+	margin-left: 0px;
+	display: none;
+	overflow: hidden;
 }
