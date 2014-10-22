@@ -93,8 +93,9 @@ MultiWatchPg.onLoad = function(){
 		//$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
 	}
 	//this.focus();
-	widgetAPI.sendReadyEvent();
+//	widgetAPI.sendReadyEvent();
 	
+
 };
 
 var MultiWatchPg_index =0;
@@ -124,7 +125,7 @@ MultiWatchPg.remainedTime = function(){
 		remainedTime.minute = endTimeArr[i].minute-date.getMinutes()-1;
 		remainedTime.second = 59-date.getSeconds();
 
-		alert(remainedTime.hour+"시 "+ remainedTime.minute+ "분+ "+remainedTime.second)+"초";
+//		alert(remainedTime.hour+"시 "+ remainedTime.minute+ "분+ "+remainedTime.second)+"초";
 		if((remainedTime.hour == 0)&&(remainedTime.minute == 0 )&&(remainedTime.second == 0 )) {
 			alert("refresh Item");
 			refresh=1;
@@ -244,15 +245,15 @@ MultiWatchPg.keyDown = function()
 			if (MultiWatchPg_index>=1) {
 				MultiWatchPg.anchor.main.removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
-				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
-				Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
-				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+8)]);
+				Main.sideBarMenu.btn.eq(page_index).removeClass('select');
+//				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
+				Main.sideBarMenu.btn.eq(++page_index).addClass('select');
+//				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+8)]);
 				Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
-			    if (status == "success") {
-			        pagearr[page_index].object.onLoad(MultiWatchPg_index - 1);
-                    SelectWatchPg.focus();
-			    }
+				    if (status == "success") {
+				        pagearr[page_index].object.onLoad(MultiWatchPg_index - 1);
+	                    SelectWatchPg.focus();
+				    }
 				});
 				clearInterval(refresh);
 				focusCurrent = "SelectWatchPg";

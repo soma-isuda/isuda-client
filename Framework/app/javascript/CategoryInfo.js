@@ -19,7 +19,7 @@ $(document).ready(function () {
                 if(value.chURL != null)
                     channels.push(new channel(key, value.providerName, value.chURL));
             });
-            document.getElementById("player0").load();
+//            document.getElementById("player0").load();
         }
     });  
 

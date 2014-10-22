@@ -1,24 +1,28 @@
 
 //씨제이, 지에스, 현대,   홈앤쇼핑, 롯데,  
-
 function channel(idx, name, url){
     this.idx = idx;
     this.name = name;
     this.url = url;
-    this.player = document.getElementById("player"+idx);
-
-    this.player.src = this.url;
 };
 
-channel.prototype.getPlayer = function(){
-    return this.player;
+channel.prototype.getURL = function(){
+    return this.url;
 };
+channel.prototype.getName = function(){
+    return this.name;
+};
+
 
 var Player = {
-    channel: 0,
+    videoURLlen: 0,
+    channel: -1,
+    player: document.getElementById("player"),
     playing: false,
     //	외부 호출 함수 
     init: function (ch) {
+        alert(channels.length);
+//        this.videoURLlen = channels.length;
         this.setChannel(ch);
         this.play();
         this.playing = true;
@@ -42,12 +46,11 @@ var Player = {
     play: function () {
         this.getPlayer().play();
     },
-    stop: function () {
-        this.getPlayer().stop();
-    },
     pause: function () {
         this.getPlayer().pause();
-        this.getPlayer().load();        
+    },
+    load: function () {
+        this.getPlayer().load();
     },
 
     //state 함수 
@@ -61,8 +64,21 @@ var Player = {
 
     //get, set 함수
     setChannel: function (ch) {
-        if (typeof ch != 'undefined')
+        var bch = this.channel;
+        if (typeof ch != 'undefined'){
             this.channel = ch;
+        }
+        if(this.channel == -1){
+            this.channel = 0;
+        }
+
+        if(bch != this.channel){
+            this.getPlayer().src = channels[this.channel].getURL();
+        }
+        else{ 
+            this.load();
+        }
+
     },
     getChannel: function () {
         return this.channel;
@@ -73,8 +89,11 @@ var Player = {
     getDownChannel: function () {
         return (this.channel - 1 + channels.length) % channels.length;
     },    
+    setPlayer: function (player) {
+        this.player = player;
+    },
     getPlayer: function () {
-        return channels[this.channel].getPlayer();
+        return this.player;
     }
 };
 

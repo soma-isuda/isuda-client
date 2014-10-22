@@ -9,8 +9,9 @@ var SelectWatchPg = {
 SelectWatchPg.onLoad = function (ch) {
     alert("SelectWatchPg onLoad");
     jQuery.extend(SelectWatchPg, {
-        UpCh: jQuery("#ChannelUp"),
-        DownCh : jQuery("#ChannelDown"),
+        ChannelHelper : jQuery("#ChannelHelper"),
+//        UpCh: jQuery("#ChannelUp"),
+//        DownCh : jQuery("#ChannelDown"),
         SelectWatchPgMenu: jQuery('#SelectWatchPgMenu').find('ul > li'),
         anchor: {
             main: jQuery('#anchor_SelectWatchPg')
@@ -25,8 +26,8 @@ SelectWatchPg.onLoad = function (ch) {
 SelectWatchPg.focus = function () {
     alert("SelectWatchPg focus");
     jQuery('#SelectWatchPgMenu').addClass('show');
-    SelectWatchPg.UpCh.addClass('show');
-    SelectWatchPg.DownCh.addClass('show');
+    SelectWatchPg.ChannelHelper.addClass('show');
+//    SelectWatchPg.DownCh.addClass('show');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
@@ -34,20 +35,30 @@ SelectWatchPg.focus = function () {
     clearTimeout(menuDisplayNone);
     menuDisplayNone = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
-        SelectWatchPg.UpCh.removeClass('show');
-        SelectWatchPg.DownCh.removeClass('show');
-    }, 5000);
+        SelectWatchPg.ChannelHelper.removeClass('show');
+//        SelectWatchPg.DownCh.removeClass('show');
+    }, 10000);
     //       alert("asdads");
     //   });
 };
 
 SelectWatchPg.setData = function(){
     var upch = Player.getUpChannel();
+    var nowch = Player.getChannel();
     var downch = Player.getDownChannel();
 
     console.log(upch);
     console.log(downch);
-    jQuery.ajax({
+
+    var tempstring = '';
+    tempstring += '<div class="Channel">' + channels[upch].getName()+'</div>';
+    tempstring += '<div id="NowChannel">' + channels[nowch].getName()+'</div>';
+    tempstring += '<div class="Channel">' + channels[downch].getName()+'</div>';
+    SelectWatchPg.ChannelHelper.html(tempstring);
+    SelectWatchPg.ChannelHelper.css('color', color[nowch]);
+
+
+/*    jQuery.ajax({
         url: SERVER_ADDRESS + '/now',
         type : 'GET',
         data: ({ providerNum: upch }),    
@@ -74,7 +85,7 @@ SelectWatchPg.setData = function(){
             tempstring += '</div>';
             tempstring += '<div class="SproductInfoArea">';
             tempstring +=   '<div class="Sprovider">';
-            tempstring +=       channels[upch].name + '∧';
+            tempstring +=       channels[upch].getName() + '∧';
             tempstring +=   '</div>';
             tempstring +=   '<div class="Sname">';
             tempstring +=       data.productName;
@@ -117,7 +128,7 @@ SelectWatchPg.setData = function(){
             tempstring += '</div>';
             tempstring += '<div class="SproductInfoArea">';
             tempstring +=   '<div class="Sprovider">';
-            tempstring +=       channels[downch].name + '∨';
+            tempstring +=       channels[downch].getName() + '∨';
             tempstring +=   '</div>';
             tempstring +=   '<div class="Sname">';
             tempstring +=       data.productName;
@@ -130,7 +141,7 @@ SelectWatchPg.setData = function(){
             SelectWatchPg.DownCh.html(tempstring);
             SelectWatchPg.DownCh.css('background-color', color[downch]);
         }
-    });  
+    });  */
 };
 
 var menuDisplayNone;
@@ -142,22 +153,22 @@ SelectWatchPg.keyDown = function () {
     alert(SelectWatchPg_index);
 
     jQuery('#SelectWatchPgMenu').addClass('show');
-    SelectWatchPg.UpCh.addClass('show');
-    SelectWatchPg.DownCh.addClass('show');
+    SelectWatchPg.ChannelHelper.addClass('show');
+//    SelectWatchPg.DownCh.addClass('show');
 
     clearTimeout(menuDisplayNone);
     menuDisplayNone = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
-        SelectWatchPg.UpCh.removeClass('show');
-        SelectWatchPg.DownCh.removeClass('show');
-    }, 5000);
+        SelectWatchPg.ChannelHelper.removeClass('show');
+//        SelectWatchPg.DownCh.removeClass('show');
+    }, 10000);
 
     switch (keyCode) {
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
             popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", SelectWatchPg);
             break;
-            //		 채널 퀵변경 
+            //       채널 퀵변경 
         case tvKey.KEY_CH_UP:
             Player.channelUp();
             SelectWatchPg.setData();
@@ -175,11 +186,11 @@ SelectWatchPg.keyDown = function () {
             widgetAPI.blockNavigation(event);
         case tvKey.KEY_LEFT:
             alert("SelectWatchPg_key : Left");
-            //			SelectWatchPg.anchor.main.removeClass('focus');
+            //          SelectWatchPg.anchor.main.removeClass('focus');
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
         jQuery('#SelectWatchPgMenu').removeClass('show');
-        SelectWatchPg.UpCh.removeClass('show');
-        SelectWatchPg.DownCh.removeClass('show');
+        SelectWatchPg.ChannelHelper.removeClass('show');
+//        SelectWatchPg.DownCh.removeClass('show');
             Main.focus();
             break;
         case tvKey.KEY_UP:
