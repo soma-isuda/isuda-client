@@ -1,6 +1,8 @@
 var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 
+var pluginAPI = new Common.API.Plugin();
+
 
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
@@ -36,6 +38,20 @@ var Main =
 	},
 	focus: 0	
 };
+
+onShowEvent = function() {
+    var nnaviPlugin = document.getElementById('pluginObjectNNavi');
+    
+    var PL_NNAVI_STATE_BANNER_NONE = 0;
+    var PL_NNAVI_STATE_BANNER_VOL = 1;
+    var PL_NNAVI_STATE_BANNER_VOL_CH = 2;
+    nnaviPlugin.SetBannerState(PL_NNAVI_STATE_BANNER_VOL);
+    // For volume OSD
+    pluginAPI.unregistKey(tvKey.KEY_VOL_UP);
+    pluginAPI.unregistKey(tvKey.KEY_VOL_DOWN);
+    pluginAPI.unregistKey(tvKey.KEY_MUTE);
+}
+
 Main.onLoad = function()
 {
 	alert("Main.onLoad");
@@ -48,6 +64,7 @@ Main.onLoad = function()
 	this.focus();
 	//Main.layout.popUp.load('app/html/popUp.html');
 //	Player.destroy();
+	onShowEvent();
 
 	widgetAPI.sendReadyEvent();
 	alert('Main_onLoad completed');
@@ -187,7 +204,7 @@ popupAdjust = function(){
     var tempString='';
     tempString += '<div id="popupAdjust">';
     tempString += '	<div id="adjustImg">';
-    tempString += '		<img src="img/adjust.PNG" style="max-width: 100%; max-heigh: 100%;">';
+    tempString += '		<img src="img/adjust.png" style="max-width: 100%; max-heigh: 100%;">';
     tempString += '	</div>';
     tempString += '	<div id="adjustFooter">';
     tempString += '		<div><img src="img/button_A.png"></div>';
