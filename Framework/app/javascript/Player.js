@@ -34,11 +34,13 @@ var Player = {
         }
     },
     channelUp: function () {
-        this.setChannel((this.channel + 1) % channels.length);
+        alert(this.getUpChannel());
+        this.setChannel(this.getUpChannel());
         this.play();
     },
     channelDown: function () {
-        this.setChannel((this.channel - 1 + channels.length) % channels.length);
+
+        this.setChannel(this.getDownChannel());
         this.play();
     },
 

@@ -152,9 +152,13 @@ SelectWatchPg.keyDown = function () {
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode);
     alert(SelectWatchPg_index);
+    var show = false;
 
-    jQuery('#SelectWatchPgMenu').addClass('show');
-    SelectWatchPg.ChannelHelper.addClass('show');
+    if(!SelectWatchPg.ChannelHelper.hasClass('show')){
+        jQuery('#SelectWatchPgMenu').addClass('show');
+        SelectWatchPg.ChannelHelper.addClass('show');
+        show = true;
+    }
 //    SelectWatchPg.DownCh.addClass('show');
 
     clearTimeout(menuDisplayTimeout);
@@ -201,6 +205,7 @@ SelectWatchPg.keyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("SelectWatchPg_key : Up");
+            if(show)   return;
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
             SelectWatchPg_index = (SelectWatchPg_index + SelectWatchPg.SelectWatchPgMenu.size() - 1) % SelectWatchPg.SelectWatchPgMenu.size();
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
@@ -208,6 +213,7 @@ SelectWatchPg.keyDown = function () {
 
         case tvKey.KEY_DOWN:
             alert("SelectWatchPg_key : Down");
+            if(show)   return;            
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
             SelectWatchPg_index = (SelectWatchPg_index + SelectWatchPg.SelectWatchPgMenu.size() + 1) % SelectWatchPg.SelectWatchPgMenu.size();
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
@@ -217,14 +223,15 @@ SelectWatchPg.keyDown = function () {
             alert("SelectWatchPg_key : Right");
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
-
             alert("SelectWatchPg_index : " + SelectWatchPg_index);
+            if(show)   return;
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
             jQuery('#popup').empty();
-            Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html);
-            setTimeout(function () {
-                subPageArr[SelectWatchPg_index].object.onLoad();
-            }, 10);
+            Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html, function (response, status, xhr) {
+                if (status == "success") {
+                    subPageArr[SelectWatchPg_index].object.onLoad();
+                }
+            });
             break;
         case tvKey.KEY_VOL_UP:
         case tvKey.KEY_PANEL_VOL_UP:
