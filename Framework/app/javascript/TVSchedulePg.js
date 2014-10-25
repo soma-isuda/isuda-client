@@ -23,9 +23,8 @@ var productLoadedId = new Array();
 //상세정보 페이지등을 불러오는데 사용된다.
 //--------------------------------------------------
 var TVSchedulePg = {
-    pxMove: 0,//중분류 스크롤을 위한 변수
-    midScrollNum: 0,//스크롤한 횟수를 위한 변수
-    bigScrollNum: 0,
+    bigPxMove: 0,//중분류 스크롤을 위한 변수
+    midPxMove: 0,
     firstAccess: 0,//편성표 페이지에 처음 접근했으면 0, 아니면 1(대분류 전체보기를 위한 변수)
     loadedLineNum: 1,//상품 리스트에서 아래 버튼을 몇번 눌렀는지 추적하는 변수(상품 로딩을 위해서)
     INITIAL_NUMBER: 8,//처음에 편성표에서 로드되는 상품의 수
@@ -36,8 +35,6 @@ TVSchedulePg.onLoad = function () {
     alert("TVSchedulePg onLoad");
     big_index = 0;
     this.firstAccess = 0;
-    this.midScrollNum = 0;
-    this.bigScrollNum = 0;
     this.downKeyInputNum = 0;
     jQuery.extend(TVSchedulePg, {
         big: jQuery('#big').find('ul'),
@@ -157,7 +154,6 @@ tabMenu = function () {
     jQuery.extend(TVSchedulePg, {
         midElem: jQuery('#mid').find('ul>li'),
     });
-    this.midScrollNum = 0;
 };
 
 //[[[[[[[[[대분류]]]]]]]]]]]에서의 키처리를 담당하는 부분
@@ -183,22 +179,19 @@ TVSchedulePg.bigKeyDown = function () {
             $(".sideBarMenuText").css("display", "block");
             Main.focus();
             break;
-
         case tvKey.KEY_UP:
             alert("TVSchedulePg_key : Up");
-
             TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
 
-            if (big_index < (this.bigScrollNum + 2)) {
-                this.pxMove = '-' + (148 * (--this.bigScrollNum)) + 'px';
-                jQuery('#big').find('ul').css("margin-top", this.pxMove);
+           if ((big_index-1)*148 == this.bigPxMove) {
+                this.bigPxMove = 148 * (big_index-2);
+                jQuery('#big').find('ul').css("margin-top", '-'+this.bigPxMove+'px');
             }
             //대분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
             if (big_index == 0) {
                 big_index = firstCategory.length - 1;
-                this.pxMove = '-' + (148 * (big_index - 6)) + 'px';
-                jQuery('#big').find('ul').css("margin-top", this.pxMove);
-                this.bigScrollNum = (big_index - 6);
+                this.bigPxMove = 148 * (big_index - 6);
+                jQuery('#big').find('ul').css("margin-top", '-'+this.bigPxMove+'px');
             }
             else
                 big_index--;
@@ -220,11 +213,12 @@ TVSchedulePg.bigKeyDown = function () {
             break;
         case tvKey.KEY_DOWN:
             alert("TVSchedulePg_key : Down");
-
+            
             //대분류를 표시할 수 있는 영역을 넘쳤을 때는 스크롤한다.
-            if (big_index >= 6 && big_index < (firstCategory.length - 1)) {
-                this.pxMove = '-' + (148 * (++this.bigScrollNum)) + 'px';
-                jQuery('#big').find('ul').css("margin-top", this.pxMove);
+            //if (big_index >= 6 && big_index < (firstCategory.length - 1))
+            if ((big_index-6)*148 == this.bigPxMove) {
+                this.bigPxMove = 148 * (big_index-5);
+                jQuery('#big').find('ul').css("margin-top", '-' + this.bigPxMove + 'px');
             }
 
             TVSchedulePg.bigElem.eq(big_index).removeClass('focus');
@@ -233,7 +227,7 @@ TVSchedulePg.bigKeyDown = function () {
             if (big_index == firstCategory.length - 1) {
                 big_index = 0;
                 jQuery('#big').find('ul').css("margin-top", "0px");
-                this.bigScrollNum = 0;
+                this.bigPxMove =0;
             }
             else
                 big_index++;
@@ -259,12 +253,12 @@ TVSchedulePg.bigKeyDown = function () {
             //현재 보고 있던 대분류의 포커스는 유지한 상태로
             //중분류 첫번째에 포커스를 준뒤,
             //TVSchedulePg.midKeyDown으로 키처리를 넘긴다.
+    
         case tvKey.KEY_RIGHT:
             alert("TVSchedulePg_key : Right");
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             alert("TVSchedulePg_key : Enter");
-            this.midScrollNum = 0;
             if (big_index == 0) {//대분류 '전체보기' 처리 부분
                 TVSchedulePg.bigElem.eq(big_index).addClass('select');
                 if (this.firstAccess != 0) { //'대분류 전체보기'에 처음 접근하는게 아니라면
@@ -297,7 +291,7 @@ TVSchedulePg.bigKeyDown = function () {
                 //첫번째 대분류 카테고리에 초점을 맞춘상태로 시작한다.
                 TVSchedulePg.bigElem.eq(big_index).addClass('select');
                 TVSchedulePg.midElem.eq(mid_index).addClass('focus');
-
+                this.midPxMove=0;
                 
             }
             break;
@@ -330,31 +324,29 @@ TVSchedulePg.midKeyDown = function () {
             //다시 대분류로 포커스를 넘긴다.
             jQuery('#mid').hide();
             jQuery('#big').show();
-            TVSchedulePg.anchor.big.focus();
-            //포커스가 넘어가면 중분류를 없앤다.
             TVSchedulePg.bigElem.eq(big_index).removeClass('select');
             TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
 
             jQuery('#mid').find('ul').css("margin-top", "0");
 
+            TVSchedulePg.anchor.big.focus();
+            //포커스가 넘어가면 중분류를 없앤다.
             break;
-
         case tvKey.KEY_UP:
             alert("TVSchedulePg_key : Up");
             TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
 
-            if (mid_index < (this.midScrollNum + 2)) {
-                this.pxMove = '-' + (148 * (--this.midScrollNum)) + 'px';
-                jQuery('#mid').find('ul').css("margin-top", this.pxMove);
+            if ((mid_index-1)*148 == this.midPxMove) {
+                this.midPxMove = 148 * (mid_index-2);
+                jQuery('#mid').find('ul').css("margin-top", '-'+this.midPxMove+'px');
 
             }
             //중분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
             if (mid_index == 0) {
                 mid_index = secondCategory[big_index].length - 1;
-                this.pxMove = '-' + (148 * (mid_index - 6)) + 'px';
+                this.midPxMove = 148 * (mid_index - 6);
 
-                jQuery('#mid').find('ul').css("margin-top", this.pxMove);
-                this.midScrollNum = (mid_index - 6);
+                jQuery('#mid').find('ul').css("margin-top", '-'+this.midPxMove+'px');
             }
             else
                 mid_index--;
@@ -368,9 +360,9 @@ TVSchedulePg.midKeyDown = function () {
         case tvKey.KEY_DOWN:
             alert("TVSchedulePg_key : Down");
             //중분류를 표시할 수 있는 영역을 넘쳤을 때는 스크롤한다.
-            if (mid_index >= 6 && mid_index < (secondCategory[big_index].length - 1)) {//중분류는 한번에 최대 8개까지 보여줌
-                this.pxMove = '-' + (148 * (++this.midScrollNum)) + 'px';
-                jQuery('#mid').find('ul').css("margin-top", this.pxMove);
+            if ((mid_index-6)*148 == this.midPxMove) {//중분류는 한번에 최대 8개까지 보여줌
+                this.midPxMove = 148 * (mid_index-5);
+                jQuery('#mid').find('ul').css("margin-top", '-'+this.midPxMove+'px');
             }
 
             TVSchedulePg.midElem.eq(mid_index).removeClass('focus');
@@ -380,7 +372,7 @@ TVSchedulePg.midKeyDown = function () {
             if (mid_index == secondCategory[big_index].length - 1) {
                 mid_index = 0;
                 jQuery('#mid').find('ul').css("margin-top", "0px");
-                this.midScrollNum = 0;
+                this.midPxMove =0;
             }
             else
                 mid_index++;
