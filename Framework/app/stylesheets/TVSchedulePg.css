@@ -264,6 +264,7 @@
     width: 310px;
     height: 180px;
     color: #232323;
+    overflow:hidden;
 }
 
 
@@ -280,9 +281,18 @@
     overflow: hidden;
 }
 
+.schedule_product_list_item > .schedule_productInfoArea>.schedule_providerName{
+    float:left;
+    width:120px;
+    height:90px;
+    line-height:90px;
+    font-size:18px;
+    text-align:left;
+}
 .schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice {
+    float:left;
     text-align: right;
-    width: 310px;
+    width: 190px;
     height: 90px;
     font-size: 25px;    
 }
