@@ -6,6 +6,7 @@ var allProduct = new Array();//모든 상품정보를 담아놓는 배열
 var midProduct = new Array();//중분류 전체보기를 위한 배열
 
 var channels = new Array();
+var providerIdToName = new Array();
 
 $(document).ready(function () {
 
@@ -16,8 +17,10 @@ $(document).ready(function () {
         success : function (data) {
             $.each(data, function (key, value) {
                 alert(key+" : " + value.providerName);
-                if(value.chURL != null)
+                if (value.chURL != null) {
                     channels.push(new channel(key, value.providerName, value.chURL));
+                    providerIdToName[value.id] = value.providerName;
+                }
             });
 //            document.getElementById("player0").load();
         }

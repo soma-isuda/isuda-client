@@ -32,8 +32,8 @@ SelectWatchPg.focus = function () {
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
 
-    clearTimeout(menuDisplayNone);
-    menuDisplayNone = setTimeout(function () {
+    clearTimeout(menuDisplayTimeout);
+    menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
         SelectWatchPg.ChannelHelper.removeClass('show');
 //        SelectWatchPg.DownCh.removeClass('show');
@@ -145,7 +145,7 @@ SelectWatchPg.setData = function(){
     });  */
 };
 
-var menuDisplayNone;
+var menuDisplayTimeout;
 
 SelectWatchPg.keyDown = function () {
     alert("SelectWatchPg keyDown");
@@ -161,8 +161,8 @@ SelectWatchPg.keyDown = function () {
     }
 //    SelectWatchPg.DownCh.addClass('show');
 
-    clearTimeout(menuDisplayNone);
-    menuDisplayNone = setTimeout(function () {
+    clearTimeout(menuDisplayTimeout);
+    menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
         SelectWatchPg.ChannelHelper.removeClass('show');
 //        SelectWatchPg.DownCh.removeClass('show');
@@ -233,25 +233,25 @@ SelectWatchPg.keyDown = function () {
                 }
             });
             break;
-        case tvKey.KEY_VOL_UP:
-        case tvKey.KEY_PANEL_VOL_UP:
-            alert("VOL_UP");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeUp();
-            break;
-        case tvKey.KEY_VOL_DOWN:
-        case tvKey.KEY_PANEL_VOL_DOWN:
-            alert("VOL_DOWN");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeDown();
-            break;     
-        case tvKey.KEY_MUTE:
-            alert("MUTE");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setMute(true);
-            else
-                webapis.audiocontrol.setMute(false);
-            break;
+        // case tvKey.KEY_VOL_UP:
+        // case tvKey.KEY_PANEL_VOL_UP:
+        //     alert("VOL_UP");
+        //     if(webapis.audiocontrol.getMute() ==false)
+        //         webapis.audiocontrol.setVolumeUp();
+        //     break;
+        // case tvKey.KEY_VOL_DOWN:
+        // case tvKey.KEY_PANEL_VOL_DOWN:
+        //     alert("VOL_DOWN");
+        //     if(webapis.audiocontrol.getMute() ==false)
+        //         webapis.audiocontrol.setVolumeDown();
+        //     break;     
+        // case tvKey.KEY_MUTE:
+        //     alert("MUTE");
+        //     if(webapis.audiocontrol.getMute() ==false)
+        //         webapis.audiocontrol.setMute(true);
+        //     else
+        //         webapis.audiocontrol.setMute(false);
+        //     break;
         default:
             alert("Unhandled key");
             break;

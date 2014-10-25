@@ -191,25 +191,6 @@ SelectNumberSpg.selectKeyDown = function () {
             SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).removeClass('focus');
             SelectNumberSpg.number.eq(SelectNumberSpg_numberIndex).addClass('selected');            
             break;
-        case tvKey.KEY_VOL_UP:
-        case tvKey.KEY_PANEL_VOL_UP:
-            alert("VOL_UP");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeUp();
-            break;
-        case tvKey.KEY_VOL_DOWN:
-        case tvKey.KEY_PANEL_VOL_DOWN:
-            alert("VOL_DOWN");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeDown();
-            break;     
-        case tvKey.KEY_MUTE:
-            alert("MUTE");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setMute(true);
-            else
-                webapis.audiocontrol.setMute(false);
-            break;
         default:
             alert("Unhandled key");
             break;
@@ -552,25 +533,6 @@ SelectNumberSpg.registerKeyDown = function () {
                 }            
             alert("SelectNumberSpg_key : Left");
             break;
-        case tvKey.KEY_VOL_UP:
-        case tvKey.KEY_PANEL_VOL_UP:
-            alert("VOL_UP");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeUp();
-            break;
-        case tvKey.KEY_VOL_DOWN:
-        case tvKey.KEY_PANEL_VOL_DOWN:
-            alert("VOL_DOWN");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeDown();
-            break;     
-        case tvKey.KEY_MUTE:
-            alert("MUTE");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setMute(true);
-            else
-                webapis.audiocontrol.setMute(false);
-            break;
         default:
             alert("Unhandled key");
             break;
@@ -831,25 +793,6 @@ SelectNumberSpg.submitKeyDown = function () {
             }
 
             break;
-        case tvKey.KEY_VOL_UP:
-        case tvKey.KEY_PANEL_VOL_UP:
-            alert("VOL_UP");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeUp();
-            break;
-        case tvKey.KEY_VOL_DOWN:
-        case tvKey.KEY_PANEL_VOL_DOWN:
-            alert("VOL_DOWN");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeDown();
-            break;     
-        case tvKey.KEY_MUTE:
-            alert("MUTE");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setMute(true);
-            else
-                webapis.audiocontrol.setMute(false);
-            break;
         default:
             alert("Unhandled key");
             break;
@@ -890,25 +833,6 @@ SelectNumberSpg.KeyDown = function () {
         case tvKey.KEY_PANEL_ENTER:
             //focus move to selectWatchPg
             alert("SelectNumberSpg_key : Enter");
-            break;
-        case tvKey.KEY_VOL_UP:
-        case tvKey.KEY_PANEL_VOL_UP:
-            alert("VOL_UP");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeUp();
-            break;
-        case tvKey.KEY_VOL_DOWN:
-        case tvKey.KEY_PANEL_VOL_DOWN:
-            alert("VOL_DOWN");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setVolumeDown();
-            break;     
-        case tvKey.KEY_MUTE:
-            alert("MUTE");
-            if(webapis.audiocontrol.getMute() ==false)
-                webapis.audiocontrol.setMute(true);
-            else
-                webapis.audiocontrol.setMute(false);
             break;
         default:
             alert("Unhandled key");
