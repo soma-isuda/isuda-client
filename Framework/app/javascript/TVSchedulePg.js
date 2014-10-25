@@ -83,7 +83,7 @@ TVSchedulePg.onLoad = function () {
     //CSS를 위한 선택자
     jQuery.extend(TVSchedulePg, {
         midElem: jQuery('#mid').find('ul>li'),
-        bigElem: jQuery('#big').find('ul>li')
+        bigElem: jQuery('#big').find('ul>li>div')
     });
     var day = new Array('일', '월', '화', '수', '목', '금', '토');
     var tempDate = new Date();
