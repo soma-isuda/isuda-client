@@ -32,8 +32,8 @@ SelectWatchPg.focus = function () {
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
 
-    clearTimeout(menuDisplayNone);
-    menuDisplayNone = setTimeout(function () {
+    clearTimeout(menuDisplayTimeout);
+    menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
         SelectWatchPg.ChannelHelper.removeClass('show');
 //        SelectWatchPg.DownCh.removeClass('show');
@@ -145,7 +145,7 @@ SelectWatchPg.setData = function(){
     });  */
 };
 
-var menuDisplayNone;
+var menuDisplayTimeout;
 
 SelectWatchPg.keyDown = function () {
     alert("SelectWatchPg keyDown");
@@ -157,8 +157,8 @@ SelectWatchPg.keyDown = function () {
     SelectWatchPg.ChannelHelper.addClass('show');
 //    SelectWatchPg.DownCh.addClass('show');
 
-    clearTimeout(menuDisplayNone);
-    menuDisplayNone = setTimeout(function () {
+    clearTimeout(menuDisplayTimeout);
+    menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
         SelectWatchPg.ChannelHelper.removeClass('show');
 //        SelectWatchPg.DownCh.removeClass('show');
@@ -166,7 +166,7 @@ SelectWatchPg.keyDown = function () {
 
     switch (keyCode) {
         case tvKey.KEY_RED:
-            if(adjustState =true)
+            if(adjustState == true)
                 popupAdjustFull();
             break;
         case tvKey.KEY_EXIT:

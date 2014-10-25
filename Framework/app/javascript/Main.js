@@ -197,7 +197,10 @@ popupMessage = function(message){
 		jQuery('#popup').empty();
 	},2000);
 };
+
+
 var adjustState =false;
+var adjustTimeout; // clearTimeout
 popupAdjust = function(){
     alert("PopUp a!!");
     jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
@@ -207,15 +210,14 @@ popupAdjust = function(){
     tempString += '		<img src="img/adjust.png" style="max-width: 100%; max-heigh: 100%;">';
     tempString += '	</div>';
     tempString += '	<div id="adjustFooter">';
-    tempString += '		<div><img src="img/button_A.png"></div>';
+    tempString += '		<div id="adjustFooterButton">&nbsp&nbspA&nbsp&nbsp </div>';
     tempString += '		<div>상세페이지</div>';
     tempString += '	</div>';
     tempString += '</div>';
 	jQuery('#popup').append(tempString);
 	adjustState = true;
 	$('#popupAdjust').css("display","inline");
-	// $('#popupAdjust').animate({height: "-=288px"},slow);
-	setTimeout(function(){
+	adjustTimeout = setTimeout(function(){
 		jQuery('#popup').empty();
 		adjustState = false;
 	},60000);
@@ -223,6 +225,7 @@ popupAdjust = function(){
 popupAdjustFull = function(){
     alert("PopUp a!!");
     jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
+    clearTimeout(adjustTimeout);
     var tempString='';
     tempString += '<div id="popupAdjustFull">';
     tempString += '		<img src="img/adjustFull.png" width="100%" height="100%">';
@@ -230,6 +233,7 @@ popupAdjustFull = function(){
 	jQuery('#popup').append(tempString);
 	$('#popupAdjustFull').css("display","inline");
 	focusBack = SelectWatchPg;
+
 	jQuery('#anchor_popup').focus();
 	// $('#popupAdjust').animate({height: "-=288px"},slow);
 };
