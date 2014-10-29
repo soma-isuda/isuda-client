@@ -57,9 +57,33 @@ MultiWatchPg.onLoad = function(){
                 else//가격 값이 null 이면
                     priceRefined += '방송 중 확인';
 
+                var tempString = '';
+                tempString+='<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem">';
+                tempString+='<div class="imgArea">';
+                tempString+='<img src="' +this.productImgURL+ '" alt="" class="productImg">';
+                tempString+='</div>';
+                tempString+='<div class="productInfoArea">';
+                tempString+='<div class="endTime">';
+                tempString+='<p>방송 혜택 종료까지</p>';
+                tempString+='<p id="remainedTime' + cnt + '" class="remainedTime"></p>';
+                tempString+='</div>';
+                tempString+='<div class="name">';
+                tempString+='<p>' +this.productName+ '</p>';
+                tempString+='</div>';
+                tempString+='<div class="price">';
+                tempString+='<p>최대 혜택가 :</p>';
+                tempString+='<p class="productPrice">' + priceRefined + '</p>';
+                tempString+='</div>';
+                tempString+='</div>';
+                tempString+='<div>';
+                tempString+='<img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem">';
+                tempString+='</div>';
+                tempString += '</li>';
 
-			    jQuery('#mainItem').find('ul').append('<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem"><div class="imgArea"><img src="' +this.productImgURL+ '" alt="" class="productImg"></div><div class="productInfoArea"><div class="endTime"><p>방송 혜택 종료까지</p><p id="remainedTime' + cnt + '" class="remainedTime"></p></div><div class="name"><p>' +this.productName+ '</p></div><div class="price"><p>최대 혜택가 :</p><p class="productPrice">' + priceRefined + '</p></div></div><div><img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem"></div></li>');
-			    var remainedTime = new Object();
+                
+			    jQuery('#mainItem').find('ul').append(tempString);
+			    
+                var remainedTime = new Object();
 				
 				remainedTime.hour = (endTimeArr[cnt].hour-date.getHours()+9)%24;
 				remainedTime.minute = endTimeArr[cnt].minute-date.getMinutes()-1;
