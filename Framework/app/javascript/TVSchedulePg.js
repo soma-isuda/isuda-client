@@ -614,18 +614,20 @@ TVSchedulePg.listKeyDown = function () {
                 jQuery('#product>#product_header>#reserve_Category').addClass('focus');
                 //번호 선택 subPage를 로드한다.
                 subPage_index = 3;
-                Main.layout.subPage.load(subPageArr[subPage_index].html);
-                setTimeout(function () {
-                    subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
-                }, 10);
+                Main.layout.subPage.load(subPageArr[subPage_index].html, function (response, status, xhr) {
+                    if (status == "success") {
+                        subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
+                    }
+                });
             }
             else if (productIndex == 1) {//상품에 포커스가 있을 때
                 //상품 상세정보 페이지를 로드한다.
                 subPage_index = 0;
-                Main.layout.subPage.load(subPageArr[subPage_index].html);
-                setTimeout(function () {
-                    subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
-                }, 10);
+                Main.layout.subPage.load(subPageArr[subPage_index].html, function (response, status, xhr) {
+                    if (status == "success") {
+                        subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
+                    }
+                });
             }
             break;
         default:

@@ -2,7 +2,7 @@ var widgetAPI = new Common.API.Widget();
 var tvKey = new Common.API.TVKeyValue();
 var pluginAPI = new Common.API.Plugin();
 
-
+// ///////*SERVER*//////// 전역변수 //
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
 var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
@@ -10,13 +10,14 @@ var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
 var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
 var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_OUT;
 
+// ///////*SOUND*//////// 전역변수 //
 var vol = null;
 var userMute = null;
 var ObjectAudio = null;
 var ObjectTVMW = null;
 var NNaviPlugin = null;
 
-// pagearr : information about pages in pageinfo
+// ///////*PAGE*//////// 전역변수 //
 var page_index = 0;
 var subPage_index = 0;//현재 열려있는 서브 페이지의 넘버
 //0:상세보기 서브페이지
@@ -28,83 +29,39 @@ var subPage_index = 0;//현재 열려있는 서브 페이지의 넘버
 var Main =
 {
 	layout:{
-		sideBar : jQuery('#sideBar'),
 		page	: jQuery('#article'),
 		subPage : jQuery('#subPage')
 		//popUp   : jQuery('#popup')
 	},
-	sideBarMenu:{
+	menu:{
 		btn : jQuery('#sideBar').find('ul > li')
 	},
 	anchor:{
-//		menu	: jQuery('#menu'),
 		main	: jQuery('#anchor_main'),
 		subPage : jQuery('#anchor_subPage'),
 		popUp 	: jQuery('#anchor_popup')
 	},
-	focus: 0	
+	pageloaded 	: false
 };
 
-// onShowEvent = function() {
-//     // var nnaviPlugin = document.getElementById('pluginObjectNNavi');
-    
-//     // var PL_NNAVI_STATE_BANNER_NONE = 0;
-//     // var PL_NNAVI_STATE_BANNER_VOL = 1;
-//     // var PL_NNAVI_STATE_BANNER_VOL_CH = 2;
-//     // nnaviPlugin.SetBannerState(PL_NNAVI_STATE_BANNER_VOL);
-//     // // For volume OSD
-//     // pluginAPI.unregistKey(tvKey.KEY_VOL_UP);
-//     // pluginAPI.unregistKey(tvKey.KEY_VOL_DOWN);
-//     // pluginAPI.unregistKey(tvKey.KEY_MUTE);
-
-//     //this.enableKeys();
-//     pluginAPI.registIMEKey();
-//     //volume OSD and audio plugin
-//     ObjectTVMW = document.getElementById('pluginObjectTVMW');
-//     ObjectAudio = document.getElementById('pluginAudio');
-//     NNaviPlugin = document.getElementById('pluginObjectNNavi');
-//     widgetAPI.sendReadyEvent();
-//     window.onShow = function () {
-// 	    alert('[APPS] : setBannerstate ');
-// 	    setTimeout(function(){
-// 		        pluginAPI.unregistKey(tvKey.KEY_VOL_UP);
-// 		        pluginAPI.unregistKey(tvKey.KEY_VOL_DOWN);
-// 		        pluginAPI.unregistKey(tvKey.KEY_MUTE);
-// 		        pluginAPI.unregistKey(tvKey.KEY_PANEL_VOL_UP);
-// 		        pluginAPI.unregistKey(tvKey.KEY_PANEL_VOL_DOWN);
-// 		        pluginAPI.unregistKey(7); //unregister volume up button
-// 		        pluginAPI.unregistKey(11); //unregister volume down button
-// 		        pluginAPI.unregistKey(27); //unregister mute button
-		     
-// 		},100);
-// 	    NNaviPlugin.SetBannerState(1); //this is to see the banner Volume
-//     };
-//     userMute = ObjectAudio.GetUserMute();
-//     vol = ObjectAudio.GetVolume();
-//     alert('-----volume::'+ObjectAudio.GetVolume()+'------mute::'+ObjectAudio.GetUserMute()); //show in console Volume State
-
-// }
 
 Main.onLoad = function()
 {
 	alert("Main.onLoad");
-	//alert(sideBarMenuImg.length);
-	Main.layout.page.load(pagearr[page_index].html);
-	setTimeout(function(){
-				pagearr[page_index].object.onLoad();
-			},10);		
-	// Enable key event processing
-	this.focus();
-	//Main.layout.popUp.load('app/html/popUp.html');
-//	Player.destroy();
+	Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
+	    if (status == "success") {
+			pagearr[page_index].object.onLoad();
+			Main.pageloaded = true;
+	    }
+	});
+	Main.focus();
 
-	//this.enableKeys();
+	// ///////*SOUND*//////// initialize //
     pluginAPI.registIMEKey();
     //volume OSD and audio plugin
     ObjectTVMW = document.getElementById('pluginObjectTVMW');
     ObjectAudio = document.getElementById('pluginAudio');
     NNaviPlugin = document.getElementById('pluginObjectNNavi');
-    widgetAPI.sendReadyEvent();
     window.onShow = function () {
 	    alert('[APPS] : setBannerstate ');
 	    setTimeout(function(){
@@ -135,17 +92,9 @@ Main.onUnload = function()
 
 Main.focus = function()
 {
-//	Main.layout.page.load(pagearr[page_index].html);	
-
 	Main.anchor.main.focus();
-//	Main.layout.sideBar.addClass('focus');
-//	$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index+4]);
-	Main.sideBarMenu.btn.eq(page_index).removeClass('select');
-	Main.sideBarMenu.btn.eq(page_index).addClass('focus');
-	//$("#sideBar").css("width","460px");
-	//$(".sideBarMenuText").css("display","block");
-	//document.getElementById("article").style.marginLeft="460px";
-//	document.getElementById("article").style.marginLeft="430px";	
+	Main.menu.btn.eq(page_index).removeClass('select');
+	Main.menu.btn.eq(page_index).addClass('focus');
 };
 
 
@@ -161,88 +110,59 @@ Main.keyDown = function()
 	
 	switch(keyCode)
 	{
-	    case tvKey.KEY_EXIT:
-	        widgetAPI.blockNavigation(event);
-	        popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?", Main);
-	        break;
 		case tvKey.KEY_EXIT:
-			//widgetAPI.sendExitEvent();
 		case tvKey.KEY_RETURN:
 		case tvKey.KEY_PANEL_RETURN:
-			alert("main_key : Return");
-			//widgetAPI.sendReturnEvent();
+			alert("main_key : Return or Exit");
 			widgetAPI.blockNavigation(event);
-			//popupMessage("스마트 홈쇼핑을<br>종료합니다. <br><br>행복한 하루 되세요.");
-			// setTimeout(function(){
-			// 	widgetAPI.sendExitEvent();
-			// },2000);
 			popupMessageButton("스마트 홈쇼핑을<br>종료 하시겠습니까?",Main);
-			
 			break;
 			
 		case tvKey.KEY_UP:
 			alert("main_key : Up");
-			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
-//			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
-			//on.Unload();
+			Main.menu.btn.eq(page_index).removeClass('focus');
 			if(page_index == 0)
-				page_index = Main.sideBarMenu.btn.length;
-
-			Main.sideBarMenu.btn.eq(--page_index).addClass('focus');
-			//alert("page_Index+5 : "+page_index+5);
-//			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+4)]);
-			Main.layout.page.load(pagearr[page_index].html);
+				page_index = Main.menu.btn.length;
+			Main.menu.btn.eq(--page_index).addClass('focus');
+			Main.pageloaded = false;
+			Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
+			    if (status == "success") {
+					pagearr[page_index].object.onLoad();
+					Main.pageloaded = true;
+			    }
+			});
 			Player.destroy();
-			setTimeout(function(){
-				pagearr[page_index].object.onLoad();
-			},10);
-
 			break;
 		case tvKey.KEY_DOWN:
 			alert("main_key : Down");
-			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
-//			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
-			if(page_index == Main.sideBarMenu.btn.length-1)
+			Main.menu.btn.eq(page_index).removeClass('focus');
+			if(page_index == Main.menu.btn.length-1)
 				page_index = -1;
-
-			Main.sideBarMenu.btn.eq(++page_index).addClass('focus');
-//			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+4)]);
-			Main.layout.page.load(pagearr[page_index].html);
+			Main.menu.btn.eq(++page_index).addClass('focus');
+			Main.pageloaded = false;
+			Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
+			    if (status == "success") {
+					pagearr[page_index].object.onLoad();
+					Main.pageloaded = true;
+			    }
+			});
 			Player.destroy();
-
-			setTimeout(function(){
-				pagearr[page_index].object.onLoad();
-			},10);				
-
 			break;
 		case tvKey.KEY_ENTER:
-			alert("main_key : Enter");
 		case tvKey.KEY_PANEL_ENTER:
-			alert("main_key : Panel Enter");		
 		case tvKey.KEY_RIGHT:
-			alert("main_key : Right");
-			//focus move to Page
-			setTimeout(function(){
+			alert("main_key : Right or Enter");
+			if(Main.pageloaded){
 			    pagearr[page_index].object.focus();
-			    alert("포커스 넘기기 성공");
-			},10);			
-//			Main.layout.sideBar.removeClass('focus');
-			Main.sideBarMenu.btn.eq(page_index).removeClass('focus');
-			// select 
-			Main.sideBarMenu.btn.eq(page_index).addClass('select');
-//			$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+8)]);
-			
-			//Main.sideBarMenu.btn.removeClass('focus');
-			//$("#sideBar").css("width","300px");
-			//$(".sideBarMenuText").css("display","none");
-			//document.getElementById("article").style.marginLeft="130px";
-
-			//document.getElementById("MultiWatchPg").style.marginLeft="120px";
-			//pagearr[page_index].onLoad();
+				Main.menu.btn.eq(page_index).removeClass('focus');
+				Main.menu.btn.eq(page_index).addClass('select');
+			    alert("포커스 넘기기 성공");				
+			}
 			break;
 		default:
 			alert("Unhandled key");
 			break;
 	}
 };
+
 
