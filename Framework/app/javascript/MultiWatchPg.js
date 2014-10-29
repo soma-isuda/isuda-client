@@ -202,7 +202,6 @@ MultiWatchPg.keyDown = function()
 			$(productImg[MultiWatchPg_index]).css("display","none");
 			clearInterval(refresh);
 			clearInterval(adjustChange);
-			$(".sideBarMenuText").css("display", "block");
 			Main.focus();
 			break;
 		case tvKey.KEY_LEFT:
@@ -269,9 +268,9 @@ MultiWatchPg.keyDown = function()
 			if (MultiWatchPg_index>=1) {
 				MultiWatchPg.anchor.main.removeClass('focus');
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				Main.sideBarMenu.btn.eq(page_index).removeClass('select');
+				Main.menu.btn.eq(page_index).removeClass('select');
 //				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
-				Main.sideBarMenu.btn.eq(++page_index).addClass('select');
+				Main.menu.btn.eq(++page_index).addClass('select');
 //				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+8)]);
 				Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
 				    if (status == "success") {
