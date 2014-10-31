@@ -1,0 +1,25 @@
+*
+{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+/* Layout */
+bodys
+{
+	width: 1920px;
+	height: 1080px;
+}
+
+
+.player
+{
+	position:absolute;
+	left:116px;
+	top:0;
+}
+
+#player{
+	opacity:0;
+}
