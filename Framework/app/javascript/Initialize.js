@@ -8,11 +8,16 @@ var midProduct = new Array();//중분류 전체보기를 위한 배열
 var channels = new Array();
 var providerIdToName = new Array();
 
+//이수다 채널의 편성표를 저장하는 부분
+var ISUDAschedule = new Array();
+
 var subPageArr= new Array();
 subPageArr.push({name: 'DetailInfoSpg',     html:'app/html/DetailInfoSpg.html',     object: DetailInfoSpg});
 subPageArr.push({name: 'ComparePriceSpg',   html:'app/html/ComparePriceSpg.html',   object: ComparePriceSpg});
 subPageArr.push({name: 'SMSSharingSpg',     html:'app/html/SMSSharingSpg.html',     object: SMSSharingSpg});
-subPageArr.push({name: 'SelectNumberSpg',   html: 'app/html/SelectNumberSpg.html',  object: SelectNumberSpg });
+subPageArr.push({ name: 'SelectNumberSpg', html: 'app/html/SelectNumberSpg.html', object: SelectNumberSpg });
+subPageArr.push({ name: 'ISUDAscheduleSpg', html: 'app/html/ISUDAscheduleSpg.html', object: ISUDAscheduleSpg });
+
 
 var pagearr = new Array();
 pagearr.push({name: 'MultiWatchPg',     html: 'app/html/MultiWatchPg.html',     object: MultiWatchPg});
@@ -105,6 +110,21 @@ $(document).ready(function () {
                             alert('상품정보 받아오기 끝');
                         }
                     });
+                    //이수다 홈쇼핑의 방송 정보를 얻어온다.
+                    $.ajax({
+                        url: SERVER_ADDRESS + '/productISUDA',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            alert('/productISUDA success');
+                            var temp__ = 0;
+                            $.each(data, function (key, value) {
+                                  
+                                ISUDAschedule.push(value);
+                                alert(ISUDAschedule[temp__++].productName);
+                            });
+                        },
+                    })
 
                 }
             });
