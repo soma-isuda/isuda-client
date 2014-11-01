@@ -30,6 +30,8 @@ SelectWatchPg.focus = function () {
     alert("SelectWatchPg focus");
     jQuery('#SelectWatchPgMenu').addClass('show');
     SelectWatchPg.ChannelHelper.addClass('show');
+    jQuery('#sideBar').removeClass('hide');        
+
 //    SelectWatchPg.DownCh.addClass('show');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
@@ -220,8 +222,8 @@ SelectWatchPg.keyDown = function () {
             jQuery('#popup').empty(); // 광고가 있을경우 광고를 지운다.
             //          SelectWatchPg.anchor.main.removeClass('focus');
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-        jQuery('#SelectWatchPgMenu').removeClass('show');
-        SelectWatchPg.ChannelHelper.removeClass('show');
+            jQuery('#SelectWatchPgMenu').removeClass('show');
+            SelectWatchPg.ChannelHelper.removeClass('show');
 //        SelectWatchPg.DownCh.removeClass('show');
             Main.focus();
             break;
