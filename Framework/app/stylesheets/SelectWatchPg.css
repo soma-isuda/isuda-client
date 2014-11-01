@@ -1,7 +1,8 @@
-#SelectWatchPg{
+/*#SelectWatchPg{
 	position: absolute;
-}
+}*/
 #SelectWatchPgMenu {
+	position:absolute;
     opacity:0;
 	float: left;
 	
