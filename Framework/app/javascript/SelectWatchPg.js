@@ -21,6 +21,9 @@ SelectWatchPg.onLoad = function (ch) {
     Player.init(ch);
     SelectWatchPg_index = 0;
     SelectWatchPg.setData();
+    if (Player.getChannel() == 5) {//처음에 이수다 채널에서 시작했으면
+        SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송<br>목록');
+    }
 };
 
 SelectWatchPg.focus = function () {
@@ -179,11 +182,25 @@ SelectWatchPg.keyDown = function () {
             break;
             //       채널 퀵변경 
         case tvKey.KEY_CH_UP:
+            alert("현재 채널의 인덱스" + Player.getChannel());
+            if (Player.getUpChannel() == 5) {//다음 채널이 이수다 홈쇼핑이면
+                SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송<br>목록');
+            }
+            else if(Player.getChannel()==5)
+                SelectWatchPg.SelectWatchPgMenu.eq(1).html('추천<br>정보');
+
             Player.channelUp();
             SelectWatchPg.setData();
 
             break;
         case tvKey.KEY_CH_DOWN:
+            alert("현재 채널의 인덱스" + Player.getChannel());
+            if (Player.getDownChannel() == 5) {//다음 채널이 이수다 홈쇼핑이면
+                SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송<br>목록');
+            }
+            else if (Player.getChannel() == 5)
+                SelectWatchPg.SelectWatchPgMenu.eq(1).html('추천<br>정보');
+
             Player.channelDown();
             SelectWatchPg.setData();
 
@@ -227,6 +244,13 @@ SelectWatchPg.keyDown = function () {
             if(show)   return;
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
             jQuery('#popup').empty();
+
+            //이수다 채널을 보고 있을때의 예외 처리
+            if (SelectWatchPg_index == 1 && Player.getChannel() == 5) {
+                //추천상품 대신에 이수다 편성표를 보여준다.
+                SelectWatchPg_index = 4;
+            }
+
             Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html, function (response, status, xhr) {
                 if (status == "success") {
                     subPageArr[SelectWatchPg_index].object.onLoad();

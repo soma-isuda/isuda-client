@@ -155,10 +155,11 @@ ComparePriceSpg.keyDown = function () {
             alert("ComparePriceSpg_key : Enter");
             //상세보기 페이지를 로드한다.
             subPage_index = 0;
-            Main.layout.subPage.load(subPageArr[subPage_index].html);
-            setTimeout(function () {
-                subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
-            }, 10);
+            Main.layout.subPage.load(subPageArr[subPage_index].html, function (response, status, xhr) {
+                if (status == "success") {
+                    subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
+                }
+            });
             break;
         default:
             alert("Unhandled key");

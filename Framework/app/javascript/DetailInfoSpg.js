@@ -195,10 +195,11 @@ DetailInfoSpg.keyDown = function () {
                 //번호 선택 부분으로 포커스를 넘긴다.
                 if (page_index == 2 || (page_index == 1 && SelectWatchPg_index == 1)) {//편성표 또는 추천상품->상세보기에서 'SMS 알람 받기'를 눌렀을 때
                     subPage_index = 3;
-                    Main.layout.subPage.load(subPageArr[subPage_index].html);
-                    setTimeout(function () {
-                        subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
-                    }, 10);
+                    Main.layout.subPage.load(subPageArr[subPage_index].html, function (response, status, xhr) {
+                        if (status == "success") {
+                            subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
+                        }
+                    });
                 }
                 /*
             else if (page_index == 4) {//마이페이지에서 '알람 삭제'를 눌렀을 때(단일 상품 예약 삭제)
