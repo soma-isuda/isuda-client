@@ -46,7 +46,8 @@
     color: white;
     border-radius: 50%;
     background-size: 160px;
-    background-image: url("http://itemimage.cjmall.com/goods_images/30/676/30645676K.jpg"); 
+    /*css파일이 있는 폴더를 기준으로 절대경로를 지정해야 한다.*/
+    background-image: url("../../img/bigImage.jpg"); 
     box-shadow: 0px 0px 15px black;
 
 

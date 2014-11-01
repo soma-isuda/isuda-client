@@ -90,7 +90,7 @@ ISUDAscheduleSpg.keyDown = function () {
             }
             */
             //스크롤 구현 부분
-            if ((ISUDAscheduleSpg.index - 1) * 243 == ISUDAscheduleSpg.ISUDAPxMove) {
+            if ((ISUDAscheduleSpg.index-1) * 243 == ISUDAscheduleSpg.ISUDAPxMove) {
                 ISUDAscheduleSpg.ISUDAPxMove = 243 * (ISUDAscheduleSpg.index - 2);
                 jQuery('#ISUDAscheduleSpg #body').css("margin-top", '-' + ISUDAscheduleSpg.ISUDAPxMove + 'px');
             }
