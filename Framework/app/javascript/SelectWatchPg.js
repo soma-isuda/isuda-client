@@ -39,6 +39,7 @@ SelectWatchPg.focus = function () {
     menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
         SelectWatchPg.ChannelHelper.removeClass('show');
+        jQuery('#sideBar').addClass('hide');        
 //        SelectWatchPg.DownCh.removeClass('show');
     }, 10000);
     //       alert("asdads");
@@ -160,6 +161,8 @@ SelectWatchPg.keyDown = function () {
     if(!SelectWatchPg.ChannelHelper.hasClass('show')){
         jQuery('#SelectWatchPgMenu').addClass('show');
         SelectWatchPg.ChannelHelper.addClass('show');
+        jQuery('#sideBar').removeClass('hide');        
+
         show = true;
     }
 //    SelectWatchPg.DownCh.addClass('show');
@@ -168,6 +171,8 @@ SelectWatchPg.keyDown = function () {
     menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
         SelectWatchPg.ChannelHelper.removeClass('show');
+        jQuery('#sideBar').addClass('hide');        
+
 //        SelectWatchPg.DownCh.removeClass('show');
     }, 10000);
 
