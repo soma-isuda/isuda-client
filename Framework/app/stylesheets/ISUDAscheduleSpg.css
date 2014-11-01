@@ -14,8 +14,10 @@
         box-sizing: border-box;
         padding: 45px 60px 25px 60px;
     }
-
-    #ISUDAscheduleSpg > #body > div {
+    #ISUDAscheduleSpg #bodyWrapper{
+        overflow:hidden;
+    }
+    #ISUDAscheduleSpg #body > div {
         box-sizing: border-box;
         overflow: hidden;
         width: 702px;
@@ -25,7 +27,7 @@
         color:black;
     }
     /*포커스 처리*/
-    #ISUDAscheduleSpg > #body > div.focus{
+    #ISUDAscheduleSpg #body > div.focus{
             background-color:#5ccece;
     }
 

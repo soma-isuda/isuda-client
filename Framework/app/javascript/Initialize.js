@@ -121,7 +121,6 @@ $(document).ready(function () {
                             $.each(data, function (key, value) {
                                   
                                 ISUDAschedule.push(value);
-                                alert(ISUDAschedule[temp__++].productName);
                             });
                         },
                     })

@@ -21,6 +21,9 @@ SelectWatchPg.onLoad = function (ch) {
     Player.init(ch);
     SelectWatchPg_index = 0;
     SelectWatchPg.setData();
+    if (Player.getChannel() == 5) {//처음에 이수다 채널에서 시작했으면
+        SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송<br>목록');
+    }
 };
 
 SelectWatchPg.focus = function () {

@@ -1,7 +1,8 @@
 ﻿//ISUDAschedule
 
 var ISUDAscheduleSpg = {
-    index:0,//몇번째 방송을 가리키고 있는지
+    index: 0,//몇번째 방송을 가리키고 있는지
+    ISUDAPxMove:0,//편성표 부분 스크롤을 위한 변수
 };
 
 ISUDAscheduleSpg.onLoad = function () {
@@ -27,16 +28,18 @@ ISUDAscheduleSpg.onLoad = function () {
         tempString += '    </div>';
         tempString += '</div>';
 
-        jQuery('#ISUDAscheduleSpg>#body').append(tempString);
+        jQuery('#ISUDAscheduleSpg #body').append(tempString);
 
     }
     jQuery.extend(ISUDAscheduleSpg, {
-        product: jQuery('#ISUDAscheduleSpg>#body>div'),
+        product: jQuery('#ISUDAscheduleSpg #body>div'),
         anchor: {
             main: jQuery('#anchor_ISUDAscheduleSpg')
         }
     });
+    //변수 초기화
     ISUDAscheduleSpg.index = 0;
+    ISUDAscheduleSpg.ISUDAPxMove = 0;
     this.focus();
 };
 
@@ -80,19 +83,51 @@ ISUDAscheduleSpg.keyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("ISUDAscheduleSpg_key : Up");
+            /*
             if (ISUDAscheduleSpg.index > 0) {//상품이 위에 있을때
                 ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index--).removeClass('focus');
                 ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).addClass('focus');
             }
-            alert(ISUDAscheduleSpg.index);
+            */
+            //스크롤 구현 부분
+            if ((ISUDAscheduleSpg.index - 1) * 243 == ISUDAscheduleSpg.ISUDAPxMove) {
+                ISUDAscheduleSpg.ISUDAPxMove = 243 * (ISUDAscheduleSpg.index - 2);
+                jQuery('#ISUDAscheduleSpg #body').css("margin-top", '-' + ISUDAscheduleSpg.ISUDAPxMove + 'px');
+            }
+            //기존 상품 포커스 제거
+            ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).removeClass('focus');
+
+            //대분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
+            if (ISUDAscheduleSpg.index == 0) {
+                ISUDAscheduleSpg.index = ISUDAschedule.length - 1;
+                ISUDAscheduleSpg.ISUDAPxMove = 243 * (ISUDAscheduleSpg.index - 3);
+                jQuery('#ISUDAscheduleSpg #body').css("margin-top", '-' + ISUDAscheduleSpg.ISUDAPxMove + 'px');
+            }
+            else
+                ISUDAscheduleSpg.index--;
+            ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).addClass('focus');
+
             break;
         case tvKey.KEY_DOWN:
             alert("ISUDAscheduleSpg_key : Down");
-            if (ISUDAscheduleSpg.index < ISUDAschedule.length - 1) {//상품이 밑에 더 있을때
-                ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index++).removeClass('focus');
-                ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).addClass('focus');
+            
+            //스크롤 구현 부분
+            if ((ISUDAscheduleSpg.index - 3) * 243 == ISUDAscheduleSpg.ISUDAPxMove) {
+                ISUDAscheduleSpg.ISUDAPxMove = 243 * (ISUDAscheduleSpg.index - 2);
+                jQuery('#ISUDAscheduleSpg #body').css("margin-top", '-' + ISUDAscheduleSpg.ISUDAPxMove + 'px');
             }
-            alert(ISUDAscheduleSpg.index);
+            //기존 상품 포커스 제거
+            ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).removeClass('focus');
+
+            //대분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
+            if (ISUDAscheduleSpg.index == ISUDAschedule.length - 1) {
+                ISUDAscheduleSpg.index = 0;
+                jQuery('#ISUDAscheduleSpg #body').css("margin-top", "0px");
+                ISUDAscheduleSpg.ISUDAPxMove = 0;
+            }
+            else
+                ISUDAscheduleSpg.index++;
+            ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).addClass('focus');
 
             break;
         case tvKey.KEY_ENTER:
