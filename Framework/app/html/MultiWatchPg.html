@@ -1,8 +1,11 @@
 <div id="MultiWatchPg">
-	<div id="mainImage">
-		<div id="main1">
-			<div id="MultiWatchPg_btn1" class="button MultiWatchPgElem">할인 쿠폰 받으러 가기</div>
-		</div>
+	<div id="mainBanner">
+		<img src="img/main1.PNG" >
+		<div id="mainBannerButton" class="button MultiWatchPgElem">할인 쿠폰 받으러 가기</div>
+	</div>
+	<div id="mainTitle">
+<!--        <i class="icon-emo-thumbsup"></i>-->
+        <span>생/방/송/바/로/가/기</span>
 	</div>
 	<div id="mainItem">
 		<ul id="MultiWatchPgList">
@@ -10,8 +13,14 @@
 			<!-- <li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem">
 				<div class="imgArea">
 					<img src="' +this.productImgURL+ '" alt="" class="productImg">
+					<div></div>
+
 				</div>
 				<div class="productInfoArea">
+					<div class="price">
+						<p>최대 혜택가 :</p>
+						<p class="productPrice">' + this.productPrice + '</p>
+					</div>
 					<div class="endTime">
 						<p>방송 혜택 종료까지</p>
 						<p id="remainedTime' + cnt + '" class="remainedTime"></p>
@@ -19,10 +28,7 @@
 					<div class="name">
 						<p>' +this.productName+ '</p>
 					</div>
-					<div class="price">
-						<p>최대 혜택가 :</p>
-						<p class="productPrice">' + this.productPrice + '</p>
-					</div>
+
 				</div>
 				<div>
 					<img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem">
