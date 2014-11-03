@@ -28,16 +28,16 @@
 	color: white;
 	border-radius: 50%;
     box-shadow: 0px 0px 15px black;
-
 }
+
 #SelectWatchPgMenu ul li:first-child {
 	margin-top: 270px;
-
 }
 
 #SelectWatchPg.focus{
 	
 }
+
 #SelectWatchPgMenu ul li.focus { 
  	/*background-color: #001367;*/
  	background-color: #5ccece;

@@ -30,6 +30,8 @@ SelectWatchPg.focus = function () {
     alert("SelectWatchPg focus");
     jQuery('#SelectWatchPgMenu').addClass('show');
     SelectWatchPg.ChannelHelper.addClass('show');
+    jQuery('#sideBar').removeClass('hide');        
+
 //    SelectWatchPg.DownCh.addClass('show');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
@@ -39,6 +41,7 @@ SelectWatchPg.focus = function () {
     menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
         SelectWatchPg.ChannelHelper.removeClass('show');
+        jQuery('#sideBar').addClass('hide');        
 //        SelectWatchPg.DownCh.removeClass('show');
     }, 10000);
     //       alert("asdads");
@@ -160,6 +163,8 @@ SelectWatchPg.keyDown = function () {
     if(!SelectWatchPg.ChannelHelper.hasClass('show')){
         jQuery('#SelectWatchPgMenu').addClass('show');
         SelectWatchPg.ChannelHelper.addClass('show');
+        jQuery('#sideBar').removeClass('hide');        
+
         show = true;
     }
 //    SelectWatchPg.DownCh.addClass('show');
@@ -168,6 +173,8 @@ SelectWatchPg.keyDown = function () {
     menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
         SelectWatchPg.ChannelHelper.removeClass('show');
+        jQuery('#sideBar').addClass('hide');        
+
 //        SelectWatchPg.DownCh.removeClass('show');
     }, 10000);
 
@@ -215,8 +222,8 @@ SelectWatchPg.keyDown = function () {
             jQuery('#popup').empty(); // 광고가 있을경우 광고를 지운다.
             //          SelectWatchPg.anchor.main.removeClass('focus');
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-        jQuery('#SelectWatchPgMenu').removeClass('show');
-        SelectWatchPg.ChannelHelper.removeClass('show');
+            jQuery('#SelectWatchPgMenu').removeClass('show');
+            SelectWatchPg.ChannelHelper.removeClass('show');
 //        SelectWatchPg.DownCh.removeClass('show');
             Main.focus();
             break;

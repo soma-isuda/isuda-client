@@ -29,6 +29,9 @@ ul {
 	/*background-color: #f0f0d8;*/
 }
 
+#sideBar.hide{
+	opacity: 0;
+}
 
 #sideBar ul {
 	margin-top: 270px;
@@ -81,8 +84,6 @@ ul {
 
 #player{
 	position:absolute;
-	left: 116px;
+	left:0;
 	top:0;
 }
-
-
