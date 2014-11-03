@@ -26,7 +26,7 @@ ComparePriceSpg.onLoad = function () {
         success: function (data) {
             alert('/now 성공');
             var tempIndex = 0;
-            var currentChannel = Player.getChannel();
+            var currentChannel = PlayerManager.getChannel();
             alert('현재 채널 : ' + currentChannel);
             $.each(data, function (key, value) {
                 if (tempIndex == currentChannel) {

@@ -43,7 +43,7 @@ DetailInfoSpg.onLoad = function () {
     //상품 상세 정보 이미지를 로드한다.
     alert(productLoadedId[productListIndex]);
     if (page_index == 1 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
-        var currentChannel = Player.getChannel();
+        var currentChannel = PlayerManager.getChannel();
         $.ajax({
             url: SERVER_ADDRESS + '/now',
             type: 'GET',

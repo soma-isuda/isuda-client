@@ -1,3 +1,13 @@
+//youtube player관련
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var ytissuccess = false;
+function onYouTubeIframeAPIReady() {
+    ytissuccess = true;
+}
+
 //category Array for 'TVSchedulePg'
 var firstCategory = new Array();//1-dimension array
 var secondCategory = new Array();//2-dimension array [first : index][second :data]
@@ -5,8 +15,9 @@ var secondCategoryNumber = new Array();
 var allProduct = new Array();//모든 상품정보를 담아놓는 배열
 var midProduct = new Array();//중분류 전체보기를 위한 배열
 
+var providers = new Array();
 var channels = new Array();
-var providerIdToName = new Array();
+//var providerIdToName = new Array();
 
 //이수다 채널의 편성표를 저장하는 부분
 var ISUDAschedule = new Array();
@@ -31,6 +42,18 @@ arrowImgArr.push("img/arrow_down_0.png");
 arrowImgArr.push("img/arrow_up_1.png");
 arrowImgArr.push("img/arrow_down_1.png");
 
+function provider(name, url){
+    this.name = name;
+    this.url = url;
+};
+
+
+provider.prototype.getURL = function(){
+    return this.url;
+};
+provider.prototype.getName = function(){
+    return this.name;
+};
 
 $(document).ready(function () {
 
@@ -41,10 +64,12 @@ $(document).ready(function () {
         success : function (data) {
             $.each(data, function (key, value) {
                 alert(key+" : " + value.providerName);
-                if (value.chURL != null) {
-                    channels.push(new channel(key, value.providerName, value.chURL));
-                    providerIdToName[value.id] = value.providerName;
-                }
+//                if (value.chURL != null) {
+                    providers[value.id] = new provider(value.providerName, value.chURL);
+                    channels.push(value.id);    
+//                    channels.push(new channel(key, value.providerName, value.chURL));
+//                    providerIdToName[value.id] = value.providerName;
+//                }
             });
         }
     });  

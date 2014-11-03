@@ -82,8 +82,20 @@ ul {
 	top:0px;	
 }
 
-#player{
+#loading{
 	position:absolute;
 	left:0;
 	top:0;
+	background-image: url("../../img/loading.png");
+	background-size: 1920px 1080px;
+}
+
+#playerarea{
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+#player{
+	opacity:0;
 }

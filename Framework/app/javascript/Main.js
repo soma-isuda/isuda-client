@@ -5,10 +5,10 @@ var pluginAPI = new Common.API.Plugin();
 // ///////*SERVER*//////// 전역변수 //
 var SERVER_ADDRESS_IN = 'http://172.16.100.171:3000';
 var SERVER_ADDRESS_OUT = 'http://61.43.139.145:3000';
-var SERVER_ADDRESS = SERVER_ADDRESS_OUT;
+var SERVER_ADDRESS = SERVER_ADDRESS_IN;
 var PHP_SERVER_ADDRESS_IN = 'http://172.16.100.171';
 var PHP_SERVER_ADDRESS_OUT = 'http://61.43.139.145';
-var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_OUT;
+var PHP_SERVER_ADDRESS = PHP_SERVER_ADDRESS_IN;
 
 // ///////*SOUND*//////// 전역변수 //
 var vol = null;
@@ -131,7 +131,7 @@ Main.keyDown = function()
 					Main.pageloaded = true;
 			    }
 			});
-			Player.destroy();
+			PlayerManager.destroy();
 			break;
 		case tvKey.KEY_DOWN:
 			alert("main_key : Down");
@@ -146,7 +146,7 @@ Main.keyDown = function()
 					Main.pageloaded = true;
 			    }
 			});
-			Player.destroy();
+			PlayerManager.destroy();
 			break;
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
