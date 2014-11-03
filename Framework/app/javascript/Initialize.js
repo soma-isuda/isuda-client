@@ -1,12 +1,12 @@
 //youtube player관련
-var tag = document.createElement('script');
+/*var tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName('script')[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var ytissuccess = false;
 function onYouTubeIframeAPIReady() {
     ytissuccess = true;
-}
+}*/
 
 //category Array for 'TVSchedulePg'
 var firstCategory = new Array();//1-dimension array
