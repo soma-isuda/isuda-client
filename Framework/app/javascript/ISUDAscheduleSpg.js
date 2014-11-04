@@ -134,7 +134,12 @@ ISUDAscheduleSpg.keyDown = function () {
         case tvKey.KEY_PANEL_ENTER:
             //focus move to selectWatchPg
             alert("ISUDAscheduleSpg_key : Enter");
+            jQuery('#ISUDAscheduleSpg').hide();//페이지를 닫는다.  
 
+            SelectWatchPg_index = 1;//마치 추천상품에서 로드된것처럼 되돌려준다.
+            SelectWatchPg.focus();
+            
+            PlayerManager.player.play(ISUDAscheduleSpg.index);
             break;
         default:
             alert("Unhandled key");

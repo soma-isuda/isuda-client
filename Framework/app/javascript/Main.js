@@ -131,7 +131,7 @@ Main.keyDown = function()
 					Main.pageloaded = true;
 			    }
 			});
-			Player.destroy();
+			PlayerManager.destroy();
 			break;
 		case tvKey.KEY_DOWN:
 			alert("main_key : Down");
@@ -146,7 +146,7 @@ Main.keyDown = function()
 					Main.pageloaded = true;
 			    }
 			});
-			Player.destroy();
+			PlayerManager.destroy();
 			break;
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:

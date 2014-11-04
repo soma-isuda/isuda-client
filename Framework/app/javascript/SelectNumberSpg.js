@@ -656,7 +656,7 @@ SelectNumberSpg.submitKeyDown = function () {
                         dataType: 'json',
                         success: function (data) {
                             var tempIndex = 0;
-                            var currentChannel = Player.getChannel();
+                            var currentChannel = PlayerManager.getChannel();
                             var _URLPost;
                             $.each(data, function (key, value) {
                                 if (tempIndex == currentChannel) {

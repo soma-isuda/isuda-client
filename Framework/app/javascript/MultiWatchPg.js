@@ -59,26 +59,27 @@ MultiWatchPg.onLoad = function(){
 
                 var tempString = '';
                 tempString+='<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem">';
-                tempString+='<div class="imgArea">';
-                tempString+='<img src="' +this.productImgURL+ '" alt="" class="productImg">';
-                tempString+='</div>';
-                tempString+='<div class="productInfoArea">';
-                tempString+='<div class="endTime">';
-                tempString+='<p>방송 혜택 종료까지</p>';
-                tempString+='<p id="remainedTime' + cnt + '" class="remainedTime"></p>';
-                tempString+='</div>';
-                tempString+='<div class="name">';
-                tempString+='<p>' +this.productName+ '</p>';
-                tempString+='</div>';
-                tempString+='<div class="price">';
-                tempString+='<p>최대 혜택가 :</p>';
-                tempString+='<p class="productPrice">' + priceRefined + '</p>';
-                tempString+='</div>';
-                tempString+='</div>';
-                tempString+='<div>';
-                tempString+='<img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem">';
-                tempString+='</div>';
-                tempString += '</li>';
+                tempString+='	<div class="imgArea">';
+                tempString+='		<img src="' +this.productImgURL+ '" alt="" class="productImg">';
+                tempString+='		<div></div>';
+                tempString+='	</div>';
+                tempString+='	<div class="productInfoArea">';
+                tempString+='		<div class="price">';
+                tempString+='			<p>최대 혜택가</p>';
+                tempString+='			<p class="productPrice">' + priceRefined + '</p>';
+                tempString+='		</div>';
+                tempString+='		<div class="endTime">';
+                tempString+='			<p>방송 혜택 종료까지</p>';
+                tempString+='			<p id="remainedTime' + cnt + '" class="remainedTime"></p>';
+                tempString+='		</div>';
+                tempString+='		<div class="name">';
+                tempString+='			<p>' +this.productName+ '</p>';
+                tempString+='		</div>';
+                tempString+='	</div>';
+                tempString+='	<div>';
+                tempString+='		<img src="img/moviefocus.PNG" alt="" id="productImg'+cnt+ '" class="focusImg multiWatchPgElem">';
+                tempString+='	</div>';
+                tempString+='</li>';
 
                 
 			    jQuery('#mainItem').find('ul').append(tempString);

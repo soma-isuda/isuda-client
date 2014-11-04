@@ -740,7 +740,7 @@ TVSchedulePg.loadNewProduct = function (value) {
     tempString += ' <div class="schedule_productTime">' + timeRefined + '</div>';
     tempString += ' <div class="schedule_productInfoArea">';
     tempString += '     <div class="schedule_productName">' + value.productName + '</div>';
-    tempString += '     <div class="schedule_providerName">' + providerIdToName[value.providerId] + '</div>';
+    tempString += '     <div class="schedule_providerName">' + providers[value.providerId].name + '</div>';
     tempString += '     <div class="schedule_productPrice"><p>최대 혜택가</p>' + priceRefined + '</div>';
     tempString += ' </div>';
     tempString += '</li>';
