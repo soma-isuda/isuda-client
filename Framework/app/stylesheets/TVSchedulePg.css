@@ -6,129 +6,11 @@
     height: 1080px;
 }
 
-/*대분류 선택창*/
-#big {
-    float: left;
-    box-sizing: border-box;
-    /*width: 130px;*/
-    width: 168px;
-    height: 100%;
-/*    background-color: #232323;
-    padding: 40px 8px 0px 8px;*/
-
-}
-
-/* 중분류 선택창 */
-#mid {
-    float: left;
-    box-sizing: border-box;
-    /*width: 110px;*/
-    width: 168px;
-    height: 100%;
-/*    background-color: #e4e3e3;
-    padding: 120px 8px 0px 8px;*/
-}
-
-
-#big ul li {
-    display: table;
-    box-sizing: border-box;
-    /*
-    width: 110px;
-    height: 110px;*/
-    width: 160px;
-	height: 160px;
-
-    /*padding: 0px 5px;*/
-    margin:25px 15px;
-/*	padding:13px 10px;*/
-
-    color: white;
-    border-radius: 50%;
-    background-size: 160px;
-    /*css파일이 있는 폴더를 기준으로 절대경로를 지정해야 한다.*/
-    background-image: url("../../img/bigImage.jpg"); 
-    box-shadow: 0px 0px 15px black;
-
-
-}
-
-#big ul li:first-child{
-    margin-top: 50px;
-}
-
-#big ul li > div {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    text-shadow: 2px 2px 4px #000000;
-    background-color: rgba(0,0,0,0.3);
-    border-radius: 50%;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-
-    font-size: 35px;
-}
-
-
-#mid ul li {
-    box-sizing: border-box;
-    /*padding: 0px 8px;*/
-    margin:25px 25px 25px 25px;
-	padding:15px 15px 15px 15px;
-
-    background-color: #585858;
-    color: white;
-    /*
-    width: 90px;
-    height: 90px;*/
-    width: 118px;
-	height: 118px;
-    border-radius: 50%;
-    overflow: hidden;
-    display: table;
-}
-
-    #mid ul li > div {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: center;
-        font-size: 22px;
-    }
-
-/* focus */
-#big.focus {
-    color: #989898;
-}
-
-#big ul li > div.focus {
-    /*background-color:#001367;*/
-    background-color: rgba(92,206,206,0.7);
-    color:  white;
-}
-
-#mid > ul li.focus {
-    /*background-color:#001367;*/
-    background-color: #5ccece;
-    color: black;
-}
-/* select*/
-#big ul li > div.select {
-    /*background-color:#001367;*/
-    background-color: rgba(206,83,77,0.7);
-    color: white;
-}
-
-#mid > ul li.select {
-    /*background-color:#001367;*/
-    background-color: #ce534d;
-    color: white;
-}
-
 /* 선택된 중분류에 대해, 상품을 가져오는 부분*/
 
 #product {
     position: absolute;
-    left: -130px;
+    left: -300px;
     top: 0px;
     /*transition-duration:0.3s;*/
 }
@@ -140,7 +22,7 @@
 /*중분류예약 들어가는 부분*/
 #product_header {
     position: absolute;
-    width: 1550px;
+    width: 1639px;
     height: 120px;
     left: 370px;
     padding: 38px 60px 0px 60px;
@@ -152,7 +34,7 @@
     line-height: 62px;
     float: right;
     display: inline-block;
-    font-size: 28px;
+    font-size: 36px;
     text-align: center;
     /*background-color:#b7b7a4;*/
     background-color: #989898;
@@ -160,43 +42,43 @@
 }
 
     #product > #product_header > #reserve_Category.focus {
-        /*background-color:#001367;*/
-        background-color: #5ccece;
-        /* color:white;*/
-        color: black;
+        background-color: #ce534d;
     }
 
-#product > #product_header > div:nth-child(2) {
+#product > #product_header > #totalNumber {
     display: inline-block;
     margin-top: 17px;
     float: left;
     font-size: 30px;
 }
+#product > #product_header > #totalNumber>p{
+    display:inline-block;
+    font-size:40px;
+}
 
 
 #product_nav {
-    position: absolute;
-    width: 1430px;
-    height: 80px;
-    line-height: 80px;
+    position: relative;
+    width: 1639px;
+    height: 100px;
+    line-height: 100px;
     margin: 0px 60px;
-    top: 120px;
-    left: 370px;
+    margin-top: 120px;
+    margin-left: 370px;
     text-align: center;
-    font-size: 30px;
+    font-size: 43px;
     border-top: 1px double #232323;
     border-bottom: 1px double #232323;
     color: #232323;
 }
 
 #product_list_pg {
-    position: absolute;
-    width: 1550px;
+    position: relative;
+    width: 1639px;
     height: 876px;
-    top: 200px;
-    left: 370px;
+    margin-left: 370px;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 30px 20px 0px 20px;
     /*    background-color:green;  */
 }
 
@@ -210,106 +92,129 @@
 .schedule_product_list_item {
     position: relative;
     float: left;
-    width: 310px;
-    height: 480px;
+    width: 493px;
+    height: 439px;
     box-sizing: border-box;
-    margin: 30px;
+    margin: 20px;
     border: 1px solid #989898;
     /*background-color:#fffbf0;*/
     background-color: white;
     overflow: hidden;
+    border-radius:10px;
 }
 
-/* 상품 포커스 됬을 때 처리하는 부분*/
-.schedule_product_list_item > .schedule_product_focus_ {
-    position: absolute;
-    width: 310px;
-    height: 480px;
-    background-color: #232323;
-    opacity: 0.5;
-    /*포커스 위치를 지정하는 부분*/
-    left: 0px;
-    top: 0px;
-}
-/* 상품 포커스 됬을 때 처리하는 부분*/
-.schedule_product_list_item > .schedule_product_focus {
-    position: absolute;
-    width: 310px;
-    height: 70px;
-    line-height: 70px;
-    font-size: 30px;
-    background-color: #5ccece;
-    text-align: center;
-    color: black;
-    /*포커스 위치를 지정하는 부분*/
-    left: 0px;
-    top: 205px;
-}
+    /* 상품 포커스 됬을 때 처리하는 부분*/
+    .schedule_product_list_item > .schedule_product_focus_ {
+        position: absolute;
+        width: 310px;
+        height: 480px;
+        background-color: #232323;
+        opacity: 0.5;
+        /*포커스 위치를 지정하는 부분*/
+        left: 0px;
+        top: 0px;
+    }
+    /* 상품 포커스 됬을 때 처리하는 부분*/
+    .schedule_product_list_item > .schedule_product_focus {
+        position: absolute;
+        width: 310px;
+        height: 70px;
+        line-height: 70px;
+        font-size: 30px;
+        background-color: #5ccece;
+        text-align: center;
+        color: black;
+        /*포커스 위치를 지정하는 부분*/
+        left: 0px;
+        top: 205px;
+    }
 
 
-.schedule_product_list_item > .imgArea {
-    width: 310px;
-    height: 270px;
-    box-sizing: border-box;
-}
-/*사진 크기*/
-.schedule_product_list_item > .imgArea > img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 310px;
-    height: 310px;
-}
-/*방송 시간*/
-.schedule_product_list_item > .schedule_productTime {
-    box-sizing: border-box;
-    width: 310px;
-    height: 40px;
-    background-color: #989898;
-    color: yellow;
-    line-height: 40px;
-    font-size: 20px;
-    text-align: center;
-    opacity: 0.8;
-}
+    .schedule_product_list_item > .imgArea {
+        width: 493px;
+        height: 248px;
+        box-sizing: border-box;
+    }
+        /*사진 크기*/
+        .schedule_product_list_item > .imgArea > img {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 493px;
+            height: 248px;
+        }
 
-.schedule_product_list_item > .schedule_productInfoArea {
-    width: 310px;
-    height: 180px;
-    color: #232323;
-    overflow:hidden;
-}
+        .schedule_product_list_item > .imgArea > .forGradient {
+            position:absolute;
+            left:0px;
+            top:0px;
+            width:493px;
+            height:248px;
+            /*그라데이션*/
+            background: -moz-linear-gradient(top, rgba(19,19,19,0.01) 0%, rgba(76,76,76,0.5) 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(19,19,19,0.01)), color-stop(100%,rgba(76,76,76,0.5))); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top, rgba(19,19,19,0.01) 0%,rgba(76,76,76,0.5) 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, rgba(19,19,19,0.01) 0%,rgba(76,76,76,0.5) 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, rgba(19,19,19,0.01) 0%,rgba(76,76,76,0.5) 100%); /* IE10+ */
+            background: linear-gradient(to bottom, rgba(19,19,19,0.01) 0%,rgba(76,76,76,0.5) 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03131313', endColorstr='#804c4c4c',GradientType=0 ); /* IE6-9 */
+        }
+    /*방송 시간*/
+    .schedule_product_list_item > .schedule_productTime {
+        position: absolute;
+        top: 192px;
+        left: 0px;
+        box-sizing: border-box;
+        width: 493px;
+        height: 56px;
+        background-color: black;
+        color: white;
+        line-height: 40px;
+        font-size: 30px;
+        text-align: center;
+        opacity: 0.5;
+    }
+
+    .schedule_product_list_item > .schedule_productInfoArea {
+        width: 493px;
+        height: 248px;
+        color: #232323;
+        overflow: hidden;
+    }
 
 
-.schedule_product_list_item > .schedule_productInfoArea div {
-    width: 310px;
-    box-sizing: border-box;
-    padding: 15px 15px 0px 15px;
-}
+        .schedule_product_list_item > .schedule_productInfoArea div {
+            width: 493px;
+            box-sizing: border-box;
+            padding: 15px 15px 0px 15px;
+        }
 
-.schedule_product_list_item > .schedule_productInfoArea > .schedule_productName {
-    width: 310px;
-    height: 90px;
-    font-size: 21px;
-    overflow: hidden;
-}
+        .schedule_product_list_item > .schedule_productInfoArea > .schedule_productName {
+            width: 493px;
+            height: 90px;
+            font-size: 29px;
+            overflow: hidden;
+        }
 
-.schedule_product_list_item > .schedule_productInfoArea>.schedule_providerName{
-    float:left;
-    width:120px;
-    height:90px;
-    line-height:90px;
-    font-size:18px;
-    text-align:left;
-}
-.schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice {
-    float:left;
-    text-align: right;
-    width: 190px;
-    height: 90px;
-    font-size: 25px;    
-}
+        .schedule_product_list_item > .schedule_productInfoArea > .schedule_providerName {
+            float: left;
+            margin-left: 20px;
+            width: 120px;
+            height: 90px;
+            line-height: 90px;
+            font-size: 18px;
+            text-align: left;
+        }
 
-.schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice > p{
-    font-size: 18px;    
-}
+        .schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice {
+            float: right;
+            margin-right: 20px;
+            text-align: right;
+            width: 300px;
+            height: 90px;
+            font-size: 43px;
+        }
+
+            .schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice > p {
+                font-size: 22px;
+            }

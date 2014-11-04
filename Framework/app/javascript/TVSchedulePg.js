@@ -88,7 +88,7 @@ TVSchedulePg.onLoad = function () {
     tempString += day[tempDate.getDay()] + "요일 ~";
     //내일 모레 날짜
     tempDate = new Date(tempDate.valueOf() + (48 * 60 * 60 * 1000));
-    tempString += tempDate.getFullYear() + "년 ";
+    //tempString += tempDate.getFullYear() + "년 ";
     tempString += (tempDate.getMonth() + 1) + "월 ";
     tempString += tempDate.getDate() + "일 ";
     tempString += day[tempDate.getDay()] + "요일";
@@ -679,12 +679,12 @@ TVSchedulePg.firstLoad = function (data, callBack) {
     //현재 카테고리에 몇개의 상품이 있는지 보여준다.
     var tempString;
     if (big_index != 0)//'전체보기'가 아닐 경우
-        tempString = '* ' + firstCategory[big_index] + ' > ' + secondCategory[big_index][mid_index] + ' 에 총 ' + TVSchedulePg.productTotalNum + '개의 상품이 있습니다.';
+        tempString = '<p>'+firstCategory[big_index] + ' > ' + secondCategory[big_index][mid_index] + ' </p> 에 총 ' + TVSchedulePg.productTotalNum + '개의 상품이 있습니다.';
     else
-        tempString = '* 총 ' + TVSchedulePg.productTotalNum + '개의 상품이 있습니다.';
+        tempString = '총 ' + TVSchedulePg.productTotalNum + '개의 상품이 있습니다.';
     jQuery('#product_header>#totalNumber').empty();
 
-    jQuery('#product_header').find('div:nth-child(2)').append(tempString);
+    jQuery('#product_header>#totalNumber').append(tempString);
 
     if (typeof callBack === "function") {//콜백함수 실행
         callBack();
@@ -735,6 +735,7 @@ TVSchedulePg.loadNewProduct = function (value) {
     tempString += '<li class="schedule_product_list_item">';
     tempString += ' <div class="imgArea">';
     tempString += '     <img src="' + value.productImgURL + '" alt="" class="schedule_productImg">';
+    tempString += '     <div class="forGradient"></div>';
     tempString += ' </div>';
     tempString += ' <div class="schedule_productTime">' + timeRefined + '</div>';
     tempString += ' <div class="schedule_productInfoArea">';

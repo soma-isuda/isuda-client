@@ -36,17 +36,16 @@
 <a href="javascript:void(0);" id="anchor_TVSchedulePg" onkeydown="TVSchedulePg.keyDown();"></a>
 
 <!--
-<li class="product_list_item">
-    <div class="imgArea">
-        <img src="' + value.productImgURL + '" alt="" class="productImg">
-    </div>
-    <div class="productEndTime"></div>
-    <div class="productInfoArea">
-        <div class="productName"></div>
-        <div class="productPrice">최대 혜택가</div>
-    </div>
-    <div>
-        <img src="img/moviefocus.PNG" alt="" id="img' + cnt + '" class="focusImg multiWatchPgElem">
-    </div>
-</li>
+tempString = '';
+    tempString += '<li class="schedule_product_list_item">';
+    tempString += ' <div class="imgArea">';
+    tempString += '     <img src="' + value.productImgURL + '" alt="" class="schedule_productImg">';
+    tempString += ' </div>';
+    tempString += ' <div class="schedule_productTime">' + timeRefined + '</div>';
+    tempString += ' <div class="schedule_productInfoArea">';
+    tempString += '     <div class="schedule_productName">' + value.productName + '</div>';
+    tempString += '     <div class="schedule_providerName">' + providerIdToName[value.providerId] + '</div>';
+    tempString += '     <div class="schedule_productPrice"><p>최대 혜택가</p>' + priceRefined + '</div>';
+    tempString += ' </div>';
+    tempString += '</li>';
 -->
