@@ -1,5 +1,5 @@
 #MyPg{
-	width: 1790px;
+	width: 1800px;
     height: 1080px;
     background-color: white;
     position: absolute;
@@ -8,44 +8,45 @@
 
 .MyPg_menu{
     box-sizing: border-box;
-	width:590px;
+	width:597px;
 	height: 1080px;
-	border-left: 1px solid #585858;
+	border-right: 1px solid #585858;
 	display:inline-block;		
 }
 
 .MyPg_header{
-    width: 100%;
-    height: 100px;
-    text-align:left;
-    font-size: 30px;
+    text-align:center;
+    font-size: 34px;
     box-sizing: border-box;
-    padding: 45px 60px 25px 60px;
+    margin: 0 25px 45px 25px;
+    padding: 72px 0 5px 0;
+    border-bottom: 1px solid #585858;
 }
 
 .MyPg_list{
 	width: 100%;
-	height: 830px;
+	height: 780px;
     text-align:center;
     box-sizing: border-box;
-    padding: 5px 60px;   
-
-
+    padding: 5px 30px;   
 }
 
 .MyPg_bottom{
-    padding: 20px 60px 0px 60px;
+    box-sizing: border-box;
+
+    padding: 20px 30px 0px 30px;
 	width: 100%;
 }
 
 .MyPg_button{
-	width: 490px;
+	width: 540px;
     height: 62px;
     box-sizing:border-box;
-    padding: 17px;
+    line-height: 62px;
     background-color:#989898;
     color:white;
-    font-size:28px;
+    font-size:36px;
+    border-radius: 2px; 
 
     /*font-size:10px;*/
     text-align:center;
@@ -53,12 +54,13 @@
 
 .MyPg_list_Item{
     box-sizing:border-box;
-    padding: 17px;
-    width: 490px;
+    line-height: 62px;
+    width: 540px;
     height:62px;
     background-color:#989898;
-    font-size:28px;
-    margin-bottom: 20px;  
+    font-size:36px;
+    margin-bottom: 12px; 
+    border-radius: 2px; 
 
 }
 
@@ -68,8 +70,8 @@
 #MyPg_SMSAlarm_list > ul li{
     z-index: 0;
     list-style: none;
-    width : 490px;
-    height: 144px;
+    width : 540px;
+    height: 160px;
     float: left;
     box-sizing: border-box;
     margin-bottom: 20px;
@@ -84,42 +86,42 @@
 }
 
 .MyPg_imgArea {
-    width: 144px;
-    height: 144px;
+    width: 160px;
+    height: 160px;
     
     background-color: white;
 }
 .MyPg_imgArea img {
-    width: 144px;
+    width: 160px;
 
 }
 .MyPg_productInfoArea {
-    width: 340px;
-    height: 144px;
+    width: 380px;
+    height: 160px;
 }
 .MyPg_productInfoArea div{
     display: block;
     position: relative;
-    width:340px;
+    width:380px;
 
 }
 .MyPg_name {
     box-sizing: border-box;
     padding: 12px 20px 12px 20px;
-    height: 75px;
+    height: 72px;
     overflow: hidden;
-    font-size: 25px;
+    font-size: 24px;
     text-align: left;
 }
 .MyPg_price {
       box-sizing: border-box;
-    padding: 0px 20px 12px 20px;  
+    padding: 6px 20px 12px 20px;  
     height: 69px;
-    font-size: 20px;
+    font-size: 24px;
     text-align: right;   
 }
 .MyPg_productPrice {
-    font-size: 25px;
+    font-size: 40px;
 }
 
 /*
@@ -148,16 +150,17 @@
 #MyPg_SelectNumber_list_new{
    width:100%;
     text-align:center;
-    margin-top:40px;
+    margin-top:50px;
 }
 
 #MyPg_SelectNumber_list_new>div{
     box-sizing:border-box;
-    padding: 17px;
-    width:490px;
+    line-height: 66px;
+    width:540px;
     height:66px;
-    font-size:28px;
+    font-size:36px;
     margin-bottom: 20px;
+    border-radius: 2px;
     color: white;
 }
 
@@ -185,8 +188,8 @@
 }
 
 #MyPg_SelectNumber_list_new>div.focus{
-    background-color:#5ccece;
-    color:black;
+    background-color:rgba(206,83,77,1.0);
+    color:white;
 }
 
 
@@ -203,18 +206,20 @@
 }
 
 .MyPgItem.focus{
-    background-color: #5ccece;
-    color: black;
+    background-color: rgba(206,83,77,1.0);
+    color:white;
+
 }
 
 .MyPgItem.select{
-    background-color: #ce534d;
+    background-color: rgba(206,83,77,0.6);
     color: white;
 }
 
 .MyPg_button.focus{
-    background-color: #5ccece;
-    color: black;
+    background-color: rgba(206,83,77,1.0);
+    color:white;
+
 }
 
 .MyPg_button.focus_{

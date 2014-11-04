@@ -1,9 +1,9 @@
- /* popup CSS*/
+/* popup CSS*/
 #popup {
-	
 }
 
 #popupMessage {
+
 	box-sizing:border-box;
 	width:  600px;
 	height: 320px;
@@ -88,50 +88,97 @@
 }
 
 #popupAdjust {
-	box-sizing:border-box;
-	width:  480px;
-	height: 227px;
-	position: absolute;
-	
-	margin-top: 20px;
-	margin-left: 1420px;
-	display: none;
-	overflow: hidden;
+    box-sizing: border-box;
+    width: 480px;
+    height: 227px;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 1420px;
+    display: none;
+    overflow: hidden;
 }
+
 #adjustImg {
-	width: 100%;
-	height: 177px;
-	border: none;
+    width: 100%;
+    height: 177px;
+    border: none;
 }
+
 #adjustFooter {
-	width: 480px;
-	height: 50px;
-	box-sizing:border-box;
-	background-color: black;
-	color: white;
-	font-size: 30px;
-	padding: 10px;
-
+    width: 480px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    padding: 10px;
 }
-#adjustFooter div {
-	display: inline;
 
-}
+    #adjustFooter div {
+        display: inline;
+    }
+
 #adjustFooterButton {
-	width: 50px;
-	height: 30px;
-	background-color: red;
-	margin-right: 10px;
+    width: 50px;
+    height: 30px;
+    background-color: red;
+    margin-right: 10px;
 }
 
 #popupAdjustFull {
-	box-sizing:border-box;
-	width:  1920px;
-	height: 1080px;
-	position: absolute;
-	
-	margin-top: 0px;
-	margin-left: 0px;
-	display: none;
-	overflow: hidden;
+    box-sizing: border-box;
+    width: 1920px;
+    height: 1080px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 0px;
+    display: none;
+    overflow: hidden;
 }
+
+/*ÀÌ¼ö´Ù È¨¼îÇÎ¿¡¼­ Áß°£ Áß°£ ¶ß´Â ÆË¾÷*/
+#popupISUDA {
+    box-sizing: border-box;
+    width: 480px;
+    height: 227px;
+    position: absolute;
+    margin-top: 426px;
+    margin-left: 720px;
+    display: none;
+    overflow: hidden;
+    color: white;
+    opacity: 0.8;
+}
+    /*ÆË¾÷ ¸Þ¼¼Áö*/
+    #popupISUDA > div:nth-child(1) {
+        box-sizing:border-box;
+        padding-top:30px;
+        width: 480px;
+        height: 130px;
+        background-color: black;
+        font-size: 30px;
+        text-align: center;
+
+    }
+    /*ÆË¾÷ ¹öÆ°*/
+    #popupISUDA > div:nth-child(2) {
+        width: 480px;
+        height:77px;
+        background-color: black;
+        font-size:25px;
+        overflow:hidden;
+    }
+
+    #popupISUDA .ISUDAButton{
+        float:left;
+        box-sizing:border-box;
+        height: 77px;
+        line-height:77px;
+        text-align:center;
+        margin-bottom:20px;
+    }
+
+    #popupISUDA .ISUDAButton.focus{
+        background-color:white;
+        color:black;
+    }
