@@ -25,6 +25,9 @@ var subPage_index = 0;//현재 열려있는 서브 페이지의 넘버
 //2:SMS공유 서브페이지
 //3:번호선택 서브페이지
 
+var pageload;
+// 메뉴 이동시 일정시간 있어야 페이지 로드
+
 
 var Main =
 {
@@ -120,32 +123,38 @@ Main.keyDown = function()
 			
 		case tvKey.KEY_UP:
 			alert("main_key : Up");
+			clearTimeout(pageload);
 			Main.menu.btn.eq(page_index).removeClass('focus');
 			if(page_index == 0)
 				page_index = Main.menu.btn.length;
 			Main.menu.btn.eq(--page_index).addClass('focus');
 			Main.pageloaded = false;
-			Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
-			    if (status == "success") {
-					pagearr[page_index].object.onLoad();
-					Main.pageloaded = true;
-			    }
-			});
+			pageload = setTimeout(function(){
+				Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
+				    if (status == "success") {
+						pagearr[page_index].object.onLoad();
+						Main.pageloaded = true;
+				    }
+				});
+			}, 200);
 			PlayerManager.destroy();
 			break;
 		case tvKey.KEY_DOWN:
 			alert("main_key : Down");
+			clearTimeout(pageload);
 			Main.menu.btn.eq(page_index).removeClass('focus');
 			if(page_index == Main.menu.btn.length-1)
 				page_index = -1;
 			Main.menu.btn.eq(++page_index).addClass('focus');
 			Main.pageloaded = false;
-			Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
-			    if (status == "success") {
-					pagearr[page_index].object.onLoad();
-					Main.pageloaded = true;
-			    }
-			});
+			pageload = setTimeout(function(){
+			 	Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
+				    if (status == "success") {
+						pagearr[page_index].object.onLoad();
+						Main.pageloaded = true;
+				    }
+				});
+			}, 200);
 			PlayerManager.destroy();
 			break;
 		case tvKey.KEY_ENTER:
