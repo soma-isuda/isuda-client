@@ -4,10 +4,84 @@
     background-color: #e4e3e3;
     width: 1790px;
     height: 1080px;
+    overflow:hidden;
 }
 
-/* 선택된 중분류에 대해, 상품을 가져오는 부분*/
+/*-----------------------------대분류-----------------------------*/
+#big {
+    position: relative;
+    float:left;
+    box-sizing: border-box;
+    width: 300px;
+    padding-top:190px;
+    padding-bottom:190px;
+    height: 1080px;
+    
+    background: linear-gradient(to bottom, rgba(66,66,66,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(66,66,66,0.3) 100%); /* W3C */
+    z-index: 10;
+}
+#big>div{
+    box-sizing:border-box;
+    width:300px;
+    height: 700px;
 
+    overflow:hidden;
+}
+#big ul{
+    height:700px;
+    box-sizing:border-box;
+}
+
+#big ul>li>div{
+    width:300px;
+    height:100px;
+    line-height:100px;
+    font-size:43px;
+    color:white;
+    text-align:center;
+}
+#big ul>li>div.focus{
+    background-color:#232323;
+}
+
+/*-----------------------------중분류-----------------------------*/
+#mid {
+    position: relative;
+    float:left;
+    box-sizing: border-box;
+    width: 300px;
+    padding-top:240px;
+    padding-bottom:240px;
+    height: 1080px;
+    
+    background: linear-gradient(to bottom, rgba(66,66,66,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(66,66,66,0.3) 100%); /* W3C */
+    z-index: 10;
+}
+
+#mid>div{
+    box-sizing:border-box;
+    width:300px;
+    height: 600px;
+
+    overflow:hidden;
+}
+#mid ul{
+    height:600px;
+    box-sizing:border-box;
+}
+
+#mid ul>li>div{
+    width:300px;
+    height:100px;
+    line-height:100px;
+    font-size:43px;
+    color:white;
+    text-align:center;
+}
+#mid ul>li>div.focus{
+    background-color:#232323;
+}
+/* -----------------------------상품리스트-----------------------------*/
 #product {
     position: absolute;
     left: -300px;
@@ -39,6 +113,7 @@
     /*background-color:#b7b7a4;*/
     background-color: #989898;
     color: white;
+    letter-spacing:-3px;
 }
 
     #product > #product_header > #reserve_Category.focus {
@@ -50,11 +125,15 @@
     margin-top: 17px;
     float: left;
     font-size: 30px;
+    height:40px;
+    line-height:80px;
+    letter-spacing:-3px;
 }
-#product > #product_header > #totalNumber>p{
-    display:inline-block;
-    font-size:40px;
-}
+
+    #product > #product_header > #totalNumber > p {
+        display: inline-block;
+        font-size: 40px;
+    }
 
 
 #product_nav {
@@ -70,6 +149,7 @@
     border-top: 1px double #232323;
     border-bottom: 1px double #232323;
     color: #232323;
+    letter-spacing:-5px;
 }
 
 #product_list_pg {
@@ -100,36 +180,22 @@
     /*background-color:#fffbf0;*/
     background-color: white;
     overflow: hidden;
-    border-radius:10px;
+    border-radius: 2px;
+    z-index: 0;
 }
 
     /* 상품 포커스 됬을 때 처리하는 부분*/
-    .schedule_product_list_item > .schedule_product_focus_ {
+    .schedule_product_list_item > .schedule_product_focus {
         position: absolute;
-        width: 310px;
-        height: 480px;
+        width: 493px;
+        height: 439px;
         background-color: #232323;
         opacity: 0.5;
         /*포커스 위치를 지정하는 부분*/
         left: 0px;
         top: 0px;
     }
-    /* 상품 포커스 됬을 때 처리하는 부분*/
-    .schedule_product_list_item > .schedule_product_focus {
-        position: absolute;
-        width: 310px;
-        height: 70px;
-        line-height: 70px;
-        font-size: 30px;
-        background-color: #5ccece;
-        text-align: center;
-        color: black;
-        /*포커스 위치를 지정하는 부분*/
-        left: 0px;
-        top: 205px;
-    }
-
-
+    
     .schedule_product_list_item > .imgArea {
         width: 493px;
         height: 248px;
@@ -138,18 +204,19 @@
         /*사진 크기*/
         .schedule_product_list_item > .imgArea > img {
             position: absolute;
+            
+            top: -120px;
+            /*
+            width: 493px;
+            height: 248px;*/
+        }
+
+        .schedule_product_list_item > .imgArea > .forGradient {
+            position: absolute;
             left: 0px;
             top: 0px;
             width: 493px;
             height: 248px;
-        }
-
-        .schedule_product_list_item > .imgArea > .forGradient {
-            position:absolute;
-            left:0px;
-            top:0px;
-            width:493px;
-            height:248px;
             /*그라데이션*/
             background: -moz-linear-gradient(top, rgba(19,19,19,0.01) 0%, rgba(76,76,76,0.5) 100%); /* FF3.6+ */
             background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(19,19,19,0.01)), color-stop(100%,rgba(76,76,76,0.5))); /* Chrome,Safari4+ */
@@ -169,7 +236,7 @@
         height: 56px;
         background-color: black;
         color: white;
-        line-height: 40px;
+        line-height: 56px;
         font-size: 30px;
         text-align: center;
         opacity: 0.5;
@@ -198,13 +265,15 @@
 
         .schedule_product_list_item > .schedule_productInfoArea > .schedule_providerName {
             float: left;
-            margin-left: 20px;
+            /*margin-left: 20px;*/
             width: 120px;
             height: 90px;
-            line-height: 90px;
-            font-size: 18px;
-            text-align: left;
         }
+
+            .schedule_product_list_item > .schedule_productInfoArea > .schedule_providerName > img {
+                width: 120px;
+                /*height: 90px;*/
+            }
 
         .schedule_product_list_item > .schedule_productInfoArea > .schedule_productPrice {
             float: right;

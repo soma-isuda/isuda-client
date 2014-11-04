@@ -1,11 +1,15 @@
 <div id="TVSchedulePg">
     <!-- 대분류 -->
-    <div id="big">
-        <ul></ul>
+    <div id="big"><!--위아래로 쭉 그라데이션을 깔아주는 요소-->
+        <div><!--위아래로 700픽셀만큼만 보여주게 하는 틀-->
+            <ul></ul><!--스크롤시 움직이는 부분-->
+        </div>
     </div>
     <!-- 중분류 -->
     <div id="mid">
-        <ul></ul>
+        <div>
+            <ul></ul>
+        </div>
     </div>
     <!-- 해당하는 중분류의 상품을 가져온다-->
 
@@ -40,6 +44,7 @@ tempString = '';
     tempString += '<li class="schedule_product_list_item">';
     tempString += ' <div class="imgArea">';
     tempString += '     <img src="' + value.productImgURL + '" alt="" class="schedule_productImg">';
+    tempString+='       <div class="forGradient"></div>';
     tempString += ' </div>';
     tempString += ' <div class="schedule_productTime">' + timeRefined + '</div>';
     tempString += ' <div class="schedule_productInfoArea">';
