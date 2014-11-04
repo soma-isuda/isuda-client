@@ -9,7 +9,9 @@ var SelectWatchPg = {
 SelectWatchPg.onLoad = function (ch) {
     alert("SelectWatchPg onLoad");
     jQuery.extend(SelectWatchPg, {
+        Channels:jQuery("#Channels"),
         ChannelHelper : jQuery("#ChannelHelper"),
+        ChannelDetail : jQuery("#ChannelDetail"),        
 //        UpCh: jQuery("#ChannelUp"),
 //        DownCh : jQuery("#ChannelDown"),
         SelectWatchPgMenu: jQuery('#SelectWatchPgMenu').find('ul > li'),
@@ -29,7 +31,7 @@ SelectWatchPg.onLoad = function (ch) {
 SelectWatchPg.focus = function () {
     alert("SelectWatchPg focus");
     jQuery('#SelectWatchPgMenu').addClass('show');
-    SelectWatchPg.ChannelHelper.addClass('show');
+    SelectWatchPg.Channels.addClass('show');
     jQuery('#sideBar').removeClass('hide');        
 
 //    SelectWatchPg.DownCh.addClass('show');
@@ -40,11 +42,11 @@ SelectWatchPg.focus = function () {
     clearTimeout(menuDisplayTimeout);
     menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
-        SelectWatchPg.ChannelHelper.removeClass('show');
+        SelectWatchPg.Channels.removeClass('show');
         if(page_index == 1)
             jQuery('#sideBar').addClass('hide');        
 //        SelectWatchPg.DownCh.removeClass('show');
-    }, 10000);
+    }, 7000);
     //       alert("asdads");
     //   });
     popupAdjust();
@@ -63,8 +65,17 @@ SelectWatchPg.setData = function(){
     tempstring += '<div id="NowChannel">' + providers[channels[nowch]].getName()+'</div>';
     tempstring += '<div class="Channel">' + providers[channels[downch]].getName() +'</div>';
     SelectWatchPg.ChannelHelper.html(tempstring);
-    SelectWatchPg.ChannelHelper.css('color', color[nowch]);
+//    SelectWatchPg.ChannelHelper.css('color', color[nowch]);
 
+    jQuery.ajax({
+        url: SERVER_ADDRESS + '/now',
+        type : 'GET',
+        data: ({ providerNum: nowch }),    
+        dataType : 'json',
+        success : function (data) {
+            SelectWatchPg.ChannelDetail.html(data.productName);
+        }
+    });
 
 /*    jQuery.ajax({
         url: SERVER_ADDRESS + '/now',
@@ -161,9 +172,9 @@ SelectWatchPg.keyDown = function () {
     alert(SelectWatchPg_index);
     var show = false;
 
-    if(!SelectWatchPg.ChannelHelper.hasClass('show')){
+    if(!SelectWatchPg.Channels.hasClass('show')){
         jQuery('#SelectWatchPgMenu').addClass('show');
-        SelectWatchPg.ChannelHelper.addClass('show');
+        SelectWatchPg.Channels.addClass('show');
         jQuery('#sideBar').removeClass('hide');        
 
         show = true;
@@ -173,10 +184,10 @@ SelectWatchPg.keyDown = function () {
     clearTimeout(menuDisplayTimeout);
     menuDisplayTimeout = setTimeout(function () {
         jQuery('#SelectWatchPgMenu').removeClass('show');
-        SelectWatchPg.ChannelHelper.removeClass('show');
+        SelectWatchPg.Channels.removeClass('show');
         if(page_index == 1)
             jQuery('#sideBar').addClass('hide');
-    }, 10000);
+    }, 7000);
 
     switch (keyCode) {
         case tvKey.KEY_RED:
@@ -191,10 +202,10 @@ SelectWatchPg.keyDown = function () {
         case tvKey.KEY_CH_UP:
             alert("현재 채널의 인덱스" + PlayerManager.getChannel());
             if (PlayerManager.getUpChannel() == 5) {//다음 채널이 이수다 홈쇼핑이면
-                SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송<br>목록');
+                SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송 목록');
             }
             else if(PlayerManager.getChannel()==5)
-                SelectWatchPg.SelectWatchPgMenu.eq(1).html('추천<br>정보');
+                SelectWatchPg.SelectWatchPgMenu.eq(1).html('추천 정보');
 
             PlayerManager.channelUp();
             SelectWatchPg.setData();
@@ -203,10 +214,10 @@ SelectWatchPg.keyDown = function () {
         case tvKey.KEY_CH_DOWN:
             alert("현재 채널의 인덱스" + PlayerManager.getChannel());
             if (PlayerManager.getDownChannel() == 5) {//다음 채널이 이수다 홈쇼핑이면
-                SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송<br>목록');
+                SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송 목록');
             }
             else if (PlayerManager.getChannel() == 5)
-                SelectWatchPg.SelectWatchPgMenu.eq(1).html('추천<br>정보');
+                SelectWatchPg.SelectWatchPgMenu.eq(1).html('추천 정보');
 
             PlayerManager.channelDown();
             SelectWatchPg.setData();
@@ -219,11 +230,13 @@ SelectWatchPg.keyDown = function () {
             widgetAPI.blockNavigation(event);
         case tvKey.KEY_LEFT:
             alert("SelectWatchPg_key : Left");
+                        if(show)   return;
+
             jQuery('#popup').empty(); // 광고가 있을경우 광고를 지운다.
             //          SelectWatchPg.anchor.main.removeClass('focus');
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
             jQuery('#SelectWatchPgMenu').removeClass('show');
-            SelectWatchPg.ChannelHelper.removeClass('show');
+            SelectWatchPg.Channels.removeClass('show');
 //        SelectWatchPg.DownCh.removeClass('show');
             Main.focus();
             break;

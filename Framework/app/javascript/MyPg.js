@@ -876,7 +876,7 @@ MyPg.DeleteCategory = function(idx, secondid){
 };
 
 MyPg.CategorySetting = function(idx){
-        jQuery("#MyPg_CategoryAlarm_header").html('* '+savedNumber[MyPg_numberIndex]+' 님의 카테고리 알람');        
+        jQuery("#MyPg_CategoryAlarm_header").html(savedNumber[MyPg_numberIndex]+' 님의 카테고리 알람');        
 
     jQuery.ajax({
         url: SERVER_ADDRESS + '/cAlarms',
@@ -910,7 +910,7 @@ MyPg.CategorySetting = function(idx){
 ////////////////////////////////////////////////////////
 
 MyPg.SMSAlarmSetting = function(index){
-        jQuery("#MyPg_SMSAlarm_header").html('* '+savedNumber[MyPg_numberIndex]+' 님의 방송 알람');
+        jQuery("#MyPg_SMSAlarm_header").html(savedNumber[MyPg_numberIndex]+' 님의 방송 알람');
 
     alert("MyPg_SMSAlarmSetting");
     jQuery.ajax({
