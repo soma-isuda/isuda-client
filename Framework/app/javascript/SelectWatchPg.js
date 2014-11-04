@@ -29,7 +29,7 @@ SelectWatchPg.onLoad = function (ch) {
     currentISUDAchannel = 0;
     SelectWatchPg.setData();
     if (PlayerManager.getChannel() == 5) {//처음에 이수다 채널에서 시작했으면
-        SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송<br>목록');
+        SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송 목록');
     }
 
 };

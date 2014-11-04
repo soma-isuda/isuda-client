@@ -170,13 +170,16 @@ popupISUDAkeyDown = function () {
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             if (ISUDAButtonNum != 0) {
+                alert('호출!');
                 focusBack.focus();
             }
             jQuery('#popup').empty();
             if (ISUDAFirstAccess == 1) {//채널에 처음 접근했을 때
                 popupISUDA("반갑습니다! <br/>이수다홈쇼핑 입니다", []);
+                setTimeout(function () {
+                    focusBack.focus();
+                }, 500);
                 ISUDAFirstAccess = 0;
-                alert('ISUDAFirstAccess' + ISUDAFirstAccess);
                 setTimeout(function () {
                     jQuery('#popup').empty();
                     SelectWatchPg.isudaPopup();
