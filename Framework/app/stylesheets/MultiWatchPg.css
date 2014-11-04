@@ -127,6 +127,7 @@
 	height: 80px;
 	font-size: 24px;
 	text-align: right;
+	letter-spacing: 3px;
 }
 .price p:first-child{
     text-shadow: 0 0 6px rgba(0,0,0,1.0);
