@@ -44,6 +44,7 @@ ComparePriceSpg.onLoad = function () {
                                 //시간을 형태에 맞게 바꾼다.
                                 ComparePriceSpg.recommendedProductId = value.id;
                                 var tempString = '';
+                                var dayRefined ='';
                                 var timeRefined = '';
 
                                 //시간에 9시간을 더한다.
@@ -56,7 +57,8 @@ ComparePriceSpg.onLoad = function () {
                                 //-----------------------------
 
                                 tempString = beforeTime.split(/[-T:\.Z]/);
-                                timeRefined += tempString[1] + "월" + tempString[2] + "일 " + tempString[3] + "시" + tempString[4] + "분 ~ ";
+                                dayRefined += tempString[1] + "월 " + tempString[2] + "일";
+                                timeRefined += tempString[3] + "시" + tempString[4] + "분 ~ ";
                                 tempString = beforeTime_end.split(/[-T:\.Z]/);
                                 timeRefined += tempString[3] + "시" + tempString[4] + "분";
 
@@ -82,7 +84,9 @@ ComparePriceSpg.onLoad = function () {
                                 tempString += '<div class="recommended_product">';
                                 tempString += ' <div class="recommended_imgArea">';
                                 tempString += '     <img src="' + value.productImgURL + '" alt="" class="recommended_productImg">';
+                                tempString += '     <div></div>';
                                 tempString += ' </div>';
+                                tempString += ' <div class="recommended_productDay">' + dayRefined + '</div>';
                                 tempString += ' <div class="recommended_productTime">' + timeRefined + '</div>';
                                 tempString += ' <div class="recommended_productInfoArea">';
                                 tempString += '     <div class="recommended_productName">' + value.productName + '</div>';
@@ -90,7 +94,7 @@ ComparePriceSpg.onLoad = function () {
                                 tempString += ' </div>';
                                 tempString += '</div>';
                                 ComparePriceSpg.body.append(tempString);
-                                ComparePriceSpg.footer.append('<div>상품 상세보기<div>');
+                                ComparePriceSpg.footer.append('<div>상세보기<div>');
                                 ComparePriceSpg.footer.find('div').addClass('focus');
                             });
                         }
