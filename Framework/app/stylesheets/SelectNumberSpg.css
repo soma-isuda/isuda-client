@@ -23,6 +23,7 @@
 }
 #SelectNumber_list{
     width:634px;
+    height: 830px;
     text-align:center;
     box-sizing: border-box;
     padding: 0px 37px;    
@@ -94,23 +95,32 @@
 
 
 #SelectNumber_list_new>div.focus{
-    background-color:#5ccece;
+    background-color:#ce534d;
     color:black;
 }
 
 #SelectNumber_submit{
-    padding: 20px 60px 0px 60px;
+    position: fixed;
+    width:634px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0px 7px;    
+   
+    color: white;
 }
 
 #SelectNumber_submit>div{
     text-align:center;
     box-sizing:border-box;
-    padding: 17px;
-    width:285px;
-    height:62px;
+
+    width:250px;
+    height:64px;
+    margin: 0px 15px;
     background-color:#585858;
-    color:white;
-    font-size:28px;
+    
+    border-radius: 2px;
+    font-size:36px; 
+    line-height: 64px;
     display: inline-block;
 }
 
@@ -119,7 +129,7 @@
 }
 
 #SelectNumber_submit>div.focus{
-    background-color:#5ccece;
+    background-color:#ce534d;
     color:black;
 }
 
