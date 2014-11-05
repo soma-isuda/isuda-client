@@ -38,8 +38,8 @@ DetailInfoSpg.onLoad = function () {
         //편성표에서 '상세보기' || 선택보기에서 '추천상품'->'상세보기'
     else if (page_index == 2 || (page_index == 1 && SelectWatchPg_index == 1)) {
         jQuery('#reserveButton').append('<div>SMS 알람 받기</div>');
-        jQuery('#detailImage>div').css("margin", "0px 5px");
-        jQuery('#detailImage>div').css("height", "890px");
+        jQuery('#detailImage>div').css("margin", "0px 5px 33px 5px");
+        jQuery('#detailImage>div').css("height", "923px");
     }
     else if (page_index == 3) {
         jQuery('#reserveButton').append('<div>해당 상품 알람 삭제<div>');

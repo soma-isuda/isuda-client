@@ -4,84 +4,109 @@
     background: linear-gradient(to bottom, rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
     width: 1790px;
     height: 1080px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 /*-----------------------------대분류-----------------------------*/
 #big {
     position: relative;
-    float:left;
+    float: left;
     box-sizing: border-box;
     width: 300px;
-    padding-top:190px;
-    padding-bottom:190px;
+    padding-top: 190px;
+    padding-bottom: 190px;
     height: 1080px;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 70%,rgba(234,234,234,0) 100%); /* W3C */    z-index: 10;
-}
-#big>div{
-    box-sizing:border-box;
-    width:300px;
-    height: 700px;
-
-    overflow:hidden;
-}
-#big ul{
-    height:700px;
-    box-sizing:border-box;
-}
-
-#big ul>li>div{
-    width:300px;
-    height:100px;
-    line-height:100px;
-    font-size:43px;
-    color:white;
-    text-align:center;
-}
-#big ul>li>div.focus{
-    background-color:rgba(206,83,77,1.0);
-}
-
-#big ul>li>div.select{
-    background-color:rgba(206,83,77,0.6);
-}
-/*-----------------------------중분류-----------------------------*/
-#mid {
-    position: relative;
-    float:left;
-    box-sizing: border-box;
-    width: 300px;
-    padding-top:240px;
-    padding-bottom:240px;
-    height: 1080px;
-    
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 70%,rgba(234,234,234,0) 100%); /* W3C */    
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 70%,rgba(234,234,234,0) 100%); /* W3C */
     z-index: 10;
 }
 
-#mid>div{
-    box-sizing:border-box;
-    width:300px;
-    height: 600px;
+    #big > #bigUp {
+        position: absolute;
+        left: 102px;
+        top:147px;
+    }
+    #big > #bigDown {
+        position: absolute;
+        left:102px;
+        top:890px;
+    }
 
-    overflow:hidden;
-}
-#mid ul{
-    height:600px;
-    box-sizing:border-box;
+    #big > div {
+        box-sizing: border-box;
+        width: 300px;
+        height: 700px;
+        overflow: hidden;
+    }
+
+    #big ul {
+        height: 700px;
+        box-sizing: border-box;
+    }
+
+        #big ul > li > div {
+            width: 300px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 43px;
+            color: white;
+            text-align: center;
+        }
+
+            #big ul > li > div.focus {
+                background-color: rgba(206,83,77,1.0);
+            }
+
+            #big ul > li > div.select {
+                background-color: rgba(206,83,77,0.6);
+            }
+/*-----------------------------중분류-----------------------------*/
+#mid {
+    position: relative;
+    float: left;
+    box-sizing: border-box;
+    width: 300px;
+    padding-top: 240px;
+    padding-bottom: 240px;
+    height: 1080px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 70%,rgba(234,234,234,0) 100%); /* W3C */
+    z-index: 10;
 }
 
-#mid ul>li>div{
-    width:300px;
-    height:100px;
-    line-height:100px;
-    font-size:43px;
-    color:white;
-    text-align:center;
-}
-#mid ul>li>div.focus{
-    background-color:rgba(206,83,77,1.0);
-}
+    #mid > #midUp {
+        position: absolute;
+        left: 102px;
+        top:197px;
+    }
+    #mid > #midDown {
+        position: absolute;
+        left: 102px;
+        top:840px;
+    }
+
+    #mid > div {
+        box-sizing: border-box;
+        width: 300px;
+        height: 600px;
+        overflow: hidden;
+    }
+
+    #mid ul {
+        height: 600px;
+        box-sizing: border-box;
+    }
+
+        #mid ul > li > div {
+            width: 300px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 43px;
+            color: white;
+            text-align: center;
+        }
+
+            #mid ul > li > div.focus {
+                background-color: rgba(206,83,77,1.0);
+            }
 /* -----------------------------상품리스트-----------------------------*/
 #product {
     position: absolute;
@@ -114,7 +139,7 @@
     /*background-color:#b7b7a4;*/
     background-color: #989898;
     color: white;
-    letter-spacing:-3px;
+    letter-spacing: -3px;
 }
 
     #product > #product_header > #reserve_Category.focus {
@@ -126,9 +151,9 @@
     margin-top: 17px;
     float: left;
     font-size: 30px;
-    height:40px;
-    line-height:80px;
-    letter-spacing:-3px;
+    height: 40px;
+    line-height: 80px;
+    letter-spacing: -3px;
 }
 
     #product > #product_header > #totalNumber > p {
@@ -150,7 +175,7 @@
     border-top: 1px double #232323;
     border-bottom: 1px double #232323;
     color: #232323;
-    letter-spacing:-5px;
+    letter-spacing: -5px;
 }
 
 #product_list_pg {
@@ -177,7 +202,7 @@
     height: 439px;
     box-sizing: border-box;
     margin: 20px;
-    border: 1px solid #989898;
+    box-shadow: 0px 0px 11px rgba(0,0,0,0.2);
     /*background-color:#fffbf0;*/
     background-color: white;
     overflow: hidden;
@@ -194,7 +219,7 @@
         left: 0px;
         top: 0px;
     }
-    
+
     .schedule_product_list_item > .imgArea {
         width: 493px;
         height: 248px;
@@ -203,7 +228,6 @@
         /*사진 크기*/
         .schedule_product_list_item > .imgArea > img {
             position: absolute;
-            
             top: -120px;
             /*
             width: 493px;
