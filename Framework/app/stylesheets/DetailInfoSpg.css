@@ -54,17 +54,17 @@
     position: absolute;
 }
 .arrow {
-    width:  180px;
-    height: 60px;
+    width:  95px;
+    height: 43px;
     position: relative;
     display: none;
 }
 #arrow_up{
-    margin-top: 125px;
-    margin-left: 1470px;
+    margin-top: 100px;
+    margin-left: 1512px;
 }
 #arrow_down{
-    margin-top: 835px;
-    margin-left: 1470px;
+    margin-top: 870px;
+    margin-left: 1512px;
 }
 
