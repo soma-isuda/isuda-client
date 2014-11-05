@@ -16,9 +16,7 @@
     padding-top:190px;
     padding-bottom:190px;
     height: 1080px;
-    
-    background: linear-gradient(to bottom, rgba(66,66,66,0.2) 0%,rgba(0,0,0,0.7) 50%,rgba(66,66,66,0.2) 100%); /* W3C */
-    z-index: 10;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 70%,rgba(234,234,234,0) 100%); /* W3C */    z-index: 10;
 }
 #big>div{
     box-sizing:border-box;
@@ -57,7 +55,7 @@
     padding-bottom:240px;
     height: 1080px;
     
-    background: linear-gradient(to bottom, rgba(66,66,66,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(66,66,66,0.3) 100%); /* W3C */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 70%,rgba(234,234,234,0) 100%); /* W3C */    
     z-index: 10;
 }
 
@@ -191,9 +189,7 @@
     .schedule_product_list_item > .schedule_product_focus {
         position: absolute;
         width: 493px;
-        height: 439px;
-        background-color: #232323;
-        opacity: 0.5;
+        height: 248px;
         /*포커스 위치를 지정하는 부분*/
         left: 0px;
         top: 0px;

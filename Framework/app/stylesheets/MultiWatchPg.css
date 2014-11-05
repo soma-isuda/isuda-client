@@ -113,7 +113,7 @@
 }
 .remainedTime{
 	color: white;
-	font-size: 30px;
+	font-size: 36px;
 	padding:10px 10px 5px 0px;
     text-shadow: 0 0 6px rgba(0,0,0,1.0);
 
@@ -155,11 +155,10 @@
 
 .focusImg {
 	width: 540px;
-	height: 275px;
+	height: 235px;
 	position: absolute;
 	left:0;
 	top:0;
-	background-image: url("../../img/moviefocus.PNG");
 	display: none;
 }
 

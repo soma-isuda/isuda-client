@@ -123,6 +123,7 @@
     color:black;
     background-color:#989898;
     margin: 0px 208px; /* (720-86-215)/2*/
+    border-radius: 2px;
 
 }
 
