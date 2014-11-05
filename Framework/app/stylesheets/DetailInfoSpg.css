@@ -1,14 +1,11 @@
 #DetailInfoSpg{
 	background-color: white;
-	margin-left:  1200px;
+	margin-left:  1198px;
 	position: absolute;
 	width: 720px;
-	height: 100%;
-}
-
-/*»ó¼¼Á¤º¸ ÀÌ¹ÌÁö¸¦ ÁöÁ¤ÇÏ´Â ºÎºÐ*/
-#detailImg{
-    width:720px;
+	height: 1078px;
+    border:1px solid black;
+    border-radius:2px;
 }
 
 #reserveButton{
@@ -38,11 +35,19 @@
 
 #detailImage{
     width:720px;
-    overflow:hidden;/*½ºÅ©·Ñ ±¸ÇöÀ» À§ÇØ ¹Ýµå½Ã ÀÖ¾î¾ß ÇÔ*/
 }
 
-#detailImage>img{
-    
+#detailImage>div{
+    box-sizing:border-box;
+    width:710px;
+    overflow:hidden;
+    /*어디서 뜨는 상세보기인지에 따라
+        높이와 margin속성이 달라진다.
+    */
+}
+
+#detailImage img{
+    width:710px;
 }
 /* 서브페이즈 화살표 css*/
 #arrow1 {

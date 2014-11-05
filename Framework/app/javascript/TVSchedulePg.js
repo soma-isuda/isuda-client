@@ -407,7 +407,7 @@ TVSchedulePg.listKeyDown = function () {
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
             //상품 리스트의 제일 왼쪽에 있을때,
-            if (productListIndex % 4 == 0 || productIndex == 0) {//상품 리스트의 제일 왼쪽에 있거나 '중분류 예약'에 포커스가 있을 때 
+            if (productListIndex % 3 == 0 || productIndex == 0) {//상품 리스트의 제일 왼쪽에 있거나 '중분류 예약'에 포커스가 있을 때 
 
                 if (big_index == 0) {//'대분류 전체보기' 이면
                     //다시 대분류로 포커스를 넘긴다.

@@ -139,11 +139,14 @@
 /*ÀÌ¼ö´Ù È¨¼îÇÎ¿¡¼­ Áß°£ Áß°£ ¶ß´Â ÆË¾÷*/
 #popupISUDA {
     box-sizing: border-box;
-    width: 480px;
-    height: 227px;
+    width: 720px;
+    height: 207px;
     position: absolute;
-    margin-top: 426px;
-    margin-left: 720px;
+    /*
+    margin-top:300px;
+    margin-left: 800px;
+        */
+    left:1200px;
     display: none;
     overflow: hidden;
     color: white;
@@ -153,7 +156,7 @@
     #popupISUDA > div:nth-child(1) {
         box-sizing:border-box;
         padding-top:30px;
-        width: 480px;
+        width: 720px;
         height: 130px;
         background-color: black;
         font-size: 30px;
@@ -162,7 +165,7 @@
     }
     /*ÆË¾÷ ¹öÆ°*/
     #popupISUDA > div:nth-child(2) {
-        width: 480px;
+        width: 720px;
         height:77px;
         background-color: black;
         font-size:25px;

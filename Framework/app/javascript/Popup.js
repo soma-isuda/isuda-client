@@ -119,7 +119,7 @@ popupISUDA = function (message, buttons) {
     alert("PopUp ISUDA!!");
     ISUDAButtonNum = buttons.length;
     alert('ISUDAButtonNum:' + ISUDAButtonNum);
-    if (ISUDAButtonNum != 0) {
+    if (ISUDAButtonNum != 0) {//버튼이 있을때만 팝업으로 포커스를 넘긴다
         jQuery('#anchor_popupISUDA').focus();
     }
     jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
@@ -134,13 +134,13 @@ popupISUDA = function (message, buttons) {
     tempString += '</div>';
     jQuery('#popup').append(tempString);
     if (ISUDAButtonNum == 0) {//메세지만 있는 팝업일 경우
-        jQuery('#popupISUDA > div:nth-child(1)').css("height", "227px");
+        jQuery('#popupISUDA > div:nth-child(1)').css("height", "207px");
     }
     $('#popupISUDA').css("display", "block");
-    var width = ((480 - (20 * ISUDAButtonNum)) / ISUDAButtonNum) + "px";
+    var width = ((720 - (40 * ISUDAButtonNum)) / ISUDAButtonNum) + "px";
     $('#popupISUDA .ISUDAButton').css("width", width);
-    $('#popupISUDA .ISUDAButton').css("margin-left", "10px");
-    $('#popupISUDA .ISUDAButton').css("margin-right", "10px");
+    $('#popupISUDA .ISUDAButton').css("margin-left", "20px");
+    $('#popupISUDA .ISUDAButton').css("margin-right", "20px");
 
     popup_index = 0;
     jQuery('.ISUDAButton').eq(popup_index).addClass('focus');
@@ -176,13 +176,12 @@ popupISUDAkeyDown = function () {
             jQuery('#popup').empty();
             if (ISUDAFirstAccess == 1) {//채널에 처음 접근했을 때
                 popupISUDA("반갑습니다! <br/>이수다홈쇼핑 입니다", []);
-                setTimeout(function () {
-                    focusBack.focus();
-                }, 500);
+                
                 ISUDAFirstAccess = 0;
                 setTimeout(function () {
                     jQuery('#popup').empty();
                     SelectWatchPg.isudaPopup();
+                    focusBack.focus();/*포커스를 되돌리는 순간 팝업이 닫힌다*/
                 }, 3000);//3초후에 팝업을 닫는다.
             }
             else {

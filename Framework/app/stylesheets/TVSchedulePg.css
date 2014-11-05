@@ -250,6 +250,7 @@
         height: 248px;
         color: #232323;
         overflow: hidden;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.8) 0%,rgba(234,234,234,0.8) 100%); /* W3C */
     }
 
 
