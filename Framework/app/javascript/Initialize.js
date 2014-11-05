@@ -37,9 +37,9 @@ pagearr.push({name: 'TVSchedulePg',     html:'app/html/TVSchedulePg.html',      
 pagearr.push({name: 'MyPg',             html:'app/html/MyPg.html',              object: MyPg});
 
 var arrowImgArr = [];
-arrowImgArr.push("img/arrow_up_0.PNG");
+arrowImgArr.push("img/arrow_up_0.png");
 arrowImgArr.push("img/arrow_down_0.png");
-arrowImgArr.push("img/arrow_up_1.PNG");
+arrowImgArr.push("img/arrow_up_1.png");
 arrowImgArr.push("img/arrow_down_1.png");
 
 function provider(name, url){
