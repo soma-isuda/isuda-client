@@ -31,15 +31,23 @@ SelectWatchPg.onLoad = function (ch) {
     if (PlayerManager.getChannel() == 5) {//처음에 이수다 채널에서 시작했으면
         SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송 목록');
     }
+    jQuery('#SelectWatchPgMenu').addClass('show');
+
+    SelectWatchPg.Channels.addClass('show');
+    jQuery('#sideBar').removeClass('hide');
+
 
 };
 
 SelectWatchPg.focus = function () {
     alert("SelectWatchPg focus");
+
     jQuery('#SelectWatchPgMenu').addClass('show');
 
     SelectWatchPg.Channels.addClass('show');
     jQuery('#sideBar').removeClass('hide');
+
+
 
     //    SelectWatchPg.DownCh.addClass('show');
     SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
@@ -171,9 +179,9 @@ SelectWatchPg.keyDown = function () {
             jQuery('#popup').empty(); // 광고가 있을경우 광고를 지운다.
             //          SelectWatchPg.anchor.main.removeClass('focus');
             SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-            jQuery('#SelectWatchPgMenu').removeClass('show');
+//            jQuery('#SelectWatchPgMenu').removeClass('show');
 
-            SelectWatchPg.Channels.removeClass('show');
+//            SelectWatchPg.Channels.removeClass('show');
             SelectWatchPg.clearPopupList();
 
             Main.focus();

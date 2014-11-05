@@ -1,7 +1,7 @@
 #TVSchedulePg {
     position: absolute;
     /*background-color: #fffbf0;*/
-    background-color: #e4e3e3;
+    background: linear-gradient(to bottom, rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
     width: 1790px;
     height: 1080px;
     overflow:hidden;
@@ -16,9 +16,7 @@
     padding-top:190px;
     padding-bottom:190px;
     height: 1080px;
-    
-    background: linear-gradient(to bottom, rgba(66,66,66,0.2) 0%,rgba(0,0,0,0.7) 50%,rgba(66,66,66,0.2) 100%); /* W3C */
-    z-index: 10;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 70%,rgba(234,234,234,0) 100%); /* W3C */    z-index: 10;
 }
 #big>div{
     box-sizing:border-box;
@@ -57,7 +55,7 @@
     padding-bottom:240px;
     height: 1080px;
     
-    background: linear-gradient(to bottom, rgba(66,66,66,0.3) 0%,rgba(0,0,0,0.7) 50%,rgba(66,66,66,0.3) 100%); /* W3C */
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 30%,rgba(0,0,0,0.5) 50%,rgba(0,0,0,0.5) 70%,rgba(234,234,234,0) 100%); /* W3C */    
     z-index: 10;
 }
 
@@ -191,9 +189,7 @@
     .schedule_product_list_item > .schedule_product_focus {
         position: absolute;
         width: 493px;
-        height: 439px;
-        background-color: #232323;
-        opacity: 0.5;
+        height: 248px;
         /*포커스 위치를 지정하는 부분*/
         left: 0px;
         top: 0px;
@@ -220,12 +216,6 @@
             top: 0px;
             width: 493px;
             height: 248px;
-            /*그라데이션*/
-            background: -moz-linear-gradient(top, rgba(19,19,19,0.01) 0%, rgba(76,76,76,0.5) 100%); /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(19,19,19,0.01)), color-stop(100%,rgba(76,76,76,0.5))); /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(top, rgba(19,19,19,0.01) 0%,rgba(76,76,76,0.5) 100%); /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(top, rgba(19,19,19,0.01) 0%,rgba(76,76,76,0.5) 100%); /* Opera 11.10+ */
-            background: -ms-linear-gradient(top, rgba(19,19,19,0.01) 0%,rgba(76,76,76,0.5) 100%); /* IE10+ */
             background: linear-gradient(to bottom, rgba(19,19,19,0.01) 0%,rgba(76,76,76,0.5) 100%); /* W3C */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03131313', endColorstr='#804c4c4c',GradientType=0 ); /* IE6-9 */
         }
@@ -237,12 +227,11 @@
         box-sizing: border-box;
         width: 493px;
         height: 56px;
-        background-color: black;
+        background-color: rgba(0,0,0,0.5);
         color: white;
         line-height: 56px;
         font-size: 30px;
         text-align: center;
-        opacity: 0.5;
     }
 
     .schedule_product_list_item > .schedule_productInfoArea {

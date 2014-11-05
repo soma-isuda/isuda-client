@@ -1,7 +1,7 @@
 #MyPg{
 	width: 1800px;
     height: 1080px;
-    background-color: white;
+    background: linear-gradient(to bottom, rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
     position: absolute;
     background-color: #e4e3e3;
 }
