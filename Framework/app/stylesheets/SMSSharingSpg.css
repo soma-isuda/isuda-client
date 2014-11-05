@@ -28,7 +28,7 @@
     box-sizing: border-box;
     padding: 0px 37px;
     margin-top: 30px;  
-    
+    color: white;
 }
 
 /*default button*/
@@ -42,18 +42,16 @@
     border-radius: 2px;
     
     background-color:#989898;
-    color: white;
+   
     font-size:36px;
 }
 /*selected*/
 #SMSSharingSpg_body>div.selected{
-    background-color: rgba(206,83,77,0.7);
-    color:white;
+    background-color: rgba(206,83,77,0.7);   
 }
 
 #SMSSharingSpg_body>div.focus{
     background-color: #ce534d;
-    color:white;
 }
 
 #SMSSharingSpg_input{
