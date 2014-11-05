@@ -69,7 +69,6 @@ MultiWatchPg.onLoad = function(){
                 tempString+='			<p class="productPrice">' + priceRefined + '</p>';
                 tempString+='		</div>';
                 tempString+='		<div class="endTime">';
-                tempString+='			<p>방송 혜택 종료까지</p>';
                 tempString+='			<p id="remainedTime' + cnt + '" class="remainedTime"></p>';
                 tempString+='		</div>';
                 tempString+='		<div class="name">';
@@ -95,7 +94,6 @@ MultiWatchPg.onLoad = function(){
 					remainedTime.minute = 60 + remainedTime.minute;
 				}
 				document.getElementById('remainedTime'+cnt).innerHTML = remainedTime.hour+'시 '+remainedTime.minute+'분 '+ remainedTime.second+'초';
-			    $(MultiWatchPgItem[cnt]).css('background-color',color[cnt]);
 			});					
 		} 	
 	});		
