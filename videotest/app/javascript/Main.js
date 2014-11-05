@@ -44,6 +44,7 @@ Main.keyDown = function()
 			break;
 		case tvKey.KEY_UP:
 			alert("UP");
+			
 			break;
 		case tvKey.KEY_DOWN:
 			alert("DOWN");
@@ -53,14 +54,11 @@ Main.keyDown = function()
 			alert("ENTER");
 			break;
 		case tvKey.KEY_PLAY:
-			playVideo();
 			break;
 
 		case tvKey.KEY_PAUSE:
-			pauseVideo();
 			break;
 		case tvKey.KEY_STOP:
-			stopVideo();
 			break;
 		default:
 			alert("Unhandled key");
