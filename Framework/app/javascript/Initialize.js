@@ -44,7 +44,10 @@ arrowImgArr.push("img/arrow_down_1.png");
 
 var ISUDAelementArr = new Array();
 ISUDAelementArr[0] = new Array();
-ISUDAelementArr[0][0] = ({img: 'img/milk.png', name: '삼성뮤직 MILK', benefit: '삼성 휴대폰 사용고객 전원', price: '365일 평생 무료!', footer: '앱 다운로드' })
+ISUDAelementArr[0][0] = ({img: 'img/milk.png', name: '삼성뮤직 MILK', benefit: '삼성 휴대폰 사용고객 전원', price: '365일 평생 무료!', footer: '앱 다운로드', enter:3 })
+ISUDAelementArr[0][1] = ({img: 'img/hojoo.png', name: '호주 10일 패키지 여행', benefit: '대한항공 직항+10대 특식 포함', price: '2,629,000원', footer: '상세보기', enter:0})
+
+
 function provider(name, url){
     this.name = name;
     this.url = url;

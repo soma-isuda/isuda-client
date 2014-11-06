@@ -93,7 +93,7 @@ InteractiveSpg.keyDown = function () {
             alert("InteractiveSpg_key : Enter");
             //상세보기 페이지를 로드한다.
             jQuery('#popup').empty();
-            subPage_index = 3;
+            subPage_index = ISUDAelementArr[SelectWatchPg.currentISUDAchannel][indexInISUDAchannel].enter;
             Main.layout.subPage.load(subPageArr[subPage_index].html, function (response, status, xhr) {
                 if (status == "success") {
                     subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음

@@ -24,7 +24,8 @@
 }
 #InteractiveSpg_body > .recommended_product > .recommended_imgArea > img {
     position: relative;
-    width: 340px;
+    top: -132px;
+    width: 540px;
 }
 
 #InteractiveSpg_footer{

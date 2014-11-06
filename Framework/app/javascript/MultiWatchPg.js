@@ -253,7 +253,7 @@ MultiWatchPg.keyDown = function()
 			alert("MultiWatchPg_key : Down");
 			if(MultiWatchPg_index==0){
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				MultiWatchPg_index = MultiWatchPg_index+3;
+				MultiWatchPg_index = MultiWatchPg_index+1;
 			}
 			else if(MultiWatchPg_index>=1){
 				$(productImg[MultiWatchPg_index]).css("display","none");

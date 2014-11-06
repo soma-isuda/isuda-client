@@ -103,6 +103,7 @@ SelectWatchPg.setData = function () {
 SelectWatchPg.showMenu = function(){
     alert("showMenu");
     var show = false;
+
     if (!SelectWatchPg.SelectWatchPgMenu.hasClass('show')) {
         SelectWatchPg.SelectWatchPgMenu.addClass('show');
         jQuery('#sideBar').removeClass('hide');
@@ -277,13 +278,13 @@ SelectWatchPg.isudaPopup = function () {
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 0 의 첫번째 팝업임을 의미함.
                 popupISUDA("듣고 계신 음악이 궁금하신가요?", ["예", "아니요"]);
-            }, 6000);//영상이 시작하고 1분 후에 띄우는 팝업
+            }, 30000);//영상이 시작하고 1분 후에 띄우는 팝업
             SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
 
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 1;//case 1 의 두번째 팝업임을 의미함.
                 popupISUDA("이곳이 어디인지 궁금하신가요?", ["예", "아니요"]);
-            }, 120000);//영상이 시작하고 2분후에 띄우는 팝업
+            }, 60000);//영상이 시작하고 2분후에 띄우는 팝업
             SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
 
             break;
