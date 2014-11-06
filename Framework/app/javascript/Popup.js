@@ -214,9 +214,15 @@ popupISUDAkeyDown = function () {
                         else if (indexInISUDAchannel == 1) {
                             if (popup_index == 0) {//"예"를 선택했을 경우
                                 popupISUDA("호주 BOMBO QUARRY의 Stockton Beach와 Long Jetty입니다.", []);
-                                setTimeout(function () {
-                                    jQuery('#popup').empty();
-                                }, 5000);//5초후에 팝업을 닫는다.
+                                Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {
+                                    if (status == "success") {
+                                        alert("call InteractiveSpg onload");
+                                        InteractiveSpg.onLoad();
+                                    }
+                                });
+                                // setTimeout(function () {
+                                //     jQuery('#popup').empty();
+                                // }, 5000);//5초후에 팝업을 닫는다.
                             }
                             else {//"아니요"를 선택했을 경우
                                 focusBack.focus('hide');
