@@ -142,10 +142,7 @@
     width: 720px;
     height: 207px;
     position: absolute;
-    /*
-    margin-top:300px;
-    margin-left: 800px;
-        */
+
     left:1200px;
     display: none;
     overflow: hidden;
