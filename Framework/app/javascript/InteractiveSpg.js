@@ -7,7 +7,10 @@ InteractiveSpg.onLoad = function () {
     alert("InteractiveSpg onLoad");
     //document.getElementById("InteractiveSpg").style.marginLeft="1460px";
     
-    
+    //사이드메뉴와 채널 헬퍼 hide
+    SelectWatchPg.hideMenu();
+    SelectWatchPg.hideChannel();
+
     var i = SelectWatchPg.currentISUDAchannel;
     var j = indexInISUDAchannel;
     
@@ -69,7 +72,7 @@ InteractiveSpg.keyDown = function () {
             alert("InteractiveSpg_key : Left");
             jQuery('#InteractiveSpg').hide();//페이지를 닫는다.	
             InteractiveSpg.body.empty();
-            SelectWatchPg.focus();
+            SelectWatchPg.focus('hide');
 
             break;
         case tvKey.KEY_RIGHT:

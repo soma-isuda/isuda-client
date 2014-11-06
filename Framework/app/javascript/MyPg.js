@@ -110,6 +110,20 @@ MyPg.onLoad = function () {
     MyPg_numberIndex = 0;
     MyPg_registerIndex = 0;
     MyPg_submitIndex = 0;
+
+    if (savedNumber_num > 0){//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
+        this.CategorySetting(MyPg_numberIndex);
+        this.SMSAlarmSetting(MyPg_numberIndex);
+    }
+    else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
+        //'번호 추가' 부분으로 포커스를 넘긴다.
+        jQuery("#MyPg_SMSAlarm_header").html('SMS 알람');
+        jQuery("#MyPg_CategoryAlarm_header").html('카테고리 알람');        
+        jQuery('#MyPg_SMSAlarm_list').find('ul').html('번호를 등록해 주세요');                          
+        jQuery("#MyPg_CategoryAlarm_list").html('번호를 등록해 주세요'); 
+
+    }
+
     
     
 };
@@ -130,8 +144,6 @@ MyPg.focus = function () {
     if (savedNumber_num > 0){//번호가 한개라도 저장되어 있으면, 그 번호에 포커스를 맞추고 시작한다.
         MyPg.number.eq(MyPg_numberIndex).removeClass('select');
         MyPg.number.eq(MyPg_numberIndex).addClass('focus');
-        this.CategorySetting(MyPg_numberIndex);
-        this.SMSAlarmSetting(MyPg_numberIndex);
     }
     else if (savedNumber_num == 0) {//번호가 한개도 없으면, 번호 추가에 포커스를 맞추고 시작한다.
         //'번호 추가' 부분으로 포커스를 넘긴다.
@@ -719,8 +731,6 @@ MyPg.submitKeyDown = function () {
                         popupMessage( _numberPost+" 이 <br> 삭제되었습니다.");
                         alert("사용자 삭제 성공");
                         //클라에서도 번호를 지우고 
-                        
-                
                     }
                 });
                 jQuery('#MyPg_SelectNumber_list_already').empty();
@@ -774,6 +784,11 @@ MyPg.submitKeyDown = function () {
 
                 if (savedNumber_num == 0) {//번호 삭제후 아무 번호도 남지 않았을 때,
                     //번호 추가 부분으로 포커스를 넘긴다.
+                    jQuery("#MyPg_SMSAlarm_header").html('SMS 알람');
+                    jQuery("#MyPg_CategoryAlarm_header").html('카테고리 알람'); 
+                    jQuery('#MyPg_SMSAlarm_list').find('ul').html('번호를 등록해 주세요');                          
+                    jQuery("#MyPg_CategoryAlarm_list").html('번호를 등록해 주세요'); 
+
                     MyPg.anchor.register.focus();
                     MyPg.register.eq(MyPg_registerIndex).addClass('focus');
                 }
@@ -910,6 +925,7 @@ MyPg.CategorySetting = function(idx){
 ////////////////////////////////////////////////////////
 
 MyPg.SMSAlarmSetting = function(index){
+    alert(MyPg_numberIndex);
         jQuery("#MyPg_SMSAlarm_header").html(savedNumber[MyPg_numberIndex]+' 님의 방송 알람');
 
     alert("MyPg_SMSAlarmSetting");
