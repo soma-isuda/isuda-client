@@ -149,6 +149,7 @@ popupISUDA = function (message, buttons) {
         popup_index = 0;
         jQuery('.ISUDAButton').eq(popup_index).addClass('focus');
 
+
         focusBack = SelectWatchPg;
     }
 };
