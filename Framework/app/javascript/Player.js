@@ -47,11 +47,11 @@ var PlayerManager = {
         var url = providers[channels[this.channel]].getURL();
         alert(url);
         if(url != null){
-            this.playerarea.html('<video id="player" src="'+url+'" width="1920px" height="1080px" loop="loop" autoplay="autoplay"></video>');
+            this.playerarea.html('<video id="myplayer" src="'+url+'" width="1920px" height="1080px" loop="loop" autoplay="autoplay" poster="img/loading.png"></video>');
             this.player=MyPlayer;
         }
         else {
-            this.playerarea.html('<iframe id="player" width="1920" height="1080" src="http://www.youtube.com/embed/videoseries?list=PLJ6Y7jZXezJ465T7ahzn4WN3AIlKhLyjF&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;autohide=0&amp;disablekb=0&amp;loop=1&amp;rel=0" frameborder="0" allowfullscreen></iframe>');
+            this.playerarea.html('<iframe id="ytplayer" width="1920" height="1080" src="https://www.youtube.com/embed/videoseries?list=PLJ6Y7jZXezJ465T7ahzn4WN3AIlKhLyjF&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;autohide=0&amp;disablekb=0&amp;loop=1&amp;rel=0&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe>');
             this.player=YTPlayer;
         }
         this.player.init();
@@ -64,6 +64,9 @@ var PlayerManager = {
     },
     getDownChannel: function () {
         return (this.channel - 1 + channels.length) % channels.length;
+    },
+    play : function(idx){
+        this.player.play(idx);
     }    
 };
 
@@ -79,21 +82,18 @@ var MyPlayer = {
     }
 };
 var YTPlayer = {
- //   player:null,
+    player:null,
     init : function(){
-//        this.player = document.getElementById('player').contentWindow;
-//        alert("init finish");
-        //this.pause();
-   
+        this.player = new YT.Player('player');
     },
     play: function (idx) {
         if(typeof idx != 'undefined')
-            document.getElementById('player').contentWindow.postMessage('{"event":"command","func":"playVideoAt","args":"'+idx+'"}', '*');                      
+            this.player.playVideoAt(idx);            
         else    
-            document.getElementById('player').contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');                       
+            this.player.playVideo();            
     },
     pause: function () {
-            document.getElementById('player').contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');                      
+        this.player.pauseVideo();
     }           
 };
 

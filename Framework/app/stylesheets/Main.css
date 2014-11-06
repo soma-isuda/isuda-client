@@ -95,8 +95,11 @@ ul {
 	position:absolute;
 	left:0;
 	top:0;
-	background-image: url("../../img/loading.png");
-	background-size: 1920px 1080px;
+	opacity: 0;
+}
+
+#loading.show{
+	opacity: 1;
 }
 
 #playerarea{
@@ -105,6 +108,11 @@ ul {
 	top:0;
 }
 
-#player{
-	opacity:0;
+#myplayer{
+
+}
+
+#ytplayer{
+	opacity: 0;
+
 }
