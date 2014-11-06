@@ -41,12 +41,17 @@ SelectWatchPg.onLoad = function (ch) {
 
 };
 
-SelectWatchPg.focus = function () {
+SelectWatchPg.focus = function (view) {
     alert("SelectWatchPg focus");
-
-    SelectWatchPg.showMenu();
-    SelectWatchPg.showChannel();
-
+    //alert("view : "+view);
+    if(view == 'hide'){
+        SelectWatchPg.hideMenu();
+        SelectWatchPg.hideChannel();
+    }
+    else { 
+        SelectWatchPg.showMenu();
+        SelectWatchPg.showChannel();
+    }
     //    SelectWatchPg.DownCh.addClass('show');
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).addClass('focus');
@@ -54,9 +59,12 @@ SelectWatchPg.focus = function () {
 
 
 
-    popupAdjust();
+    
     if (PlayerManager.getChannel() == 5 && ISUDAFirstAccess == 1) {//처음에 이수다 채널에서 시작했으면
         popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
+    }
+    else if(PlayerManager.getChannel() != 5){
+        popupAdjust();
     }
 };
 
@@ -91,6 +99,7 @@ SelectWatchPg.setData = function () {
 
 
 SelectWatchPg.showMenu = function(){
+    alert("showMenu");
     var show = false;
     if (!SelectWatchPg.SelectWatchPgMenu.hasClass('show')) {
         SelectWatchPg.SelectWatchPgMenu.addClass('show');
@@ -106,8 +115,14 @@ SelectWatchPg.showMenu = function(){
     }, 7000);
     return show;
 };
-
+SelectWatchPg.hideMenu= function(){
+    SelectWatchPg.Channels.removeClass('show');
+    SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+    if (page_index == 1)
+            jQuery('#sideBar').addClass('hide');
+}
 SelectWatchPg.showChannel = function(){
+    alert("showChannel");
     var show = false;
 
     if (!SelectWatchPg.Channels.hasClass('show')) {
@@ -126,6 +141,12 @@ SelectWatchPg.showChannel = function(){
     return show;
 
 };
+SelectWatchPg.hideChannel = function() {
+    SelectWatchPg.Channels.removeClass('show');
+    SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+        if (page_index == 1)
+            jQuery('#sideBar').addClass('hide');
+}
 
 SelectWatchPg.keyDown = function () {
     alert("SelectWatchPg keyDown");
