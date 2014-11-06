@@ -173,7 +173,9 @@ popupISUDAkeyDown = function () {
                 alert('호출!');
                 focusBack.focus();
             }
+            
             jQuery('#popup').empty();
+            
             if (ISUDAFirstAccess == 1) {//채널에 처음 접근했을 때
                 popupISUDA("반갑습니다! <br/>이수다홈쇼핑 입니다", []);
                 
@@ -181,7 +183,7 @@ popupISUDAkeyDown = function () {
                 setTimeout(function () {
                     jQuery('#popup').empty();
                     SelectWatchPg.isudaPopup();
-                    focusBack.focus();/*포커스를 되돌리는 순간 팝업이 닫힌다*/
+                    focusBack.focus('hide');/*포커스를 되돌리는 순간 팝업이 닫힌다*/
                 }, 3000);//3초후에 팝업을 닫는다.
             }
             else {
@@ -193,7 +195,7 @@ popupISUDAkeyDown = function () {
                                 Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {
                                     if (status == "success") {
                                         alert("call InteractiveSpg onload");
-                                         InteractiveSpg.onLoad();
+                                        InteractiveSpg.onLoad();
                                     }
                                 });
                                 // setTimeout(function () {
@@ -202,7 +204,7 @@ popupISUDAkeyDown = function () {
                                 
                             }
                             else {//"아니요"를 선택했을 경우
-                                focusBack.focus();
+                                focusBack.focus('hide');
                             }
                         }
                         else if (indexInISUDAchannel == 1) {
@@ -213,7 +215,7 @@ popupISUDAkeyDown = function () {
                                 }, 5000);//5초후에 팝업을 닫는다.
                             }
                             else {//"아니요"를 선택했을 경우
-                                focusBack.focus();
+                                focusBack.focus('hide');
                             }
                         }
                         
