@@ -5,6 +5,7 @@ var InteractiveSpg = {
 
 InteractiveSpg.onLoad = function () {
     alert("InteractiveSpg onLoad");
+    subPageSatae = true; // 서브페이즈를 키고 있다고 표시
     //document.getElementById("InteractiveSpg").style.marginLeft="1460px";
     
     //사이드메뉴와 채널 헬퍼 hide
@@ -55,6 +56,7 @@ InteractiveSpg.enableKeys = function () {
 
 InteractiveSpg.keyDown = function () {
     alert("InteractiveSpg keyDown");
+
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode + " ,index:" + InteractiveSpg_index);
 
@@ -72,6 +74,7 @@ InteractiveSpg.keyDown = function () {
             alert("InteractiveSpg_key : Left");
             jQuery('#InteractiveSpg').hide();//페이지를 닫는다.	
             InteractiveSpg.body.empty();
+            jQuery('#popup').empty();//팝업창을 닫는다.
             SelectWatchPg.focus('hide');
 
             break;

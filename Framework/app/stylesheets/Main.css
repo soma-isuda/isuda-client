@@ -25,6 +25,7 @@ ul {
 	height: 100%;
 	position: absolute;
 	background-color: #232323;
+	z-index: 9999;
 	/*background-color: #f0f0d8;*/
 }
 

@@ -13,6 +13,8 @@ var SelectWatchPg = {
     currentISUDAPopup: [],//어떤 이수다 채널에 진입했을때 팝업 예정인 것들의 setTimeout을 모아놓는 함수
 };
 
+var subPageSatae = false; //서브페이지가 켜져있으면 true 안켜져있으면 false
+
 SelectWatchPg.onLoad = function (ch) {
     alert("SelectWatchPg onLoad");
     jQuery.extend(SelectWatchPg, {
@@ -53,6 +55,7 @@ SelectWatchPg.focus = function (view) {
         SelectWatchPg.showChannel();
     }
     //    SelectWatchPg.DownCh.addClass('show');
+    subPageSatae = false // 여기에 포커스가 왔다는것은 서브페이지가 안열려있는 상태이다.
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
@@ -104,14 +107,22 @@ SelectWatchPg.showMenu = function(){
     if (!SelectWatchPg.SelectWatchPgMenu.hasClass('show')) {
         SelectWatchPg.SelectWatchPgMenu.addClass('show');
         jQuery('#sideBar').removeClass('hide');
+        SelectWatchPg.SelectWatchPgMenu.animate({left:'0px'},"1000");
+        //SelectWatchPg.SelectWatchPgMenu.removeClass('hide');
         show = true;
     }
     clearTimeout(menuDisplayTimeout);
     menuDisplayTimeout = setTimeout(function () {
         SelectWatchPg.Channels.removeClass('show');
-        SelectWatchPg.SelectWatchPgMenu.removeClass('show');
-        if (page_index == 1)
+        SelectWatchPg.SelectWatchPgMenu.animate({left:'-300px'},"1000");
+
+        // SelectWatchPg.SelectWatchPgMenu.addClass('hide');
+        setTimeout(function () {
+            SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+            if (page_index == 1)
             jQuery('#sideBar').addClass('hide');
+        },800);
+        
     }, 7000);
     return show;
 };
@@ -246,7 +257,7 @@ SelectWatchPg.keyDown = function () {
                 //추천상품 대신에 이수다 편성표를 보여준다.
                 SelectWatchPg_index = 4;
             }
-
+           
             Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html, function (response, status, xhr) {
                 if (status == "success") {
                     subPageArr[SelectWatchPg_index].object.onLoad();
@@ -267,8 +278,8 @@ SelectWatchPg.isudaPopup = function () {
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 0 의 첫번째 팝업임을 의미함.
                 popupISUDA("듣고 계신 음악이 궁금하신가요?", ["예", "아니요"]);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 6000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
 
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 1;//case 1 의 두번째 팝업임을 의미함.

@@ -7,6 +7,7 @@ var ISUDAscheduleSpg = {
 
 ISUDAscheduleSpg.onLoad = function () {
     alert("ISUDAscheduleSpg onLoad");
+    subPageSatae = true; // 서브페이즈를 키고 있다고 표시
     
     //편성표 정보들을 로드한다.
     for (var i = 0; i < ISUDAschedule.length; i++) {

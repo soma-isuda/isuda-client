@@ -14,6 +14,7 @@ var DetailInfoSpg = {
 
 DetailInfoSpg.onLoad = function () {
     alert("DetailInfoSpg onLoad");
+    subPageSatae = true; // 서브페이즈를 키고 있다고 표시
     //document.getElementById("DetailInfoSpg").style.marginLeft="1460px";
     jQuery.extend(DetailInfoSpg, {
         anchor: {

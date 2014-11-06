@@ -116,37 +116,38 @@ var ISUDAButtonNum;
 var ISUDAFirstAccess = 1;//이수다 채널에 처음 접근하면 1, 아니면 0
 //이수다 홈쇼핑에서 방송 중간중간에 뜨는 팝업
 popupISUDA = function (message, buttons) {
-    alert("PopUp ISUDA!!");
-    ISUDAButtonNum = buttons.length;
-    alert('ISUDAButtonNum:' + ISUDAButtonNum);
-    if (ISUDAButtonNum != 0) {//버튼이 있을때만 팝업으로 포커스를 넘긴다
-        jQuery('#anchor_popupISUDA').focus();
-    }
-    jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
-    var tempString = '';
-    tempString += '<div id="popupISUDA">';
-    tempString += '     <div>' + message + '</div>';
-    tempString += '     <div>';
-    for (var i = 0; i < ISUDAButtonNum; i++) {
-        tempString += '     <div class="ISUDAButton">' + buttons[i] + '</div>';
-    }
-    tempString += '     </div>';
-    tempString += '</div>';
-    jQuery('#popup').append(tempString);
-    if (ISUDAButtonNum == 0) {//메세지만 있는 팝업일 경우
-        jQuery('#popupISUDA > div:nth-child(1)').css("height", "207px");
-    }
-    $('#popupISUDA').css("display", "block");
-    var width = ((720 - (40 * ISUDAButtonNum)) / ISUDAButtonNum) + "px";
-    $('#popupISUDA .ISUDAButton').css("width", width);
-    $('#popupISUDA .ISUDAButton').css("margin-left", "20px");
-    $('#popupISUDA .ISUDAButton').css("margin-right", "20px");
+    if(subPageSatae == false){
+        alert("PopUp ISUDA!!");
+        ISUDAButtonNum = buttons.length;
+        alert('ISUDAButtonNum:' + ISUDAButtonNum);
+        if (ISUDAButtonNum != 0) {//버튼이 있을때만 팝업으로 포커스를 넘긴다
+            jQuery('#anchor_popupISUDA').focus();
+        }
+        jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
+        var tempString = '';
+        tempString += '<div id="popupISUDA">';
+        tempString += '     <div>' + message + '</div>';
+        tempString += '     <div>';
+        for (var i = 0; i < ISUDAButtonNum; i++) {
+            tempString += '     <div class="ISUDAButton">' + buttons[i] + '</div>';
+        }
+        tempString += '     </div>';
+        tempString += '</div>';
+        jQuery('#popup').append(tempString);
+        if (ISUDAButtonNum == 0) {//메세지만 있는 팝업일 경우
+            jQuery('#popupISUDA > div:nth-child(1)').css("height", "207px");
+        }
+        $('#popupISUDA').css("display", "block");
+        var width = ((720 - (40 * ISUDAButtonNum)) / ISUDAButtonNum) + "px";
+        $('#popupISUDA .ISUDAButton').css("width", width);
+        $('#popupISUDA .ISUDAButton').css("margin-left", "20px");
+        $('#popupISUDA .ISUDAButton').css("margin-right", "20px");
 
-    popup_index = 0;
-    jQuery('.ISUDAButton').eq(popup_index).addClass('focus');
+        popup_index = 0;
+        jQuery('.ISUDAButton').eq(popup_index).addClass('focus');
 
-    focusBack = SelectWatchPg;
-
+        focusBack = SelectWatchPg;
+    }
 };
 
 //이수다 팝업에서의 키처리를 담당하는 부분
@@ -175,7 +176,7 @@ popupISUDAkeyDown = function () {
             }
             
             jQuery('#popup').empty();
-            
+
             if (ISUDAFirstAccess == 1) {//채널에 처음 접근했을 때
                 popupISUDA("반갑습니다! <br/>이수다홈쇼핑 입니다", []);
                 
