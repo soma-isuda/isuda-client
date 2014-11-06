@@ -139,7 +139,7 @@ ISUDAscheduleSpg.keyDown = function () {
             SelectWatchPg_index = 1;//마치 추천상품에서 로드된것처럼 되돌려준다.
             SelectWatchPg.focus();
             
-            PlayerManager.player.play(ISUDAscheduleSpg.index);
+            PlayerManager.play(ISUDAscheduleSpg.index);
             break;
         default:
             alert("Unhandled key");
