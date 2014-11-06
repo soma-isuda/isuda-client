@@ -6,80 +6,78 @@
     height: 100%;
     box-shadow: 0px 0px 11px rgba(0,0,0,0.2);
     border-radius: 3px;
-
 }
 
     #ISUDAscheduleSpg > #header {
-        width: 100%;
+        width: 720px;
         height: 100px;
-        text-align: left;
-        font-size: 30px;
+        text-align: center;
+        font-size: 43px;
         box-sizing: border-box;
-        padding: 45px 60px 25px 60px;
+        line-height: 150px;
+        border-bottom: 1px solid #7e7e7e;
     }
-    #ISUDAscheduleSpg #bodyWrapper{
-        overflow:hidden;
-    }
-    #ISUDAscheduleSpg #body > div {
+
+    #ISUDAscheduleSpg #bodyWrapper {
         box-sizing: border-box;
+        width: 594px;
+        height: 920px;
+        margin: 30px 63px 30px 63px;
         overflow: hidden;
-        width: 702px;
-        height: 227px;
-        margin: 8px;
-        border:1px solid black;
-        color:black;
     }
-    /*포커스 처리*/
-    #ISUDAscheduleSpg #body > div.focus{
-            background-color:#5ccece;
+
+    #ISUDAscheduleSpg #body {
+        
     }
+
+        #ISUDAscheduleSpg #body > div {
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            width: 594px;
+            height: 335px;
+            margin-bottom: 30px;
+        }
+            /*포커스 처리*/
+            #ISUDAscheduleSpg #body > div > .ISUDAscheduleFocus {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 594px;
+                height: 285px;
+            }
 
     #ISUDAscheduleSpg .ISUDAproductImg {
-        float: left;
-        width: 400px;
-        height: 225px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 594px;
+        height: 335px;
     }
 
-    #ISUDAscheduleSpg .ISUDAproductInfo {
-        float: left;
-        width: 300px;
-        height: 225px;
+    #ISUDAscheduleSpg .ISUDAproductProvider {
+        position: absolute;
+        left: 0px;
+        top: 225px;
+        height: 45px;
+        width: 195px;
+        background-color: #ce534d;
+        color: white;
+        font-size: 30px;
+        text-align: center;
     }
-        /* 상품명 */
-        #ISUDAscheduleSpg .productName {
-            box-sizing:border-box;
-            width: 300px;
-            height: 150px;
-            font-size: 21px;
-            padding:20px;
-            text-align:center;
-        }
-        /* 방송사 및 가격 */
-        #ISUDAscheduleSpg .productDetail{
-            width: 300px;
-            height: 75px;
-            overflow: hidden;
-        }
-            /*방송사*/
-            #ISUDAscheduleSpg .productDetail > div:nth-child(1) {
-                box-sizing:border-box;
-                float:left;
-                width:150px;
-                height:75px;
-                line-height:75px;
-                font-size:15px;
-                text-align:center;
-            }
-            /*가격*/
-            #ISUDAscheduleSpg .productDetail > div:nth-child(2) {
-                box-sizing:border-box;
-                float:left;
-                width:150px;
-                height:75px;
-                font-size: 20px;  
 
-                padding:10px;
-            }
-                #ISUDAscheduleSpg .productDetail > div:nth-child(2) > p {
-                    font-size:15px;
-                }
+    #ISUDAscheduleSpg .ISUDAproductName {
+        position: absolute;
+        top: 285px;
+        left: 0px;
+        box-sizing: border-box;
+        padding-top: 10px;
+        width: 594px;
+        height: 50px;
+        background-color: #332f2f;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+        font-size: 30px;
+    }

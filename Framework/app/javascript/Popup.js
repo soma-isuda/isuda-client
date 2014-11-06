@@ -137,6 +137,9 @@ popupISUDA = function (message, buttons) {
         if (ISUDAButtonNum == 0) {//메세지만 있는 팝업일 경우
             jQuery('#popupISUDA > div:nth-child(1)').css("height", "207px");
         }
+        else
+        jQuery('#popupISUDA > div:nth-child(1)').css("height", "130px");
+
         $('#popupISUDA').css("display", "block");
         var width = ((720 - (40 * ISUDAButtonNum)) / ISUDAButtonNum) + "px";
         $('#popupISUDA .ISUDAButton').css("width", width);

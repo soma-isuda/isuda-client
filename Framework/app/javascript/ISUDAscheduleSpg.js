@@ -12,23 +12,12 @@ ISUDAscheduleSpg.onLoad = function () {
     //편성표 정보들을 로드한다.
     for (var i = 0; i < ISUDAschedule.length; i++) {
         var tempString = '';
+
         tempString += '<div>';
-        tempString += '    <img class="ISUDAproductImg" src="'+SERVER_ADDRESS + '/pdLongImg/' + ISUDAschedule[i].productLongImgURL+ '"/>';
-        tempString += '    <div class="ISUDAproductInfo">';
-        alert(ISUDAschedule[i].productName);
-        tempString += '        <div class="productName">' + ISUDAschedule[i].productName + '</div>';
-        tempString += '        <div class="productDetail">';
-        tempString += '            <div>' + ISUDAschedule[i].manufacturerName + '</div>';
-
-        if (ISUDAschedule[i].productPrice)
-            tempString += '            <div><p>최대혜택가</p>' + ISUDAschedule[i].productPrice + '</div>';
-        else
-            tempString += '            <div><p>최대혜택가</p>방송 중 확인</div>';
-
-        tempString += '        </div>';
-        tempString += '    </div>';
+        tempString += '    <img class="ISUDAproductImg" src="' + SERVER_ADDRESS + '/pdLongImg/' + ISUDAschedule[i].productLongImgURL + '"/>';
+        tempString += '    <div class="ISUDAproductProvider">' + ISUDAschedule[i].manufacturerName + '</div>';
+        tempString += '    <div class="ISUDAproductName">' + ISUDAschedule[i].productName + '</div>';
         tempString += '</div>';
-
         jQuery('#ISUDAscheduleSpg #body').append(tempString);
 
     }
@@ -49,7 +38,7 @@ ISUDAscheduleSpg.focus = function () {
     ISUDAscheduleSpg.anchor.main.focus();
 
     //첫번째에 포커스
-    ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).addClass('focus');
+    ISUDAscheduleSpg.showFocus();
 };
 
 ISUDAscheduleSpg.enableKeys = function () {
@@ -91,34 +80,34 @@ ISUDAscheduleSpg.keyDown = function () {
             }
             */
             //스크롤 구현 부분
-            if ((ISUDAscheduleSpg.index-1) * 243 == ISUDAscheduleSpg.ISUDAPxMove) {
-                ISUDAscheduleSpg.ISUDAPxMove = 243 * (ISUDAscheduleSpg.index - 2);
+            if ((ISUDAscheduleSpg.index-1) * 365 == ISUDAscheduleSpg.ISUDAPxMove) {
+                ISUDAscheduleSpg.ISUDAPxMove = 365 * (ISUDAscheduleSpg.index - 2);
                 jQuery('#ISUDAscheduleSpg #body').css("margin-top", '-' + ISUDAscheduleSpg.ISUDAPxMove + 'px');
             }
             //기존 상품 포커스 제거
-            ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).removeClass('focus');
+            ISUDAscheduleSpg.hideFocus();
 
             //대분류 카테고리의 맨위에 도달했을때 위의 키를 누르면 , 맨아래로 간다.
             if (ISUDAscheduleSpg.index == 0) {
                 ISUDAscheduleSpg.index = ISUDAschedule.length - 1;
-                ISUDAscheduleSpg.ISUDAPxMove = 243 * (ISUDAscheduleSpg.index - 3);
+                ISUDAscheduleSpg.ISUDAPxMove = 365 * (ISUDAscheduleSpg.index - 1);
                 jQuery('#ISUDAscheduleSpg #body').css("margin-top", '-' + ISUDAscheduleSpg.ISUDAPxMove + 'px');
             }
             else
                 ISUDAscheduleSpg.index--;
-            ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).addClass('focus');
+            ISUDAscheduleSpg.showFocus();
 
             break;
         case tvKey.KEY_DOWN:
             alert("ISUDAscheduleSpg_key : Down");
             
             //스크롤 구현 부분
-            if ((ISUDAscheduleSpg.index - 3) * 243 == ISUDAscheduleSpg.ISUDAPxMove) {
-                ISUDAscheduleSpg.ISUDAPxMove = 243 * (ISUDAscheduleSpg.index - 2);
+            if ((ISUDAscheduleSpg.index - 1) * 365 == ISUDAscheduleSpg.ISUDAPxMove) {
+                ISUDAscheduleSpg.ISUDAPxMove = 365 * (ISUDAscheduleSpg.index);
                 jQuery('#ISUDAscheduleSpg #body').css("margin-top", '-' + ISUDAscheduleSpg.ISUDAPxMove + 'px');
             }
             //기존 상품 포커스 제거
-            ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).removeClass('focus');
+            ISUDAscheduleSpg.hideFocus();
 
             //대분류 카테고리의 맨 아래에 도달했을때 아래 키를 누르면, 맨위로 간다.
             if (ISUDAscheduleSpg.index == ISUDAschedule.length - 1) {
@@ -128,7 +117,7 @@ ISUDAscheduleSpg.keyDown = function () {
             }
             else
                 ISUDAscheduleSpg.index++;
-            ISUDAscheduleSpg.product.eq(ISUDAscheduleSpg.index).addClass('focus');
+            ISUDAscheduleSpg.showFocus();
 
             break;
         case tvKey.KEY_ENTER:
@@ -147,3 +136,12 @@ ISUDAscheduleSpg.keyDown = function () {
             break;
     }
 };
+
+ISUDAscheduleSpg.showFocus = function () {
+    var tempString = '<img src="img/ISUDAscheduleFocus.PNG" class="ISUDAscheduleFocus" />';
+    jQuery('#ISUDAscheduleSpg #body>div').eq(ISUDAscheduleSpg.index).append(tempString);
+}
+ISUDAscheduleSpg.hideFocus = function () {
+    jQuery('#ISUDAscheduleSpg #body>div').eq(ISUDAscheduleSpg.index).find('.ISUDAscheduleFocus').hide();
+}
+

@@ -3,7 +3,6 @@
     height: 1080px;
     background: linear-gradient(to bottom, rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
     position: absolute;
-    background-color: #e4e3e3;
 }
 
 .MyPg_menu{
@@ -28,7 +27,8 @@
 	height: 780px;
     text-align:center;
     box-sizing: border-box;
-    padding: 5px 30px;   
+    padding: 5px 30px;  
+    font-size: 30px; 
 }
 
 .MyPg_bottom{
@@ -67,6 +67,7 @@
 /*/////////////////////////////////
 /////// SMS Alarm 관련 css /////////
 /////////////////////////////////*/
+
 #MyPg_SMSAlarm_list > ul li{
     z-index: 0;
     list-style: none;
@@ -150,7 +151,6 @@
 #MyPg_SelectNumber_list_new{
    width:100%;
     text-align:center;
-    margin-top:50px;
 }
 
 #MyPg_SelectNumber_list_new>div{
@@ -197,7 +197,8 @@
 ///////    focus css      /////////
 /////////////////////////////////*/
 .MyPg_menu.focus{
-    background-color: white;
+    background: linear-gradient(to bottom, rgba(245,245,245,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+;
 }
 .MyPgItem{
     background-color: #989898;
