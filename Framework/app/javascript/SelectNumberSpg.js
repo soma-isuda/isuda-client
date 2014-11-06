@@ -33,6 +33,7 @@ var SelectNumberSpg = {
 
 SelectNumberSpg.onLoad = function () {
     alert("SelectNumberSpg onLoad");
+    subPageSatae = true; // 서브페이즈를 키고 있다고 표시
     //document.getElementById("SelectNumberSpg").style.marginLeft="1460px";
     jQuery.extend(SelectNumberSpg, {
         anchor: {

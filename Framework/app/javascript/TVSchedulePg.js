@@ -77,6 +77,8 @@ TVSchedulePg.onLoad = function () {
     TVSchedulePg.firstLoad(allProduct[0]);
 
     jQuery('#mid').hide();
+    jQuery('#big').animate({ width: '300px' }, "1000");
+
 };
 
 TVSchedulePg.focus = function () {
@@ -109,6 +111,7 @@ tabMenu = function () {
         jQuery('#mid>img').hide();
     else
         jQuery('#mid>img').show();
+
 
     jQuery.extend(TVSchedulePg, {
         midElem: jQuery('#mid').find('ul>li>div'),
@@ -240,6 +243,7 @@ TVSchedulePg.bigKeyDown = function () {
                 mid_index = 0;
                 //중분류 부분을 보여준다.
                 jQuery('#mid').show();
+                jQuery('#mid').animate({ width: '300px' }, "1000");
 
                 tabMenu();
                 TVSchedulePg.anchor.mid.focus();//중분류로 anchor를 넘긴다
@@ -279,7 +283,10 @@ TVSchedulePg.midKeyDown = function () {
             alert("TVSchedulePg_key : Left");
 
             //다시 대분류로 포커스를 넘긴다.
+            //jQuery('#mid').animate({ width: '1px' }, "1000");
             jQuery('#mid').hide();
+            
+
             TVSchedulePg.raiseBig();
 
             TVSchedulePg.bigElem.eq(big_index).removeClass('select');
@@ -742,14 +749,18 @@ TVSchedulePg.loadNewProduct = function (value) {
 }
 
 TVSchedulePg.reduceBig = function () {//대분류에서 중분류 진입시, 대분류의 크기를 줄이는 함수
-    jQuery('#big').css("width", "150px");
+    //jQuery('#big').css("width", "150px");
+    jQuery('#big').animate({ width: '150px' }, "500");
+
     jQuery('#big ul>li>div').css("font-size", "27px");
     jQuery('#big ul>li>div').css("width", "150px");
     jQuery('#big>img').css("left", "23px");
 }
 
 TVSchedulePg.raiseBig = function () {//다시 대분류 진입시, 대분류의 크기를 복구하는 함수
-    jQuery('#big').css("width", "300px");
+    //jQuery('#big').css("width", "300px");
+    jQuery('#big').animate({ width: '300px' }, "500");
+
     jQuery('#big ul>li>div').css("font-size", "43px");
     jQuery('#big ul>li>div').css("width", "300px");
     jQuery('#big>img').css("left", "102px");
