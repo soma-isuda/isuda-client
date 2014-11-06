@@ -60,10 +60,11 @@ SelectWatchPg.focus = function (view) {
 
 
     
-    if (PlayerManager.getChannel() == 5 && ISUDAFirstAccess == 1) {//처음에 이수다 채널에서 시작했으면
-        popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
-    }
-    else if(PlayerManager.getChannel() != 5){
+//    if (PlayerManager.getChannel() == 5 && ISUDAFirstAccess == 1) {//처음에 이수다 채널에서 시작했으면
+//        popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
+//    }
+    if(PlayerManager.getChannel() != 5){
+//    else if(PlayerManager.getChannel() != 5){
         popupAdjust();
     }
 };

@@ -84,7 +84,11 @@ var MyPlayer = {
 var YTPlayer = {
     player:null,
     init : function(){
-        this.player = new YT.Player('ytplayer');
+        this.player = new YT.Player('ytplayer', {
+            events: {
+                'onStateChange': YTPlayer.onPlayerStateChange
+            }
+        });
     },
     play: function (idx) {
         if(typeof idx != 'undefined')
@@ -94,7 +98,19 @@ var YTPlayer = {
     },
     pause: function () {
         this.player.pauseVideo();
-    }           
+    },           
+    onPlayerStateChange:function(event){
+        if(event.data == -1){
+//            jQuery('#loading').addClass('show');
+        }
+
+        else if(event.data == 1){
+//            jQuery('#loading').removeClass('show');
+            popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
+        }
+        alert("동영상 : " + event.data);
+
+    }    
 };
 
 
