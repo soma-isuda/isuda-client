@@ -331,76 +331,76 @@ SelectWatchPg.isudaPopup = function () {
     indexInISUDAchannel = 0;//변수 초기화
     switch (currentISUDAchannel) {
         case 0://'MOMENT' 성준 & 탕웨이 출연 영화 | 코오롱스포츠 필름
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 0 의 첫번째 팝업임을 의미함.
                 popupISUDA("듣고 계신 음악이 궁금하신가요?", ["예", "아니요"]);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
-            }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            }, 6000);//영상이 시작하고 1분 후에 띄우는 팝업
 
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 1;//case 1 의 두번째 팝업임을 의미함.
                 popupISUDA("이곳이 어디인지 궁금하신가요?", ["예", "아니요"]);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 120000);//영상이 시작하고 2분후에 띄우는 팝업
             break;
         case 1://배달의민족 소개영상
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("배달의 민족에 대해 더 알고 싶으신가요?", ["예", "아니요"]);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
             break;
         case 2://[영현대] 서울의 랜드마크, 세계 최고의 자동차 테마파크를 꿈꾼다.
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("영현대에 대해 더 알고싶으신가요?", ["예", "아니요"]);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
             break;
         case 3://[brilliant memories] 싼타페 그리고 프로포즈
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("이벤트에 참가하실래요?", ["예", "아니요"]);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
             break;
         case 4://[화제포착] 얼짱 각도 옛말…‘셀카봉’이 대세
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("셀카봉 구매하시겠습니까?", ["예", "아니요"]);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
             break;
         case 5://[KR] Apple iPhone 6 (아이폰 6) 개봉기 [4K]
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("아이폰을 구매하시겠습니까?", ["예", "아니요"]);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
             break;
         case 6://편강한의원
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("편강한의원은 언제든지 <br/>열려있습니다.", []);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
             break;
         case 7://Takeout Your Garden Campaign
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("테유가와 함께<br/>그린캠페인에 참여하세요.", []);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
             break;
         case 8://2014년 10월 25일 신작 모바일 게임 피자에 팡!
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("2014년 최고의 게임!<br/>피자에 팡과 함께 하세요.", []);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
             break;
         case 9://영화 역린, 백배 즐기기! 설민석의 정조이야기1부
-            setTimeout(function () {
+            tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("역린<br/>알고 보면 더 재밌습니다!", []);
                 SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)

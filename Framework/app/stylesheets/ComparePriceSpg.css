@@ -48,7 +48,7 @@
     overflow: hidden;
 }
 /*사진 크기*/
-.recommended_product > .recommended_imgArea > img {
+#ComparePriceSpg_body > .recommended_product > .recommended_imgArea > img {
     position: relative;
     top:-132px;
     width: 540px;

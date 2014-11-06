@@ -47,8 +47,8 @@ popupAdjustFull = function () {
     jQuery('#anchor_popup').focus();
     // $('#popupAdjust').animate({height: "-=288px"},slow);
 };
-var popup_index;
-var focusBack;
+var popup_index; //팝업 내 버튼 포커스 처리를 위한 인덱
+var focusBack; //되돌가기위한 포커스를 저장하놓는 곳 
 popupMessageButton = function (message, returnFocus) {
     alert("PopUp b!!");
     focusBack = returnFocus;
@@ -191,9 +191,15 @@ popupISUDAkeyDown = function () {
                         if (indexInISUDAchannel == 0) {
                             if (popup_index == 0) {//"예"를 선택했을 경우
                                 popupISUDA("듣고 계신 음악은 <br/> Gustav Mahler Symphony No.5, <br/>4악장입니다.", []);
-                                setTimeout(function () {
-                                    jQuery('#popup').empty();
-                                }, 5000);//5초후에 팝업을 닫는다.
+                                Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {
+                                    if (status == "success") {
+                                        alert("call InteractiveSpg onload");
+                                         InteractiveSpg.onLoad();
+                                    }
+                                });
+                                // setTimeout(function () {
+                                //     jQuery('#popup').empty();
+                                // }, 5000);//5초후에 팝업을 닫는다.
                                 
                             }
                             else {//"아니요"를 선택했을 경우
