@@ -40,7 +40,6 @@ SelectWatchPg.onLoad = function (ch) {
 
     SelectWatchPg.Channels.addClass('show');
     jQuery('#sideBar').removeClass('hide');
-
 };
 
 SelectWatchPg.focus = function (view) {
