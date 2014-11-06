@@ -75,16 +75,16 @@ var MyPlayer = {
 
     },
     play: function () {
-        document.getElementById("player").play();
+        document.getElementById("myplayer").play();
     },
     pause: function () {
-        document.getElementById("player").pause();
+        document.getElementById("myplayer").pause();
     }
 };
 var YTPlayer = {
     player:null,
     init : function(){
-        this.player = new YT.Player('player');
+        this.player = new YT.Player('ytplayer');
     },
     play: function (idx) {
         if(typeof idx != 'undefined')
