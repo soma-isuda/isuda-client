@@ -142,8 +142,8 @@
     width: 720px;
     height: 207px;
     position: absolute;
-    
-    margin-left: 1200px;
+
+    left:1200px;
     display: none;
     overflow: hidden;
     color: white;

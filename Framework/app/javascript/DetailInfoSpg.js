@@ -29,15 +29,21 @@ DetailInfoSpg.onLoad = function () {
     if (page_index == 1 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
         jQuery('#reserveButton').hide();//'SMS 알람 받기' 버튼을 없앤다.
         $('.arrow').css("display", "block");
-        document.getElementById('arrow_up').style.marginTop = "20px";
-        document.getElementById('arrow_down').style.marginTop = "900px";
+        document.getElementById('arrow_up').style.marginTop = "10px";
+        document.getElementById('arrow_down').style.marginTop = "970px";
+
+        jQuery('#detailImage>div').css("margin", "33px 5px");
+        jQuery('#detailImage>div').css("height", "1012px");
     }
         //편성표에서 '상세보기' || 선택보기에서 '추천상품'->'상세보기'
     else if (page_index == 2 || (page_index == 1 && SelectWatchPg_index == 1)) {
         jQuery('#reserveButton').append('<div>SMS 알람 받기</div>');
+        jQuery('#detailImage>div').css("margin", "0px 5px 33px 5px");
+        jQuery('#detailImage>div').css("height", "923px");
     }
     else if (page_index == 3) {
         jQuery('#reserveButton').append('<div>해당 상품 알람 삭제<div>');
+        
     }
 
     //상품 상세 정보 이미지를 로드한다.
@@ -57,10 +63,10 @@ DetailInfoSpg.onLoad = function () {
                 var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
                 tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
                 tempString += "'/>";
-                jQuery('#detailImage').append(tempString);
+                jQuery('#detailImage>div').append(tempString);
                 jQuery.extend(DetailInfoSpg, {
                     reserve: jQuery('#reserveButton').find('div'),
-                    image: jQuery('#detailImage')
+                    image: jQuery('#detailImage>div')
                 });
                 //상품 이미지로 바로 포커스를 맞춘다.
                 DetailInfoSpg.image.addClass('focus');
@@ -80,10 +86,10 @@ DetailInfoSpg.onLoad = function () {
         var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
         tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
         tempString += "'/>";
-        jQuery('#detailImage').append(tempString);
+        jQuery('#detailImage>div').append(tempString);
         jQuery.extend(DetailInfoSpg, {
             reserve: jQuery('#reserveButton').find('div'),
-            image: jQuery('#detailImage')
+            image: jQuery('#detailImage>div')
         });
         //'SMS 알람 받기' 버튼에 포커스를 맞추고 시작한다.
         DetailInfoSpg.reserve.addClass('focus');

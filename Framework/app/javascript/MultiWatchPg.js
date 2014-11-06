@@ -59,8 +59,12 @@ MultiWatchPg.onLoad = function(){
 
                 var tempString = '';
                 tempString+='<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem">';
-                tempString+='	<div class="imgArea">';
-                tempString+='		<img src="' +this.productImgURL+ '" alt="" class="productImg">';
+                tempString += '	<div class="imgArea">';
+                if(typeof this.id != 'number')//이수다홈쇼핑을 제외한 나머지들은 id가 문자열임
+                    tempString += '		<img src="' + this.productImgURL + '" alt="" class="productImg">';
+                else
+                    tempString += '		<img src="' + SERVER_ADDRESS + '/pdImg/' + this.productImgURL + '" alt="" class="productImg">';
+
                 tempString+='		<div></div>';
                 tempString+='	</div>';
                 tempString+='	<div class="productInfoArea">';
@@ -69,7 +73,6 @@ MultiWatchPg.onLoad = function(){
                 tempString+='			<p class="productPrice">' + priceRefined + '</p>';
                 tempString+='		</div>';
                 tempString+='		<div class="endTime">';
-                tempString+='			<p>방송 혜택 종료까지</p>';
                 tempString+='			<p id="remainedTime' + cnt + '" class="remainedTime"></p>';
                 tempString+='		</div>';
                 tempString+='		<div class="name">';
@@ -95,7 +98,6 @@ MultiWatchPg.onLoad = function(){
 					remainedTime.minute = 60 + remainedTime.minute;
 				}
 				document.getElementById('remainedTime'+cnt).innerHTML = remainedTime.hour+'시 '+remainedTime.minute+'분 '+ remainedTime.second+'초';
-			    $(MultiWatchPgItem[cnt]).css('background-color',color[cnt]);
 			});					
 		} 	
 	});		

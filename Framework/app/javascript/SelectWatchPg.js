@@ -2,6 +2,9 @@ var SelectWatchPg_index = 0; // = subPageArr_index
 //var channel = 0;
 
 var indexInISUDAchannel;
+var menuDisplayTimeout;
+var channelDisplayTimeout;
+
 
 
 var SelectWatchPg = {
@@ -17,8 +20,8 @@ SelectWatchPg.onLoad = function (ch) {
         Channels: jQuery("#Channels"),
         ChannelHelper: jQuery("#ChannelHelper"),
         ChannelDetail: jQuery("#ChannelDetail"),
-
-        SelectWatchPgMenu: jQuery('#SelectWatchPgMenu').find('ul > li'),
+        SelectWatchPgMenu: jQuery('#SelectWatchPgMenu'),
+        SelectWatchPgMenuElem: jQuery('#SelectWatchPgMenu').find('ul > li'),
         anchor: {
             main: jQuery('#anchor_SelectWatchPg')
         }
@@ -29,38 +32,31 @@ SelectWatchPg.onLoad = function (ch) {
     currentISUDAchannel = 0;
     SelectWatchPg.setData();
     if (PlayerManager.getChannel() == 5) {//처음에 이수다 채널에서 시작했으면
-        SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송 목록');
+        SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('방송 목록');
     }
+    SelectWatchPg.SelectWatchPgMenu.addClass('show');
+
+    SelectWatchPg.Channels.addClass('show');
+    jQuery('#sideBar').removeClass('hide');
 
 };
 
 SelectWatchPg.focus = function () {
     alert("SelectWatchPg focus");
-    jQuery('#SelectWatchPgMenu').addClass('show');
 
-    SelectWatchPg.Channels.addClass('show');
-    jQuery('#sideBar').removeClass('hide');
+    SelectWatchPg.showMenu();
+    SelectWatchPg.showChannel();
 
     //    SelectWatchPg.DownCh.addClass('show');
-    SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('select');
-    SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
+    SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('select');
+    SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
 
-    clearTimeout(menuDisplayTimeout);
-    menuDisplayTimeout = setTimeout(function () {
-        jQuery('#SelectWatchPgMenu').removeClass('show');
 
-        SelectWatchPg.Channels.removeClass('show');
-        if (page_index == 1)
-            jQuery('#sideBar').addClass('hide');
-        //        SelectWatchPg.DownCh.removeClass('show');
-    }, 7000);
 
-    //       alert("asdads");
-    //   });
     popupAdjust();
     if (PlayerManager.getChannel() == 5 && ISUDAFirstAccess == 1) {//처음에 이수다 채널에서 시작했으면
-        popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요", "행복해요"]);
+        popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
     }
 };
 
@@ -91,121 +87,53 @@ SelectWatchPg.setData = function () {
             SelectWatchPg.ChannelDetail.html(data.productName);
         }
     });
-
-    /*    jQuery.ajax({
-            url: SERVER_ADDRESS + '/now',
-            type : 'GET',
-            data: ({ providerNum: upch }),    
-            dataType : 'json',
-            success : function (data) {
-                var priceBefore = date.productPrice;
-                var priceRefined = '';
-                if (priceBefore) {//가격 값이 null이 아니면
-                    priceBefore = data.productPrice.toString();
-                    for (var i = priceBefore.length; i > 0; i = i - 3) {
-                        if (i == priceBefore.length)
-                            priceRefined = priceBefore.substring(i, i - 3);
-                        else
-                            priceRefined =priceBefore.substring(i, i - 3) + ',' + priceRefined;
-                    }
-                    priceRefined += ' 원';
-                }
-                else//가격 값이 null 이면
-                    priceRefined += '방송 중 확인';
-    
-                var tempstring = '';
-                tempstring += '<div class="SimgArea">';
-                tempstring +=   '<img src="' +data.productImgURL+ '" alt="" class="SproductImg">';
-                tempstring += '</div>';
-                tempstring += '<div class="SproductInfoArea">';
-                tempstring +=   '<div class="Sprovider">';
-                tempstring +=       channels[upch].getName() + '∧';
-                tempstring +=   '</div>';
-                tempstring +=   '<div class="Sname">';
-                tempstring +=       data.productName;
-                tempstring +=   '</div>';
-    //            tempstring +=   '<div class="Sprice">';
-    //            tempstring +=       '<p>최대 혜택가 :</p>';
-    //            tempstring +=       '<p class="SproductPrice">' + priceRefined + '</p>';
-    //            tempstring +=   '</div>';
-                tempstring += '</div>';
-    
-                SelectWatchPg.UpCh.html(tempstring);
-                SelectWatchPg.UpCh.css('background-color', color[upch]);
-            }
-        });  
-    
-        jQuery.ajax({
-            url: SERVER_ADDRESS + '/now',
-            type : 'GET',
-            data: ({ providerNum: downch }),    
-            dataType : 'json',
-            success : function (data) {
-                var priceBefore = date.productPrice;
-                var priceRefined = '';
-                if (priceBefore) {//가격 값이 null이 아니면
-                    priceBefore = data.productPrice.toString();
-                    for (var i = priceBefore.length; i > 0; i = i - 3) {
-                        if (i == priceBefore.length)
-                            priceRefined = priceBefore.substring(i, i - 3);
-                        else
-                            priceRefined =priceBefore.substring(i, i - 3) + ',' + priceRefined;
-                    }
-                    priceRefined += ' 원';
-                }
-                else//가격 값이 null 이면
-                    priceRefined += '방송 중 확인';
-    
-                var tempstring = '';
-                tempstring += '<div class="SimgArea">';
-                tempstring +=   '<img src="' +data.productImgURL+ '" alt="" class="SproductImg">';
-                tempstring += '</div>';
-                tempstring += '<div class="SproductInfoArea">';
-                tempstring +=   '<div class="Sprovider">';
-                tempstring +=       channels[downch].getName() + '∨';
-                tempstring +=   '</div>';
-                tempstring +=   '<div class="Sname">';
-                tempstring +=       data.productName;
-                tempstring +=   '</div>';
-    //            tempstring +=   '<div class="Sprice">';
-    //            tempstring +=       '<p>최대 혜택가 :</p>';
-    //            tempstring +=       '<p class="SproductPrice">' + priceRefined + '</p>';
-    //            tempstring +=   '</div>';
-                tempstring += '</div>';
-                SelectWatchPg.DownCh.html(tempstring);
-                SelectWatchPg.DownCh.css('background-color', color[downch]);
-            }
-        });  */
 };
 
-var menuDisplayTimeout;
+
+SelectWatchPg.showMenu = function(){
+    var show = false;
+    if (!SelectWatchPg.SelectWatchPgMenu.hasClass('show')) {
+        SelectWatchPg.SelectWatchPgMenu.addClass('show');
+        jQuery('#sideBar').removeClass('hide');
+        show = true;
+    }
+    clearTimeout(menuDisplayTimeout);
+    menuDisplayTimeout = setTimeout(function () {
+        SelectWatchPg.Channels.removeClass('show');
+        SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+        if (page_index == 1)
+            jQuery('#sideBar').addClass('hide');
+    }, 7000);
+    return show;
+};
+
+SelectWatchPg.showChannel = function(){
+    var show = false;
+
+    if (!SelectWatchPg.Channels.hasClass('show')) {
+        SelectWatchPg.Channels.addClass('show');
+        show = true;
+    }
+    clearTimeout(channelDisplayTimeout);
+    channelDisplayTimeout = setTimeout(function () {
+        SelectWatchPg.Channels.removeClass('show');
+        SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+        if (page_index == 1)
+            jQuery('#sideBar').addClass('hide');
+
+    }, 7000);
+
+    return show;
+
+};
 
 SelectWatchPg.keyDown = function () {
     alert("SelectWatchPg keyDown");
     var keyCode = event.keyCode;
     alert("Key pressed: " + keyCode);
     alert(SelectWatchPg_index);
-    var show = false;
-
-
-    if (!SelectWatchPg.Channels.hasClass('show')) {
-        jQuery('#SelectWatchPgMenu').addClass('show');
-        SelectWatchPg.Channels.addClass('show');
-        jQuery('#sideBar').removeClass('hide');
-
-        show = true;
-    }
-    //    SelectWatchPg.DownCh.addClass('show');
-
-    clearTimeout(menuDisplayTimeout);
-    menuDisplayTimeout = setTimeout(function () {
-        jQuery('#SelectWatchPgMenu').removeClass('show');
-
-        SelectWatchPg.Channels.removeClass('show');
-
-        if (page_index == 1)
-            jQuery('#sideBar').addClass('hide');
-    }, 7000);
+    var menushow = false;
+    var channelshow = false;
 
     switch (keyCode) {
         case tvKey.KEY_RED:
@@ -218,29 +146,31 @@ SelectWatchPg.keyDown = function () {
             break;
             //       채널 퀵변경 
         case tvKey.KEY_CH_UP:
+            SelectWatchPg.showChannel();
             alert("현재 채널의 인덱스" + PlayerManager.getChannel());
             if (PlayerManager.getUpChannel() == 5) {//다음 채널이 이수다 홈쇼핑이면
 
-                SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송 목록');
+                SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('방송 목록');
                 SelectWatchPg.isudaPopup();
 
             }
 
             else if (PlayerManager.getChannel() == 5)
-                SelectWatchPg.SelectWatchPgMenu.eq(1).html('추천 정보');
+                SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('추천 정보');
 
             PlayerManager.channelUp();
             SelectWatchPg.setData();
             SelectWatchPg.clearPopupList();
             break;
         case tvKey.KEY_CH_DOWN:
+            SelectWatchPg.showChannel();
             alert("현재 채널의 인덱스" + PlayerManager.getChannel());
             if (PlayerManager.getDownChannel() == 5) {//다음 채널이 이수다 홈쇼핑이면
-                SelectWatchPg.SelectWatchPgMenu.eq(1).html('방송 목록');
+                SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('방송 목록');
                 SelectWatchPg.isudaPopup();
             }
             else if (PlayerManager.getChannel() == 5)
-                SelectWatchPg.SelectWatchPgMenu.eq(1).html('추천 정보');
+                SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('추천 정보');
 
             PlayerManager.channelDown();
             SelectWatchPg.setData();
@@ -253,32 +183,32 @@ SelectWatchPg.keyDown = function () {
             widgetAPI.blockNavigation(event);
         case tvKey.KEY_LEFT:
             alert("SelectWatchPg_key : Left");
-            if (show) return;
+            if (SelectWatchPg.showMenu()) return;
 
             jQuery('#popup').empty(); // 광고가 있을경우 광고를 지운다.
             //          SelectWatchPg.anchor.main.removeClass('focus');
-            SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-            jQuery('#SelectWatchPgMenu').removeClass('show');
+            SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('focus');
+//            SelectWatchPg.SelectWatchPgMenu.removeClass('show');
 
-            SelectWatchPg.Channels.removeClass('show');
+//            SelectWatchPg.Channels.removeClass('show');
             SelectWatchPg.clearPopupList();
 
             Main.focus();
             break;
         case tvKey.KEY_UP:
             alert("SelectWatchPg_key : Up");
-            if (show) return;
-            SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-            SelectWatchPg_index = (SelectWatchPg_index + SelectWatchPg.SelectWatchPgMenu.size() - 1) % SelectWatchPg.SelectWatchPgMenu.size();
-            SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
+            if (SelectWatchPg.showMenu()) return;
+            SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('focus');
+            SelectWatchPg_index = (SelectWatchPg_index + SelectWatchPg.SelectWatchPgMenuElem.size() - 1) % SelectWatchPg.SelectWatchPgMenuElem.size();
+            SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).addClass('focus');
             break;
 
         case tvKey.KEY_DOWN:
             alert("SelectWatchPg_key : Down");
-            if (show) return;
-            SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).removeClass('focus');
-            SelectWatchPg_index = (SelectWatchPg_index + SelectWatchPg.SelectWatchPgMenu.size() + 1) % SelectWatchPg.SelectWatchPgMenu.size();
-            SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('focus');
+            if (SelectWatchPg.showMenu()) return;
+            SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('focus');
+            SelectWatchPg_index = (SelectWatchPg_index + SelectWatchPg.SelectWatchPgMenuElem.size() + 1) % SelectWatchPg.SelectWatchPgMenuElem.size();
+            SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).addClass('focus');
             break;
 
         case tvKey.KEY_RIGHT:
@@ -286,8 +216,8 @@ SelectWatchPg.keyDown = function () {
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             alert("SelectWatchPg_index : " + SelectWatchPg_index);
-            if (show) return;
-            SelectWatchPg.SelectWatchPgMenu.eq(SelectWatchPg_index).addClass('select');
+            if (SelectWatchPg.showMenu()) return;
+            SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).addClass('select');
             jQuery('#popup').empty();
 
             //이수다 채널을 보고 있을때의 예외 처리
@@ -302,25 +232,6 @@ SelectWatchPg.keyDown = function () {
                 }
             });
             break;
-            // case tvKey.KEY_VOL_UP:
-            // case tvKey.KEY_PANEL_VOL_UP:
-            //     alert("VOL_UP");
-            //     if(webapis.audiocontrol.getMute() ==false)
-            //         webapis.audiocontrol.setVolumeUp();
-            //     break;
-            // case tvKey.KEY_VOL_DOWN:
-            // case tvKey.KEY_PANEL_VOL_DOWN:
-            //     alert("VOL_DOWN");
-            //     if(webapis.audiocontrol.getMute() ==false)
-            //         webapis.audiocontrol.setVolumeDown();
-            //     break;     
-            // case tvKey.KEY_MUTE:
-            //     alert("MUTE");
-            //     if(webapis.audiocontrol.getMute() ==false)
-            //         webapis.audiocontrol.setMute(true);
-            //     else
-            //         webapis.audiocontrol.setMute(false);
-            //     break;
         default:
             alert("Unhandled key");
             break;
@@ -331,6 +242,7 @@ SelectWatchPg.isudaPopup = function () {
     indexInISUDAchannel = 0;//변수 초기화
     switch (currentISUDAchannel) {
         case 0://'MOMENT' 성준 & 탕웨이 출연 영화 | 코오롱스포츠 필름
+
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 0 의 첫번째 팝업임을 의미함.
                 popupISUDA("듣고 계신 음악이 궁금하신가요?", ["예", "아니요"]);
@@ -340,71 +252,82 @@ SelectWatchPg.isudaPopup = function () {
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 1;//case 1 의 두번째 팝업임을 의미함.
                 popupISUDA("이곳이 어디인지 궁금하신가요?", ["예", "아니요"]);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 120000);//영상이 시작하고 2분후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+
             break;
         case 1://배달의민족 소개영상
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("배달의 민족에 대해 더 알고 싶으신가요?", ["예", "아니요"]);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             break;
+
         case 2://[영현대] 서울의 랜드마크, 세계 최고의 자동차 테마파크를 꿈꾼다.
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("영현대에 대해 더 알고싶으신가요?", ["예", "아니요"]);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+
             break;
         case 3://[brilliant memories] 싼타페 그리고 프로포즈
             tempFunction = setTimeout(function () {
+
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("이벤트에 참가하실래요?", ["예", "아니요"]);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+
             break;
         case 4://[화제포착] 얼짱 각도 옛말…‘셀카봉’이 대세
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("셀카봉 구매하시겠습니까?", ["예", "아니요"]);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+
             break;
         case 5://[KR] Apple iPhone 6 (아이폰 6) 개봉기 [4K]
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("아이폰을 구매하시겠습니까?", ["예", "아니요"]);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+
             break;
         case 6://편강한의원
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("편강한의원은 언제든지 <br/>열려있습니다.", []);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+
             break;
         case 7://Takeout Your Garden Campaign
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("테유가와 함께<br/>그린캠페인에 참여하세요.", []);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+
             break;
         case 8://2014년 10월 25일 신작 모바일 게임 피자에 팡!
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("2014년 최고의 게임!<br/>피자에 팡과 함께 하세요.", []);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+
             break;
         case 9://영화 역린, 백배 즐기기! 설민석의 정조이야기1부
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("역린<br/>알고 보면 더 재밌습니다!", []);
-                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+
             break;
     }
 

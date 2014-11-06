@@ -1,14 +1,11 @@
 #DetailInfoSpg{
-	background-color: white;
-	margin-left:  1200px;
+    background: linear-gradient(to bottom, rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
+	margin-left:  1198px;
 	position: absolute;
 	width: 720px;
-	height: 100%;
-}
-
-/*»ó¼¼Á¤º¸ ÀÌ¹ÌÁö¸¦ ÁöÁ¤ÇÏ´Â ºÎºÐ*/
-#detailImg{
-    width:720px;
+	height: 1078px;
+    box-shadow: 0px 0px 11px rgba(0,0,0,0.2);
+    border-radius: 3px;
 }
 
 #reserveButton{
@@ -38,28 +35,36 @@
 
 #detailImage{
     width:720px;
-    overflow:hidden;/*½ºÅ©·Ñ ±¸ÇöÀ» À§ÇØ ¹Ýµå½Ã ÀÖ¾î¾ß ÇÔ*/
 }
 
-#detailImage>img{
-    
+#detailImage>div{
+    box-sizing:border-box;
+    width:710px;
+    overflow:hidden;
+    /*어디서 뜨는 상세보기인지에 따라
+        높이와 margin속성이 달라진다.
+    */
+}
+
+#detailImage img{
+    width:710px;
 }
 /* 서브페이즈 화살표 css*/
 #arrow1 {
     position: absolute;
 }
 .arrow {
-    width:  180px;
-    height: 60px;
+    width:  95px;
+    height: 43px;
     position: relative;
     display: none;
 }
 #arrow_up{
-    margin-top: 125px;
-    margin-left: 1470px;
+    margin-top: 100px;
+    margin-left: 1512px;
 }
 #arrow_down{
-    margin-top: 835px;
-    margin-left: 1470px;
+    margin-top: 870px;
+    margin-left: 1512px;
 }
 

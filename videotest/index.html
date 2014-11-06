@@ -7,57 +7,152 @@
 		<!-- TODO : Common API -->
 		<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
 		<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
-	    <script>
-	      // 2. This code loads the IFrame Player API code asynchronously.
-	      var tag = document.createElement('script');
+		<script type="text/javascript" language="javascript" src="$MANAGER_WIDGET/Common/jquery.js"></script>
+
+		<script>/*
+			var YTPlayer = {
+			    player:null,
+			    init : function(){
+			        this.player = document.getElementById('player').contentWindow;
+			        alert("init finish");
+			        //this.pause();
+			   
+			    },
+			    play: function (idx) {
+			    	alert(this.player);
+			        if(typeof idx != 'undefined')
+			        this.player.postMessage('{"event":"command","func":"playVideoAt","args":"'+idx+'"}', '*');			        	
+			        else	
+			        this.player.postMessage('{"event":"command","func":"playVideo","args":""}', '*');			        	
+			    },
+			    pause: function () {
+			        this.player.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');			        	
+			    }           
+			};
+			$(document).ready(function () {
+				YTPlayer.init();
+//				setTimeout(YTPlayer.pause(), 50000);
+			});
+
+/*			YTPlayer.init();		
+			var YTPlayer = {
+			    player:null,
+			    init : function(){
+			        alert("init");
+			        this.player = document.getElementsByTagName("iframe")[0].contentWindow;
+//			        this.player = new YT.Player('player');
+			        //this.play();
+			        alert("init finish");   
+			    },
+			    play: function (idx) {
+			    	alert(this.player);
+			        if(typeof idx != 'undefined')
+						div.postMessage('{"event":"command","func":"playVideoAt","args":"'+idx+'"}', '*');			        	
+//			            this.player.playVideoAt(idx);
+			        else
+						div.postMessage('{"event":"command","func":"playVideo","args":""}', '*');			        	
+
+			      //      this.player.playVideo();
+			    },
+			    pause: function () {
+						div.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');			        	
+
+//			        this.player.pauseVideo();
+			    }           
+			};
+function onYouTubeIframeAPIReady() {
+			YTPlayer.init();
+}
+
+/*
+			var player;
+			var YTPlayer = {
+				player:null,
+				init : function(){
+					alert("init");
+					this.player = new YT.Player('player', {
+						width: '1790',
+						height:'1080',
+						videoId: 'M7lc1UVf-VE',
+						playerVars: { 'autoplay': 1, 'autohide':0, 'controls': 0, 'disablekb':0, 'loop': 1, 'rel':0, 'showinfo':0 },
+						events: {
+							'onReady': YTPlayer.onPlayerReady,
+						}
+					});
+									alert("init finish");	
+				},
+			    play: function (idx) {
+			        if(typeof idx != 'undefined')
+			            this.player.playVideoAt(index);
+			        else
+			            this.player.playVideo();
+			    },
+			    pause: function () {
+			        this.player.pauseVideo();
+			    },
+				onPlayerReady: function(event) {
+					alert('4');
+					event.target.loadPlaylist({list: 'PLJ6Y7jZXezJ465T7ahzn4WN3AIlKhLyjF'});
+				}	        
+			};
+			function onYouTubeIframeAPIReady() {
+				alert("2");
+
+				player = YTPlayer;
+				player.init();
+
+			}
+			function onPlayerReady(event) {
+				alert('3');
+				event.target.loadPlaylist({list: 'PLJ6Y7jZXezJ465T7ahzn4WN3AIlKhLyjF'});
+			}	 */       
+
+
+
+			var tag = document.createElement('script');
+
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			var player;
+			function onYouTubeIframeAPIReady() {
+	      		alert("adsad");
+	        	player = new YT.Player('player', {
+					events: {
+	            		'onReady': onPlayerReady,
+	            		'onStateChange': onPlayerStateChange
+	          		}
+	        	});
+	        }
+		    function onPlayerReady(event) {
+		    	alert("ready");
+    			event.target.loadPlaylist({list: 'PLJ6Y7jZXezJ465T7ahzn4WN3AIlKhLyjF'});
+	      	}
 	
-	      tag.src = "https://www.youtube.com/iframe_api";
-	      var firstScriptTag = document.getElementsByTagName('script')[0];
-	      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-	
-	      // 3. This function creates an <iframe> (and YouTube player)
-	      //    after the API code downloads.
-	      var player;
-	      function onYouTubeIframeAPIReady() {
-	        player = new YT.Player('player', {
-	          width: '1790',
-              height:'1080',
-	          videoId: 'M7lc1UVf-VE',
-	          playerVars: { 'autoplay': 1, 'autohide':0, 'controls': 0, 'disablekb':0, 'loop': 1, 'rel':0, 'showinfo':0, },
-	          events: {
-	            'onReady': onPlayerReady,
-	            'onStateChange': onPlayerStateChange
-	          }
-	        });
-	      }
+	//	    var done = false;
+		    function onPlayerStateChange(event) {
+//	        	if (event.data == YT.PlayerState.PLAYING && !done) {
+//	        		setTimeout(stopVideo, 6000);
+//	          		done = true;
+//	        	}
+	      	}
+	      	function playVideoAt(index){
+	    		player.playVideoAt(index);
+	      	}
+			function playVideo(){
+				player.playVideo();
+			}	      
+			function pauseVideo(){
+				player.pauseVideo();
+			}
+			function stopVideo() {
+				player.stopVideo();
+			}
+
 	
 	      // 4. The API will call this function when the video player is ready.
-	      function onPlayerReady(event) {
-    		event.target.loadPlaylist({list: 'PLJ6Y7jZXezJ465T7ahzn4WN3AIlKhLyjF'});
-	      }
-	
-	      // 5. The API calls this function when the player's state changes.
-	      //    The function indicates that when playing a video (state=1),
-	      //    the player should play for six seconds and then stop.
-//	      var done = false;
-	      function onPlayerStateChange(event) {
-//	        if (event.data == YT.PlayerState.PLAYING && !done) {
-//	          setTimeout(stopVideo, 6000);
-//	          done = true;
-//	        }
-	      }
-	      function playVideoAt(index){
-	    	  player.playVideoAt(index);
-	      }
-	      function playVideo(){
-	    	  player.playVideo();
-	      }	      
-	      function pauseVideo(){
-	    	  player.pauseVideo();
-	      }
-	      function stopVideo() {
-	    	  player.stopVideo();
-	      }
+
 	    </script>	
 		<!-- TODO : Javascript code -->
 		<script language="javascript" type="text/javascript" src="app/javascript/Main.js"></script>
@@ -73,8 +168,52 @@
 
 	<body onload="Main.onLoad();" onunload="Main.onUnload();">
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-	    <div id="player" class="player"></div>
+    <!--<div id="player"></div>-->
+		<iframe id="player" width="1920" height="1080" src="http://www.youtube.com/embed/videoseries?list=PLJ6Y7jZXezJ465T7ahzn4WN3AIlKhLyjF&amp;controls=0&amp;showinfo=0&amp;autohide=0&amp;autoplay=1&amp;disablekb=0&amp;loop=1&amp;rel=0" frameborder="0" allowfullscreen></iframe>-->
 	    <!-- <video id="player_" class ="player" src="http://182.162.174.62:1935/live/mp4:a.stream/playlist.m3u8|COMPONENT=HLS|PLAYTYPE=VOD" width="1790" loop="loop"></video> 	 -->
+	    <script>
+			var tag = document.createElement('script');
+
+			tag.src = "https://www.youtube.com/iframe_api";
+			var firstScriptTag = document.getElementsByTagName('script')[0];
+			firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+			var player;
+			function onYouTubeIframeAPIReady() {
+	      		alert("adsad");
+	        	player = new YT.Player('player', {
+					events: {
+	            		'onReady': onPlayerReady,
+	            		'onStateChange': onPlayerStateChange
+	          		}
+	        	});
+	        }
+		    function onPlayerReady(event) {
+		    	alert("ready");
+	      	}
+	
+	//	    var done = false;
+		    function onPlayerStateChange(event) {
+//	        	if (event.data == YT.PlayerState.PLAYING && !done) {
+//	        		setTimeout(stopVideo, 6000);
+//	          		done = true;
+//	        	}
+	      	}
+	      	function playVideoAt(index){
+	    		player.playVideoAt(index);
+	      	}
+			function playVideo(){
+				player.playVideo();
+			}	      
+			function pauseVideo(){
+				player.pauseVideo();
+			}
+			function stopVideo() {
+				player.stopVideo();
+			}
+
+
+	    </script>
 	
 		<!-- Dummy anchor as focus for key events -->
 		<a href="javascript:void(0);" id="anchor" onkeydown="Main.keyDown();"></a>

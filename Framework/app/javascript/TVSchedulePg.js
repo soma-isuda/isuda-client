@@ -104,6 +104,12 @@ tabMenu = function () {
     }
     TVSchedulePg.mid.html(tempString);
 
+    //중분류 개수가 5개 이하이면 '위아래 화살표'를 숨긴다.
+    if (secondCategory[big_index].length < 6)
+        jQuery('#mid>img').hide();
+    else
+        jQuery('#mid>img').show();
+
     jQuery.extend(TVSchedulePg, {
         midElem: jQuery('#mid').find('ul>li>div'),
     });
@@ -407,7 +413,7 @@ TVSchedulePg.listKeyDown = function () {
         case tvKey.KEY_LEFT:
             alert("TVSchedulePg_key : Left");
             //상품 리스트의 제일 왼쪽에 있을때,
-            if (productListIndex % 4 == 0 || productIndex == 0) {//상품 리스트의 제일 왼쪽에 있거나 '중분류 예약'에 포커스가 있을 때 
+            if (productListIndex % 3 == 0 || productIndex == 0) {//상품 리스트의 제일 왼쪽에 있거나 '중분류 예약'에 포커스가 있을 때 
 
                 if (big_index == 0) {//'대분류 전체보기' 이면
                     //다시 대분류로 포커스를 넘긴다.
@@ -739,12 +745,14 @@ TVSchedulePg.reduceBig = function () {//대분류에서 중분류 진입시, 대
     jQuery('#big').css("width", "150px");
     jQuery('#big ul>li>div').css("font-size", "27px");
     jQuery('#big ul>li>div').css("width", "150px");
+    jQuery('#big>img').css("left", "23px");
 }
 
 TVSchedulePg.raiseBig = function () {//다시 대분류 진입시, 대분류의 크기를 복구하는 함수
     jQuery('#big').css("width", "300px");
     jQuery('#big ul>li>div').css("font-size", "43px");
     jQuery('#big ul>li>div').css("width", "300px");
+    jQuery('#big>img').css("left", "102px");
 }
 
 TVSchedulePg.showFocus = function () {//상품 포커스 잡는 함수
