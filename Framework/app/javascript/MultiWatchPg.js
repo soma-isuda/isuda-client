@@ -59,8 +59,12 @@ MultiWatchPg.onLoad = function(){
 
                 var tempString = '';
                 tempString+='<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem">';
-                tempString+='	<div class="imgArea">';
-                tempString+='		<img src="' +this.productImgURL+ '" alt="" class="productImg">';
+                tempString += '	<div class="imgArea">';
+                if(typeof this.id != 'number')//이수다홈쇼핑을 제외한 나머지들은 id가 문자열임
+                    tempString += '		<img src="' + this.productImgURL + '" alt="" class="productImg">';
+                else
+                    tempString += '		<img src="' + SERVER_ADDRESS + '/pdImg/' + this.productImgURL + '" alt="" class="productImg">';
+
                 tempString+='		<div></div>';
                 tempString+='	</div>';
                 tempString+='	<div class="productInfoArea">';

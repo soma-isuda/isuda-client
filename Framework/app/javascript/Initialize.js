@@ -22,19 +22,19 @@ var channels = new Array();
 //이수다 채널의 편성표를 저장하는 부분
 var ISUDAschedule = new Array();
 
-var subPageArr= new Array();
-subPageArr.push({name: 'DetailInfoSpg',     html:'app/html/DetailInfoSpg.html',     object: DetailInfoSpg});
-subPageArr.push({name: 'ComparePriceSpg',   html:'app/html/ComparePriceSpg.html',   object: ComparePriceSpg});
-subPageArr.push({name: 'SMSSharingSpg',     html:'app/html/SMSSharingSpg.html',     object: SMSSharingSpg});
-subPageArr.push({ name: 'SelectNumberSpg', html: 'app/html/SelectNumberSpg.html', object: SelectNumberSpg });
-subPageArr.push({ name: 'ISUDAscheduleSpg', html: 'app/html/ISUDAscheduleSpg.html', object: ISUDAscheduleSpg });
-
-
 var pagearr = new Array();
 pagearr.push({name: 'MultiWatchPg',     html: 'app/html/MultiWatchPg.html',     object: MultiWatchPg});
 pagearr.push({name: 'SelectWatchPg',    html: 'app/html/SelectWatchPg.html',    object: SelectWatchPg});
 pagearr.push({name: 'TVSchedulePg',     html:'app/html/TVSchedulePg.html',      object: TVSchedulePg});
 pagearr.push({name: 'MyPg',             html:'app/html/MyPg.html',              object: MyPg});
+
+var subPageArr= new Array();
+subPageArr.push({name: 'DetailInfoSpg',     html:'app/html/DetailInfoSpg.html',    object: DetailInfoSpg});
+subPageArr.push({name: 'ComparePriceSpg',   html:'app/html/ComparePriceSpg.html',  object: ComparePriceSpg});
+subPageArr.push({name: 'SMSSharingSpg',     html:'app/html/SMSSharingSpg.html',    object: SMSSharingSpg});
+subPageArr.push({ name: 'SelectNumberSpg',  html:'app/html/SelectNumberSpg.html',  object: SelectNumberSpg });
+subPageArr.push({ name: 'ISUDAscheduleSpg', html:'app/html/ISUDAscheduleSpg.html', object: ISUDAscheduleSpg });
+//subPageArr.push({ name: 'InteractiveSpg',   html:'app/html/InteractiveSpg.html',   object: InteractiveSpg });
 
 var arrowImgArr = [];
 arrowImgArr.push("img/arrow_up_0.png");
@@ -42,6 +42,9 @@ arrowImgArr.push("img/arrow_down_0.png");
 arrowImgArr.push("img/arrow_up_1.png");
 arrowImgArr.push("img/arrow_down_1.png");
 
+var ISUDAelementArr = new Array();
+ISUDAelementArr[0] = new Array();
+ISUDAelementArr[0][0] = ({img: 'img/milk.png', name: '삼성뮤직 MILK', benefit: '삼성 휴대폰 사용고객 전원', price: '365일 평생 무료!', footer: '앱 다운로드' })
 function provider(name, url){
     this.name = name;
     this.url = url;
