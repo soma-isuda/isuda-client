@@ -30,7 +30,7 @@ SelectWatchPg.onLoad = function (ch) {
 
     PlayerManager.init(ch);
     SelectWatchPg_index = 0;
-    currentISUDAchannel = 0;
+    SelectWatchPg.currentISUDAchannel = 0;
     SelectWatchPg.setData();
     if (PlayerManager.getChannel() == 5) {//처음에 이수다 채널에서 시작했으면
         SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('방송 목록');
@@ -187,7 +187,7 @@ SelectWatchPg.keyDown = function () {
             if (PlayerManager.getUpChannel() == 5) {//다음 채널이 이수다 홈쇼핑이면
 
                 SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('방송 목록');
-                SelectWatchPg.isudaPopup();
+                //SelectWatchPg.isudaPopup();
 
             }
 
@@ -203,7 +203,7 @@ SelectWatchPg.keyDown = function () {
             alert("현재 채널의 인덱스" + PlayerManager.getChannel());
             if (PlayerManager.getDownChannel() == 5) {//다음 채널이 이수다 홈쇼핑이면
                 SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('방송 목록');
-                SelectWatchPg.isudaPopup();
+                //SelectWatchPg.isudaPopup();
             }
             else if (PlayerManager.getChannel() == 5)
                 SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('추천 정보');
@@ -273,11 +273,17 @@ SelectWatchPg.keyDown = function () {
             break;
     }
 };
-SelectWatchPg.isudaPopup = function () {
+SelectWatchPg.isudaPopup = function (idx) {
     var tempFunction;
+    SelectWatchPg.currentISUDAchannel = idx;
     indexInISUDAchannel = 0;//변수 초기화
-    switch (currentISUDAchannel) {
+    switch (SelectWatchPg.currentISUDAchannel) {
         case 0://'MOMENT' 성준 & 탕웨이 출연 영화 | 코오롱스포츠 필름
+            tempFunction = setTimeout(function () {
+                indexInISUDAchannel = 0;//case 0 의 첫번째 팝업임을 의미함.
+                popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
+            }, 100);//영상이 시작하고 1분 후에 띄우는 팝업
+            SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
 
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 0 의 첫번째 팝업임을 의미함.
@@ -375,4 +381,6 @@ SelectWatchPg.clearPopupList = function () {
         clearTimeout(SelectWatchPg.currentISUDAPopup[i]);
     }
     SelectWatchPg.currentISUDAPopup = [];//배열 초기화
+            jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
+
 }
