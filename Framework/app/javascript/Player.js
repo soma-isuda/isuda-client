@@ -109,8 +109,10 @@ var YTPlayer = {
         }
 
         alert("동영상 : " + event.data);
-
-    }    
+    },    
+    getPlaylistIndex:function(){
+        return this.player.getPlaylistIndex();
+    }
 };
 
 
