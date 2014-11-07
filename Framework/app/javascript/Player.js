@@ -100,14 +100,11 @@ var YTPlayer = {
         this.player.pauseVideo();
     },           
     onPlayerStateChange:function(event){
-        if(event.data == -1){
-//            jQuery('#loading').addClass('show');
-        }
-
-        else if(event.data == 1){
+        if(event.data == YT.PlayerState.PLAYING){
 //            jQuery('#loading').removeClass('show');
             popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
         }
+
         alert("동영상 : " + event.data);
 
     }    

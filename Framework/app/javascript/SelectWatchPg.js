@@ -3,7 +3,6 @@ var SelectWatchPg_index = 0; // = subPageArr_index
 
 var indexInISUDAchannel;
 var menuDisplayTimeout;
-var channelDisplayTimeout;
 
 
 
@@ -36,18 +35,22 @@ SelectWatchPg.onLoad = function (ch) {
     if (PlayerManager.getChannel() == 5) {//처음에 이수다 채널에서 시작했으면
         SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('방송 목록');
     }
-    SelectWatchPg.SelectWatchPgMenu.addClass('show');
 
-    SelectWatchPg.Channels.addClass('show');
-    jQuery('#sideBar').removeClass('hide');
+    SelectWatchPg.showMenu();
+    SelectWatchPg.showChannel();
+    clearTimeout(menuDisplayTimeout);
+
 };
 
 SelectWatchPg.focus = function (view) {
     alert("SelectWatchPg focus");
     //alert("view : "+view);
     if(view == 'hide'){
-        SelectWatchPg.hideMenu();
-        SelectWatchPg.hideChannel();
+        SelectWatchPg.Channels.removeClass('show');
+        SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+        if (page_index == 1)
+            jQuery('#sideBar').addClass('hide');
+
     }
     else { 
         SelectWatchPg.showMenu();
@@ -141,8 +144,8 @@ SelectWatchPg.showChannel = function(){
         SelectWatchPg.Channels.addClass('show');
         show = true;
     }
-    clearTimeout(channelDisplayTimeout);
-    channelDisplayTimeout = setTimeout(function () {
+    clearTimeout(menuDisplayTimeout);
+    menuDisplayTimeout = setTimeout(function () {
         SelectWatchPg.Channels.removeClass('show');
         SelectWatchPg.SelectWatchPgMenu.removeClass('show');
         if (page_index == 1)
