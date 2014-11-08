@@ -703,6 +703,7 @@ TVSchedulePg.loadNewProduct = function (value) {
     beforeTime_end = new Date(beforeTime_end.valueOf() + (60 * 60 * 9 * 1000));
     beforeTime_end = beforeTime_end.toISOString();
 
+    
     var tempString = '';
     tempString = beforeTime.split(/[-T:\.Z]/);
     timeRefined += tempString[1] + "월" + tempString[2] + "일 " + tempString[3] + "시" + tempString[4] + "분 ~ ";

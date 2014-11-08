@@ -137,9 +137,17 @@ SelectNumberSpg.selectKeyDown = function () {
                 TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
                 
 
-            else if (page_index == 1) //선택보기에서 호출했을 때
+            else if (page_index == 1) { //선택보기에서 호출했을 때
                 SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
+                if (PlayerManager.getChannel() == 5 && InteractiveSpg.forRestartPopup == 1) {//이수다 팝업을 다시 시작할 필요가 있다면
+                    if (popupQuestion[currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
+                        SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentQuestionIdx].ifYes);//다음질문등록
+                    else
+                        alert('질문이 종료되었습니다.');
+                    InteractiveSpg.forRestartPopup = 0;
+                }
+            }
             jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
             break;
         case tvKey.KEY_RIGHT:

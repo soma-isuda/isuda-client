@@ -1,6 +1,6 @@
 
 var InteractiveSpg = {
-   
+   forRestartPopup:0,//1로 되어 있으면 팝업을 다시 시작해야함
 };
 
 InteractiveSpg.onLoad = function () {
@@ -12,7 +12,7 @@ InteractiveSpg.onLoad = function () {
     SelectWatchPg.hideMenu();
     SelectWatchPg.hideChannel();
 
-    var i = SelectWatchPg.currentISUDAchannel;
+    var i = currentMovieIdx;
     var j = indexInISUDAchannel;
     
     
@@ -75,6 +75,14 @@ InteractiveSpg.keyDown = function () {
             jQuery('#InteractiveSpg').hide();//페이지를 닫는다.	
             InteractiveSpg.body.empty();
             jQuery('#popup').empty();//팝업창을 닫는다.
+
+            //상세 정보를 로드하는 질문은, 상세정보 창이 닫힐때 다음 질문을 호출한다.
+            if (popupQuestion[currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
+                SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentQuestionIdx].ifYes);//다음질문등록
+            else
+                alert('질문이 종료되었습니다.');
+
+
             SelectWatchPg.focus('hide');
 
             break;
@@ -92,6 +100,7 @@ InteractiveSpg.keyDown = function () {
             //focus move to selectWatchPg
             alert("InteractiveSpg_key : Enter");
             //상세보기 페이지를 로드한다.
+            forRestartPopup = 1;
             jQuery('#popup').empty();
             subPage_index = ISUDAelementArr[SelectWatchPg.currentISUDAchannel][indexInISUDAchannel].enter;
             Main.layout.subPage.load(subPageArr[subPage_index].html, function (response, status, xhr) {
