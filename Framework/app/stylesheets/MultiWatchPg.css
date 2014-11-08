@@ -4,54 +4,27 @@
 	background: linear-gradient(to bottom, rgba(221,221,221,1) 0%,rgba(255,255,255,1) 100%); /* W3C */
 	/*background-color: #fffbf0;*/
 }
-#mainBanner {
-	width: 1800px;
-	height: 360px;
-}
-
-#mainBanner > img{
-	margin: 60px 150px;
-}
-
-#mainBanner > #mainBannerButton {
-	position: absolute;
-	top:0px;
-	left:0px;
-	width:1508px;
-	height: 251px;
-	margin: 60px 150px;
-	font-size: 50px;
-	line-height: 251px;
-	text-align: center;
-
-}
 
 #mainTitle{
 	width: 1800px;
-	height: 45px;
-	line-height: 45px;
-	margin: 0 25px;
+	height: 50px;
+	line-height: 50px;
+	margin: 65px 25px 0 25px;
 	width: 1750px;
 	color:#232323;
 	border-bottom: 1px solid #232323;
 }
 
-#mainTitle > i{
-	font-size: 40px;
-}
-
-#mainTitle > span{
+#mainTitle > span:nth-child(1){
 	margin-left: 35px;	
-	font-size: 40px;
+	font-size: 45px;
+	color: #232323;
 }
 
-
-.button {
-	width: 300px;
-	height: 62px;
+#mainTitle > span:nth-child(2){
+	margin-left: 5px;	
 	font-size: 30px;
-	line-height: 62px;
-	text-align: center;
+	color : rgba(35,35,35,0.7);
 }
 
 #mainItem {
@@ -59,6 +32,7 @@
 }
 
 #mainItem ul li {
+    box-shadow: 0px 0px 11px rgba(0,0,0,0.2);
 	float: left;
 	position: relative;
 	width: 540px;
@@ -67,8 +41,6 @@
 	margin-right: 32px;
 }
 
-.MultiWatchPgItem div{
-}
 
 .imgArea {
 	float: left;
@@ -180,6 +152,44 @@
     text-shadow: 0 0 6px rgba(0,0,0,1.0);
 
 }
+
+
+
+#mainBanner {
+	width: 1800px;
+	height: 360px;
+	margin: 60px 110px;
+}
+
+
+.banner{
+	display: inline-block;
+	margin-right: 116px;
+	margin-top: 60px;
+}
+
+
+.banner > .mainBannerButton {
+	position : relative;
+	top: -214px;
+	width:730px;
+	height: 210px;
+	font-size: 50px;
+	line-height: 210px;
+	text-align: center;
+
+}
+
+
+/*
+.button {
+	width: 300px;
+	height: 62px;
+	font-size: 30px;
+	line-height: 62px;
+	text-align: center;
+}
+
 
 
 

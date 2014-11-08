@@ -1,5 +1,5 @@
 
-var productImg = ["dummy","#productImg0","#productImg1","#productImg2","#productImg3","#productImg4","#productImg5"];
+var productImg = ["dummy", "dummy", "#productImg0","#productImg1","#productImg2","#productImg3","#productImg4","#productImg5"];
 var MultiWatchPgItem = ["#MultiWatchPgItem0","#MultiWatchPgItem1","#MultiWatchPgItem2","#MultiWatchPgItem3","#MultiWatchPgItem4","#MultiWatchPgItem5"];
 var color = ["#00a9e0","#cadb2a","#f4614d","#e4010d","#e51937","#f4811f"];
 var cnt=-1;
@@ -125,7 +125,7 @@ MultiWatchPg.onLoad = function(){
 
 };
 
-var MultiWatchPg_index =0;
+var MultiWatchPg_index =2;
 
 MultiWatchPg.focus = function(){ 
 	alert("MultiWatchPg.focus");
@@ -176,10 +176,7 @@ MultiWatchPg.adjustChange = function(){
 		adjust_index=-1;
 	}
 };
-MultiWatchPg.enableKeys = function()
-{
-	document.getElementById("anchor").focus();
-};
+
 
 MultiWatchPg.keyDown = function()
 {
@@ -200,7 +197,6 @@ MultiWatchPg.keyDown = function()
 			alert("MultiWatchPg_key : RETURN");
 			//앱이 종료되는것을 방지해준다.
 			widgetAPI.blockNavigation(event);
-			MultiWatchPg.anchor.main.removeClass('focus');
 			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 			$(productImg[MultiWatchPg_index]).css("display","none");
 			clearInterval(refresh);
@@ -209,67 +205,88 @@ MultiWatchPg.keyDown = function()
 			break;
 		case tvKey.KEY_LEFT:
 			alert("MultiWatchPg_key : Left");
+			//기존에 활성화된 속성 지우기
 			$(productImg[MultiWatchPg_index]).css("display","none");
-			if((MultiWatchPg_index==0)||(MultiWatchPg_index==1)||(MultiWatchPg_index==4)){
+			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+			// 가장 왼쪽 것들이면 사이드바로
+			if(MultiWatchPg_index == 0 || MultiWatchPg_index == 2 || MultiWatchPg_index == 5){
 				//focus move to sideBar
-				MultiWatchPg.anchor.main.removeClass('focus');
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				clearInterval(refresh);
 				Main.focus();
 			}
+			//그게 아니면 이전 것들 활성화 속성 추가
 			else
+			{
 				$(productImg[--MultiWatchPg_index]).css("display","block");
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+			}
 			break;
 		case tvKey.KEY_RIGHT:
 			alert("MultiWatchPg_key : Right");
-			if(MultiWatchPg_index == 0)
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+			//기존에 활성화된 속성 지우기
 			$(productImg[MultiWatchPg_index]).css("display","none");
-			if(MultiWatchPg_index == 6){
-				MultiWatchPg_index = 0;
+			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+			//4 7 1 일 경우, 7일 경우 -1로 초기화
+			if(MultiWatchPg_index == 7){
+				MultiWatchPg_index = -1;
 			}
 			$(productImg[++MultiWatchPg_index]).css("display","block");
+			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');			
 			break;
 		case tvKey.KEY_UP:
 			alert("MultiWatchPg_key : Up");
-			if(MultiWatchPg_index==0){
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				//$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
-				MultiWatchPg_index += 6;	
+			$(productImg[MultiWatchPg_index]).css("display","none");
+			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+			//2는 0으로 3 4는 1로
+			//5 6 7 은 -3씩
+			//0 1 은 +5씩 		
+			if(MultiWatchPg_index<2){
+				MultiWatchPg_index += 5;	
 			}
 			else{
-				$(productImg[MultiWatchPg_index]).css("display","none");
-				if (MultiWatchPg_index<=3){
+				if (MultiWatchPg_index == 2){
 					MultiWatchPg_index = 0;
-					MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');
+				}
+				else if (MultiWatchPg_index  < 5){
+					MultiWatchPg_index = 1;
 				}
 				else
 					MultiWatchPg_index -= 3;
 			}
 			$(productImg[MultiWatchPg_index]).css("display","block");
+			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');						
 			break;
 		case tvKey.KEY_DOWN:
 			//$("#sideBar").animate({"top": "-=250px"}, "fast");
 			alert("MultiWatchPg_key : Down");
-			if(MultiWatchPg_index==0){
-				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
-				MultiWatchPg_index = MultiWatchPg_index+1;
-			}
-			else if(MultiWatchPg_index>=1){
-				$(productImg[MultiWatchPg_index]).css("display","none");
-				if(MultiWatchPg_index >=4)
-					MultiWatchPg_index -= 3;
-				else
-					MultiWatchPg_index += 3;
+			$(productImg[MultiWatchPg_index]).css("display","none");
+			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+			//2 3 4 는 +3씩
+			//5는 0으로 6 7은 1로
+			//0 1은 +2씩
+			if(MultiWatchPg_index < 2){
+				MultiWatchPg_index += 2;
+			}		
+			else{
+				if(MultiWatchPg_index == 5){
+					MultiWatchPg_index = 0;
+				}
+				else if(MultiWatchPg_index > 5){
+					MultiWatchPg_index = 1;
+				}
+				else{
+					MultiWatchPg_index+=3;
+				}
 			}
 			$(productImg[MultiWatchPg_index]).css("display","block");
+			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).addClass('focus');						
+
 			break;
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
 			//focus move to selectWatchPgㄴ
-			if ( MultiWatchPg_index==0) popupMessage("쿠폰이 발급<br>되었습니다.");
-			if (MultiWatchPg_index>=1) {
-				MultiWatchPg.anchor.main.removeClass('focus');
+			if ( MultiWatchPg_index<=1) popupMessage("쿠폰이 발급<br>되었습니다.");
+			if (MultiWatchPg_index>=2) {
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				Main.menu.btn.eq(page_index).removeClass('select');
 //				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
