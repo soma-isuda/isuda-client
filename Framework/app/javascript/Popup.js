@@ -116,7 +116,7 @@ var ISUDAButtonNum;
 var ISUDAFirstAccess = 1;//이수다 채널에 처음 접근하면 1, 아니면 0
 //이수다 홈쇼핑에서 방송 중간중간에 뜨는 팝업
 popupISUDA = function (message, buttons) {
-    if(subPageSatae == false){
+    if(subPageState == false){//선택보기에서 서브페이지가 안켜져 있을 때
         alert("PopUp ISUDA!!");
         ISUDAButtonNum = buttons.length;
         alert('ISUDAButtonNum:' + ISUDAButtonNum);
@@ -174,119 +174,59 @@ popupISUDAkeyDown = function () {
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
-            if (ISUDAButtonNum != 0) {
-                alert('호출!');
-                focusBack.focus();
-            }
             
             jQuery('#popup').empty();
-
-            if (ISUDAFirstAccess == 1) {//채널에 처음 접근했을 때
-                popupISUDA("반갑습니다! <br/>이수다홈쇼핑 입니다", []);
-                
+            
+            if (ISUDAFirstAccess == 1) {//이수다 채널에 처음 접근했을 때
                 ISUDAFirstAccess = 0;
+                popupISUDA("반갑습니다! <br/>이수다홈쇼핑 입니다", []);
+
                 setTimeout(function () {
                     jQuery('#popup').empty();
-                    SelectWatchPg.isudaPopup();
-                    focusBack.focus('hide');/*포커스를 되돌리는 순간 팝업이 닫힌다*/
+                    SelectWatchPg.clearPopupList();//팝업리스트에서 현재 질문을 지운다.
+                    //현재 채널에서의 첫번째 팝업을 등록한다.
+                    indexInISUDAchannel = -1;//변수 초기화
+                    SelectWatchPg.isudaPopup(currentMovieIdx, startQuestion[currentMovieIdx]);
                 }, 3000);//3초후에 팝업을 닫는다.
+
+                focusBack.focus('hide');//포커스를 되돌린다
             }
             else {
-                switch (SelectWatchPg.currentISUDAchannel) {
-                    case 0://'MOMENT' 성준 & 탕웨이 출연 영화 | 코오롱스포츠 필름
-                        if (indexInISUDAchannel == 0) {
-                            if (popup_index == 0) {//"예"를 선택했을 경우
-                                popupISUDA("듣고 계신 음악은 <br/> Gustav Mahler Symphony No.5, <br/>4악장입니다.", []);
-                                Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {
-                                    if (status == "success") {
-                                        alert("call InteractiveSpg onload");
-                                        InteractiveSpg.onLoad();
-                                    }
-                                });
-                                // setTimeout(function () {
-                                //     jQuery('#popup').empty();
-                                // }, 5000);//5초후에 팝업을 닫는다.
-                                
-                            }
-                            else {//"아니요"를 선택했을 경우
-                                focusBack.focus('hide');
-                            }
-                        }
-                        else if (indexInISUDAchannel == 1) {
-                            if (popup_index == 0) {//"예"를 선택했을 경우
-                                popupISUDA("호주 BOMBO QUARRY의 Stockton Beach와 Long Jetty입니다.", []);
-                                Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {
-                                    if (status == "success") {
-                                        alert("call InteractiveSpg onload");
-                                        InteractiveSpg.onLoad();
-                                    }
-                                });
-                                // setTimeout(function () {
-                                //     jQuery('#popup').empty();
-                                // }, 5000);//5초후에 팝업을 닫는다.
-                            }
-                            else {//"아니요"를 선택했을 경우
-                                focusBack.focus('hide');
-                            }
-                        }
+                if (popup_index == 0) {//"예"를 선택했을 경우
+                    if (popupQuestion[currentQuestionIdx].moreInfoIndex == -1) {//해당 질문이 추가정보를 로드하지 않을때
+                        alert("yes");
+                        SelectWatchPg.clearPopupList();//팝업리스트에서 현재 질문을 지운다.
+                        if (popupQuestion[currentQuestionIdx].ifYes == -1)//더이상의 질문이 없을때
+                            alert('질문이 종료되었습니다.');
+                        else 
+                            SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentQuestionIdx].ifYes);//다음질문등록
                         
-                        break;
-                    case 1://배달의민족 소개영상
-                        if (indexInISUDAchannel == 0) {
-                            popupISUDA("구글플레이에서 <br/> '배달의 민족'앱을 이용해보세요!", []);
-                            setTimeout(function () {
-                                jQuery('#popup').empty();
-                            }, 3000);//3초후에 팝업을 닫는다.
+                        focusBack.focus('hide');//포커스를 되돌린다
+                    }
+                    else {//해당 질문이 추가정보를 로드할 때
+                        if (popupQuestion[popupQuestion[currentQuestionIdx].ifYes].waitingTime == 0) {//추가 정보를 로드하는데, 위에 정보 팝업이 띄워져 있는 경우
+                            SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentQuestionIdx].ifYes);//다음질문등록
+                            //ex)듣고 계신 음악은 <br/> Gustav Mahler Symphony No.5, <br/>4악장입니다.
                         }
-                        break;
-                    case 2://[영현대] 서울의 랜드마크, 세계 최고의 자동차 테마파크를 꿈꾼다.
-                        if (indexInISUDAchannel == 0) {
-                            popupISUDA("young.hyundai.com/ <br/> 에 접속해보세요", []);
-                            setTimeout(function () {
-                                jQuery('#popup').empty();
-                            }, 5000);//5초후에 팝업을 닫는다.
-                        }
-                        break;
-                    case 3://[brilliant memories] 싼타페 그리고 프로포즈
-                        if (indexInISUDAchannel == 0) { 
-                            popupISUDA("http://brilliant.hyundai.com/kr/index.aspx <br/> 에 접속해보세요", []);
-                            setTimeout(function () {
-                                jQuery('#popup').empty();
-                            }, 5000);//5초후에 팝업을 닫는다.
-                        }
-                        break;
-                    case 4://[화제포착] 얼짱 각도 옛말…‘셀카봉’이 대세
-                        if (indexInISUDAchannel == 0) {
-                            popupISUDA("네이버에 셀카봉을 <br/>검색해보세요", []);
-                            setTimeout(function () {
-                                jQuery('#popup').empty();
-                            }, 5000);//5초후에 팝업을 닫는다.
-                        }
-                        break;
-                    case 5://[KR] Apple iPhone 6 (아이폰 6) 개봉기 [4K]
-                        if (indexInISUDAchannel == 0) {
-                            popupISUDA("아이폰이 구매되었습니다.", []);
-                            setTimeout(function () {
-                                jQuery('#popup').empty();
-                            }, 5000);//5초후에 팝업을 닫는다.
-                        }
-                        break;
-                    case 6://편강한의원
-                        if (indexInISUDAchannel == 0) {
-                            popupISUDA("아이폰이 구매되었습니다.", []);
-                            setTimeout(function () {
-                                jQuery('#popup').empty();
-                            }, 5000);//5초후에 팝업을 닫는다.
-                        }
-                        break;
-                    case 7://Takeout Your Garden Campaign
-                        break;
-                    case 8://2014년 10월 25일 신작 모바일 게임 피자에 팡!
-                        break;
-                    case 9://영화 역린, 백배 즐기기! 설민석의 정조이야기1부
-                        break;
+                        Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {//상세 정보 페이지를 로드한다.
+                            if (status == "success") {
+                                alert("call InteractiveSpg onload");
+                                InteractiveSpg.onLoad();
+                            }
+                        });
+                    }
+                }
+                else {//"아니요"를 선택했을 경우
+                    SelectWatchPg.clearPopupList();//팝업리스트에서 현재 질문을 지운다.
+                    if (popupQuestion[currentQuestionIdx].ifNo == -1) //더이상의 질문이 없을 때
+                        alert('질문이 종료되었습니다.');
+                    else 
+                        SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentQuestionIdx].ifNo);//다음질문등록
+                    
+                    focusBack.focus('hide');//포커스를 되돌린다
                 }
             }
+            
             break;
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
@@ -309,3 +249,187 @@ popupISUDAkeyDown = function () {
     }
 
 };
+
+var popupQuestion = new Array();//팝업에 뜨는 질문들의 리스트(객체 배열)
+var startQuestion = new Array();//어떤 방송에 대한 시작 질문의 인덱스
+var currentQuestionIdx;//현재 띄워져 있는 팝업의 인덱스
+var currentMovieIdx;//현재 이수다 채널에서 방송중인 동영상의 인덱스
+//사용법, -------------------------------필독-------------------------------
+/*
+    질문 하나당 객체의 형태는 다음과 같아
+       {
+            question:'지금 쓰고 있는 폰이 갤럭시 노트니?',
+            buttonNum:2,//현재 질문의 버튼 개수
+            moreInfoIndex: -1,//해당 질문에 대해 추가 정보가 없을 때
+            ifYes:3,//값이 -1이면 yes시 종료(buttonNum이 1이상일떄 의미가 있음)
+            ifNo:2,//값이 -1이면 no시 종료(buttonNum이 2일때 의미가 있음)
+            waitingTime:3000//이전 질문이 완료되고 현재 질문이 뜨기 까지 기다리는 시간(ms단위)
+        }
+
+    방송이 시작할 때 Player.js에서 
+    SelectWatchPg.isudaPopup(idx,startIdx)함수를 호출하게 되는데,
+    startIdx에 들어가는 값이 
+    시작질문의 인덱스!
+
+    시작질문의 인덱스는 어떻게 얻어오냐면,
+    startQuestion['현재 방송의 인덱스'] !
+    즉, SelectWatchPg.isudaPopup(idx,startQuestion[idx]) 형태로 호출하게 되.
+
+    따라서, 질문들을 popupQuestion 배열에 쭉 넣으면 되고
+    popupQuestion.push({
+        question:'지금 쓰고 있는 폰이 갤럭시 노트니?',
+            buttonNum:2,//현재 질문의 버튼 개수
+            moreInfoIndex: -1,//해당 질문에 대해 추가 정보가 없을 때
+            ifYes:3,//값이 -1이면 yes시 종료(buttonNum이 1이상일떄 의미가 있음)
+            ifNo:2,//값이 -1이면 no시 종료(buttonNum이 2일때 의미가 있음)
+            waitingTime:3000//이전 질문이 완료되고 현재 질문이 뜨기 까지 기다리는 시간(ms단위)
+    }); 처럼..
+    다 넣은 다음에는 
+    어떤 방송의 시작질문을 startQuestion에 넣으면 된다는거!
+
+    예를 들어, 갤럭시 노트엣지 방송의 플레이 순서가 3번째 이고, 
+    첫번째 질문의 popupQuestion에서의 인덱스가 30이면
+    startQuestion[2]=30;으로 해주면 되~
+
+    **제약사항**
+    1. 어떤 질문의 버튼 개수는 최대 2개로 제한
+    2. ifYes는 첫번째 버튼을 눌렀을떄, ifNo는 두번째 버튼을 눌렀을때
+     이동하는 다음 질문의 인덱스
+    3. 추가정보를 띄우는 팝업(hasMoreInfo!=-1)은 그 팝업이 사용자에 의해 닫혔을 때
+    waitingtime만큼 기다리고 다음 질문(ifYes)로 이동한다.
+    4. 메세지만 띄우는 팝업은 buttonNum값이 무조건 0이다. 
+    메세지만 띄우고 그 다음 질문으로 연결시키고 싶으면 ifYes에 값을 부여한다.
+
+*/
+
+//이수다 채널에 처음 접근했을 때의 질문----------------------------------------------------
+popupQuestion.push({//인덱스0
+    question: '오늘 기분이 어떠신가요?',
+    anwer:["좋아","별로"],
+    buttonNum: 2,//현재 질문의 버튼 개수
+    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: -1,//값이 없으면 yes시 종료
+    ifNo: -1,//값이 없으면 no시 종료
+    waitingTime: 1000//ms단위(해당 질문이 뜨기까지 걸리는 시간)
+});
+
+//코오롱 시나리오----------------------------------------------------
+startQuestion[0] = 1;//코오롱의 플레이 순서가 1번째 이고, 시작질문의 인덱스가 1이라는 의미
+popupQuestion.push({//인덱스1
+    question: '듣고 계신 음악이 궁금하신가요?',
+    anwer: ["응", "아니"],
+    buttonNum: 2,//현재 질문의 버튼 개수
+    moreInfoIndex: 2,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: 2,//값이 없으면 yes시 종료
+    ifNo: 3,//값이 없으면 no시 종료
+    waitingTime: 6000//ms단위
+});
+
+popupQuestion.push({//인덱스2
+    question: '듣고 계신 음악은 <br/> Gustav Mahler Symphony No.5, <br/>4악장입니다.',
+    anwer: [],
+    buttonNum: 0,//현재 질문의 버튼 개수
+    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: 3,//값이 없으면 yes시 종료
+    ifNo: 3,//값이 없으면 no시 종료
+    waitingTime: 0//ms단위(바로뜸)
+});
+
+popupQuestion.push({//인덱스3
+    question: '이곳이 어디인지 궁금하신가요?',
+    anwer: ["응", "아니"],
+    buttonNum: 2,//현재 질문의 버튼 개수
+    moreInfoIndex: 2,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: 4,//값이 -1이면 yes시 종료
+    ifNo: -1,//값이 -1이면 no시 종료
+    waitingTime: 6000//ms단위
+});
+
+popupQuestion.push({//인덱스4
+    question: '호주 BOMBO QUARRY의 Stockton Beach와 Long Jetty입니다.',
+    anwer: [],
+    buttonNum: 0,//현재 질문의 버튼 개수
+    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: -1,//값이 없으면 yes시 종료
+    ifNo: -1,//값이 없으면 no시 종료
+    waitingTime: 0//ms단위(바로뜸)
+});
+
+
+//갤럭시 노트 시나리오----------------------------------------------------
+startQuestion[3] = 5;//갤럭시 노트의 플레이 순서가 4번째 이고, 시작질문의 인덱스가0이라 가정
+popupQuestion.push({//인덱스5
+    question: '지금 쓰고 있는 폰이 갤럭시 노트니?',
+    anwer: ["응", "아니"],
+    buttonNum:2,//현재 질문의 버튼 개수
+    moreInfoIndex: -1,
+    ifYes: 6,//값이 없으면 yes시 종료
+    ifNo: 7,//값이 없으면 no시 종료
+    waitingTime: 12000//ms단위, 즉 방송이 시작하고 6초 후에 첫번째 팝업이 뜬다는 의미
+});
+
+popupQuestion.push({//인덱스6
+    question: '갤럭시 노트가 참 괜찮은거 같아. 그치?',
+    anwer: ["응", "아니"],
+    buttonNum: 2,//현재 질문의 버튼 개수
+    moreInfoIndex: -1,
+    ifYes: 8,//값이 없으면 yes시 종료
+    ifNo: 9,//값이 없으면 no시 종료
+    waitingTime: 6000//ms단위
+});
+
+popupQuestion.push({//인덱스7
+    question: '하긴, 요새 좋은 핸드폰이 참 많은거 같아',
+    anwer: ["응", "아니"],
+    buttonNum: 2,//현재 질문의 버튼 개수
+    moreInfoIndex: -1,
+    ifYes: 10,//값이 없으면 yes시 종료
+    ifNo: 11,//값이 없으면 no시 종료
+    waitingTime: 6000//ms단위
+});
+
+popupQuestion.push({//인덱스8
+    question: '혹시 핸드폰 바꿀 생각이 있니?',
+    anwer: ["응", "아니"],
+    buttonNum: 2,//현재 질문의 버튼 개수
+    moreInfoIndex: 1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: -1,//값이 없으면 yes시 종료
+    ifNo: -1,//값이 없으면 no시 종료
+    waitingTime: 6000//ms단위
+});
+
+popupQuestion.push({//인덱스9
+    question: '하긴, 요새 갤럭시 노트 말고도 좋은게 정말 많아',
+    anwer: [],
+    buttonNum: 0,//현재 질문의 버튼 개수
+    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: -1,//값이 없으면 yes시 종료
+    ifNo: -1,//값이 없으면 no시 종료
+    waitingTime: 3000//ms단위
+});
+
+popupQuestion.push({//인덱스10
+    question: '그래도 갤럭시 노트 한번 써보지 않을래?',
+    anwer: ["응", "아니"],
+    buttonNum: 2,//현재 질문의 버튼 개수
+    moreInfoIndex: 1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: -1,//값이 없으면 yes시 종료
+    ifNo: -1,//값이 없으면 no시 종료
+    waitingTime: 6000//ms단위
+});
+
+popupQuestion.push({//인덱스11
+    question: '맞아 핸드폰은 오래 쓰는게 최고야!',
+    anwer: [],
+    buttonNum: 0,//현재 질문의 버튼 개수
+    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: -1,//값이 없으면 yes시 종료
+    ifNo: -1,//값이 없으면 no시 종료
+    waitingTime: 3000//ms단위
+});
+
+
+
+
+
+

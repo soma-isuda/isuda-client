@@ -102,13 +102,22 @@ var YTPlayer = {
     },           
     onPlayerStateChange:function(event){
         if(event.data == YT.PlayerState.PLAYING){
-//            jQuery('#loading').removeClass('show');
+            //            jQuery('#loading').removeClass('show');
+            jQuery('#popup').empty();//이전 방송에서 눌리지 않고 남아 있는 팝업을 없앤다.
             SelectWatchPg.clearPopupList();
-            SelectWatchPg.isudaPopup(event.target.getPlaylistIndex());
-//            popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
+            currentMovieIdx = event.target.getPlaylistIndex();
+
+            indexInISUDAchannel = -1;
+
+            if (ISUDAFirstAccess == 1) //이수다 채널에 처음 접근하면
+                SelectWatchPg.isudaPopup(currentMovieIdx, 0);
+
+            else 
+                SelectWatchPg.isudaPopup(currentMovieIdx, startQuestion[currentMovieIdx]);
+
         }
 
-        alert("동영상 : " + event.data);
+        //alert("동영상 : " + event.data);
     },    
     getPlaylistIndex:function(){
         return this.player.getPlaylistIndex();

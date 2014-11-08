@@ -1,18 +1,14 @@
 var SelectWatchPg_index = 0; // = subPageArr_index
 //var channel = 0;
 
-var indexInISUDAchannel;
 var menuDisplayTimeout;
-
-
+var indexInISUDAchannel;
 
 var SelectWatchPg = {
-    currentISUDAchannel: 0,//현재 나오고 있는 이수다 채널의 인덱스
-    //    indexInISUDAchannel: 0,
     currentISUDAPopup: [],//어떤 이수다 채널에 진입했을때 팝업 예정인 것들의 setTimeout을 모아놓는 함수
 };
 
-var subPageSatae = false; //서브페이지가 켜져있으면 true 안켜져있으면 false
+var subPageState = false; //서브페이지가 켜져있으면 true 안켜져있으면 false
 
 SelectWatchPg.onLoad = function (ch) {
     alert("SelectWatchPg onLoad");
@@ -30,7 +26,6 @@ SelectWatchPg.onLoad = function (ch) {
 
     PlayerManager.init(ch);
     SelectWatchPg_index = 0;
-    SelectWatchPg.currentISUDAchannel = 0;
     SelectWatchPg.setData();
     if (PlayerManager.getChannel() == 5) {//처음에 이수다 채널에서 시작했으면
         SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('방송 목록');
@@ -45,31 +40,31 @@ SelectWatchPg.onLoad = function (ch) {
 SelectWatchPg.focus = function (view) {
     alert("SelectWatchPg focus");
     //alert("view : "+view);
-    if(view == 'hide'){
+    if (view == 'hide') {
         SelectWatchPg.Channels.removeClass('show');
         SelectWatchPg.SelectWatchPgMenu.removeClass('show');
         if (page_index == 1)
             jQuery('#sideBar').addClass('hide');
 
     }
-    else { 
+    else {
         SelectWatchPg.showMenu();
         SelectWatchPg.showChannel();
     }
     //    SelectWatchPg.DownCh.addClass('show');
-    subPageSatae = false // 여기에 포커스가 왔다는것은 서브페이지가 안열려있는 상태이다.
+    subPageState = false // 여기에 포커스가 왔다는것은 서브페이지가 안열려있는 상태이다.
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
 
 
 
-    
-//    if (PlayerManager.getChannel() == 5 && ISUDAFirstAccess == 1) {//처음에 이수다 채널에서 시작했으면
-//        popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
-//    }
-    if(PlayerManager.getChannel() != 5){
-//    else if(PlayerManager.getChannel() != 5){
+
+    //    if (PlayerManager.getChannel() == 5 && ISUDAFirstAccess == 1) {//처음에 이수다 채널에서 시작했으면
+    //        popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
+    //    }
+    if (PlayerManager.getChannel() != 5) {
+        //    else if(PlayerManager.getChannel() != 5){
         popupAdjust();
     }
 };
@@ -104,39 +99,39 @@ SelectWatchPg.setData = function () {
 };
 
 
-SelectWatchPg.showMenu = function(){
+SelectWatchPg.showMenu = function () {
     alert("showMenu");
     var show = false;
 
     if (!SelectWatchPg.SelectWatchPgMenu.hasClass('show')) {
         SelectWatchPg.SelectWatchPgMenu.addClass('show');
         jQuery('#sideBar').removeClass('hide');
-        SelectWatchPg.SelectWatchPgMenu.animate({left:'0px'},"1000");
+        SelectWatchPg.SelectWatchPgMenu.animate({ left: '0px' }, "1000");
         //SelectWatchPg.SelectWatchPgMenu.removeClass('hide');
         show = true;
     }
     clearTimeout(menuDisplayTimeout);
     menuDisplayTimeout = setTimeout(function () {
         SelectWatchPg.Channels.removeClass('show');
-        SelectWatchPg.SelectWatchPgMenu.animate({left:'-300px'},"1000");
+        SelectWatchPg.SelectWatchPgMenu.animate({ left: '-300px' }, "1000");
 
         // SelectWatchPg.SelectWatchPgMenu.addClass('hide');
         setTimeout(function () {
             SelectWatchPg.SelectWatchPgMenu.removeClass('show');
             if (page_index == 1)
-            jQuery('#sideBar').addClass('hide');
-        },800);
-        
+                jQuery('#sideBar').addClass('hide');
+        }, 800);
+
     }, 7000);
     return show;
 };
-SelectWatchPg.hideMenu= function(){
+SelectWatchPg.hideMenu = function () {
     SelectWatchPg.Channels.removeClass('show');
     SelectWatchPg.SelectWatchPgMenu.removeClass('show');
     if (page_index == 1)
-            jQuery('#sideBar').addClass('hide');
+        jQuery('#sideBar').addClass('hide');
 }
-SelectWatchPg.showChannel = function(){
+SelectWatchPg.showChannel = function () {
     alert("showChannel");
     var show = false;
 
@@ -156,11 +151,11 @@ SelectWatchPg.showChannel = function(){
     return show;
 
 };
-SelectWatchPg.hideChannel = function() {
+SelectWatchPg.hideChannel = function () {
     SelectWatchPg.Channels.removeClass('show');
     SelectWatchPg.SelectWatchPgMenu.removeClass('show');
-        if (page_index == 1)
-            jQuery('#sideBar').addClass('hide');
+    if (page_index == 1)
+        jQuery('#sideBar').addClass('hide');
 }
 
 SelectWatchPg.keyDown = function () {
@@ -224,9 +219,9 @@ SelectWatchPg.keyDown = function () {
             jQuery('#popup').empty(); // 광고가 있을경우 광고를 지운다.
             //          SelectWatchPg.anchor.main.removeClass('focus');
             SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('focus');
-//            SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+            //            SelectWatchPg.SelectWatchPgMenu.removeClass('show');
 
-//            SelectWatchPg.Channels.removeClass('show');
+            //            SelectWatchPg.Channels.removeClass('show');
             SelectWatchPg.clearPopupList();
 
             Main.focus();
@@ -261,7 +256,7 @@ SelectWatchPg.keyDown = function () {
                 //추천상품 대신에 이수다 편성표를 보여준다.
                 SelectWatchPg_index = 4;
             }
-           
+
             Main.layout.subPage.load(subPageArr[SelectWatchPg_index].html, function (response, status, xhr) {
                 if (status == "success") {
                     subPageArr[SelectWatchPg_index].object.onLoad();
@@ -273,7 +268,8 @@ SelectWatchPg.keyDown = function () {
             break;
     }
 };
-SelectWatchPg.isudaPopup = function (idx) {
+/*
+SelectWatchPg.isudaPopup = function (idx,startIdx) {
     var tempFunction;
     SelectWatchPg.currentISUDAchannel = idx;
     indexInISUDAchannel = 0;//변수 초기화
@@ -302,7 +298,7 @@ SelectWatchPg.isudaPopup = function (idx) {
             tempFunction = setTimeout(function () {
                 indexInISUDAchannel = 0;//case 1 의 첫번째 팝업임을 의미함.
                 popupISUDA("배달의 민족에 대해 더 알고 싶으신가요?", ["예", "아니요"]);
-            }, 60000);//영상이 시작하고 1분 후에 띄우는 팝업
+            }, 30000);//영상이 시작하고 1분 후에 띄우는 팝업
             SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
             break;
 
@@ -374,13 +370,31 @@ SelectWatchPg.isudaPopup = function (idx) {
     }
 
 }
+*/
 
-//어떤 이수다 채널에 진입했을 때, 띄워질 예정들인 팝업들을 다 지워버리는 함수(채널 이동시 사용)
+SelectWatchPg.isudaPopup = function (idx, questionIdx) {
+    //어떤 이수다 채널에 접근했을 때 팝업을 시작하는 함수
+    alert('SelectWatchPg.isudaPopup called');
+    indexInISUDAchannel++;//하나의 영상 안에서 몇번째 팝업인지 
+
+    var tempFunction;
+    currentQuestionIdx = questionIdx;//현재 띄워질 예정인 팝업의 인덱스
+
+    alert('다음 질문 : ' + popupQuestion[currentQuestionIdx].question);
+    alert('다음 질문까지 대기 시간 : ' + popupQuestion[currentQuestionIdx].waitingTime + 'ms');
+    alert('다음 질문의 인덱스 : ' + popupQuestion[currentQuestionIdx].ifYes);
+
+    tempFunction = setTimeout(function () {
+            popupISUDA(popupQuestion[currentQuestionIdx].question, popupQuestion[currentQuestionIdx].anwer);
+    }, popupQuestion[currentQuestionIdx].waitingTime);//영상이 시작하고 popupQuestion[questionIdx].waitingTime 후에 띄우는 팝업
+    SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
+}
+
+//어떤 이수다 채널에 진입했을 때, 띄워질 예정들인 팝업들을 지우는 함수
 SelectWatchPg.clearPopupList = function () {
     for (var i = 0; i < SelectWatchPg.currentISUDAPopup.length; i++) {
         clearTimeout(SelectWatchPg.currentISUDAPopup[i]);
     }
     SelectWatchPg.currentISUDAPopup = [];//배열 초기화
-            jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
-
+    jQuery('#popup').empty();//팝업을 없앤다
 }
