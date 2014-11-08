@@ -174,10 +174,10 @@ popupISUDAkeyDown = function () {
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
-            if (ISUDAButtonNum != 0) {
-                alert('호출!');
-                focusBack.focus();
-            }
+            // if (ISUDAButtonNum != 0) {
+            //     alert('호출!');
+            //     focusBack.focus();
+            // }
             
             jQuery('#popup').empty();
 
@@ -185,11 +185,12 @@ popupISUDAkeyDown = function () {
                 popupISUDA("반갑습니다! <br/>이수다홈쇼핑 입니다", []);
                 
                 ISUDAFirstAccess = 0;
+
                 setTimeout(function () {
                     jQuery('#popup').empty();
                     SelectWatchPg.isudaPopup();
-                    focusBack.focus('hide');/*포커스를 되돌리는 순간 팝업이 닫힌다*/
                 }, 3000);//3초후에 팝업을 닫는다.
+                focusBack.focus('hide');/*포커스를 되돌리는 순간 팝업이 닫힌다*/
             }
             else {
                 switch (SelectWatchPg.currentISUDAchannel) {
