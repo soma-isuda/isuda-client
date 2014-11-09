@@ -230,8 +230,7 @@ popupISUDAkeyDown = function () {
                             SelectWatchPg.isudaPopup(currentMovieIdx+1, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
                         
                         focusBack.focus('hide');//포커스를 되돌린다
-                    
-                    
+
                 }
                 else {//"아니요"를 선택했을 경우
                     SelectWatchPg.clearPopupList();//팝업리스트에서 현재 질문을 지운다.
@@ -363,6 +362,7 @@ popupQuestion[0][3]=({
     question: '오늘 왠지 기분 좋은<br> 하루가 될거 같아요!',
     answer:["맞아!","별로.."],
     buttonNum: 2,//현재 질문의 버튼 개수
+
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 4,//값이 없으면 yes시 종료
     ifNo: 5,//값이 없으면 no시 종료
