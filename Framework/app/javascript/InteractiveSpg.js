@@ -13,8 +13,8 @@ InteractiveSpg.onLoad = function () {
     SelectWatchPg.hideChannel();
 
     var i = currentMovieIdx;
-    var j = indexInISUDAchannel;
-    
+    var j = popupQuestion[currentQuestionIdx].moreInfoIndex;
+    alert('jjjjjjjjjjj : ' + j);
     
     var tempString = '';
     tempString += '<div class="recommended_product">';
@@ -102,7 +102,7 @@ InteractiveSpg.keyDown = function () {
             //상세보기 페이지를 로드한다.
             forRestartPopup = 1;
             jQuery('#popup').empty();
-            subPage_index = ISUDAelementArr[currentMovieIdx][indexInISUDAchannel].enter;
+            subPage_index = ISUDAelementArr[currentMovieIdx][popupQuestion[currentQuestionIdx].moreInfoIndex].enter;
             Main.layout.subPage.load(subPageArr[subPage_index].html, function (response, status, xhr) {
                 if (status == "success") {
                     subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음

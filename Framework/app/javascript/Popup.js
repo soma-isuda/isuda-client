@@ -204,16 +204,19 @@ popupISUDAkeyDown = function () {
                         focusBack.focus('hide');//포커스를 되돌린다
                     }
                     else {//해당 질문이 추가정보를 로드할 때
-                        if (popupQuestion[popupQuestion[currentQuestionIdx].ifYes].waitingTime == 0) {//추가 정보를 로드하는데, 위에 정보 팝업이 띄워져 있는 경우
-                            SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentQuestionIdx].ifYes);//다음질문등록
-                            //ex)듣고 계신 음악은 <br/> Gustav Mahler Symphony No.5, <br/>4악장입니다.
-                        }
+                        
                         Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {//상세 정보 페이지를 로드한다.
                             if (status == "success") {
                                 alert("call InteractiveSpg onload");
                                 InteractiveSpg.onLoad();
+
+                                if (popupQuestion[popupQuestion[currentQuestionIdx].ifYes].waitingTime == 0) {//추가 정보를 로드하는데, 위에 정보 팝업이 띄워져 있는 경우
+                                    SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentQuestionIdx].ifYes);//다음질문등록
+                                    //ex)듣고 계신 음악은 <br/> Gustav Mahler Symphony No.5, <br/>4악장입니다.
+                                }
                             }
                         });
+                        
                     }
                 }
                 else {//"아니요"를 선택했을 경우
@@ -319,7 +322,7 @@ popupQuestion.push({//인덱스1
     question: '듣고 계신 음악이 궁금하신가요?',
     anwer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
-    moreInfoIndex: 2,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    moreInfoIndex: 1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 2,//값이 없으면 yes시 종료
     ifNo: 3,//값이 없으면 no시 종료
     waitingTime: 6000//ms단위
