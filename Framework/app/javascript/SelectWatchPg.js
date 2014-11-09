@@ -51,21 +51,30 @@ SelectWatchPg.focus = function (view) {
         SelectWatchPg.showChannel();
     }
     //    SelectWatchPg.DownCh.addClass('show');
-    subPageState = false // 여기에 포커스가 왔다는것은 서브페이지가 안열려있는 상태이다.
+    
+    
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
+    //alert('subPageState : '+ subPageState);
 
-
+    if (PlayerManager.getChannel() != 5) {
+        //    else if(PlayerManager.getChannel() != 5){
+        popupAdjust();
+    }
+    else if(subPageState==true){
+        subPageState = false;
+        if(popupIgnoreflg == true){
+            popupIgnoreflg = false; // 여기에 포커스가 왔다는것은 서브페이지가 안열려있는 상태이다.
+            popupISUDAinit();
+        }
+    }
 
 
     //    if (PlayerManager.getChannel() == 5 && ISUDAFirstAccess == 1) {//처음에 이수다 채널에서 시작했으면
     //        popupISUDA("오늘 기분이 어떠신가요?", ["좋아요", "별로에요"]);
     //    }
-    if (PlayerManager.getChannel() != 5) {
-        //    else if(PlayerManager.getChannel() != 5){
-        popupAdjust();
-    }
+    
 };
 //채널 헬퍼
 SelectWatchPg.setData = function () {
@@ -124,7 +133,7 @@ SelectWatchPg.showMenu = function () {
     return show;
 };
 SelectWatchPg.hideMenu = function () {
-    SelectWatchPg.Channels.removeClass('show');
+  //  SelectWatchPg.Channels.removeClass('show');
     SelectWatchPg.SelectWatchPgMenu.removeClass('show');
     if (page_index == 1)
         jQuery('#sideBar').addClass('hide');
@@ -151,7 +160,7 @@ SelectWatchPg.showChannel = function () {
 };
 SelectWatchPg.hideChannel = function () {
     SelectWatchPg.Channels.removeClass('show');
-    SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+ //   SelectWatchPg.SelectWatchPgMenu.removeClass('show');
     if (page_index == 1)
         jQuery('#sideBar').addClass('hide');
 }

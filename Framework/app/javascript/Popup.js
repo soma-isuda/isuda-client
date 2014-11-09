@@ -114,34 +114,15 @@ popupkeyDown = function () {
 
 var ISUDAButtonNum;
 var ISUDAFirstAccess = 1;//이수다 채널에 처음 접근하면 1, 아니면 0
+var popupIgnoreflg =false; //이수다 채널 팝업이 서브페이지등에 의해 무시되었을경우 true가된다.
 //이수다 홈쇼핑에서 방송 중간중간에 뜨는 팝업
 popupISUDA = function (message, buttons) {
-    if(subPageState == false){//선택보기에서 서브페이지가 안켜져 있을 때
         alert("PopUp ISUDA!!");
         ISUDAButtonNum = buttons.length;
         alert('ISUDAButtonNum:' + ISUDAButtonNum);
+        alert('subPageState : '+ subPageState);
+        alert('popupIgnoreflg : '+popupIgnoreflg);
         alert(ISUDAFirstAccess+":"+(currentMovieIdx+1)+':'+currentQuestionIdx);
-        
-        if (ISUDAButtonNum != 0) {//버튼이 있을때만 팝업으로 포커스를 넘긴다
-            jQuery('#anchor_popupISUDA').focus();
-        }
-        else if ((ISUDAFirstAccess==0)&&(popupQuestion[currentMovieIdx+1][currentQuestionIdx].moreInfoIndex != -1)){
-            Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {//상세 정보 페이지를 로드한다.
-                if (status == "success") {
-                    alert("call InteractiveSpg onload");
-                    InteractiveSpg.onLoad();
-                }
-            });
-        }
-        else if((ISUDAButtonNum ==0)&&(popupQuestion[currentMovieIdx+1][currentQuestionIdx].moreInfoIndex == -1)){
-            setTimeout(function(){
-                jQuery('#popup').empty();
-                SelectWatchPg.isudaPopup(currentMovieIdx+1, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
-            }, 5000);
-        }
-        
-
-
         
         jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
         var tempString = '';
@@ -160,7 +141,6 @@ popupISUDA = function (message, buttons) {
         else
         jQuery('#popupISUDA > div:nth-child(1)').css("height", "130px");
 
-        $('#popupISUDA').css("display", "block");
         var width = ((720 - (40 * ISUDAButtonNum)) / ISUDAButtonNum) + "px";
         $('#popupISUDA .ISUDAButton').css("width", width);
         $('#popupISUDA .ISUDAButton').css("margin-left", "20px");
@@ -171,9 +151,37 @@ popupISUDA = function (message, buttons) {
 
 
         focusBack = SelectWatchPg;
+    if(subPageState == false){//선택보기에서 서브페이지가 안켜져 있을 때
+        popupISUDAinit();
+    }
+    else{
+        popupIgnoreflg = true;
+        $('#popupISUDA').css("display", "none");
     }
 };
-
+popupISUDAinit = function(){
+    $('#popupISUDA').css("display", "block");
+    if (ISUDAButtonNum != 0) {//버튼이 있을때만 팝업으로 포커스를 넘긴다
+        SelectWatchPg.hideMenu();
+        SelectWatchPg.hideChannel();
+        jQuery('#anchor_popupISUDA').focus();
+    }
+    else if ((ISUDAFirstAccess==0)&&(popupQuestion[currentMovieIdx+1][currentQuestionIdx].moreInfoIndex != -1)){
+        Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {//상세 정보 페이지를 로드한다.
+            if (status == "success") {
+                alert("call InteractiveSpg onload");
+                alert("call InteractiveSpg index : "+(currentMovieIdx+1)+currentQuestionIdx);
+                InteractiveSpg.onLoad(currentMovieIdx+1,++moreInfoIndex);
+            }
+        });
+    }
+    else if((ISUDAButtonNum ==0)&&(popupQuestion[currentMovieIdx+1][currentQuestionIdx].moreInfoIndex == -1)){
+        setTimeout(function(){
+            jQuery('#popup').empty();
+            SelectWatchPg.isudaPopup(currentMovieIdx+1, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
+        }, 5000);
+    }
+}
 //이수다 팝업에서의 키처리를 담당하는 부분
 popupISUDAkeyDown = function () {
     var keyCode = event.keyCode;
@@ -268,8 +276,9 @@ popupISUDAkeyDown = function () {
 
 var popupQuestion = new Array();//팝업에 뜨는 질문들의 리스트(객체 배열)
 var startQuestion = -3;//어떤 방송에 대한 시작 질문의 인덱스
-var currentQuestionIdx;//현재 띄워져 있는 팝업의 인덱스
+var currentQuestionIdx=0;;//현재 띄워져 있는 팝업의 인덱스
 var currentMovieIdx;//현재 이수다 채널에서 방송중인 동영상의 인덱스점
+
 var userQuestionIdx = 3;
 var ISUDAPlayOrder = new Array();//이수다 채널 방송 순서
 ISUDAPlayOrder[0] = [0, 1, 2, 3, 4];
@@ -284,7 +293,9 @@ var T1QuestionAnswer = new Array();//T1 질문에 대한 대답(yes또는 대답
 T1QuestionAnswer[0] = 0;
 T1QuestionAnswer[1] = 0;
 T1QuestionAnswer[2] = 0;//디폴트는 0으로 초기화
-var ISUDAPlayRotation = 0;//ISUDAPlayOrder[i]에서 배열요소 5개 중에 몇번째를 실행해야 하는지 
+var ISUDAPlayRotation = 0;//ISUDAPlayOrder[i]에서 배열요소 5개 중에 몇번째를 실행해야 하는지
+var moreInfoIndex = -1; // 추가 정보를 요구할떄 사용되는 인덱스 인터렉티브 함수의 인자로 사용되어 몇번쨰 질문인지 알수 있다.
+
 //사용법, -------------------------------필독-------------------------------
 /*
     질문 하나당 객체의 형태는 다음과 같아
@@ -547,7 +558,7 @@ popupQuestion[3][0] = ({
     question: '어딘지 모르겠는데 저기 참이쁘지 않아요?',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
-    moreInfoIndex: 2,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 1,//값이 없으면 yes시 종료
     ifNo: 2,//값이 없으면 no시 종료
     waitingTime: 6000//ms단위
@@ -558,7 +569,7 @@ popupQuestion[3][1] = ({
 
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
-    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    moreInfoIndex: 0,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 3,//값이 없으면 yes시 종료
     ifNo: 3,//값이 없으면 no시 종료
     waitingTime: 0//ms단위(바로뜸)
@@ -568,7 +579,7 @@ popupQuestion[3][2] = ({
     question: '듣고 계신 음악이 궁금하신가요?',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
-    moreInfoIndex: 2,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 4,//값이 -1이면 yes시 종료
     ifNo: -1,//값이 -1이면 no시 종료
     waitingTime: 60000//ms단위
@@ -578,7 +589,7 @@ popupQuestion[3][3] = ({
     question: '듣고 계신 음악은 <br/> Gustav Mahler Symphony No.5, <br/>4악장입니다.',
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
-    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    moreInfoIndex: 1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
     ifNo: -1,//값이 없으면 no시 종료
     waitingTime: 0//ms단위(바로뜸)

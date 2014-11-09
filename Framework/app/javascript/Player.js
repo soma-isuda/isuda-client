@@ -127,14 +127,16 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
             isNowPlaying = 0;
             //            jQuery('#loading').removeClass('show');
             jQuery('#popup').empty();//이전 방송에서 눌리지 않고 남아 있는 팝업을 없앤다.
-            SelectWatchPg.focus('hide'); // 포커스를 다시 돌려보낸다.
+            //SelectWatchPg.focus('hide'); // 포커스를 다시 돌려보낸다.
             SelectWatchPg.clearPopupList(); // 셋타임 시켜논 명령어 삭제 
             currentMovieIdx = event.target.getPlaylistIndex(); // 현재 재생중인 영상 순서 
             alert("startQuestion : "+ startQuestion);
             indexInISUDAchannel = -1;
             currentQuestionIdx=0;
+                
+            moreInfoIndex=-1;
 
-            if (userQuestionIdx > 0) {//T1질문이 남아있으면
+            if (userQuestionIdx >0 ){//T1질문이 남아있으면
                 ISUDAFirstAccess = 1;
                 startQuestion += 3; // 다음 t1질문을 하기위한 인덱스 변경{}
                 
