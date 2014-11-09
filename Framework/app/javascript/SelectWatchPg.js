@@ -56,15 +56,18 @@ SelectWatchPg.focus = function (view) {
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).removeClass('select');
     SelectWatchPg.SelectWatchPgMenuElem.eq(SelectWatchPg_index).addClass('focus');
     SelectWatchPg.anchor.main.focus();
+    //alert('subPageState : '+ subPageState);
 
     if (PlayerManager.getChannel() != 5) {
         //    else if(PlayerManager.getChannel() != 5){
         popupAdjust();
     }
     else if(subPageState==true){
-        subPageState = false; // 여기에 포커스가 왔다는것은 서브페이지가 안열려있는 상태이다.
-        
-        popupISUDAinit();
+        subPageState = false;
+        if(popupIgnoreflg == true){
+            popupIgnoreflg = false; // 여기에 포커스가 왔다는것은 서브페이지가 안열려있는 상태이다.
+            popupISUDAinit();
+        }
     }
 
 

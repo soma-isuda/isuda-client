@@ -49,9 +49,12 @@ ISUDAelementArr[2] = new Array();
 ISUDAelementArr[3] = new Array();
 ISUDAelementArr[4] = new Array();
 
-ISUDAelementArr[0][1] = ({img: 'img/milk.png', name: '삼성뮤직 MILK', benefit: '삼성 휴대폰 사용고객 전원', price: '365일 평생 무료!', footer: '앱 다운로드', enter:3 })
-ISUDAelementArr[0][2] = ({img: 'img/hojoo.png', name: '호주 10일 패키지 여행', benefit: '대한항공 직항+10대 특식 포함', price: '2,629,000원', footer: '상세보기', enter:0})
-ISUDAelementArr[1][0] = ({img: 'img/bedal.png', name: '대한민국 1등 배달앱. 배달의 민족!', benefit: '오늘먹을 치킨을', price: '내일로 미루지 말자', footer: '앱 다운로드', enter:3})
+ISUDAelementArr[1][0] = ({img: 'img/tyg.PNG', name: '테이크 아웃 커피잔을 이용한 친환경 가드닝', benefit: 'Takeout Your Garden', price: '오픈 이벤트중', footer: '응모하기', enter:3});
+ISUDAelementArr[2][0] = ({img: 'img/note.png', name: '세상의 어떤 이야기도 담아낼수 있다.<br>GALAXY Note4', benefit: '무약정폰', price: '1,089,000원', footer: '구매하기', enter:3});
+ISUDAelementArr[3][0] = ({img: 'img/hojoo.png', name: '호주 10일 패키지 여행', benefit: '대한항공 직항+10대 특식 포함', price: '2,629,000원', footer: '상세보기', enter:0});
+ISUDAelementArr[3][1] = ({img: 'img/milk.png', name: '삼성뮤직 MILK', benefit: '삼성 휴대폰 사용고객 전원', price: '365일 평생 무료!', footer: '앱 다운로드', enter:3 });
+ISUDAelementArr[4][0] = ({img: 'img/hug.png', name: '박형식, 남지현의 대세 커플 패딩', benefit: '빈폴App 다운시 10%할인', price: '279,000원', footer: '구매하기', enter:3});
+ISUDAelementArr[4][1] = ({img: 'img/ice.png', name: '크리스마스 연인과 함께하는 이색 데이트', benefit: '롯데월드몰 오픈기념 세트권', price: '10,000원', footer: '구매하기', enter:3});
 
 
 function provider(name, url){

@@ -114,19 +114,15 @@ popupkeyDown = function () {
 
 var ISUDAButtonNum;
 var ISUDAFirstAccess = 1;//이수다 채널에 처음 접근하면 1, 아니면 0
+var popupIgnoreflg =false; //이수다 채널 팝업이 서브페이지등에 의해 무시되었을경우 true가된다.
 //이수다 홈쇼핑에서 방송 중간중간에 뜨는 팝업
 popupISUDA = function (message, buttons) {
         alert("PopUp ISUDA!!");
         ISUDAButtonNum = buttons.length;
         alert('ISUDAButtonNum:' + ISUDAButtonNum);
+        alert('subPageState : '+ subPageState);
+        alert('popupIgnoreflg : '+popupIgnoreflg);
         alert(ISUDAFirstAccess+":"+(currentMovieIdx+1)+':'+currentQuestionIdx);
-        
-        
-        
-        
-        
-
-
         
         jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
         var tempString = '';
@@ -159,8 +155,8 @@ popupISUDA = function (message, buttons) {
         popupISUDAinit();
     }
     else{
+        popupIgnoreflg = true;
         $('#popupISUDA').css("display", "none");
-
     }
 };
 popupISUDAinit = function(){
@@ -174,7 +170,8 @@ popupISUDAinit = function(){
         Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {//상세 정보 페이지를 로드한다.
             if (status == "success") {
                 alert("call InteractiveSpg onload");
-                InteractiveSpg.onLoad();
+                alert("call InteractiveSpg index : "+(currentMovieIdx+1)+currentQuestionIdx);
+                InteractiveSpg.onLoad(currentMovieIdx+1,++moreInfoIndex);
             }
         });
     }
@@ -279,9 +276,11 @@ popupISUDAkeyDown = function () {
 
 var popupQuestion = new Array();//팝업에 뜨는 질문들의 리스트(객체 배열)
 var startQuestion = -3;//어떤 방송에 대한 시작 질문의 인덱스
-var currentQuestionIdx;//현재 띄워져 있는 팝업의 인덱스
+var currentQuestionIdx=0;;//현재 띄워져 있는 팝업의 인덱스
 var currentMovieIdx;//현재 이수다 채널에서 방송중인 동영상의 인덱스점
-var userQuestionIdx=3;
+var userQuestionIdx=3; // t1 질문의 갯수
+var moreInfoIndex = -1; // 추가 정보를 요구할떄 사용되는 인덱스 인터렉티브 함수의 인자로 사용되어 몇번쨰 질문인지 알수 있다.
+
 //사용법, -------------------------------필독-------------------------------
 /*
     질문 하나당 객체의 형태는 다음과 같아

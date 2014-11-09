@@ -113,7 +113,7 @@ var YTPlayer = {
             indexInISUDAchannel = -1;
             currentQuestionIdx=0;
             ISUDAFirstAccess =1;
-
+            moreInfoIndex=-1;
             if (userQuestionIdx >0 ){//이수다 채널에 처음 접근하면
                 startQuestion += 3; // 다음 t1질문을 하기위한 인덱스 변경{}
                 

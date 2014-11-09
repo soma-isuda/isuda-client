@@ -3,7 +3,7 @@ var InteractiveSpg = {
    forRestartPopup:0,//1로 되어 있으면 팝업을 다시 시작해야함
 };
 
-InteractiveSpg.onLoad = function () {
+InteractiveSpg.onLoad = function (movieIdx,moreInfoIdx) {
     alert("InteractiveSpg onLoad");
     subPageState = true; // 서브페이즈를 키고 있다고 표시
     //document.getElementById("InteractiveSpg").style.marginLeft="1460px";
@@ -12,19 +12,18 @@ InteractiveSpg.onLoad = function () {
     SelectWatchPg.hideMenu();
     SelectWatchPg.hideChannel();
 
-    var i = currentMovieIdx;
-    var j = popupQuestion[currentQuestionIdx].moreInfoIndex;
-    alert('jjjjjjjjjjj : ' + j);
-    
+    // var j = popupQuestion[currentQuestionIdx].moreInfoIndex;
+    // alert('jjjjjjjjjjj : ' + j);
+    alert("movieIdx : qustionIdx = "+movieIdx+':'+moreInfoIdx);
     var tempString = '';
     tempString += '<div class="recommended_product">';
     tempString += ' <div class="recommended_imgArea">';
-    tempString += '     <img src="' + ISUDAelementArr[i][j].img + '" alt="" class="recommended_productImg">';
+    tempString += '     <img src="' + ISUDAelementArr[movieIdx][moreInfoIdx].img + '" alt="" class="recommended_productImg">';
     tempString += '     <div></div>';
     tempString += ' </div>';
     tempString += ' <div class="recommended_productInfoArea">';
-    tempString += '     <div class="recommended_productName">' + ISUDAelementArr[i][j].name + '</div>';
-    tempString += '     <div class="recommended_productPrice"><p>'+ISUDAelementArr[i][j].benefit+'</p>' + ISUDAelementArr[i][j].price + '</div>';
+    tempString += '     <div class="recommended_productName">' + ISUDAelementArr[movieIdx][moreInfoIdx].name + '</div>';
+    tempString += '     <div class="recommended_productPrice"><p>'+ISUDAelementArr[movieIdx][moreInfoIdx].benefit+'</p>' + ISUDAelementArr[movieIdx][moreInfoIdx].price + '</div>';
     tempString += ' </div>';
     tempString += '</div>';
 
@@ -38,7 +37,7 @@ InteractiveSpg.onLoad = function () {
     });
     this.focus();
     InteractiveSpg.body.append(tempString);
-    InteractiveSpg.footer.append('<div>'+ISUDAelementArr[i][j].footer+'<div>');
+    InteractiveSpg.footer.append('<div>'+ISUDAelementArr[movieIdx][moreInfoIdx].footer+'<div>');
     InteractiveSpg.footer.find('div').addClass('focus');
 };
 
@@ -102,7 +101,8 @@ InteractiveSpg.keyDown = function () {
             //상세보기 페이지를 로드한다.
             forRestartPopup = 1;
             jQuery('#popup').empty();
-            subPage_index = ISUDAelementArr[currentMovieIdx][popupQuestion[currentQuestionIdx].moreInfoIndex].enter;
+            alert("!!!!!!! "+(currentMovieIdx+1)+moreInfoIndex);
+            subPage_index = ISUDAelementArr[currentMovieIdx+1][moreInfoIndex].enter;
             Main.layout.subPage.load(subPageArr[subPage_index].html, function (response, status, xhr) {
                 if (status == "success") {
                     subPageArr[subPage_index].object.onLoad();//onLoad함수 안에 포커스를 넘겨주는 부분이 있음
