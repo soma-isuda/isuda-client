@@ -17,7 +17,8 @@ ComparePriceSpg.onLoad = function () {
         }
     });
     this.focus();
-    subPageSatae = true; // 서브페이즈를 키고 있다고 표
+    subPageState = true; // 서브페이즈를 키고 있다고 표시
+    
     this.currentProductId = 0;
     this.recommendedProductId = 0;
     $.ajax({

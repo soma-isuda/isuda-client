@@ -33,7 +33,8 @@ var SelectNumberSpg = {
 
 SelectNumberSpg.onLoad = function () {
     alert("SelectNumberSpg onLoad");
-    subPageSatae = true; // 서브페이즈를 키고 있다고 표시
+    subPageState = true; // 서브페이즈를 키고 있다고 표시
+
     //document.getElementById("SelectNumberSpg").style.marginLeft="1460px";
     jQuery.extend(SelectNumberSpg, {
         anchor: {
@@ -141,8 +142,8 @@ SelectNumberSpg.selectKeyDown = function () {
                 SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
 
                 if (PlayerManager.getChannel() == 5 && InteractiveSpg.forRestartPopup == 1) {//이수다 팝업을 다시 시작할 필요가 있다면
-                    if (popupQuestion[currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
-                        SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentQuestionIdx].ifYes);//다음질문등록
+                    if (popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
+                        SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
                     else
                         alert('질문이 종료되었습니다.');
                     InteractiveSpg.forRestartPopup = 0;

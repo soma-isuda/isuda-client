@@ -51,7 +51,7 @@ var PlayerManager = {
             this.player=MyPlayer;
         }
         else {
-            this.playerarea.html('<iframe id="ytplayer" width="1920" height="1080" src="https://www.youtube.com/embed/videoseries?list=PLJ6Y7jZXezJ465T7ahzn4WN3AIlKhLyjF&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;autohide=0&amp;disablekb=0&amp;loop=1&amp;rel=0&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe>');
+            this.playerarea.html('<iframe id="ytplayer" width="1920" height="1080" src="https://www.youtube.com/embed/videoseries?list=PLen2wlGtcdPg0gosdUUU_Gh5vtFngMyD-&amp;controls=0&amp;showinfo=0&amp;autoplay=1&amp;autohide=0&amp;disablekb=0&amp;loop=1&amp;rel=0&amp;enablejsapi=1" frameborder="0" allowfullscreen></iframe>');
             this.player=YTPlayer;
         }
         this.player.init();
@@ -99,21 +99,29 @@ var YTPlayer = {
     },
     pause: function () {
         this.player.pauseVideo();
-    },           
+    },    
+    // 이수다 채널 플레이어 재생시 자동 호출        
     onPlayerStateChange:function(event){
+        alert("이수다 영상 로드");
         if(event.data == YT.PlayerState.PLAYING){
             //            jQuery('#loading').removeClass('show');
             jQuery('#popup').empty();//이전 방송에서 눌리지 않고 남아 있는 팝업을 없앤다.
-            SelectWatchPg.clearPopupList();
-            currentMovieIdx = event.target.getPlaylistIndex();
-
+            SelectWatchPg.focus('hide'); // 포커스를 다시 돌려보낸다.
+            SelectWatchPg.clearPopupList(); // 셋타임 시켜논 명령어 삭제 
+            currentMovieIdx = event.target.getPlaylistIndex(); // 현재 재생중인 영상 순서 
+            alert("startQuestion : "+ startQuestion);
             indexInISUDAchannel = -1;
+            currentQuestionIdx=0;
+            ISUDAFirstAccess =1;
 
-            if (ISUDAFirstAccess == 1) //이수다 채널에 처음 접근하면
-                SelectWatchPg.isudaPopup(currentMovieIdx, 0);
-
+            if (userQuestionIdx >0 ){//이수다 채널에 처음 접근하면
+                startQuestion += 3; // 다음 t1질문을 하기위한 인덱스 변경{}
+                
+                SelectWatchPg.isudaPopup(0,startQuestion);
+                userQuestionIdx--;  // 남은 t1질문의 수 --
+            }
             else 
-                SelectWatchPg.isudaPopup(currentMovieIdx, startQuestion[currentMovieIdx]);
+                SelectWatchPg.isudaPopup(currentMovieIdx+1, 0);
 
         }
 

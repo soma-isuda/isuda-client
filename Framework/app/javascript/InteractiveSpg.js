@@ -5,7 +5,7 @@ var InteractiveSpg = {
 
 InteractiveSpg.onLoad = function () {
     alert("InteractiveSpg onLoad");
-    subPageSatae = true; // 서브페이즈를 키고 있다고 표시
+    subPageState = true; // 서브페이즈를 키고 있다고 표시
     //document.getElementById("InteractiveSpg").style.marginLeft="1460px";
     
     //사이드메뉴와 채널 헬퍼 hide
@@ -77,8 +77,8 @@ InteractiveSpg.keyDown = function () {
             jQuery('#popup').empty();//팝업창을 닫는다.
 
             //상세 정보를 로드하는 질문은, 상세정보 창이 닫힐때 다음 질문을 호출한다.
-            if (popupQuestion[currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
-                SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentQuestionIdx].ifYes);//다음질문등록
+            if (popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
+                SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
             else
                 alert('질문이 종료되었습니다.');
 

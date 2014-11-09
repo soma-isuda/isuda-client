@@ -14,7 +14,8 @@ var SMSSharingSpg= {
 SMSSharingSpg.onLoad = function()
 {
 	alert("SMSSharingSpg onLoad");
-    subPageSatae = true; // 서브페이즈를 키고 있다고 표시
+    subPageState = true; // 서브페이즈를 키고 있다고 표시
+    
 	//document.getElementById("SMSSharingSpg").style.marginLeft="1460px";
 	jQuery.extend(SMSSharingSpg,{
 		anchor: {

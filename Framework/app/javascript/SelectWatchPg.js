@@ -369,7 +369,7 @@ SelectWatchPg.isudaPopup = function (idx,startIdx) {
 
 }
 */
-
+//settmeout을 하기위해 거쳐가는 
 SelectWatchPg.isudaPopup = function (idx, questionIdx) {
     //어떤 이수다 채널에 접근했을 때 팝업을 시작하는 함수
     alert('SelectWatchPg.isudaPopup called');
@@ -378,13 +378,13 @@ SelectWatchPg.isudaPopup = function (idx, questionIdx) {
     var tempFunction;
     currentQuestionIdx = questionIdx;//현재 띄워질 예정인 팝업의 인덱스
 
-    alert('다음 질문 : ' + popupQuestion[currentQuestionIdx].question);
-    alert('다음 질문까지 대기 시간 : ' + popupQuestion[currentQuestionIdx].waitingTime + 'ms');
-    alert('다음 질문의 인덱스 : ' + popupQuestion[currentQuestionIdx].ifYes);
+    alert('다음 질문 : ' + popupQuestion[idx][currentQuestionIdx].question);
+    alert('다음 질문까지 대기 시간 : ' + popupQuestion[idx][currentQuestionIdx].waitingTime + 'ms');
+    alert('다음 질문의 인덱스 : ' + popupQuestion[idx][currentQuestionIdx].ifYes);
 
     tempFunction = setTimeout(function () {
-            popupISUDA(popupQuestion[currentQuestionIdx].question, popupQuestion[currentQuestionIdx].anwer);
-    }, popupQuestion[currentQuestionIdx].waitingTime);//영상이 시작하고 popupQuestion[questionIdx].waitingTime 후에 띄우는 팝업
+            popupISUDA(popupQuestion[idx][currentQuestionIdx].question, popupQuestion[idx][currentQuestionIdx].answer);
+    }, popupQuestion[idx][currentQuestionIdx].waitingTime);//영상이 시작하고 popupQuestion[questionIdx].waitingTime 후에 띄우는 팝업
     SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
 }
 
