@@ -73,8 +73,9 @@ MultiWatchPg.onLoad = function(){
                 tempString+='			<p>최대 혜택가</p>';
                 tempString+='			<p class="productPrice">' + priceRefined + '</p>';
                 tempString+='		</div>';
-                tempString+='		<div class="endTime">';
-                tempString+='			<p id="remainedTime' + cnt + '" class="remainedTime"></p>';
+                tempString += '		<div class="endTime">';
+                if (typeof this.id != 'number')//이수다홈쇼핑을 제외한 나머지들은 id가 문자열임
+                    tempString += '			<p id="remainedTime' + cnt + '" class="remainedTime"></p>';
                 tempString+='		</div>';
                 tempString+='		<div class="name">';
                 tempString+='			<p>' +this.productName+ '</p>';

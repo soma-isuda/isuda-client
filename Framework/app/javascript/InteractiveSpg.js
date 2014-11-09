@@ -77,7 +77,7 @@ InteractiveSpg.keyDown = function () {
 
             //상세 정보를 로드하는 질문은, 상세정보 창이 닫힐때 다음 질문을 호출한다.
             if (popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
-                SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
+                SelectWatchPg.isudaPopup(currentMovieIdx+1, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
             else
                 alert('질문이 종료되었습니다.');
 

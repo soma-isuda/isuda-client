@@ -570,8 +570,8 @@ popupQuestion[3][1] = ({
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: 0,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
-    ifYes: 3,//값이 없으면 yes시 종료
-    ifNo: 3,//값이 없으면 no시 종료
+    ifYes: 2,//값이 없으면 yes시 종료
+    ifNo: 2,//값이 없으면 no시 종료
     waitingTime: 0//ms단위(바로뜸)
 });
 
@@ -580,7 +580,7 @@ popupQuestion[3][2] = ({
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
-    ifYes: 4,//값이 -1이면 yes시 종료
+    ifYes: 3,//값이 -1이면 yes시 종료
     ifNo: -1,//값이 -1이면 no시 종료
     waitingTime: 60000//ms단위
 });
