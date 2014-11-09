@@ -1,7 +1,7 @@
 var SelectWatchPg_index = 0; // = subPageArr_index
 //var channel = 0;
 
-var menuDisplayTimeout;
+var menuDisplayTimeout; //서브메뉴가 자동사라지는것을 없애기 위한 변수
 var indexInISUDAchannel;
 
 var SelectWatchPg = {
@@ -27,7 +27,7 @@ SelectWatchPg.onLoad = function (ch) {
     PlayerManager.init(ch);
     SelectWatchPg_index = 0;
     SelectWatchPg.setData();
-    if (PlayerManager.getChannel() == 5) {//처음에 이수다 채널에서 시작했으면
+    if (PlayerManager.getChannel() == 5) {//이수다 채널에 들어오면 
         SelectWatchPg.SelectWatchPgMenuElem.eq(1).html('방송 목록');
     }
 
@@ -45,7 +45,6 @@ SelectWatchPg.focus = function (view) {
         SelectWatchPg.SelectWatchPgMenu.removeClass('show');
         if (page_index == 1)
             jQuery('#sideBar').addClass('hide');
-
     }
     else {
         SelectWatchPg.showMenu();
@@ -68,8 +67,7 @@ SelectWatchPg.focus = function (view) {
         popupAdjust();
     }
 };
-
-
+//채널 헬퍼
 SelectWatchPg.setData = function () {
     var upch = PlayerManager.getUpChannel();
     var nowch = PlayerManager.getChannel();
