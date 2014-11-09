@@ -60,6 +60,7 @@ MultiWatchPg.onLoad = function(){
                 var tempString = '';
                 tempString+='<li id="MultiWatchPgItem'+cnt+'" class="MultiWatchPgItem">';
                 tempString += '	<div class="imgArea">';
+
                 if(typeof this.id != 'number')//이수다홈쇼핑을 제외한 나머지들은 id가 문자열임
                     tempString += '		<img src="' + this.productImgURL + '" alt="" class="productImg">';
                 else
@@ -288,13 +289,16 @@ MultiWatchPg.keyDown = function()
 			if ( MultiWatchPg_index<=1) popupMessage("쿠폰이 발급<br>되었습니다.");
 			if (MultiWatchPg_index>=2) {
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				// 사이드바의 셀렉트를 선택보기로 바꾼다.
 				Main.menu.btn.eq(page_index).removeClass('select');
 //				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
 				Main.menu.btn.eq(++page_index).addClass('select');
 //				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+8)]);
+				
 				Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
-				    if (status == "success") {
-				        pagearr[page_index].object.onLoad(MultiWatchPg_index - 1);
+				    //html로드가 성공하면 SelectWatchPg.onLoad함수를 홈출하다. 인자로 해당 방송을 볼수 있게
+				    if (status == "success") { 
+				        pagearr[page_index].object.onLoad(MultiWatchPg_index - 2);
 	                    SelectWatchPg.focus();
 				    }
 				});
