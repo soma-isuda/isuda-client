@@ -198,17 +198,17 @@ popupISUDAkeyDown = function () {
             jQuery('#popup').empty();
             
             if (ISUDAFirstAccess == 1) {//T1 질문에 접근했을 때
-                //popupISUDA("반갑습니다! <br/>이수다홈쇼핑 입니다", []);
-                if (popup_index == 0){
-                    //startQuestion++;
+                
+                if (popup_index == 0) {//T1질문에 예라고 대답했을 때
                     SelectWatchPg.isudaPopup(0, popupQuestion[0][startQuestion].ifYes);
+                    T1QuestionAnswer[userQuestionIdx] = 0;
                 }
-                else{
-                    //startQuestion+=2;
+                else {//T1질문에 아니요라고 대답했을 때
                     SelectWatchPg.isudaPopup(0, popupQuestion[0][startQuestion].ifNo);
+                    T1QuestionAnswer[userQuestionIdx] = 1;
                 }
 
-                //T2질문을 시작하는 지
+                //T2질문을 시작하는 지점
                 setTimeout(function () {
                     ISUDAFirstAccess=0;
                     jQuery('#popup').empty();
@@ -270,7 +270,21 @@ var popupQuestion = new Array();//팝업에 뜨는 질문들의 리스트(객체
 var startQuestion = -3;//어떤 방송에 대한 시작 질문의 인덱스
 var currentQuestionIdx;//현재 띄워져 있는 팝업의 인덱스
 var currentMovieIdx;//현재 이수다 채널에서 방송중인 동영상의 인덱스점
-var userQuestionIdx=3;
+var userQuestionIdx = 3;
+var ISUDAPlayOrder = new Array();//이수다 채널 방송 순서
+ISUDAPlayOrder[0] = [0, 1, 2, 3, 4];
+ISUDAPlayOrder[1] = [0, 1, 2, 3, 4];
+ISUDAPlayOrder[2] = [0, 1, 4, 2, 3];
+ISUDAPlayOrder[3] = [0, 1, 4, 2, 3];
+ISUDAPlayOrder[4] = [0, 2, 1, 3, 4];
+ISUDAPlayOrder[5] = [0, 2, 1, 3, 4];
+ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
+ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
+var T1QuestionAnswer = new Array();//T1 질문에 대한 대답(yes또는 대답 안하면 ->0,no->1)
+T1QuestionAnswer[0] = 0;
+T1QuestionAnswer[1] = 0;
+T1QuestionAnswer[2] = 0;//디폴트는 0으로 초기화
+var ISUDAPlayRotation = 0;//ISUDAPlayOrder[i]에서 배열요소 5개 중에 몇번째를 실행해야 하는지 
 //사용법, -------------------------------필독-------------------------------
 /*
     질문 하나당 객체의 형태는 다음과 같아

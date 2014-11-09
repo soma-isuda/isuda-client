@@ -99,11 +99,32 @@ var YTPlayer = {
     },
     pause: function () {
         this.player.pauseVideo();
-    },    
+    },
+    
     // 이수다 채널 플레이어 재생시 자동 호출        
     onPlayerStateChange:function(event){
-        alert("이수다 영상 로드");
-        if(event.data == YT.PlayerState.PLAYING){
+        alert("이수다 영상 로드 : " + event.data);
+        /*
+ISUDAPlayOrder[0] = [0, 1, 2, 3, 4];
+ISUDAPlayOrder[1] = [0, 1, 2, 3, 4];
+ISUDAPlayOrder[2] = [0, 1, 4, 2, 3];
+ISUDAPlayOrder[3] = [0, 1, 4, 2, 3];
+ISUDAPlayOrder[4] = [0, 2, 1, 3, 4];
+ISUDAPlayOrder[5] = [0, 2, 1, 3, 4];
+ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
+ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
+        */
+        //기존의 영상이 종료되었을때
+        if (event.data == YT.PlayerState.ENDED && isNowPlaying==0 ) {
+            ISUDAPlayRotation = (ISUDAPlayRotation+1)%5;//다음영상으로 넘어갈때 ended가 2번 호출됨
+            var nextPlayIdx = T1QuestionAnswer[2] * 4 + T1QuestionAnswer[1] * 2 + T1QuestionAnswer[0];
+            alert('ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation] : '+ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);
+            //event.target.playVideoAt(ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);
+            PlayerManager.play(ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);//다음 영상을 로드한다.(T1질문에 따라서)
+            isNowPlaying = 1;
+        }
+        if (event.data == YT.PlayerState.PLAYING) {
+            isNowPlaying = 0;
             //            jQuery('#loading').removeClass('show');
             jQuery('#popup').empty();//이전 방송에서 눌리지 않고 남아 있는 팝업을 없앤다.
             SelectWatchPg.focus('hide'); // 포커스를 다시 돌려보낸다.
@@ -112,15 +133,15 @@ var YTPlayer = {
             alert("startQuestion : "+ startQuestion);
             indexInISUDAchannel = -1;
             currentQuestionIdx=0;
-            ISUDAFirstAccess =1;
 
-            if (userQuestionIdx >0 ){//이수다 채널에 처음 접근하면
+            if (userQuestionIdx > 0) {//T1질문이 남아있으면
+                ISUDAFirstAccess = 1;
                 startQuestion += 3; // 다음 t1질문을 하기위한 인덱스 변경{}
                 
                 SelectWatchPg.isudaPopup(0,startQuestion);
                 userQuestionIdx--;  // 남은 t1질문의 수 --
             }
-            else 
+            else //T1질문이 더이상 남아있지 않으면
                 SelectWatchPg.isudaPopup(currentMovieIdx+1, 0);
 
         }
@@ -131,6 +152,7 @@ var YTPlayer = {
         return this.player.getPlaylistIndex();
     }
 };
+var isNowPlaying = 0;//1이면 다음 영상 시작, 0이면 아직
 
 
 /*
