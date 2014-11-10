@@ -90,16 +90,18 @@ MultiWatchPg.onLoad = function(){
 			    jQuery('#mainItem').find('ul').append(tempString);
 			    
                 var remainedTime = new Object();
-				
-				remainedTime.hour = (endTimeArr[cnt].hour-date.getHours()+9)%24;
-				remainedTime.minute = endTimeArr[cnt].minute-date.getMinutes()-1;
-				remainedTime.second = 59-date.getSeconds();
+                if (typeof this.id != 'number') {//이수다홈쇼핑을 제외한 나머지들은 id가 문자열임
+					
+					remainedTime.hour = (endTimeArr[cnt].hour-date.getHours()+9)%24;
+					remainedTime.minute = endTimeArr[cnt].minute-date.getMinutes()-1;
+					remainedTime.second = 59-date.getSeconds();
 
-			    if(remainedTime.minute < 0){
-					remainedTime.hour = remainedTime.hour-1;
-					remainedTime.minute = 60 + remainedTime.minute;
+				    if(remainedTime.minute < 0){
+						remainedTime.hour = remainedTime.hour-1;
+						remainedTime.minute = 60 + remainedTime.minute;
+					}
+					document.getElementById('remainedTime'+cnt).innerHTML = remainedTime.hour+'시 '+remainedTime.minute+'분 '+ remainedTime.second+'초';
 				}
-				document.getElementById('remainedTime'+cnt).innerHTML = remainedTime.hour+'시 '+remainedTime.minute+'분 '+ remainedTime.second+'초';
 			});					
 		} 	
 	});		
@@ -147,7 +149,7 @@ MultiWatchPg.remainedTime = function(){
 	date = new Date();
 	var i=0;
 	//alert(date.getHours());
-	for(i=0; i<6; i++){
+	for(i=0; i<5; i++){
 	//alert(endTimeArr[0].hour+"c");
 		var remainedTime = new Object();
 		remainedTime.hour = (endTimeArr[i].hour-date.getHours()+9)%24;
