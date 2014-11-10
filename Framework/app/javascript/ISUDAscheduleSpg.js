@@ -2,14 +2,14 @@
 
 var ISUDAscheduleSpg = {
     index: 0,//몇번째 방송을 가리키고 있는지
-    ISUDAPxMove:0,//편성표 부분 스크롤을 위한 변수
+    ISUDAPxMove: 0,//편성표 부분 스크롤을 위한 변수
 };
 
 ISUDAscheduleSpg.onLoad = function () {
     alert("ISUDAscheduleSpg onLoad");
     subPageState = true; // 서브페이즈를 키고 있다고 표시
-    
-    
+
+
     //편성표 정보들을 로드한다.
     for (var i = 0; i < ISUDAschedule.length; i++) {
         var tempString = '';
@@ -81,7 +81,7 @@ ISUDAscheduleSpg.keyDown = function () {
             }
             */
             //스크롤 구현 부분
-            if ((ISUDAscheduleSpg.index-1) * 365 == ISUDAscheduleSpg.ISUDAPxMove) {
+            if ((ISUDAscheduleSpg.index - 1) * 365 == ISUDAscheduleSpg.ISUDAPxMove) {
                 ISUDAscheduleSpg.ISUDAPxMove = 365 * (ISUDAscheduleSpg.index - 2);
                 jQuery('#ISUDAscheduleSpg #body').css("margin-top", '-' + ISUDAscheduleSpg.ISUDAPxMove + 'px');
             }
@@ -101,7 +101,7 @@ ISUDAscheduleSpg.keyDown = function () {
             break;
         case tvKey.KEY_DOWN:
             alert("ISUDAscheduleSpg_key : Down");
-            
+
             //스크롤 구현 부분
             if ((ISUDAscheduleSpg.index - 1) * 365 == ISUDAscheduleSpg.ISUDAPxMove) {
                 ISUDAscheduleSpg.ISUDAPxMove = 365 * (ISUDAscheduleSpg.index);
@@ -129,7 +129,25 @@ ISUDAscheduleSpg.keyDown = function () {
 
             SelectWatchPg_index = 1;//마치 추천상품에서 로드된것처럼 되돌려준다.
             SelectWatchPg.focus();
-            
+
+            /*
+            ISUDAPlayOrder[0] = [0, 1, 2, 3, 4];
+ISUDAPlayOrder[1] = [0, 1, 2, 3, 4];
+ISUDAPlayOrder[2] = [0, 1, 4, 2, 3];
+ISUDAPlayOrder[3] = [0, 1, 4, 2, 3];
+ISUDAPlayOrder[4] = [0, 2, 1, 3, 4];
+ISUDAPlayOrder[5] = [0, 2, 1, 3, 4];
+ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
+ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
+            */
+            //이수다 편성표를 통해 방송을 건너뛸 경우
+            //ISUDAPlayOrder에서 ISUDAPlayRotation을 변경해준다.
+            var nextPlayIdx = T1QuestionAnswer[2] * 4 + T1QuestionAnswer[1] * 2 + T1QuestionAnswer[0];
+            for (var i = 0; i < ISUDAPlayOrder[nextPlayIdx].length; i++) {
+                if (ISUDAPlayOrder[nextPlayIdx][i] == ISUDAscheduleSpg.index)
+                    ISUDAPlayRotation = i;
+            }
+
             PlayerManager.play(ISUDAscheduleSpg.index);
             break;
         default:
