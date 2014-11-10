@@ -15,7 +15,10 @@ var endTimeArr = ["1","1","1","1","1","1"];
 //	minute : 0
 //};
 
-MultiWatchPg.onLoad = function(){
+MultiWatchPg.onLoad = function () {
+    //로딩되기 전에 로딩중이라는 표시를 한다.
+    jQuery('#mainItem').append('<div id="mainLoading">로딩중입니다</div>');
+
 	cnt=-1;
 	alert("MultiWatchPg.onLoad");
 	alert("start : "+cnt);
@@ -24,7 +27,10 @@ MultiWatchPg.onLoad = function(){
 		type : 'GET',
 		dataType : 'json',
 		
-		success : function (data) {
+		success: function (data) {
+            //로딩중 표시를 지운다.
+		    jQuery('#mainLoading').empty();
+
 			alert("ajax : success");
 			jQuery('#mainItem').find('ul').empty();
 			$.each(data, function() {

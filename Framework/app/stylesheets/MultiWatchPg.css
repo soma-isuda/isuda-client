@@ -5,6 +5,14 @@
 	/*background-color: #fffbf0;*/
 }
 
+#mainLoading{
+    width:1800px;
+    height:605px;
+    line-height:605px;
+    text-align:center;
+    font-size:40px;
+}
+
 #mainTitle{
 	width: 1800px;
 	height: 50px;
