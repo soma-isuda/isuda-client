@@ -355,7 +355,7 @@ popupQuestion[5] = new Array(); //fashion king
 // 성별에 대한 질문
 
 popupQuestion[0][0]=({
-    question: '저는 이수다라고 해요 <br>주인을 어떻게 부를까요?',
+    question: '저는 이수다라고 해요 <br>고객님을 어떻게 부를까요?',
     answer:["오빠","언니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -442,7 +442,7 @@ popupQuestion[0][8] =({
 });
 //테유가 시나리오
 popupQuestion[1][0] =({
-    question: '혹시 가드닝이라고 들어 보셨나요?',
+    question: '혹시 Gardening이라고 들어 보셨나요?',
     answer:["물론!","아니?"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -452,7 +452,7 @@ popupQuestion[1][0] =({
 });
 
 popupQuestion[1][1] =({
-    question: '이런 친환경적인 가드닝 어때요?<br>Takeout your garden',
+    question: '이런 친환경적인 Gardening 어때요?<br>Takeout your garden',
     answer:[],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: 0,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -462,7 +462,7 @@ popupQuestion[1][1] =({
 });
 
 popupQuestion[1][2] =({
-    question: '가드닝이란 집에서 화초를 키우는 것인데요<br>친환경적인 가드닝 한번 해보시는거 어떠세요?',
+    question: 'Gardening이란 집에서 화초를 키우는 것인데요<br>친환경적인 가드닝 한번 해보시는거 어떠세요?',
     answer:[],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: 0,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스

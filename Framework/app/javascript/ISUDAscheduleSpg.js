@@ -147,6 +147,7 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
                 if (ISUDAPlayOrder[nextPlayIdx][i] == ISUDAscheduleSpg.index)
                     ISUDAPlayRotation = i;
             }
+            isNowPlaying = 1;//영상이 시간이 다되어서 종료되는게 아닐때의 예외 처리
 
             PlayerManager.play(ISUDAscheduleSpg.index);
             break;
