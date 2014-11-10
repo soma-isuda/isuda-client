@@ -301,3 +301,34 @@ Player.getPlayer().onpause = function(){
 	alert(Player.ispause());
 	alert(Player.isended());	
 };*/
+// //버튼 누를떄 소
+// Audio.init = function()
+// {
+//     var success = true;
+    
+//     this.plugin = document.getElementById('pluginPlayer');
+//     this.audio = document.getElementById('pluginAudio');
+//     this.mute = this.audio.GetUserMute();
+    
+//     if (!this.plugin)
+//     {
+//         success = false;
+//     }
+
+//     return success;
+// }
+// Audio.playAudio = function()
+// {   
+//     alert("button click sound");
+//     //var link = this.getAbsPath("../../sound/btn.MP3");
+//         this.plugin = document.getElementById('pluginPlayer');
+//         this.audio = document.getElementById('pluginAudio');
+
+//         this.plugin.Stop();
+//         this.plugin.Play( "sound/btn.mp3" );
+//         this.plugin.Play( "sound/btn.MP3" );
+//         this.plugin.Play( "../../sound/btn.mp3" );
+//         this.plugin.Play( "../../sound/btn.MP3" );
+
+
+// }
