@@ -287,8 +287,28 @@ MultiWatchPg.keyDown = function()
 		case tvKey.KEY_ENTER:
 		case tvKey.KEY_PANEL_ENTER:
 			//focus move to selectWatchPgㄴ
-			if ( MultiWatchPg_index<=1) popupMessage("쿠폰이 발급<br>되었습니다.");
-			if (MultiWatchPg_index>=2) {
+			if ( MultiWatchPg_index==0){ 
+				popupMessage("쿠폰이 발급<br>되었습니다.");
+			}	
+			else if ( MultiWatchPg_index==1){
+				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+				// 사이드바의 셀렉트를 선택보기로 바꾼다.
+				Main.menu.btn.eq(page_index).removeClass('select');
+//				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[page_index]);
+				Main.menu.btn.eq(++page_index).addClass('select');
+//				$("#sideBarMenuImg"+page_index).attr('src',sideBarMenuImgArr[(page_index+8)]);
+				
+				Main.layout.page.load(pagearr[page_index].html, function (response, status, xhr) {
+				    //html로드가 성공하면 SelectWatchPg.onLoad함수를 홈출하다. 인자로 해당 방송을 볼수 있게
+				    if (status == "success") { 
+				        pagearr[page_index].object.onLoad(5);
+	                    SelectWatchPg.focus();
+				    }
+				});
+				clearInterval(refresh);
+				focusCurrent = "SelectWatchPg";
+			}		
+			else if (MultiWatchPg_index>=2) {
 				MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 				// 사이드바의 셀렉트를 선택보기로 바꾼다.
 				Main.menu.btn.eq(page_index).removeClass('select');
