@@ -29,7 +29,6 @@ MultiWatchPg.onLoad = function () {
 		
 		success: function (data) {
             //로딩중 표시를 지운다.
-		    jQuery('#mainLoading').empty();
 
 			alert("ajax : success");
 			jQuery('#mainItem').find('ul').empty();
@@ -108,7 +107,9 @@ MultiWatchPg.onLoad = function () {
 					}
 					document.getElementById('remainedTime'+cnt).innerHTML = remainedTime.hour+'시 '+remainedTime.minute+'분 '+ remainedTime.second+'초';
 				}
-			});					
+			});
+		    jQuery('#mainLoading').remove();
+					
 		} 	
 	});		
 	//alert(endTimeArr[0].hour+"b");

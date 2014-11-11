@@ -137,7 +137,7 @@ DetailInfoSpg.keyDown = function () {
             alert("LEFT!!!!!");
             $('.arrow').css("display", "none");
             if (page_index == 1) { //선택보기에서 '상세보기'
-                SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+                SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
 
                 if (PlayerManager.getChannel() == 5 && InteractiveSpg.forRestartPopup == 1) {//이수다 팝업을 다시 시작할 필요가 있다면
                     if (popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면

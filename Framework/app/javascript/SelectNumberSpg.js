@@ -139,7 +139,7 @@ SelectNumberSpg.selectKeyDown = function () {
                 
 
             else if (page_index == 1) { //선택보기에서 호출했을 때
-                SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+                SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
 
                 if (PlayerManager.getChannel() == 5 && InteractiveSpg.forRestartPopup == 1) {//이수다 팝업을 다시 시작할 필요가 있다면
                     if (popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
@@ -229,7 +229,7 @@ SelectNumberSpg.registerKeyDown = function () {
 
 
             else if (page_index == 1) //선택보기에서 호출했을 때
-                SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+                SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
 
             jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
             break;
@@ -528,7 +528,7 @@ SelectNumberSpg.registerKeyDown = function () {
                     if (page_index == 2) //편성표에서 호출했을 때
                         TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
                     else if (page_index == 1) //선택보기에서 호출했을 때
-                        SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+                        SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
 
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
                 }
@@ -537,7 +537,7 @@ SelectNumberSpg.registerKeyDown = function () {
                     if (page_index == 2) //편성표에서 호출했을 때
                         TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
                     else if (page_index == 1) //선택보기에서 호출했을 때
-                        SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+                        SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
 
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
                 }            
@@ -571,7 +571,7 @@ SelectNumberSpg.submitKeyDown = function () {
 
 
             else if (page_index == 1) //선택보기에서 호출했을 때
-                SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+                SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
 
             jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
             break;
@@ -588,7 +588,7 @@ SelectNumberSpg.submitKeyDown = function () {
                     TVSchedulePg.anchor.list.focus();//편성표로 다시 포커스를 넘긴다.
 
                 else if (page_index == 1) //선택보기에서 호출했을 때
-                    SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+                    SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
 
                 jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.                
             }
@@ -699,7 +699,7 @@ SelectNumberSpg.submitKeyDown = function () {
                     });
 
                 
-                    SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.   
+                    SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.   
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
                 }
                 else if (page_index == 1 && SelectWatchPg_index == 1) {//'선택보기'->'추천상품'->'상세보기'
@@ -717,7 +717,7 @@ SelectNumberSpg.submitKeyDown = function () {
                         }
                     });
                     ComparePriceSpg.body.empty();//'추천 상품'부분의 내용을 지운다.
-                    SelectWatchPg.focus();//선택보기로 포커스를 넘긴다.
+                    SelectWatchPg.focus(2);//선택보기로 포커스를 넘긴다.
                     jQuery('#SelectNumberSpg').hide();//번호 선택 페이지를 닫는다.
                 }
             }

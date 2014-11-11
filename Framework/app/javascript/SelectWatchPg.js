@@ -39,17 +39,47 @@ SelectWatchPg.onLoad = function (ch) {
 
 SelectWatchPg.focus = function (view) {
     alert("SelectWatchPg focus");
+
+    switch(view){
+        case 0://hide
+            SelectWatchPg.Channels.removeClass('show');
+            SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+            if (page_index == 1)
+                jQuery('#sideBar').addClass('hide');
+        break;
+        case 1://channel
+            SelectWatchPg.showChannel();        
+            SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+            if (page_index == 1)
+                jQuery('#sideBar').addClass('hide');
+        break;
+        case 2://menu
+            SelectWatchPg.Channels.removeClass('show');
+            SelectWatchPg.showMenu();
+        break;
+        default://all
+            SelectWatchPg.showChannel();        
+            SelectWatchPg.showMenu();
+        break;
+    }
     //alert("view : "+view);
+    /*
     if (view == 'hide') {
         SelectWatchPg.Channels.removeClass('show');
         SelectWatchPg.SelectWatchPgMenu.removeClass('show');
         if (page_index == 1)
             jQuery('#sideBar').addClass('hide');
     }
+    if (view == 'hide') {
+        SelectWatchPg.Channels.removeClass('show');
+        SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+        if (page_index == 1)
+            jQuery('#sideBar').addClass('hide');
+    }    
     else {
         SelectWatchPg.showMenu();
         SelectWatchPg.showChannel();
-    }
+    }*/
     //    SelectWatchPg.DownCh.addClass('show');
     
     

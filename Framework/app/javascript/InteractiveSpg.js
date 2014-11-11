@@ -82,7 +82,7 @@ InteractiveSpg.keyDown = function () {
                 alert('질문이 종료되었습니다.');
 
 
-            SelectWatchPg.focus('hide');
+            SelectWatchPg.focus(0);
 
             break;
         case tvKey.KEY_RIGHT:
