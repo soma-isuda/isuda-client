@@ -147,7 +147,8 @@
     display: none;
     overflow: hidden;
     color: white;
-    opacity: 0.8;
+    background-color: rgba(0,0,0,0.6);
+
 }
     /*ÆË¾÷ ¸Þ¼¼Áö*/
     #popupISUDA > div:nth-child(1) {
@@ -155,7 +156,6 @@
         padding-top:30px;
         width: 720px;
         height: 130px;
-        background-color: black;
         font-size: 30px;
         text-align: center;
 
@@ -164,7 +164,6 @@
     #popupISUDA > div:nth-child(2) {
         width: 720px;
         height:77px;
-        background-color: black;
         font-size:25px;
         overflow:hidden;
     }
@@ -179,6 +178,6 @@
     }
 
     #popupISUDA .ISUDAButton.focus{
-        background-color:white;
-        color:black;
+        background-color:#ce534d;
+        color:white;
     }

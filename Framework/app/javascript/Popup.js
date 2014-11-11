@@ -226,7 +226,7 @@ popupISUDAkeyDown = function () {
                     SelectWatchPg.isudaPopup(currentMovieIdx+1, 0);
                 }, 3000);//3초후에 팝업을 닫는다.
 
-                focusBack.focus('hide');//포커스를 되돌린다
+                focusBack.focus(0);//포커스를 되돌린다
             }
             else {//T2 질문에 접근했을 때
                 if (popup_index == 0) {//"예"를 선택했을 경우
@@ -237,7 +237,7 @@ popupISUDAkeyDown = function () {
                         else 
                             SelectWatchPg.isudaPopup(currentMovieIdx+1, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
                         
-                        focusBack.focus('hide');//포커스를 되돌린다
+                        focusBack.focus(0);//포커스를 되돌린다
 
                 }
                 else {//"아니요"를 선택했을 경우
@@ -247,7 +247,7 @@ popupISUDAkeyDown = function () {
                     else 
                         SelectWatchPg.isudaPopup(currentMovieIdx+1, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifNo);//다음질문등록
                     
-                    focusBack.focus('hide');//포커스를 되돌린다
+                    focusBack.focus(0);//포커스를 되돌린다
                 }
             }
             

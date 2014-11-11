@@ -69,7 +69,7 @@ SMSSharingSpg.bodyKeyDown = function () {
         case tvKey.KEY_LEFT:
             alert("SMSSharingSpg_key : Left");
             jQuery('#SMSSharingSpg').hide();//페이지를 닫는다.			
-            SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+            SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
             break;
         case tvKey.KEY_RIGHT:
             alert("SMSSharingSpg_key : Right");
@@ -320,7 +320,7 @@ SMSSharingSpg.submitKeyDown = function () {
         case tvKey.KEY_LEFT:
             alert("SMSSharingSpg_key : Left");
             jQuery('#SMSSharingSpg').hide();//페이지를 닫는다.			
-            SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+            SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
             break;
         case tvKey.KEY_RIGHT:
             alert("SMSSharingSpg_key : Right");
@@ -381,7 +381,7 @@ SMSSharingSpg.submitKeyDown = function () {
                 }
             });
             jQuery('#SMSSharingSpg').hide();//페이지를 닫는다.			
-            SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.         
+            SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.         
             break;
         case tvKey.KEY_VOL_UP:
         case tvKey.KEY_PANEL_VOL_UP:
@@ -427,7 +427,7 @@ SMSSharingSpg.keyDown = function()
 		case tvKey.KEY_LEFT:
 			alert("SMSSharingSpg_key : Left");
 			jQuery('#SMSSharingSpg').hide();//페이지를 닫는다.			
-			SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+			SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
 			break;
 		case tvKey.KEY_RIGHT:
 			alert("SMSSharingSpg_key : Right");
