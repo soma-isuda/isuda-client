@@ -28,6 +28,9 @@ var TVSchedulePg = {
     loadedLineNum: 1,//상품 리스트에서 아래 버튼을 몇번 눌렀는지 추적하는 변수(상품 로딩을 위해서)
     INITIAL_NUMBER: 6,//처음에 편성표에서 로드되는 상품의 수
     productTotalNum: 0,//어떤 카테고리에 있는 총 상품의 수
+    today: '',
+    tomorrow: '',
+    dayAfterTomorrow:'',
 };
 
 TVSchedulePg.onLoad = function () {
@@ -64,12 +67,16 @@ TVSchedulePg.onLoad = function () {
     tempString += (tempDate.getMonth() + 1) + "월 ";
     tempString += tempDate.getDate() + "일  ";
     tempString += day[tempDate.getDay()] + "요일 ~";
+    TVSchedulePg.today = (tempDate.getMonth() + 1) + "월" + tempDate.getDate() + "일";//오늘 날짜의 월일
+    //내일 날짜
+    tempDate = new Date(tempDate.valueOf() + (24 * 60 * 60 * 1000));
+    TVSchedulePg.tomorrow = (tempDate.getMonth() + 1) + '월' + tempDate.getDate() + '일';//내일 날짜의 월일
     //내일 모레 날짜
-    tempDate = new Date(tempDate.valueOf() + (48 * 60 * 60 * 1000));
-    //tempString += tempDate.getFullYear() + "년 ";
+    tempDate = new Date(tempDate.valueOf() + (24 * 60 * 60 * 1000));
     tempString += (tempDate.getMonth() + 1) + "월 ";
     tempString += tempDate.getDate() + "일 ";
     tempString += day[tempDate.getDay()] + "요일";
+    TVSchedulePg.dayAfterTomorrow = (tempDate.getMonth() + 1) + '월' + tempDate.getDate() + '일';//내일 모레 날짜의 월일
 
     jQuery('#product>#product_nav').append(tempString);
 
@@ -706,7 +713,13 @@ TVSchedulePg.loadNewProduct = function (value) {
     
     var tempString = '';
     tempString = beforeTime.split(/[-T:\.Z]/);
-    timeRefined += tempString[1] + "월" + tempString[2] + "일 " + tempString[3] + "시" + tempString[4] + "분 ~ ";
+    if ((tempString[1] + "월" + tempString[2] + "일") == TVSchedulePg.today)
+        timeRefined += '오늘 ';
+    else if ((tempString[1] + "월" + tempString[2] + "일") == TVSchedulePg.tomorrow)
+        timeRefined += '내일 ';
+    else if ((tempString[1] + "월" + tempString[2] + "일") == TVSchedulePg.dayAfterTomorrow)
+        timeRefined += '내일모레 ';
+    timeRefined += tempString[3] + "시" + tempString[4] + "분 ~ ";
     tempString = beforeTime_end.split(/[-T:\.Z]/);
     timeRefined += tempString[3] + "시" + tempString[4] + "분";
 
@@ -739,7 +752,7 @@ TVSchedulePg.loadNewProduct = function (value) {
     tempString += '     <div class="schedule_productName">' + value.productName + '</div>';
     //tempString += '     <div class="schedule_providerName">' + providers[value.providerId].name + '</div>';
     tempString += '     <div class="schedule_providerName">';
-    tempString += '         <img src="img/' + value.providerId + '.PNG" />';
+    tempString += '         <img src="img/provider/' + value.providerId + '.jpg" />';
     tempString += '     </div>';
     tempString += '     <div class="schedule_productPrice"><p>최대 혜택가</p>' + priceRefined + '</div>';
     tempString += ' </div>';

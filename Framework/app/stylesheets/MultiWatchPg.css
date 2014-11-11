@@ -36,6 +36,9 @@
 }
 
 #mainItem {
+    /*추가한 부분*/
+    margin-top:10px;
+    /*-------------*/
 	margin-left: 55px;
 }
 
@@ -45,7 +48,10 @@
 	position: relative;
 	width: 540px;
 	height: 275px;
-	margin-top: 40px;
+        /*추가한 부분*/
+        margin-top:50px;
+        /*-------------*/
+	/*margin-top: 40px;*/
 	margin-right: 32px;
 }
 
@@ -90,6 +96,17 @@
 	display: block;
 	position: relative;
 	color: white;
+}
+.provider{
+    position:absolute;
+    top:-43px;
+}
+.providerISUDA{
+    position:absolute;
+    width:120px;
+    height:120px;
+    top:-50px;
+    left:-10px;
 }
 .endTime {
 	margin-left: 10px;
