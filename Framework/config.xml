@@ -3,10 +3,10 @@
   <cpname itemtype="string"/>  
   <cplogo itemtype="string"/>  
   <cpauthjs itemtype="string"/>  
-  <ThumbIcon itemtype="string">img/smartHomeshopping.jpg</ThumbIcon>  
-  <BigThumbIcon itemtype="string">img/smartHomeshopping.jpg</BigThumbIcon>  
-  <ListIcon itemtype="string">img/smartHomeshopping.jpg</ListIcon>  
-  <BigListIcon itemtype="string">img/smartHomeshopping.jpg</BigListIcon>  
+  <ThumbIcon itemtype="string">img/smartHomeshopping_thumb.png</ThumbIcon>  
+  <BigThumbIcon itemtype="string">img/smartHomeshopping_bigthumb.png</BigThumbIcon>  
+  <ListIcon itemtype="string">img/smartHomeshopping_list.png</ListIcon>  
+  <BigListIcon itemtype="string">img/smartHomeshopping_biglist.png</BigListIcon>  
   <category itemtype="string">Lifestyle</category>  
   <autoUpdate itemtype="boolean">n</autoUpdate>  
   <ver itemtype="string">0.100</ver>  
