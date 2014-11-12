@@ -134,6 +134,7 @@
     margin-left: 0px;
     display: none;
     overflow: hidden;
+    z-index: 20;
 }
 
 /*이수다 홈쇼핑에서 중간 중간 뜨는 팝업*/

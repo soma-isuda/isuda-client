@@ -34,17 +34,17 @@ popupAdjust = function () {
 };
 popupAdjustFull = function () {
     alert("PopUp a!!");
-    jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
+    jQuery('#confirmPopup').empty();//기존의 메세지들을 일단 지운다.
     clearTimeout(adjustTimeout);
     var tempString = '';
     tempString += '<div id="popupAdjustFull">';
     tempString += '		<img src="img/adjustFull.png" width="100%" height="100%">';
     tempString += '</div>';
-    jQuery('#popup').append(tempString);
+    jQuery('#confirmPopup').append(tempString);
     $('#popupAdjustFull').css("display", "inline");
     focusBack = SelectWatchPg;
 
-    jQuery('#anchor_popup').focus();
+    jQuery('#anchor_confirmPopup').focus();
     // $('#popupAdjust').animate({height: "-=288px"},slow);
 };
 var popup_index; //팝업 내 버튼 포커스 처리를 위한 인덱

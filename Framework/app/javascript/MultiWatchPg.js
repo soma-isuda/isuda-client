@@ -311,6 +311,11 @@ MultiWatchPg.keyDown = function()
 				    if (status == "success") { 
 				        pagearr[page_index].object.onLoad(5);
 	                    SelectWatchPg.focus();
+		                if(Math.random()<0.1)
+		                    popupMessage("축<br> 이벤트에 당첨!");
+		                else
+		                    popupMessage("꽝<br> 너무 안타까워");
+			            
 				    }
 				});
 				clearInterval(refresh);
