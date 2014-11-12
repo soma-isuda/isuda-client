@@ -116,7 +116,7 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
         */
         //기존의 영상이 종료되었을때
         if (event.data == -1 && isNowPlaying==0 ) {
-            ISUDAPlayRotation = (ISUDAPlayRotation+1)%5;//다음영상으로 넘어갈때 ended가 2번 호출됨
+            ISUDAPlayRotation = (ISUDAPlayRotation+1)%5;//다음영상으로 넘어갈때 인덱스를 바꿈
             var nextPlayIdx = T1QuestionAnswer[2] * 4 + T1QuestionAnswer[1] * 2 + T1QuestionAnswer[0];
             alert('ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation] : '+ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);
             //event.target.playVideoAt(ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);
