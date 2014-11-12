@@ -179,10 +179,14 @@ SelectWatchPg.showChannel = function () {
     clearTimeout(menuDisplayTimeout);
     menuDisplayTimeout = setTimeout(function () {
         SelectWatchPg.Channels.removeClass('show');
-        SelectWatchPg.SelectWatchPgMenu.removeClass('show');
-        if (page_index == 1)
-            jQuery('#sideBar').addClass('hide');
+        SelectWatchPg.SelectWatchPgMenu.animate({ left: '-300px' }, "1000");
 
+        // SelectWatchPg.SelectWatchPgMenu.addClass('hide');
+        setTimeout(function () {
+            SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+            if (page_index == 1)
+                jQuery('#sideBar').addClass('hide');
+        }, 800);
     }, 7000);
 
     return show;
@@ -281,6 +285,16 @@ SelectWatchPg.keyDown = function () {
 
         case tvKey.KEY_RIGHT:
             alert("SelectWatchPg_key : Right");
+            SelectWatchPg.Channels.removeClass('show');
+            SelectWatchPg.SelectWatchPgMenu.animate({ left: '-300px' }, "1000");
+
+            // SelectWatchPg.SelectWatchPgMenu.addClass('hide');
+            setTimeout(function () {
+                SelectWatchPg.SelectWatchPgMenu.removeClass('show');
+                if (page_index == 1)
+                    jQuery('#sideBar').addClass('hide');
+            }, 800);
+            break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
             alert("SelectWatchPg_index : " + SelectWatchPg_index);
