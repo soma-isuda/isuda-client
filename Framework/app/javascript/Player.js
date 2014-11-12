@@ -131,6 +131,7 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
             //SelectWatchPg.focus(0); // 포커스를 다시 돌려보낸다.
             SelectWatchPg.clearPopupList(); // 셋타임 시켜논 명령어 삭제 
             currentMovieIdx = event.target.getPlaylistIndex(); // 현재 재생중인 영상 순서 
+            
             alert("startQuestion : "+ startQuestion);
             indexInISUDAchannel = -1;
             currentQuestionIdx=0;

@@ -1,10 +1,10 @@
 popupMessage = function (message) {
     alert("PopUp m!!");
-    jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
-    jQuery('#popup').append('<div id="popupMessage">' + message + '</div>');
-    $('#popupMessage').css("display", "block");
+    jQuery('#confirmPopup').empty();//기존의 메세지들을 일단 지운다.
+    jQuery('#confirmPopup').append('<div id="confirmPopupMessage">' + message + '</div>');
+    $('#confirmPopupMessage').css("display", "block");
     setTimeout(function () {
-        jQuery('#popup').empty();
+        jQuery('#confirmPopup').empty();
     }, 2000);
 };
 
@@ -34,17 +34,17 @@ popupAdjust = function () {
 };
 popupAdjustFull = function () {
     alert("PopUp a!!");
-    jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
+    jQuery('#confirmPopup').empty();//기존의 메세지들을 일단 지운다.
     clearTimeout(adjustTimeout);
     var tempString = '';
     tempString += '<div id="popupAdjustFull">';
     tempString += '		<img src="img/adjustFull.png" width="100%" height="100%">';
     tempString += '</div>';
-    jQuery('#popup').append(tempString);
+    jQuery('#confirmPopup').append(tempString);
     $('#popupAdjustFull').css("display", "inline");
     focusBack = SelectWatchPg;
 
-    jQuery('#anchor_popup').focus();
+    jQuery('#anchor_confirmPopup').focus();
     // $('#popupAdjust').animate({height: "-=288px"},slow);
 };
 var popup_index; //팝업 내 버튼 포커스 처리를 위한 인덱
@@ -52,34 +52,34 @@ var focusBack; //되돌가기위한 포커스를 저장하놓는 곳
 popupMessageButton = function (message, returnFocus) {
     alert("PopUp b!!");
     focusBack = returnFocus;
-    jQuery('#popup').empty();
+    jQuery('#confirmPopup').empty();
     var tempString = '';
-    tempString += '<div id="popupMessageButton">		';
+    tempString += '<div id="confirmPopupMessageButton">		';
     tempString += '		<div>' + message + '</div>';
-    tempString += '		<div id="popupBtn1" class ="popupBtn">확인</div>	';
-    tempString += '		<div id="popupBtn2" class ="popupBtn">취소</div>   ';
+    tempString += '		<div id="confirmPopupBtn1" class ="confirmPopupBtn">확인</div>	';
+    tempString += '		<div id="confirmPopupBtn2" class ="confirmPopupBtn">취소</div>   ';
     tempString += '</div>								';
-    jQuery('#popup').append(tempString);
-    $('#popupMessageButton').css("display", "block");
+    jQuery('#confirmPopup').append(tempString);
+    $('#confirmPopupMessageButton').css("display", "block");
 
     popup_index = 0;
-    jQuery('#anchor_popup').focus();
-    jQuery('.popupBtn').eq(1).removeClass('focus');
-    jQuery('.popupBtn').eq(popup_index).addClass('focus');
+    jQuery('#anchor_confirmPopup').focus();
+    jQuery('.confirmPopupBtn').eq(1).removeClass('focus');
+    jQuery('.confirmPopupBtn').eq(popup_index).addClass('focus');
 };
 
-popupkeyDown = function () {
+confirmPopupkeyDown = function () {
     var keyCode = event.keyCode;
     alert("popup keyDown");
     //jQuery('.popupBtn').addClass('focus');
     switch (keyCode) {
         case tvKey.KEY_LEFT:
         case tvKey.KEY_RIGHT:
-            jQuery('.popupBtn').eq(popup_index).removeClass('focus');
+            jQuery('.confirmPopupBtn').eq(popup_index).removeClass('focus');
             if (popup_index == 0)
-                jQuery('.popupBtn').eq(++popup_index).addClass('focus');
+                jQuery('.confirmPopupBtn').eq(++popup_index).addClass('focus');
             else
-                jQuery('.popupBtn').eq(--popup_index).addClass('focus');
+                jQuery('.confirmPopupBtn').eq(--popup_index).addClass('focus');
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
@@ -87,7 +87,7 @@ popupkeyDown = function () {
                 widgetAPI.sendExitEvent();
             else
                 focusBack.focus();
-            jQuery('#popup').empty();
+            jQuery('#confirmPopup').empty();
             break;
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
@@ -102,7 +102,7 @@ popupkeyDown = function () {
             adjustState = false;
             widgetAPI.blockNavigation(event);
             focusBack.focus();
-            jQuery('#popup').empty();
+            jQuery('#confirmPopup').empty();
             break;
         default:
             alert("Unhandled key");
