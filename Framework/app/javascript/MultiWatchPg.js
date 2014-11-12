@@ -181,7 +181,7 @@ MultiWatchPg.remainedTime = function(){
 			remainedTime.hour = remainedTime.hour-1;
 			remainedTime.minute = 60 + remainedTime.minute;
 		}
-		document.getElementById('remainedTime'+i).innerHTML = remainedTime.hour+'시 '+remainedTime.minute+'분 '+ remainedTime.second+'초';
+		document.getElementById('remainedTime'+i).innerHTML = Math.abs(remainedTime.hour)+'시 '+Math.abs(remainedTime.minute)+'분 '+ Math.abs(remainedTime.second)+'초';
 	
 	}
 };
@@ -213,11 +213,16 @@ MultiWatchPg.keyDown = function()
 			alert("MultiWatchPg_key : RETURN");
 			//앱이 종료되는것을 방지해준다.
 			widgetAPI.blockNavigation(event);
-			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+/*			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
 			$(productImg[MultiWatchPg_index]).css("display","none");
 			clearInterval(refresh);
 			clearInterval(adjustChange);
+			Main.focus();*/
+			$(productImg[MultiWatchPg_index]).css("display", "none");
+			MultiWatchPg.MultiWatchPgElem.eq(MultiWatchPg_index).removeClass('focus');
+			clearInterval(refresh);
 			Main.focus();
+
 			break;
 		case tvKey.KEY_LEFT:
 			alert("MultiWatchPg_key : Left");

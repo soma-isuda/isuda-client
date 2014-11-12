@@ -360,8 +360,8 @@ popupQuestion[5] = new Array(); //fashion king
 // 성별에 대한 질문
 
 popupQuestion[0][0] = ({
-    question: '저는 이수다라고 해요 <br>고객님을 어떻게 부를까요?',
-    answer: ["오빠", "언니"],
+    question: '저는 이수다라고 해요 <br>오빠라고 불러도 될까요?',
+    answer: ["응, 그래!", "언니라고 불러줘"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 1,//값이 없으면 yes시 종료
@@ -369,7 +369,7 @@ popupQuestion[0][0] = ({
     waitingTime: 3000//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
 popupQuestion[0][1] = ({
-    question: '오늘은 남성을 위한 <br>추천 컨텐츠로 준비할게요^^',
+    question: '오늘은 오빠를 위해<br> 준비할게요 @.@',
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -378,7 +378,7 @@ popupQuestion[0][1] = ({
     waitingTime: 0//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
 popupQuestion[0][2] = ({
-    question: '오늘은 여성을 위한 <br>추천 컨텐츠로 준비할게요^^',
+    question: '오늘은 언니를 위해 <br> 준비할게요 @.@',
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -389,8 +389,8 @@ popupQuestion[0][2] = ({
 
 // 감정에 대한 질문
 popupQuestion[0][3] = ({
-    question: '오늘 왠지 기분 좋은<br> 하루가 될거 같아요!',
-    answer: ["맞아!", "별로.."],
+    question: '오늘 왠지 기분 좋은<br> 하루가 될거 같아요! 그쵸?',
+    answer: ["맞아!", "난 별로.."],
     buttonNum: 2,//현재 질문의 버튼 개수
 
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -399,7 +399,7 @@ popupQuestion[0][3] = ({
     waitingTime: 3000//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
 popupQuestion[0][4] = ({
-    question: '정말 좋은일만 <br>있었으면 좋겠어요@.@',
+    question: '정말 그렇게 될거에요! 이수다가 도와줄게요',
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -408,7 +408,7 @@ popupQuestion[0][4] = ({
     waitingTime: 0//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
 popupQuestion[0][5] = ({
-    question: '다음 방송 보면<br>기분이 나아질거에요',
+    question: '다음 방송 보면<br>기분이 나아질거에요 ㅠ.ㅠ',
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -419,7 +419,7 @@ popupQuestion[0][5] = ({
 
 // 상황(연인)에 대한 질문
 popupQuestion[0][6] = ({
-    question: '겨울이 다가오는 요즘<br>옆구리 시리신가요 O.O?',
+    question: '날이 많이 추워졌어요 ㅠ.ㅠ!<br>옆구리 시리지 않아요 O.O?',
     answer: ["조금은..", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수 
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -428,7 +428,7 @@ popupQuestion[0][6] = ({
     waitingTime: 3000//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
 popupQuestion[0][7] = ({
-    question: '옆구리 시리지 않는 좋은방법<br> 다음방송으로 알려드릴게요',
+    question: '채널고정!<br>옆구리 시리지 않는 좋은방법, 기대해요~',
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -479,7 +479,7 @@ popupQuestion[1][2] = ({
 //갤럭시 노트 시나리오
 //startQuestion[3] = 5;//갤럭시 노트의 플레이 순서가 4번째 이고, 시작질문의 인덱스가0이라 가정
 popupQuestion[2][0] = ({
-    question: '지금 쓰고 있는 폰이 갤럭시 노트에요?',
+    question: '혹시.. 지금 쓰고 있는 폰이 갤럭시 노트에요?',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,
@@ -489,7 +489,7 @@ popupQuestion[2][0] = ({
 });
 
 popupQuestion[2][1] = ({
-    question: '갤럭시 노트가 참 괜찮은거 같아요. 그렇죠?',
+    question: '엇! 맞췄다~! 이수다에게 밥 사주세요 ~.~<br> 갤럭시 노트 괜찮은거 같아요. 그렇죠?',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,
@@ -499,7 +499,7 @@ popupQuestion[2][1] = ({
 });
 
 popupQuestion[2][2] = ({
-    question: '하긴, 요새 좋은 핸드폰이 참 많은거 같아요',
+    question: '엇! 틀렸네 ㅠ.ㅠ <br>하긴, 요새 좋은 핸드폰이 참 많은거 같아요',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,
@@ -509,7 +509,7 @@ popupQuestion[2][2] = ({
 });
 
 popupQuestion[2][3] = ({
-    question: '혹시 핸드폰 바꿀 생각이 있어요?',
+    question: '혹시 핸드폰 바꿀 생각이 있나요?',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -519,7 +519,7 @@ popupQuestion[2][3] = ({
 });
 
 popupQuestion[2][4] = ({
-    question: '하긴, 요새 갤럭시 노트 말고도 좋은게 정말 많아요',
+    question: '하긴 요즘, 아이폰도 있고 G3도 있고.. 뭐 ...ㅎ3ㅎ',
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -558,9 +558,8 @@ popupQuestion[2][7] = ({
     waitingTime: 0//ms단위
 });
 //코오롱 시나리오----------------------------------------------------
-//startQuestion[3][0] = 1;//코오롱의 플레이 순서가 1번째 이고, 시작질문의 인덱스가 1이라는 의미
 popupQuestion[3][0] = ({
-    question: '어딘지 모르겠는데 저기 참이쁘지 않아요?',
+    question: '여기 이쁘지 않아요? ',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -570,7 +569,7 @@ popupQuestion[3][0] = ({
 });
 
 popupQuestion[3][1] = ({
-    question: '호주 BOMBO QUARRY의 Stockton Beach와 Long Jetty입니다.',
+    question: '호주 BOMBO QUARRY의 <br>Stockton Beach와 Long Jetty입니다.',
 
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
@@ -581,7 +580,7 @@ popupQuestion[3][1] = ({
 });
 
 popupQuestion[3][2] = ({
-    question: '듣고 계신 음악이 궁금하신가요?',
+    question: '지금 무슨 음악 듣고 있는지 아시~나요?',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -591,7 +590,7 @@ popupQuestion[3][2] = ({
 });
 
 popupQuestion[3][3] = ({
-    question: '듣고 계신 음악은 <br/> Gustav Mahler Symphony No.5, <br/>4악장입니다.',
+    question: '듣고 계신 음악은 <br/> Gustav Mahler Symphony No.5, <br/>4악장이래요.',
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: 1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스

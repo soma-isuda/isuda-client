@@ -129,8 +129,8 @@ $(document).ready(function () {
                         }
                         else
                             secondCategory[Number(value.firstId)][temp] = value.name;//2-dimensional array
-
                         allProduct[Number(value.firstId)][Number(value.id)] = new Array();//['대분류index']['중분류index']에 배열을 만든다.
+                        //alert(Number(value.id%100));
                         temp++;
                     });
                     //모든 상품 정보를 받아온다.
@@ -140,11 +140,16 @@ $(document).ready(function () {
                         dataType: 'json',
                         success: function (data) {
                             alert('/productInfo success');
+                            
                             $.each(data, function (key, value) {
                                 allProduct[0].push(value); //allProduct[0] 배열에는 모든 상품이 들어가야 하므로, 일단 넣는다.
                                 if (value.firstId > 0 && value.secondId > 0) {//대분류와 중분류가 명확히 분류되어 있는 상품일 경우
+                                    //alert(value.firstId + '--------------' + value.secondId);
                                     allProduct[Number(value.firstId)][Number(value.secondId)].push(value);
+                                    //allProduct[Number(value.firstId)][Number(value.secondId)][tteemmpp++] = value;
+                                    //alert(allProduct[Number(value.firstId)][Number(value.secondId)][tteemmpp].id);
                                     midProduct[Number(value.firstId)].push(value);//중분류 전체보기
+
                                 }
                             });
                             alert('상품정보 받아오기 끝');

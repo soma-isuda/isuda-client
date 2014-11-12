@@ -836,7 +836,7 @@ MyPg.categoryKeyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("MyPg_key : Up");
-            if (MyPg.category_.index > 0 && !MyPg.category.submit.hasClass('focus')){
+            if (MyPg.category_.index > 0 && MyPg.category.submit.hasClass('focus_')){
                 MyPg.category_.content.eq(MyPg.category_.index).removeClass('focus');
                 MyPg.category_.index--;
             	MyPg.category_.content.eq(MyPg.category_.index).addClass('focus');
@@ -844,7 +844,7 @@ MyPg.categoryKeyDown = function () {
             break;
         case tvKey.KEY_DOWN:
             alert("MyPg_key : Down");
-            if (MyPg.category_.index < MyPg.category_.arr.length-1) {
+            if (MyPg.category_.index < MyPg.category_.arr.length - 1 && MyPg.category.submit.hasClass('focus_')) {
                 MyPg.category_.content.eq(MyPg.category_.index).removeClass('focus');
                 MyPg.category_.index++;
                 MyPg.category_.content.eq(MyPg.category_.index).addClass('focus');
@@ -1020,14 +1020,14 @@ MyPg.SMSAlarmKeyDown = function () {
             break;
         case tvKey.KEY_UP:
             alert("MyPg_key : Up");
-            if (SMSAlarm_index > 0){
+            if (SMSAlarm_index > 0 && MyPg.SMSAlarm.submit.hasClass('focus_')) {
                 MyPg.SMSAlarm.elem.eq(SMSAlarm_index).removeClass('focus');
                 MyPg.SMSAlarm.elem.eq(--SMSAlarm_index).addClass('focus');
             }
             break;
         case tvKey.KEY_DOWN:
             alert("MyPg_key : Down");
-            if (SMSAlarm_index < MyPg.SMSAlarm.elem.length-1) {
+            if (SMSAlarm_index < MyPg.SMSAlarm.elem.length - 1 && MyPg.SMSAlarm.submit.hasClass('focus_')) {
                 MyPg.SMSAlarm.elem.eq(SMSAlarm_index).removeClass('focus');
                 MyPg.SMSAlarm.elem.eq(++SMSAlarm_index).addClass('focus');
             }

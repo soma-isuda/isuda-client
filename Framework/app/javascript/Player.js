@@ -112,7 +112,7 @@ ISUDAPlayOrder[3] = [0, 1, 4, 2, 3];
 ISUDAPlayOrder[4] = [0, 2, 1, 3, 4];
 ISUDAPlayOrder[5] = [0, 2, 1, 3, 4];
 ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
-ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
+ISUDAPlayOrder[7] = [0, 2, 4, 3, 1];
         */
         //기존의 영상이 종료되었을때
         if (event.data == -1 && isNowPlaying==0 ) {
@@ -122,6 +122,7 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
             //event.target.playVideoAt(ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);
             currentMovieIdx = ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation];
             PlayerManager.play(ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);//다음 영상을 로드한다.(T1질문에 따라서)
+            alert('첫번째 if에서 : ' + currentMovieIdx);
             isNowPlaying = 1;
         }
         if (event.data == YT.PlayerState.PLAYING) {            
@@ -131,7 +132,8 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
             //SelectWatchPg.focus(0); // 포커스를 다시 돌려보낸다.
             SelectWatchPg.clearPopupList(); // 셋타임 시켜논 명령어 삭제 
             currentMovieIdx = event.target.getPlaylistIndex(); // 현재 재생중인 영상 순서 
-            
+            alert('두번째 if에서 : ' + currentMovieIdx);
+
             alert("startQuestion : "+ startQuestion);
             indexInISUDAchannel = -1;
             currentQuestionIdx=0;

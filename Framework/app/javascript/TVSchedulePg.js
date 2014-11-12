@@ -498,7 +498,7 @@ TVSchedulePg.listKeyDown = function () {
                             TVSchedulePg.loadNewProduct(midProduct[big_index][i]);
                             //중분류 카테고리에서
                         else if (big_index != 0 && mid_index != 0)
-                            TVSchedulePg.loadNewProduct(allProduct[big_index][mid_index][i]);
+                            TVSchedulePg.loadNewProduct(allProduct[big_index][(secondCategoryNumber[secondCategory[big_index][mid_index]])][i]);
                     }//다음줄 로드 완료
                 }
             }
@@ -561,8 +561,9 @@ TVSchedulePg.listKeyDown = function () {
                             else if (big_index != 0 && mid_index == 0)
                                 TVSchedulePg.loadNewProduct(midProduct[big_index][i]);
                                 //중분류 카테고리에서
-                            else if (big_index != 0 && mid_index != 0)
-                                TVSchedulePg.loadNewProduct(allProduct[big_index][mid_index][i]);
+                            else if (big_index != 0 && mid_index != 0) {
+                                TVSchedulePg.loadNewProduct(allProduct[big_index][(secondCategoryNumber[secondCategory[big_index][mid_index]])][i]);
+                            }
                         }//다음줄 로드 완료
 
                         //일단 원래 상품의 포커스를 지운다.

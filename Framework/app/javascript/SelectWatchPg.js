@@ -289,6 +289,7 @@ SelectWatchPg.keyDown = function () {
             SelectWatchPg.SelectWatchPgMenu.animate({ left: '-300px' }, "1000");
 
             // SelectWatchPg.SelectWatchPgMenu.addClass('hide');
+            clearTimeout(menuDisplayTimeout);
             setTimeout(function () {
                 SelectWatchPg.SelectWatchPgMenu.removeClass('show');
                 if (page_index == 1)
