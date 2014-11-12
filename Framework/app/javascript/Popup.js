@@ -51,6 +51,7 @@ var popup_index; //팝업 내 버튼 포커스 처리를 위한 인덱
 var focusBack; //되돌가기위한 포커스를 저장하놓는 곳 
 popupMessageButton = function (message, returnFocus) {
     alert("PopUp b!!");
+    subPageState = true; 
     focusBack = returnFocus;
     jQuery('#confirmPopup').empty();
     var tempString = '';
