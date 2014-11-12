@@ -47,7 +47,7 @@ var PlayerManager = {
         var url = providers[channels[this.channel]].getURL();
         alert(url);
         if(url != null){
-            this.playerarea.html('<video id="myplayer" src="'+url+'" width="1920px" height="1080px" loop="loop" autoplay="autoplay" poster="img/loading.png"></video>');
+            this.playerarea.html('<video id="myplayer" src="'+url+'" width="1921px" height="1081px" loop="loop" autoplay="autoplay" poster="img/loading.png"></video>');
             this.player=MyPlayer;
         }
         else {
@@ -128,7 +128,7 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
             isNowPlaying = 0;
             //            jQuery('#loading').removeClass('show');
             jQuery('#popup').empty();//이전 방송에서 눌리지 않고 남아 있는 팝업을 없앤다.
-            SelectWatchPg.focus(0); // 포커스를 다시 돌려보낸다.
+            //SelectWatchPg.focus(0); // 포커스를 다시 돌려보낸다.
             SelectWatchPg.clearPopupList(); // 셋타임 시켜논 명령어 삭제 
             currentMovieIdx = event.target.getPlaylistIndex(); // 현재 재생중인 영상 순서 
             

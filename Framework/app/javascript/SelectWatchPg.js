@@ -298,6 +298,9 @@ SelectWatchPg.keyDown = function () {
                 if (status == "success") {
                     subPageArr[SelectWatchPg_index].object.onLoad();
                 }
+                //else if (statue == "fail") {
+
+                //}
             });
             break;
         default:

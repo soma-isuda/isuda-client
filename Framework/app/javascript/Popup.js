@@ -647,6 +647,16 @@ popupQuestion[4][4] = ({
     waitingTime: 0//ms단위(바로뜸)
 });
 
+//패션왕
+popupQuestion[5][0] = ({
+    question: '',
+    answer: [],
+    buttonNum: 0,//현재 질문의 버튼 개수
+    moreInfoIndex: 1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    ifYes: -1,//값이 없으면 yes시 종료
+    ifNo: -1,//값이 없으면 no시 종료
+    waitingTime: 0//ms단위(바로뜸)
+});
 
 
 

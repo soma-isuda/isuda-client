@@ -51,6 +51,7 @@ DetailInfoSpg.onLoad = function () {
     alert(productLoadedId[productListIndex]);
     if (page_index == 1 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
         var currentChannel = PlayerManager.getChannel();
+        //if (currentChannel == -1) currentChannel = 5;
         $.ajax({
             url: SERVER_ADDRESS + '/now',
             type: 'GET',
