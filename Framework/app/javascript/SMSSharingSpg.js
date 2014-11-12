@@ -352,7 +352,10 @@ SMSSharingSpg.submitKeyDown = function () {
                     $.each(data, function (key, value) {
                         alert(value.providerId);
                         if (tempIndex == currentChannel) {
-                            _URLPost = value.productPgURL;
+                            if (typeof value.id != 'number') //이수다가 아닌 다른 채널이면
+                                _URLPost = value.productPgURL;
+                            else
+                                _URLPost = ISUDAschedule[currentMovieIdx].productPgURL;
                         }
                         tempIndex++;
                     });

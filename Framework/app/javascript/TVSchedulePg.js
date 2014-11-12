@@ -250,7 +250,7 @@ TVSchedulePg.bigKeyDown = function () {
                 mid_index = 0;
                 //중분류 부분을 보여준다.
                 jQuery('#mid').show();
-                jQuery('#mid').animate({ width: '300px' }, "1000");
+//                jQuery('#mid').animate({ width: '300px' }, "1000");
 
                 tabMenu();
                 TVSchedulePg.anchor.mid.focus();//중분류로 anchor를 넘긴다

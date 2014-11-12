@@ -66,8 +66,8 @@
     position: relative;
     float: left;
     box-sizing: border-box;
-    /*width: 300px;*/
-    width:1px;
+    width: 300px;
+    /*width:1px;*/
 
     padding-top: 240px;
     padding-bottom: 240px;

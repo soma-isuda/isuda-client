@@ -77,7 +77,7 @@ MultiWatchPg.onLoad = function () {
                 if (typeof this.id != 'number')//이수다홈쇼핑을 제외한 나머지들은 id가 문자열임
                     tempString += '<img class="provider" src="img/provider/' + this.providerId + '.jpg" />';
                 else//이수다홈쇼핑
-                    tempString += '<img class="providerISUDA" src="img/provider/IS.png" />';
+                    tempString += '<img class="provider" src="img/provider/IS.jpg" />';
 
                 tempString+='		<div class="price">';
                 tempString+='			<p>최대 혜택가</p>';
@@ -317,6 +317,11 @@ MultiWatchPg.keyDown = function()
 				    if (status == "success") { 
 				        pagearr[page_index].object.onLoad(5);
 	                    SelectWatchPg.focus();
+		                if(Math.random()<0.1)
+		                    popupMessage("축<br> 이벤트에 당첨!");
+		                else
+		                    popupMessage("꽝<br> 너무 안타까워");
+			            
 				    }
 				});
 				clearInterval(refresh);
