@@ -51,6 +51,7 @@ DetailInfoSpg.onLoad = function () {
     alert(productLoadedId[productListIndex]);
     if (page_index == 1 && SelectWatchPg_index == 0) { //선택보기에서 '상세보기'
         var currentChannel = PlayerManager.getChannel();
+        alert(currentChannel);
         //if (currentChannel == -1) currentChannel = 5;
         $.ajax({
             url: SERVER_ADDRESS + '/now',
@@ -64,10 +65,12 @@ DetailInfoSpg.onLoad = function () {
                 var detailImgPath;
                 if (typeof data.id != 'number') //이수다가 아닌 다른 채널이면
                     detailImgPath = SERVER_ADDRESS + '/pageShots/' + data.id + '.jpeg';
-                else //이수다 채널이면
+                else {//이수다 채널이면
+                    currentMovieIdx = PlayerManager.player.getPlaylistIndex(); // 현재 재생중인 영상 순서
+                     
                     detailImgPath = SERVER_ADDRESS + '/pdPgShots/' + ISUDAschedule[currentMovieIdx].productPgImgURL;
 
-
+                }
 
                 var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
                 tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지

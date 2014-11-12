@@ -120,9 +120,9 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
             var nextPlayIdx = T1QuestionAnswer[2] * 4 + T1QuestionAnswer[1] * 2 + T1QuestionAnswer[0];
             alert('ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation] : '+ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);
             //event.target.playVideoAt(ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);
+            currentMovieIdx = ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation];
             PlayerManager.play(ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation]);//다음 영상을 로드한다.(T1질문에 따라서)
             isNowPlaying = 1;
-            currentMovieIdx = ISUDAPlayOrder[nextPlayIdx][ISUDAPlayRotation];
         }
         if (event.data == YT.PlayerState.PLAYING) {            
             isNowPlaying = 0;

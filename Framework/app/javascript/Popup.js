@@ -51,7 +51,7 @@ var popup_index; //팝업 내 버튼 포커스 처리를 위한 인덱
 var focusBack; //되돌가기위한 포커스를 저장하놓는 곳 
 popupMessageButton = function (message, returnFocus) {
     alert("PopUp b!!");
-    subPageState = true; 
+    subPageState = true;
     focusBack = returnFocus;
     jQuery('#confirmPopup').empty();
     var tempString = '';
@@ -115,71 +115,75 @@ confirmPopupkeyDown = function () {
 
 var ISUDAButtonNum;
 var ISUDAFirstAccess = 1;//이수다 채널에 처음 접근하면 1, 아니면 0
-var popupIgnoreflg =false; //이수다 채널 팝업이 서브페이지등에 의해 무시되었을경우 true가된다.
+var popupIgnoreflg = false; //이수다 채널 팝업이 서브페이지등에 의해 무시되었을경우 true가된다.
 //이수다 홈쇼핑에서 방송 중간중간에 뜨는 팝업
 popupISUDA = function (message, buttons) {
-        alert("PopUp ISUDA!!");
-        ISUDAButtonNum = buttons.length;
-        alert('ISUDAButtonNum:' + ISUDAButtonNum);
-        alert('subPageState : '+ subPageState);
-        alert('popupIgnoreflg : '+popupIgnoreflg);
-        alert(ISUDAFirstAccess+":"+(currentMovieIdx+1)+':'+currentQuestionIdx);
-        
-        jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
-        var tempString = '';
-        tempString += '<div id="popupISUDA">';
-        tempString += '     <div>' + message + '</div>';
-        tempString += '     <div>';
-        for (var i = 0; i < ISUDAButtonNum; i++) {
-            tempString += '     <div class="ISUDAButton">' + buttons[i] + '</div>';
-        }
-        tempString += '     </div>';
-        tempString += '</div>';
-        jQuery('#popup').append(tempString);
-        if (ISUDAButtonNum == 0) {//메세지만 있는 팝업일 경우
-            jQuery('#popupISUDA > div:nth-child(1)').css("height", "207px");
-        }
-        else
+    alert("PopUp ISUDA!!");
+    if (message == '') {//더미 팝업일 경우
+        SelectWatchPg.focus(0);
+        return;
+    }
+    ISUDAButtonNum = buttons.length;
+    alert('ISUDAButtonNum:' + ISUDAButtonNum);
+    alert('subPageState : ' + subPageState);
+    alert('popupIgnoreflg : ' + popupIgnoreflg);
+    alert(ISUDAFirstAccess + ":" + (currentMovieIdx + 1) + ':' + currentQuestionIdx);
+
+    jQuery('#popup').empty();//기존의 메세지들을 일단 지운다.
+    var tempString = '';
+    tempString += '<div id="popupISUDA">';
+    tempString += '     <div>' + message + '</div>';
+    tempString += '     <div>';
+    for (var i = 0; i < ISUDAButtonNum; i++) {
+        tempString += '     <div class="ISUDAButton">' + buttons[i] + '</div>';
+    }
+    tempString += '     </div>';
+    tempString += '</div>';
+    jQuery('#popup').append(tempString);
+    if (ISUDAButtonNum == 0) {//메세지만 있는 팝업일 경우
+        jQuery('#popupISUDA > div:nth-child(1)').css("height", "207px");
+    }
+    else
         jQuery('#popupISUDA > div:nth-child(1)').css("height", "130px");
 
-        var width = ((720 - (40 * ISUDAButtonNum)) / ISUDAButtonNum) + "px";
-        $('#popupISUDA .ISUDAButton').css("width", width);
-        $('#popupISUDA .ISUDAButton').css("margin-left", "20px");
-        $('#popupISUDA .ISUDAButton').css("margin-right", "20px");
+    var width = ((720 - (40 * ISUDAButtonNum)) / ISUDAButtonNum) + "px";
+    $('#popupISUDA .ISUDAButton').css("width", width);
+    $('#popupISUDA .ISUDAButton').css("margin-left", "20px");
+    $('#popupISUDA .ISUDAButton').css("margin-right", "20px");
 
-        popup_index = 0;
-        jQuery('.ISUDAButton').eq(popup_index).addClass('focus');
+    popup_index = 0;
+    jQuery('.ISUDAButton').eq(popup_index).addClass('focus');
 
 
-        focusBack = SelectWatchPg;
-    if(subPageState == false){//선택보기에서 서브페이지가 안켜져 있을 때
+    focusBack = SelectWatchPg;
+    if (subPageState == false) {//선택보기에서 서브페이지가 안켜져 있을 때
         popupISUDAinit();
     }
-    else{
+    else {
         popupIgnoreflg = true;
         $('#popupISUDA').css("display", "none");
     }
 };
-popupISUDAinit = function(){
+popupISUDAinit = function () {
     $('#popupISUDA').css("display", "block");
     if (ISUDAButtonNum != 0) {//버튼이 있을때만 팝업으로 포커스를 넘긴다
         SelectWatchPg.hideMenu();
         SelectWatchPg.hideChannel();
         jQuery('#anchor_popupISUDA').focus();
     }
-    else if ((ISUDAFirstAccess==0)&&(popupQuestion[currentMovieIdx+1][currentQuestionIdx].moreInfoIndex != -1)){
+    else if ((ISUDAFirstAccess == 0) && (popupQuestion[currentMovieIdx + 1][currentQuestionIdx].moreInfoIndex != -1)) {
         Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {//상세 정보 페이지를 로드한다.
             if (status == "success") {
                 alert("call InteractiveSpg onload");
-                alert("call InteractiveSpg index : "+(currentMovieIdx+1)+currentQuestionIdx);
-                InteractiveSpg.onLoad(currentMovieIdx+1,++moreInfoIndex);
+                alert("call InteractiveSpg index : " + (currentMovieIdx + 1) + currentQuestionIdx);
+                InteractiveSpg.onLoad(currentMovieIdx + 1, ++moreInfoIndex);
             }
         });
     }
-    else if((ISUDAButtonNum ==0)&&(popupQuestion[currentMovieIdx+1][currentQuestionIdx].moreInfoIndex == -1)){
-        setTimeout(function(){
+    else if ((ISUDAButtonNum == 0) && (popupQuestion[currentMovieIdx + 1][currentQuestionIdx].moreInfoIndex == -1)) {
+        setTimeout(function () {
             jQuery('#popup').empty();
-            SelectWatchPg.isudaPopup(currentMovieIdx+1, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
+            SelectWatchPg.isudaPopup(currentMovieIdx + 1, popupQuestion[currentMovieIdx + 1][currentQuestionIdx].ifYes);//다음질문등록
         }, 5000);
     }
 }
@@ -203,11 +207,11 @@ popupISUDAkeyDown = function () {
             break;
         case tvKey.KEY_ENTER:
         case tvKey.KEY_PANEL_ENTER:
-            
+
             jQuery('#popup').empty();
-            
+
             if (ISUDAFirstAccess == 1) {//T1 질문에 접근했을 때
-                
+
                 if (popup_index == 0) {//T1질문에 예라고 대답했을 때
                     SelectWatchPg.isudaPopup(0, popupQuestion[0][startQuestion].ifYes);
                     T1QuestionAnswer[userQuestionIdx] = 0;
@@ -219,39 +223,39 @@ popupISUDAkeyDown = function () {
 
                 //T2질문을 시작하는 지점
                 setTimeout(function () {
-                    ISUDAFirstAccess=0;
+                    ISUDAFirstAccess = 0;
                     jQuery('#popup').empty();
                     SelectWatchPg.clearPopupList();//팝업리스트에서 현재 질문을 지운다.
                     //현재 채널에서의 첫번째 팝업을 등록한다.
                     indexInISUDAchannel = -1;//변수 초기화
-                    SelectWatchPg.isudaPopup(currentMovieIdx+1, 0);
+                    SelectWatchPg.isudaPopup(currentMovieIdx + 1, 0);
                 }, 3000);//3초후에 팝업을 닫는다.
 
                 focusBack.focus(0);//포커스를 되돌린다
             }
             else {//T2 질문에 접근했을 때
                 if (popup_index == 0) {//"예"를 선택했을 경우
-                        alert("yes");
-                        SelectWatchPg.clearPopupList();//팝업리스트에서 현재 질문을 지운다.
-                        if (popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes == -1)//더이상의 질문이 없을때
-                            alert('질문이 종료되었습니다.');
-                        else 
-                            SelectWatchPg.isudaPopup(currentMovieIdx+1, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
-                        
-                        focusBack.focus(0);//포커스를 되돌린다
+                    alert("yes");
+                    SelectWatchPg.clearPopupList();//팝업리스트에서 현재 질문을 지운다.
+                    if (popupQuestion[currentMovieIdx + 1][currentQuestionIdx].ifYes == -1)//더이상의 질문이 없을때
+                        alert('질문이 종료되었습니다.');
+                    else
+                        SelectWatchPg.isudaPopup(currentMovieIdx + 1, popupQuestion[currentMovieIdx + 1][currentQuestionIdx].ifYes);//다음질문등록
+
+                    focusBack.focus(0);//포커스를 되돌린다
 
                 }
                 else {//"아니요"를 선택했을 경우
                     SelectWatchPg.clearPopupList();//팝업리스트에서 현재 질문을 지운다.
-                    if (popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifNo == -1) //더이상의 질문이 없을 때
+                    if (popupQuestion[currentMovieIdx + 1][currentQuestionIdx].ifNo == -1) //더이상의 질문이 없을 때
                         alert('질문이 종료되었습니다.');
-                    else 
-                        SelectWatchPg.isudaPopup(currentMovieIdx+1, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifNo);//다음질문등록
-                    
+                    else
+                        SelectWatchPg.isudaPopup(currentMovieIdx + 1, popupQuestion[currentMovieIdx + 1][currentQuestionIdx].ifNo);//다음질문등록
+
                     focusBack.focus(0);//포커스를 되돌린다
                 }
             }
-            
+
             break;
         case tvKey.KEY_EXIT:
             widgetAPI.blockNavigation(event);
@@ -277,7 +281,7 @@ popupISUDAkeyDown = function () {
 
 var popupQuestion = new Array();//팝업에 뜨는 질문들의 리스트(객체 배열)
 var startQuestion = -3;//어떤 방송에 대한 시작 질문의 인덱스
-var currentQuestionIdx=0;;//현재 띄워져 있는 팝업의 인덱스
+var currentQuestionIdx = 0;;//현재 띄워져 있는 팝업의 인덱스
 var currentMovieIdx;//현재 이수다 채널에서 방송중인 동영상의 인덱스점
 
 var userQuestionIdx = 3;
@@ -355,27 +359,27 @@ popupQuestion[5] = new Array(); //fashion king
 
 // 성별에 대한 질문
 
-popupQuestion[0][0]=({
+popupQuestion[0][0] = ({
     question: '저는 이수다라고 해요 <br>고객님을 어떻게 부를까요?',
-    answer:["오빠","언니"],
+    answer: ["오빠", "언니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 1,//값이 없으면 yes시 종료
     ifNo: 2,//값이 없으면 no시 종료
     waitingTime: 3000//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
-popupQuestion[0][1] =({
+popupQuestion[0][1] = ({
     question: '오늘은 남성을 위한 <br>추천 컨텐츠로 준비할게요^^',
-    answer:[],
+    answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
     ifNo: -1,//값이 없으면 no시 종료
     waitingTime: 0//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
-popupQuestion[0][2] =({
+popupQuestion[0][2] = ({
     question: '오늘은 여성을 위한 <br>추천 컨텐츠로 준비할게요^^',
-    answer:[],
+    answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
@@ -384,9 +388,9 @@ popupQuestion[0][2] =({
 });
 
 // 감정에 대한 질문
-popupQuestion[0][3]=({
+popupQuestion[0][3] = ({
     question: '오늘 왠지 기분 좋은<br> 하루가 될거 같아요!',
-    answer:["맞아!","별로.."],
+    answer: ["맞아!", "별로.."],
     buttonNum: 2,//현재 질문의 버튼 개수
 
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
@@ -394,18 +398,18 @@ popupQuestion[0][3]=({
     ifNo: 5,//값이 없으면 no시 종료
     waitingTime: 3000//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
-popupQuestion[0][4] =({
+popupQuestion[0][4] = ({
     question: '정말 좋은일만 <br>있었으면 좋겠어요@.@',
-    answer:[],
+    answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
     ifNo: -1,//값이 없으면 no시 종료
     waitingTime: 0//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
-popupQuestion[0][5] =({
+popupQuestion[0][5] = ({
     question: '다음 방송 보면<br>기분이 나아질거에요',
-    answer:[],
+    answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
@@ -414,27 +418,27 @@ popupQuestion[0][5] =({
 });
 
 // 상황(연인)에 대한 질문
-popupQuestion[0][6]=({
+popupQuestion[0][6] = ({
     question: '겨울이 다가오는 요즘<br>옆구리 시리신가요 O.O?',
-    answer:["조금은..","아니"],
+    answer: ["조금은..", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수 
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 7,//값이 없으면 yes시 종료
     ifNo: 8,//값이 없으면 no시 종료
     waitingTime: 3000//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
-popupQuestion[0][7] =({
+popupQuestion[0][7] = ({
     question: '옆구리 시리지 않는 좋은방법<br> 다음방송으로 알려드릴게요',
-    answer:[],
+    answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
     ifNo: -1,//값이 없으면 no시 종료
     waitingTime: 0//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
-popupQuestion[0][8] =({
+popupQuestion[0][8] = ({
     question: '연인이라면 끌릴걸요? <br> 다음방송 기대하세요',
-    answer:[],
+    answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
@@ -442,9 +446,9 @@ popupQuestion[0][8] =({
     waitingTime: 0//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
 //테유가 시나리오
-popupQuestion[1][0] =({
+popupQuestion[1][0] = ({
     question: '혹시 Gardening이라고 들어 보셨나요?',
-    answer:["물론!","아니?"],
+    answer: ["물론!", "아니?"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 1,//값이 없으면 yes시 종료
@@ -452,9 +456,9 @@ popupQuestion[1][0] =({
     waitingTime: 2000//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
 
-popupQuestion[1][1] =({
+popupQuestion[1][1] = ({
     question: '이런 친환경적인 Gardening 어때요?<br>Takeout your garden',
-    answer:[],
+    answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: 0,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
@@ -462,9 +466,9 @@ popupQuestion[1][1] =({
     waitingTime: 0//ms단위(해당 질문이 뜨기까지 걸리는 시간)
 });
 
-popupQuestion[1][2] =({
+popupQuestion[1][2] = ({
     question: 'Gardening이란 집에서 화초를 키우는 것인데요<br>친환경적인 가드닝 한번 해보시는거 어떠세요?',
-    answer:[],
+    answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
     moreInfoIndex: 0,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
@@ -477,7 +481,7 @@ popupQuestion[1][2] =({
 popupQuestion[2][0] = ({
     question: '지금 쓰고 있는 폰이 갤럭시 노트에요?',
     answer: ["응", "아니"],
-    buttonNum:2,//현재 질문의 버튼 개수
+    buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,
     ifYes: 1,//값이 없으면 yes시 종료
     ifNo: 2,//값이 없으면 no시 종료
@@ -506,7 +510,7 @@ popupQuestion[2][2] = ({
 
 popupQuestion[2][3] = ({
     question: '혹시 핸드폰 바꿀 생각이 있어요?',
-    answer: ["응", "아니"], 
+    answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 7,//값이 없으면 yes시 종료
@@ -599,7 +603,7 @@ popupQuestion[3][3] = ({
 //허그 시나리오----------------------------------------------------
 popupQuestion[4][0] = ({
     question: '부럽다~ 나도 누가 안아줘요~',
-    answer: [], 
+    answer: [],
     buttonNum: -1,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 1,//값이 없으면 yes시 종료
@@ -609,7 +613,7 @@ popupQuestion[4][0] = ({
 
 popupQuestion[4][1] = ({
     question: '갖고 싶죠? 그렇지 않아요?',
-    answer: ["응","아니"],
+    answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 2,//값이 없으면 yes시 종료
@@ -624,12 +628,12 @@ popupQuestion[4][2] = ({
     moreInfoIndex: 0,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 3,//값이 1이면 yes시 종료
     ifNo: -1,//값이 -1면 no시 종료
-    waitingTime:0//ms단위
+    waitingTime: 0//ms단위
 });
 
 popupQuestion[4][3] = ({
     question: '크리스마스 가족들과 <br> 스케이트장 어때요?',
-    answer: ["좋아!","아니야"],
+    answer: ["좋아!", "아니야"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: 4,//값이 없으면 yes시 종료
@@ -652,7 +656,7 @@ popupQuestion[5][0] = ({
     question: '',
     answer: [],
     buttonNum: 0,//현재 질문의 버튼 개수
-    moreInfoIndex: 1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
+    moreInfoIndex: -1,//현재 질문에서 yes를 눌렀을 때, 하단에 뜨는 추가정보의 인덱스
     ifYes: -1,//값이 없으면 yes시 종료
     ifNo: -1,//값이 없으면 no시 종료
     waitingTime: 0//ms단위(바로뜸)
