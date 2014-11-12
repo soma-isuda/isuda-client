@@ -66,7 +66,7 @@ ISUDAscheduleSpg.keyDown = function () {
             jQuery('#ISUDAscheduleSpg').hide();//페이지를 닫는다.	
 
             SelectWatchPg_index = 1;//마치 추천상품에서 로드된것처럼 되돌려준다.
-            SelectWatchPg.focus();
+            SelectWatchPg.focus(2);
 
             break;
         case tvKey.KEY_RIGHT:
@@ -128,7 +128,7 @@ ISUDAscheduleSpg.keyDown = function () {
             jQuery('#ISUDAscheduleSpg').hide();//페이지를 닫는다.  
 
             SelectWatchPg_index = 1;//마치 추천상품에서 로드된것처럼 되돌려준다.
-            SelectWatchPg.focus();
+            SelectWatchPg.focus(2);
 
             /*
             ISUDAPlayOrder[0] = [0, 1, 2, 3, 4];
@@ -147,6 +147,7 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
                 if (ISUDAPlayOrder[nextPlayIdx][i] == ISUDAscheduleSpg.index)
                     ISUDAPlayRotation = i;
             }
+            isNowPlaying = 1;//영상이 시간이 다되어서 종료되는게 아닐때의 예외 처리
 
             PlayerManager.play(ISUDAscheduleSpg.index);
             break;

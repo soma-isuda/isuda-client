@@ -44,7 +44,7 @@ DetailInfoSpg.onLoad = function () {
     }
     else if (page_index == 3) {
         jQuery('#reserveButton').append('<div>해당 상품 알람 삭제<div>');
-        
+
     }
 
     //상품 상세 정보 이미지를 로드한다.
@@ -61,11 +61,12 @@ DetailInfoSpg.onLoad = function () {
             success: function (data) {
                 alert('현재 채널 : ' + currentChannel);
                 var detailImgPath;
-                if (typeof data.id != 'number') {//이수다가 아닌 다른 채널이면
+                if (typeof data.id != 'number') //이수다가 아닌 다른 채널이면
                     detailImgPath = SERVER_ADDRESS + '/pageShots/' + data.id + '.jpeg';
-                }
-                else//이수다 채널이면
-                    detailImgPath = SERVER_ADDRESS + '/pdPgShots/' + data.productPgImgURL;
+                else //이수다 채널이면
+                    detailImgPath = SERVER_ADDRESS + '/pdPgShots/' + ISUDAschedule[currentMovieIdx].productPgImgURL;
+
+
 
                 var tempString = "<img src='" + detailImgPath + "' alt ='이미지가 없습니다' id='detailImg' onerror='this.src=";
                 tempString += '"img/error.png"';//상품 상세 정보 이미지가 없을 때 나오는 메세지
@@ -137,11 +138,11 @@ DetailInfoSpg.keyDown = function () {
             alert("LEFT!!!!!");
             $('.arrow').css("display", "none");
             if (page_index == 1) { //선택보기에서 '상세보기'
-                SelectWatchPg.focus();//선택보기로 다시 포커스를 넘긴다.
+                SelectWatchPg.focus(2);//선택보기로 다시 포커스를 넘긴다.
 
                 if (PlayerManager.getChannel() == 5 && InteractiveSpg.forRestartPopup == 1) {//이수다 팝업을 다시 시작할 필요가 있다면
-                    if (popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
-                        SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentMovieIdx+1][currentQuestionIdx].ifYes);//다음질문등록
+                    if (popupQuestion[currentMovieIdx + 1][currentQuestionIdx].ifYes != -1)//다음 질문이 존재하면
+                        SelectWatchPg.isudaPopup(currentMovieIdx, popupQuestion[currentMovieIdx + 1][currentQuestionIdx].ifYes);//다음질문등록
                     else
                         alert('질문이 종료되었습니다.');
                     InteractiveSpg.forRestartPopup = 0;
@@ -192,7 +193,7 @@ DetailInfoSpg.keyDown = function () {
             }
             else if (DetailInfoSpg_index == 1) {//상품 이미지에 포커스가 있을 때
                 //스크롤 구현하는 부분
-                if (200 * (detailImageScrollNumber + 2)+1080 < detailImageHeight) {
+                if (200 * (detailImageScrollNumber + 2) + 1080 < detailImageHeight) {
 
                     detailImageScrollNumber++;
                     //한번에 200px씩 스크롤 된다고 가정

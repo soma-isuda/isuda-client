@@ -143,7 +143,7 @@ ComparePriceSpg.keyDown = function () {
             alert("ComparePriceSpg_key : Left");
             jQuery('#ComparePriceSpg').hide();//페이지를 닫는다.	
             ComparePriceSpg.body.empty();
-            SelectWatchPg.focus();
+            SelectWatchPg.focus(2);
 
             break;
         case tvKey.KEY_RIGHT:
