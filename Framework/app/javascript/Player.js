@@ -131,6 +131,13 @@ ISUDAPlayOrder[6] = [0, 2, 4, 3, 1];
             //SelectWatchPg.focus('hide'); // 포커스를 다시 돌려보낸다.
             SelectWatchPg.clearPopupList(); // 셋타임 시켜논 명령어 삭제 
             currentMovieIdx = event.target.getPlaylistIndex(); // 현재 재생중인 영상 순서 
+            if(currentMovieIdx ==0 ){ //태유가 영상이면
+                alert("event");
+                if(Math.random()<0.1)
+                    popupMessage("축<br> 이벤트에 당첨!");
+                else
+                    popupMessage("꽝<br> 너무 안타까워요");
+            }
             alert("startQuestion : "+ startQuestion);
             indexInISUDAchannel = -1;
             currentQuestionIdx=0;
