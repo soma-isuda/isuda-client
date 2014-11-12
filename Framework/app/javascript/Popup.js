@@ -171,20 +171,22 @@ popupISUDAinit = function () {
         SelectWatchPg.hideChannel();
         jQuery('#anchor_popupISUDA').focus();
     }
-    else if ((ISUDAFirstAccess == 0) && (popupQuestion[currentMovieIdx + 1][currentQuestionIdx].moreInfoIndex != -1)) {
-        Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {//상세 정보 페이지를 로드한다.
-            if (status == "success") {
-                alert("call InteractiveSpg onload");
-                alert("call InteractiveSpg index : " + (currentMovieIdx + 1) + currentQuestionIdx);
-                InteractiveSpg.onLoad(currentMovieIdx + 1, ++moreInfoIndex);
-            }
-        });
-    }
-    else if ((ISUDAButtonNum == 0) && (popupQuestion[currentMovieIdx + 1][currentQuestionIdx].moreInfoIndex == -1)) {
-        setTimeout(function () {
-            jQuery('#popup').empty();
-            SelectWatchPg.isudaPopup(currentMovieIdx + 1, popupQuestion[currentMovieIdx + 1][currentQuestionIdx].ifYes);//다음질문등록
-        }, 5000);
+    else if (ISUDAFirstAccess != 1) {//T1질문이 아닐떄
+        if ((ISUDAFirstAccess == 0) && (popupQuestion[currentMovieIdx + 1][currentQuestionIdx].moreInfoIndex != -1)) {
+            Main.layout.subPage.load("app/html/InteractiveSpg.html", function (response, status, xhr) {//상세 정보 페이지를 로드한다.
+                if (status == "success") {
+                    alert("call InteractiveSpg onload");
+                    alert("call InteractiveSpg index : " + (currentMovieIdx + 1) + currentQuestionIdx);
+                    InteractiveSpg.onLoad(currentMovieIdx + 1, ++moreInfoIndex);
+                }
+            });
+        }
+        else if ((ISUDAButtonNum == 0) && (popupQuestion[currentMovieIdx + 1][currentQuestionIdx].moreInfoIndex == -1)) {
+            setTimeout(function () {
+                jQuery('#popup').empty();
+                SelectWatchPg.isudaPopup(currentMovieIdx + 1, popupQuestion[currentMovieIdx + 1][currentQuestionIdx].ifYes);//다음질문등록
+            }, 5000);
+        }
     }
 }
 //이수다 팝업에서의 키처리를 담당하는 부분
@@ -222,6 +224,7 @@ popupISUDAkeyDown = function () {
                 }
 
                 //T2질문을 시작하는 지점
+
                 setTimeout(function () {
                     ISUDAFirstAccess = 0;
                     jQuery('#popup').empty();
@@ -485,11 +488,12 @@ popupQuestion[2][0] = ({
     moreInfoIndex: -1,
     ifYes: 1,//값이 없으면 yes시 종료
     ifNo: 2,//값이 없으면 no시 종료
-    waitingTime: 12000//ms단위, 즉 방송이 시작하고 6초 후에 첫번째 팝업이 뜬다는 의미
+    waitingTime: 2000//ms단위, 즉 방송이 시작하고 6초 후에 첫번째 팝업이 뜬다는 의미
 });
 
 popupQuestion[2][1] = ({
-    question: '엇! 맞췄다~! 이수다에게 밥 사주세요 ~.~<br> 갤럭시 노트 괜찮은거 같아요. 그렇죠?',
+    //엇! 맞췄다~! 이수다에게 밥 사주세요 ~.~<br> 
+    question: '갤럭시 노트 괜찮은거 같아요. 그렇죠?',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,
@@ -499,7 +503,8 @@ popupQuestion[2][1] = ({
 });
 
 popupQuestion[2][2] = ({
-    question: '엇! 틀렸네 ㅠ.ㅠ <br>하긴, 요새 좋은 핸드폰이 참 많은거 같아요',
+    //엇! 틀렸네 ㅠ.ㅠ <br>하긴, 
+    question: '요새 좋은 핸드폰이 참 많은거 같아요',
     answer: ["응", "아니"],
     buttonNum: 2,//현재 질문의 버튼 개수
     moreInfoIndex: -1,

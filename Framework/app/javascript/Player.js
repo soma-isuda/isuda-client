@@ -47,7 +47,7 @@ var PlayerManager = {
         var url = providers[channels[this.channel]].getURL();
         alert(url);
         if(url != null){
-            this.playerarea.html('<video id="myplayer" src="'+url+'" width="1921px" height="1081px" loop="loop" autoplay="autoplay" poster="img/loading.png"></video>');
+            this.playerarea.html('<video id="myplayer" src="'+url+'" width="1920px" height="1080px" loop="loop" autoplay="autoplay" poster="img/loading.png"></video>');
             this.player=MyPlayer;
         }
         else {
