@@ -702,7 +702,7 @@ MyPg.submitKeyDown = function () {
             MyPg.submit.eq(MyPg_submitIndex).removeClass('focus');
             MyPg.number.eq(MyPg_numberIndex).removeClass('select');            
             MyPg.number.eq(MyPg_numberIndex).addClass('focus');
-                        MyPg.anchor.select.focus(); //번호 선택부분으로 포커스를 넘긴다.
+            MyPg.anchor.select.focus(); //번호 선택부분으로 포커스를 넘긴다.
 
 
             break;

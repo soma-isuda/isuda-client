@@ -34,7 +34,6 @@ SelectWatchPg.onLoad = function (ch) {
     SelectWatchPg.showMenu();
     SelectWatchPg.showChannel();
     clearTimeout(menuDisplayTimeout);
-
 };
 
 SelectWatchPg.focus = function (view) {
@@ -330,6 +329,7 @@ SelectWatchPg.isudaPopup = function (idx, questionIdx) {
     var tempFunction;
     currentQuestionIdx = questionIdx;//현재 띄워질 예정인 팝업의 인덱스
 
+    alert('새로운 질문이 등록되었습니다.');
     alert('다음 질문 : ' + popupQuestion[idx][currentQuestionIdx].question);
     alert('다음 질문까지 대기 시간 : ' + popupQuestion[idx][currentQuestionIdx].waitingTime + 'ms');
     alert('다음 질문의 인덱스 : ' + popupQuestion[idx][currentQuestionIdx].ifYes);
@@ -341,10 +341,13 @@ SelectWatchPg.isudaPopup = function (idx, questionIdx) {
 }
 
 //어떤 이수다 채널에 진입했을 때, 띄워질 예정들인 팝업들을 지우는 함수
-SelectWatchPg.clearPopupList = function () {
+SelectWatchPg.clearPopupList = function (callback) {
     for (var i = 0; i < SelectWatchPg.currentISUDAPopup.length; i++) {
         clearTimeout(SelectWatchPg.currentISUDAPopup[i]);
+        alert('clearTimeout 호출!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
     }
     SelectWatchPg.currentISUDAPopup = [];//배열 초기화
     jQuery('#popup').empty();//팝업을 없앤다
+
+    //callback();
 }

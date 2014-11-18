@@ -136,8 +136,8 @@ MultiWatchPg.onLoad = function () {
 		//$("#MultiWatchPg").animate({"top": "-=280px"}, "fast");
 	}
 	//this.focus();
-//	widgetAPI.sendReadyEvent();
-	
+    //	widgetAPI.sendReadyEvent();
+	jQuery('#sideBar').removeClass('hide');
 
 };
 
@@ -322,10 +322,10 @@ MultiWatchPg.keyDown = function()
 				    if (status == "success") { 
 				        pagearr[page_index].object.onLoad(5);
 	                    SelectWatchPg.focus();
-		                if(Math.random()<0.1)
-		                    popupMessage("이벤트에 당첨!< br>이수다에게 말해주세요~");
+		                if(Math.random()<0.25)
+		                    popupMessage("이벤트에 당첨!<br>이수다에게 말해주세요~");
 		                else
-		                    popupMessage("꽝이에요ㅠㅠ<br> 그래도 좋은 하루되세요!");
+		                    popupMessage("꽝이에요ㅠㅠ<br>좋은 하루되세요");
 			            
 				    }
 				});
@@ -358,3 +358,5 @@ MultiWatchPg.keyDown = function()
 	}
 
 };
+
+

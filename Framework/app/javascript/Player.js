@@ -33,7 +33,6 @@ var PlayerManager = {
         this.setChannel(this.getDownChannel());
 //        this.play();
     },
-
     setChannel: function (ch) {
         if (typeof ch != 'undefined'){
             this.channel = ch;
@@ -130,7 +129,7 @@ ISUDAPlayOrder[7] = [0, 2, 4, 3, 1];
             //            jQuery('#loading').removeClass('show');
             jQuery('#popup').empty();//이전 방송에서 눌리지 않고 남아 있는 팝업을 없앤다.
             //SelectWatchPg.focus(0); // 포커스를 다시 돌려보낸다.
-            SelectWatchPg.clearPopupList(); // 셋타임 시켜논 명령어 삭제 
+            SelectWatchPg.clearPopupList(); // 셋타임 시켜놓은 명령어 삭제 
             currentMovieIdx = event.target.getPlaylistIndex(); // 현재 재생중인 영상 순서 
             alert('두번째 if에서 : ' + currentMovieIdx);
 
@@ -142,7 +141,7 @@ ISUDAPlayOrder[7] = [0, 2, 4, 3, 1];
 
             if (userQuestionIdx >0 ){//T1질문이 남아있으면
                 ISUDAFirstAccess = 1;
-                startQuestion += 3; // 다음 t1질문을 하기위한 인덱스 변경{}
+                startQuestion += 3; // 다음 t1질문을 하기위한 인덱스 변경
                 
                 SelectWatchPg.isudaPopup(0,startQuestion);
                 userQuestionIdx--;  // 남은 t1질문의 수 --
@@ -160,5 +159,5 @@ ISUDAPlayOrder[7] = [0, 2, 4, 3, 1];
         return this.player.getPlaylistIndex();
     }
 };
-var isNowPlaying = 0;//1이면 다음 영상 시작, 0이면 아직
+var isNowPlaying = 1;//1이면 다음 영상 시작, 0이면 아직
 

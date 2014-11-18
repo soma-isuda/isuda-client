@@ -86,6 +86,7 @@ TVSchedulePg.onLoad = function () {
     jQuery('#mid').hide();
     jQuery('#big').animate({ width: '300px' }, "1000");
 
+    jQuery('#sideBar').removeClass('hide');
 };
 
 TVSchedulePg.focus = function () {

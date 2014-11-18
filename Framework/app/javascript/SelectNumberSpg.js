@@ -641,7 +641,6 @@ SelectNumberSpg.submitKeyDown = function () {
                 }
                     //단일 상품 예약이면
                 else if (page_index == 2 && productIndex == 1) {
-
                     $.ajax({
                         type: "POST", // POST형식으로 폼 전송
                         url: SERVER_ADDRESS + "/sAlarms", // 목적지

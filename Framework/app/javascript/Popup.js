@@ -225,7 +225,7 @@ popupISUDAkeyDown = function () {
 
                 //T2질문을 시작하는 지점
 
-                setTimeout(function () {
+                var tempFunction = setTimeout(function () {
                     ISUDAFirstAccess = 0;
                     jQuery('#popup').empty();
                     SelectWatchPg.clearPopupList();//팝업리스트에서 현재 질문을 지운다.
@@ -233,6 +233,7 @@ popupISUDAkeyDown = function () {
                     indexInISUDAchannel = -1;//변수 초기화
                     SelectWatchPg.isudaPopup(currentMovieIdx + 1, 0);
                 }, 3000);//3초후에 팝업을 닫는다.
+                SelectWatchPg.currentISUDAPopup.push(tempFunction);//함수 목록에 넣어놓는다.(나중에 채널 이동시 clearTimeout을 하기 위해)
 
                 focusBack.focus(0);//포커스를 되돌린다
             }
